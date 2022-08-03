@@ -33,3 +33,16 @@ jobs:
       - name: Fetch OpenAPI doc
         if: github.event.client_payload.download_url != ''
         run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
+      - uses: peter-evans/create-pull-request@v4
+        with:
+            title: "fix(${{ github.event.client_payload.id }}): automated openapi files update"
+            token: "${{ secrets.CI_USER_TOKEN }}"
+            commit-message: "fix(${{ github.event.client_payload.id }}): update for ${{ github.event.client_payload.id }} SDK"
+            author: "app-services-ci <app-services-ci@users.noreply.github.com>"
+            branch: chore/generate-api-clients
+            branch-suffix: timestamp
+            delete-branch: true
+            body: |
+              _This pull request was auto-generated_
+
+              This PR adds the latest openapi files
