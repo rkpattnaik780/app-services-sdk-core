@@ -17,7 +17,7 @@ When releasing service to production we need to trigger documentation portal rel
 
 ### Releasing documentation portal changes
 
-Create release with `docs/` prefix. For example `docs/0.1.0`.
+Create release with `docs/` prefix. For example `docs/v0.1.0`.
 Review openapi updates.
 
 ### Certificate of Origin
