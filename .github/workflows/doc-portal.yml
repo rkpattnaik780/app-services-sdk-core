@@ -1,0 +1,22 @@
+# This workflow will generate any code then check for any git diff
+
+name: Doc portal
+
+on:
+  push:
+    tags:
+      - 'docs/v*'
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout Source
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        env:
+          DEPLOY_BRANCH: doc-portal
+        with:
+          branch: doc-portal # The branch the action should deploy to.
+          folder: .openapi/  # The folder the action should deploy.
