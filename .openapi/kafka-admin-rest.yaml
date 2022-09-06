@@ -3,7 +3,7 @@ openapi: 3.0.3
 info:
   title: Kafka Instance API
   description: "API for interacting with Kafka Instance. Includes Produce, Consume\
-    \ and Admin APIs"
+    \ and Admin APIs. \nNOTE: This API cannot be called directly from the portal."
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
