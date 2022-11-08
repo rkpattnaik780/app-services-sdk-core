@@ -1,8 +1,7 @@
 name: Update SDK
 on:
-  ## External event triggered by Repository
-  repository_dispatch:
-    types: [openapi-spec-change]
+  schedule:
+    - cron: '* * */1 * *'
   ## Manual request that can be used for testing and retriggering failed updates
   workflow_dispatch:
     inputs:
@@ -14,7 +13,6 @@ on:
         - "https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/kas-fleet-manager.yaml"
         - "https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/connector_mgmt.yaml"
         - "https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/srs-fleet-manager/main/core/src/main/resources/srs-fleet-manager.json"
-
 jobs:
   generate_client:
     env:
@@ -33,10 +31,10 @@ jobs:
       - name: Fetch OpenAPI doc
         if: github.event.client_payload.download_url != ''
         run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
-      - uses: peter-evans/create-pull-request@v4
+      - name: Make pull request
+        uses: peter-evans/create-pull-request@v4
         with:
             title: "fix(${{ github.event.client_payload.id }}): automated openapi files update"
-            token: "${{ secrets.CI_USER_TOKEN }}"
             commit-message: "fix(${{ github.event.client_payload.id }}): update for ${{ github.event.client_payload.id }} SDK"
             author: "app-services-ci <app-services-ci@users.noreply.github.com>"
             branch: chore/generate-api-clients
