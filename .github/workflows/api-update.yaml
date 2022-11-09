@@ -1,7 +1,7 @@
 name: Update SDK
 on:
   schedule:
-    - cron: '* * */1 * *'
+    - cron: '0 0 * * *'
   ## Manual request that can be used for testing and retriggering failed updates
   workflow_dispatch:
     inputs:
