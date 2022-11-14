@@ -1,8 +1,8 @@
-name: Generate Errors
+name: Fetch Errors
 on:
   workflow_dispatch:
 jobs:
-  generate_errors:
+  Fetch_errors:
     env:
       APP_SERVICES_TOKEN: ${{ secrets.APP_SERVICES_TOKEN }}
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
@@ -10,21 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Generate errors
-        run: node scripts/errors/generate_errors.js
+      - name: Fetch errors
+        run: bash scripts/errors/fetch-errors.sh
       - name: Make pull request
         uses: peter-evans/create-pull-request@v4
         with:
             title: "fix(${{ github.event.client_payload.id }}): new generation of SDK errors update"
             commit-message: "New generation of apis for each SDK - this pr is auto generated"
             author: "app-services-ci <app-services-ci@users.noreply.github.com>"
-            branch: chore/generate-api-clients
+            branch: chore/Fetch-api-clients§
             branch-suffix: timestamp
             delete-branch: true
             body: |
-              _This pull request was auto-generated from [generate_errors.yaml](https://github.com/redhat-developer/app-services-sdk-core/blob/main/.github/workflows/generate_errors.yaml)_
+              _This pull request was auto-generated from [fetch_errors.yaml](https://github.com/redhat-developer/app-services-sdk-core/blob/main/.github/workflows/fetch_errors.yaml)_
 
               This PR adds the latest error files
