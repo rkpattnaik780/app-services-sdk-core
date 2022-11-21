@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Fetch errors
+        run: bash scripts/errors/fetch-errors.sh
       - name: Generate errors
         run: node scripts/errors/generate_errors.js
       - name: Make pull request
