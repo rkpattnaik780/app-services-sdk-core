@@ -1,4 +1,4 @@
-name: Update SDK
+name: Update API specs 
 on:
   schedule:
     - cron: '0 0 * * *'

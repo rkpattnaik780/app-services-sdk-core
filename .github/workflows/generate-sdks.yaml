@@ -1,4 +1,4 @@
-name: Generate SDK
+name: Generate SDKs
 on:
   workflow_dispatch:
 jobs:

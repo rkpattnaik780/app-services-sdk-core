@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V1
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager API v0.0.1
+// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager V1 API v0.0.1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

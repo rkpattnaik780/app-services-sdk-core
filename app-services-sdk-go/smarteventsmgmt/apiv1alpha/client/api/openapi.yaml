@@ -7,7 +7,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: Red Hat Openshift SmartEvents Fleet Manager
+  title: Red Hat Openshift SmartEvents Fleet Manager V1
   version: 0.0.1
 servers:
 - url: https://api.stage.openshift.com
@@ -1112,8 +1112,6 @@ components:
           minLength: 1
           nullable: false
           type: string
-        error_handler:
-          $ref: '#/components/schemas/Action'
         cloud_provider:
           minLength: 1
           nullable: false
@@ -1122,6 +1120,8 @@ components:
           minLength: 1
           nullable: false
           type: string
+        error_handler:
+          $ref: '#/components/schemas/Action'
       required:
       - cloud_provider
       - name

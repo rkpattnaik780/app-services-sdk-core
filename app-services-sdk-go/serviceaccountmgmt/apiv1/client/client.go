@@ -1,9 +1,9 @@
 /*
- * Service Accounts API Documentation
+ * sso.redhat.com API documentation
  *
- * This is the API documentation for Service Accounts
+ * This is the API documentation for sso.redhat.com
  *
- * API version: 5.0.19
+ * API version: 5.0.19-SNAPSHOT
  * Contact: it-user-team-list@redhat.com
  */
 
@@ -42,13 +42,17 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Service Accounts API Documentation API v5.0.19
+// APIClient manages communication with the sso.redhat.com API documentation API v5.0.19-SNAPSHOT
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// API Services
+
+	AcsTenantsApi AcsTenantsApi
+
+	DefaultApi DefaultApi
 
 	ServiceAccountsApi ServiceAccountsApi
 }
@@ -69,6 +73,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.AcsTenantsApi = (*AcsTenantsApiService)(&c.common)
+	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.ServiceAccountsApi = (*ServiceAccountsApiService)(&c.common)
 
 	return c

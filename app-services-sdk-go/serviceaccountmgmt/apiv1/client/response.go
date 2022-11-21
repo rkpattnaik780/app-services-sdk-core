@@ -1,9 +1,9 @@
 /*
- * Service Accounts API Documentation
+ * sso.redhat.com API documentation
  *
- * This is the API documentation for Service Accounts
+ * This is the API documentation for sso.redhat.com
  *
- * API version: 5.0.19
+ * API version: 5.0.19-SNAPSHOT
  * Contact: it-user-team-list@redhat.com
  */
 
