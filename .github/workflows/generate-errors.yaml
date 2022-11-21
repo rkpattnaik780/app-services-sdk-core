@@ -1,6 +1,7 @@
 name: Generate Errors
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   generate_errors:
     env:
@@ -17,16 +18,3 @@ jobs:
         run: bash scripts/errors/fetch-errors.sh
       - name: Generate errors
         run: node scripts/errors/generate_errors.js
-      - name: Make pull request
-        uses: peter-evans/create-pull-request@v4
-        with:
-            title: "fix(${{ github.event.client_payload.id }}): new generation of SDK errors update"
-            commit-message: "New generation of apis for each SDK - this pr is auto generated"
-            author: "app-services-ci <app-services-ci@users.noreply.github.com>"
-            branch: chore/generate-api-clients
-            branch-suffix: timestamp
-            delete-branch: true
-            body: |
-              _This pull request was auto-generated from [generate_errors.yaml](https://github.com/redhat-developer/app-services-sdk-core/blob/main/.github/workflows/generate_errors.yaml)_
-
-              This PR adds the latest error files

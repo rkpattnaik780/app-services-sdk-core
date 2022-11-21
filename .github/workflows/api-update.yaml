@@ -21,6 +21,17 @@ jobs:
         run: sudo apt-get install jq
       - name: Fetch OpenAPI doc
         run: python scripts/fetch_api.py
+  start-generate-sdks-workflow:
+    needs: generate_api_specs # these 'need' fields are used to keep jobs running in order
+    uses: ./.github/workflows/generate-sdks.yaml
+  start-generate-errors-workflow:
+    needs: start-generate-sdks-workflow 
+    uses: ./.github/workflows/generate-errors.yaml
+  make-pull-request:
+    needs: start-generate-errors-workflow 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - name: Make pull request
         uses: peter-evans/create-pull-request@v4
         with:
