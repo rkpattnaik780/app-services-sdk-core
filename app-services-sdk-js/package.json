@@ -1,0 +1,23 @@
+{
+  "name": "app-services-sdk-js-monorepo",
+  "version": "0.2.0-dev1",
+  "private": true,
+  "scripts": {
+    "generate": "./scripts/generate.sh",
+    "fetchErrors": "./scripts/errors/fetch-errors.sh",
+    "generateErrors": "node ./scripts/errors/generate-errors.js",
+    "wrun": "yarn workspaces run",
+    "setupRelease": "npm version patch --workspace=packages && npm version patch",
+    "build": "yarn workspaces run build"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "semver": "7.3.8",
+    "@rhoas/spectral-ruleset": "0.3.1"
+  },
+  "dependencies": {
+ 
+  }
+}

@@ -13,7 +13,5 @@
  */
 
 
-
 export * from './api/app-services-api';
-export * from './api/default-api';
 

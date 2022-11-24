@@ -1,6 +1,3 @@
-.gitignore
-.npmignore
-README.md
 api.ts
 api/bridges-api.ts
 api/cloud-providers-api.ts
@@ -10,7 +7,6 @@ api/schema-catalog-api.ts
 base.ts
 common.ts
 configuration.ts
-git_push.sh
 index.ts
 model/action.ts
 model/base-filter.ts
@@ -42,5 +38,3 @@ model/processor-response.ts
 model/processor-schema-entry-response.ts
 model/processor-type.ts
 model/source.ts
-package.json
-tsconfig.json

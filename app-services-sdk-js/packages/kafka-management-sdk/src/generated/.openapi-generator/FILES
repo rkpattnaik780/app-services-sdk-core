@@ -1,6 +1,3 @@
-.gitignore
-.npmignore
-README.md
 api.ts
 api/default-api.ts
 api/errors-api.ts
@@ -8,7 +5,6 @@ api/security-api.ts
 base.ts
 common.ts
 configuration.ts
-git_push.sh
 index.ts
 model/cloud-provider-list-all-of.ts
 model/cloud-provider-list.ts
@@ -53,5 +49,3 @@ model/supported-kafka-size.ts
 model/values.ts
 model/version-metadata-all-of.ts
 model/version-metadata.ts
-package.json
-tsconfig.json

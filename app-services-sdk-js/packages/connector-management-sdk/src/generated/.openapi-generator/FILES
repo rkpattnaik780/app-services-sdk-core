@@ -1,6 +1,3 @@
-.gitignore
-.npmignore
-README.md
 api.ts
 api/connector-clusters-api.ts
 api/connector-namespaces-api.ts
@@ -10,7 +7,6 @@ api/connectors-api.ts
 base.ts
 common.ts
 configuration.ts
-git_push.sh
 index.ts
 model/addon-parameter.ts
 model/channel.ts
@@ -68,5 +64,3 @@ model/service-account.ts
 model/service-connection-settings.ts
 model/version-metadata-all-of.ts
 model/version-metadata.ts
-package.json
-tsconfig.json

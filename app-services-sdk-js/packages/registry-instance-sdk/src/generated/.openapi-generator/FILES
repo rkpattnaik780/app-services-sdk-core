@@ -1,6 +1,3 @@
-.gitignore
-.npmignore
-README.md
 api.ts
 api/admin-api.ts
 api/artifact-rules-api.ts
@@ -14,7 +11,6 @@ api/versions-api.ts
 base.ts
 common.ts
 configuration.ts
-git_push.sh
 index.ts
 model/artifact-meta-data.ts
 model/artifact-owner.ts
@@ -52,5 +48,3 @@ model/update-state.ts
 model/user-info.ts
 model/version-meta-data.ts
 model/version-search-results.ts
-package.json
-tsconfig.json

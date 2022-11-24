@@ -1,13 +1,7 @@
-.gitignore
-.npmignore
-README.md
-api.ts
 api/app-services-api.ts
-api/default-api.ts
 base.ts
 common.ts
 configuration.ts
-git_push.sh
 index.ts
 model/access-review-response.ts
 model/access-review.ts
@@ -204,5 +198,3 @@ model/terms-review-response.ts
 model/terms-review.ts
 model/token-authorization-request.ts
 model/token-authorization-response.ts
-package.json
-tsconfig.json
