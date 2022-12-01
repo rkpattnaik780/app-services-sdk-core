@@ -109,7 +109,6 @@ npx @openapitools/openapi-generator-cli generate -g java \
 GROUP_ID="com.redhat.cloud"
 OPENAPI_FILENAME=".openapi/registry-instance.json"
 ARTIFACT_ID="registry-instance-sdk"
-OPENAPI_FILENAME=".openapi/registry-instance.json"
 PACKAGE_NAME="com.openshift.cloud.api.registry.instance"
 OUTPUT_PATH="app-services-sdk-java/packages/registry-instance-sdk/"
 

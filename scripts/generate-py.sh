@@ -53,7 +53,7 @@ generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 
 echo "generating registry instance SDK "
 
-cd openapi
+cd .openapi
 echo "Removing codegen "
 cat registry-instance.json | jq 'del(.paths."x-codegen-contextRoot")' > registry-instance-tmp.json
 mv -f registry-instance-tmp.json registry-instance.json
