@@ -1,3 +1,5 @@
-module github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go
+module github.com/redhat-developer/app-services-sdk-go
 
-go 1.18
+go 1.15
+
+require golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0
