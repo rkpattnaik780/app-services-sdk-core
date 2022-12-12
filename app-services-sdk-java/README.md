@@ -46,9 +46,9 @@ You can view all SDK packages directly in [GitHub](https://github.com/orgs/redha
 
 Contributions are welcome. See [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-[kafkagit]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/kafka-management-sdk
-[sadoc]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/service-accounts-sdk
-[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/kafka-instance-sdk
-[registrygit]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/registry-management-sdk
-[connectorgit]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/connector-management-sdk
-[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-java/tree/main/packages/smartevents-management-sdk
+[kafkagit]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/kafka-management-sdk
+[sadoc]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/service-accounts-sdk
+[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/kafka-instance-sdk
+[registrygit]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/registry-management-sdk
+[connectorgit]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/connector-management-sdk
+[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/packages/smartevents-management-sdk

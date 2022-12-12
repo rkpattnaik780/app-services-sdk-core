@@ -21,7 +21,7 @@ make generate
 
 All specifications are kept in `.openapi` folder:
 
-https://github.com/redhat-developer/app-services-sdk-java/tree/main/.openapi
+https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-java/tree/main/.openapi
 
 ## Useful tools
 

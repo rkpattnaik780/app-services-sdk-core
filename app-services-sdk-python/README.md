@@ -2,7 +2,7 @@
 
 Python packages and API clients for Red Had OpenShift Application Services (RHOAS) 
 
-[Check us out on GitHub](https://github.com/redhat-developer/app-services-sdk-python)
+[Check us out on GitHub](https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-python)
 
 ## Prequisites
 
