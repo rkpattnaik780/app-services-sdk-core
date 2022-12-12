@@ -35,7 +35,7 @@ registryApi.getRegistries().then((data) => {
 })
 ```
 
-See [./examples](https://github.com/redhat-developer/app-services-sdk-js/tree/main/examples) for full example
+See [./examples](https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-js/tree/main/examples) for full example
 
 
 

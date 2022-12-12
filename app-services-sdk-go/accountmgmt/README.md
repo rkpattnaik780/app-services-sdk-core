@@ -7,7 +7,7 @@
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/accountmgmt
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/accountmgmt
 ```
 
  

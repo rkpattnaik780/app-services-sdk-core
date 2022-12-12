@@ -7,20 +7,20 @@ Connector Service Fleet Manager is a Rest API to manage connectors.
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/connectormgmt
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/connectormgmt
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/connectormgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/connectormgmt/apiv1"
 )
 ```
 
@@ -74,7 +74,7 @@ connectors, _, err := client.DefaultApi.GetConnectors(ctx).Execute()
 Checking specific error codes
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 
 if errors.IsAPIError(err, connectormgmt.ERROR_4){
@@ -85,7 +85,7 @@ if errors.IsAPIError(err, connectormgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)

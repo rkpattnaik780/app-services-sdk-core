@@ -7,20 +7,20 @@ Managed Service Registry API Management API that lets you create new registry in
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/smartevents
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/smartevents
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/smartevents/apiv1alpha` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/smartevents/apiv1alpha` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/smartevents/apiv1alpha"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/smartevents/apiv1alpha"
 )
 ```
 

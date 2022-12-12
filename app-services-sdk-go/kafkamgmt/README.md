@@ -7,20 +7,20 @@ Kafka Service Fleet Manager is a REST API to manage Kafka instances and connecto
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/kafkamgmt
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkamgmt
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkamgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkamgmt/apiv1"
 )
 ```
 
@@ -74,7 +74,7 @@ kafkas, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 Checking specific error codes
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 if errors.IsAPIError(err, kafkamgmt.ERROR_4){
  // Do something
@@ -84,7 +84,7 @@ if errors.IsAPIError(err, kafkamgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)

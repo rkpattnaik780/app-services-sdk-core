@@ -7,20 +7,20 @@ Managed Service Registry API Management API that lets you create new registry in
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/registrymgmt
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1"
 )
 ```
 
@@ -74,7 +74,7 @@ registries, _, err := client.RegistriesApi.GetRegistries(ctx).Execute()
 Checking specific error codes
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 if errors.IsAPIError(err, registrymgmt.ERROR_4){
  // Do something
@@ -84,7 +84,7 @@ if errors.IsAPIError(err, registrymgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1/error"
 
 apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)

@@ -7,20 +7,20 @@ Managed Service Registry API Instance API that lets you interact with registry i
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/registryinstance
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal"
 )
 ```
 

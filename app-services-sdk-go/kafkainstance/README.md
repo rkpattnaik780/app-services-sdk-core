@@ -7,20 +7,20 @@ An API to provide REST endpoints for query Kafka for admin operations
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go/kafkainstance
+go get github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkainstance
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkainstance/apiv1internal` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
+    "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/kafkainstance/apiv1internal"
 )
 ```
 
