@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.3
 info:
-  title: Red Hat Openshift SmartEvents Fleet Manager V2
+  title: Red Hat Openshift SmartEvents Fleet Manager
   description: The API exposed by the fleet manager of the SmartEvents service.
   contact:
     name: Development Team
@@ -11,9 +11,9 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   version: 0.0.1
 servers:
+- url: https://api.openshift.com
 - url: https://api.stage.openshift.com
 - url: http://localhost:8000
-- url: https://api.openshift.com
 - url: /
 tags:
 - name: Bridges
@@ -22,11 +22,17 @@ tags:
   description: List Supported Cloud Providers and Regions
 - name: Error Catalog
   description: List and get the error definitions from the error catalog.
+- name: Processing Errors
+  description: The API that allow the user to retrieve processing errors of a specific
+    bridge instance.
 - name: Processors
   description: "The API that allow the user to retrieve, create or delete Processors\
     \ of a Bridge instance."
+- name: Schema Catalog
+  description: The API that provide the catalog of the available action/source processors
+    definition and their JSON schema.
 paths:
-  /api/smartevents_mgmt/v2/bridges:
+  /api/smartevents_mgmt/v1/bridges:
     get:
       tags:
       - Bridges
@@ -125,12 +131,6 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
         "401":
           description: Unauthorized.
-        "402":
-          description: Not enough quota.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
         "403":
           description: Forbidden.
         "500":
@@ -141,7 +141,7 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
       security:
       - bearer: []
-  /api/smartevents_mgmt/v2/bridges/{bridgeId}:
+  /api/smartevents_mgmt/v1/bridges/{bridgeId}:
     get:
       tags:
       - Bridges
@@ -284,14 +284,93 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
       security:
       - bearer: []
-  /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors:
+  /api/smartevents_mgmt/v1/bridges/{bridgeId}/errors:
+    get:
+      tags:
+      - Processing Errors
+      summary: Get the list of errors for a particular Bridge instance
+      description: Get the list of errors for a particular Bridge instance for the
+        authenticated user.
+      operationId: ProcessingErrorsAPI_getBridgeErrors
+      parameters:
+      - name: bridgeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 100
+          maximum: 100
+          minimum: 1
+          type: integer
+      - name: status
+        in: query
+        schema:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ManagedResourceStatus'
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessingErrorListResponse'
+        "400":
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "401":
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "404":
+          description: Not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "500":
+          description: Internal error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+      security:
+      - bearer: []
+  /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors:
     get:
       tags:
       - Processors
       summary: Get the list of Processors of a Bridge instance
       description: Get the list of Processors of a Bridge instance for the authenticated
         user.
-      operationId: ProcessorsAPI_getProcessors
+      operationId: ProcessorsAPI_listProcessors
       parameters:
       - name: bridgeId
         in: path
@@ -326,6 +405,10 @@ paths:
           type: array
           items:
             $ref: '#/components/schemas/ManagedResourceStatus'
+      - name: type
+        in: query
+        schema:
+          $ref: '#/components/schemas/ProcessorType'
       responses:
         "200":
           description: Success.
@@ -362,7 +445,7 @@ paths:
       - Processors
       summary: Create a Processor of a Bridge instance
       description: Create a Processor of a Bridge instance for the authenticated user.
-      operationId: ProcessorsAPI_createProcessor
+      operationId: ProcessorsAPI_addProcessorToBridge
       parameters:
       - name: bridgeId
         in: path
@@ -391,12 +474,6 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
         "401":
           description: Unauthorized.
-        "402":
-          description: Not enough quota.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
         "403":
           description: Forbidden.
         "404":
@@ -413,7 +490,7 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
       security:
       - bearer: []
-  /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId}:
+  /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}:
     get:
       tags:
       - Processors
@@ -469,8 +546,9 @@ paths:
     put:
       tags:
       - Processors
-      summary: Update a Processor instance.
-      description: Update a Processor instance for the authenticated user.
+      summary: Update a Processor instance Filter definition or Transformation template.
+      description: Update a Processor instance Filter definition or Transformation
+        template for the authenticated user.
       operationId: ProcessorsAPI_updateProcessor
       parameters:
       - name: bridgeId
@@ -567,7 +645,7 @@ paths:
                 $ref: '#/components/schemas/ErrorsList'
       security:
       - bearer: []
-  /api/smartevents_mgmt/v2/cloud_providers:
+  /api/smartevents_mgmt/v1/cloud_providers:
     get:
       tags:
       - Cloud Providers
@@ -609,7 +687,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsList'
-  /api/smartevents_mgmt/v2/cloud_providers/{id}:
+  /api/smartevents_mgmt/v1/cloud_providers/{id}:
     get:
       tags:
       - Cloud Providers
@@ -649,7 +727,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsList'
-  /api/smartevents_mgmt/v2/cloud_providers/{id}/regions:
+  /api/smartevents_mgmt/v1/cloud_providers/{id}/regions:
     get:
       tags:
       - Cloud Providers
@@ -698,7 +776,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsList'
-  /api/smartevents_mgmt/v2/errors:
+  /api/smartevents_mgmt/v1/errors:
     get:
       tags:
       - Error Catalog
@@ -742,7 +820,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsList'
-  /api/smartevents_mgmt/v2/errors/{id}:
+  /api/smartevents_mgmt/v1/errors/{id}:
     get:
       tags:
       - Error Catalog
@@ -777,8 +855,138 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorsList'
+  /api/smartevents_mgmt/v1/schemas:
+    get:
+      tags:
+      - Schema Catalog
+      summary: Get processor catalog
+      description: Get the processor catalog with all the available sources and actions.
+      operationId: SchemaAPI_getCatalog
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorCatalogResponse'
+        "400":
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "500":
+          description: Internal error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+      security:
+      - bearer: []
+  /api/smartevents_mgmt/v1/schemas/actions/{id}:
+    get:
+      tags:
+      - Schema Catalog
+      summary: Get action processor schema
+      description: Get the action processor JSON schema.
+      operationId: SchemaAPI_getActionProcessorSchema
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "500":
+          description: Internal error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+      security:
+      - bearer: []
+  /api/smartevents_mgmt/v1/schemas/sources/{id}:
+    get:
+      tags:
+      - Schema Catalog
+      summary: Get source processor schema
+      description: Get the source processor JSON schema.
+      operationId: SchemaAPI_getSourceProcessorSchema
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "500":
+          description: Internal error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+      security:
+      - bearer: []
 components:
   schemas:
+    Action:
+      required:
+      - type
+      - parameters
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: false
+        parameters:
+          type: object
+    BaseFilter:
+      required:
+      - key
+      type: object
+      properties:
+        type:
+          type: string
+        key:
+          minLength: 1
+          type: string
+          nullable: false
     BridgeError:
       type: object
       properties:
@@ -791,20 +999,6 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/BridgeErrorType'
-    BridgeErrorInstance:
-      type: object
-      properties:
-        id:
-          format: int32
-          type: integer
-        code:
-          type: string
-        reason:
-          type: string
-        type:
-          $ref: '#/components/schemas/BridgeErrorType'
-        uuid:
-          type: string
     BridgeErrorType:
       enum:
       - USER
@@ -848,6 +1042,8 @@ components:
           minLength: 1
           type: string
           nullable: false
+        error_handler:
+          $ref: '#/components/schemas/Action'
         cloud_provider:
           minLength: 1
           type: string
@@ -896,11 +1092,11 @@ components:
           nullable: false
         endpoint:
           type: string
+        error_handler:
+          $ref: '#/components/schemas/Action'
         cloud_provider:
           type: string
         region:
-          type: string
-        status_message:
           type: string
     CloudProviderListResponse:
       required:
@@ -1065,6 +1261,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Error'
+    JsonNode:
+      type: array
     List:
       allOf:
       - $ref: '#/components/schemas/ListResponse'
@@ -1165,7 +1363,19 @@ components:
           additionalProperties:
             type: string
         payload:
-          type: object
+          $ref: '#/components/schemas/JsonNode'
+    ProcessorCatalogResponse:
+      required:
+      - kind
+      type: object
+      properties:
+        kind:
+          type: string
+          nullable: false
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessorSchemaEntryResponse'
     ProcessorListResponse:
       required:
       - kind
@@ -1196,16 +1406,23 @@ components:
     ProcessorRequest:
       required:
       - name
-      - flows
       type: object
       properties:
         name:
           minLength: 1
           type: string
           nullable: false
-        flows:
-          type: object
-          nullable: false
+        filters:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseFilter'
+        transformationTemplate:
+          type: string
+        action:
+          $ref: '#/components/schemas/Action'
+        source:
+          $ref: '#/components/schemas/Source'
     ProcessorResponse:
       required:
       - kind
@@ -1214,8 +1431,7 @@ components:
       - submitted_at
       - status
       - owner
-      - name
-      - flows
+      - type
       type: object
       properties:
         kind:
@@ -1224,6 +1440,8 @@ components:
         id:
           type: string
           nullable: false
+        name:
+          type: string
         href:
           type: string
           nullable: false
@@ -1244,14 +1462,66 @@ components:
         owner:
           type: string
           nullable: false
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ProcessorType'
+          - nullable: false
+        filters:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseFilter'
+        transformationTemplate:
+          type: string
+        action:
+          $ref: '#/components/schemas/Action'
+        source:
+          $ref: '#/components/schemas/Source'
+    ProcessorSchemaEntryResponse:
+      required:
+      - kind
+      - id
+      - name
+      - description
+      - type
+      - href
+      type: object
+      properties:
+        kind:
+          type: string
+          nullable: false
+        id:
+          type: string
+          nullable: false
         name:
           type: string
           nullable: false
-        flows:
-          type: object
-          nullable: false
-        status_message:
+        description:
           type: string
+          nullable: false
+        type:
+          type: string
+          nullable: false
+        href:
+          type: string
+          nullable: false
+    ProcessorType:
+      enum:
+      - source
+      - sink
+      - error_handler
+      type: string
+    Source:
+      required:
+      - type
+      - parameters
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: false
+        parameters:
+          type: object
   securitySchemes:
     bearer:
       type: http
