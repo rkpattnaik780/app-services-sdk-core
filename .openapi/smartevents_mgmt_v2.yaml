@@ -856,8 +856,6 @@ components:
           minLength: 1
           type: string
           nullable: false
-        error_handler:
-          $ref: '#/components/schemas/Action'
     BridgeResponse:
       required:
       - kind

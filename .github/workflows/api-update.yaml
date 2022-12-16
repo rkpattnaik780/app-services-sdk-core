@@ -8,10 +8,6 @@ on:
   workflow_dispatch:
 jobs:
   generate_api_specs:
-    env:
-      APP_SERVICES_TOKEN: ${{ secrets.APP_SERVICES_TOKEN }}
-      BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
@@ -26,6 +22,8 @@ jobs:
   start-generate-sdks-workflow:
     needs: generate_api_specs # these 'need' fields are used to keep jobs running in order
     uses: ./.github/workflows/generate-sdks.yaml
+    with:
+      download_url: ${{ github.event.client_payload.download_url }}
   start-generate-errors-workflow:
     needs: start-generate-sdks-workflow 
     uses: ./.github/workflows/generate-errors.yaml
