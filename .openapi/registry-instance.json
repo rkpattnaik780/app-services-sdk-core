@@ -1,10 +1,10 @@
 {
   "openapi": "3.0.2",
   "info": {
-      "title": "Service Registry API",
-      "version": "2.2.5.Final",
-      "description": "Service Registry Instance API \nNOTE: This API cannot be called directly from the portal.",
-      "contact": {
+    "title": "Service Registry API",
+    "version": "2.2.5.Final",
+    "description": "Service Registry Instance API \nNOTE: This API cannot be called directly from the portal.",
+    "contact": {
       "name": "Apicurio",
       "url": "https://github.com/apicurio/apicurio-registry",
       "email": "apicurio@lists.jboss.org"

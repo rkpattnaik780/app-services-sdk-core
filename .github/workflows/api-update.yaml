@@ -1,11 +1,13 @@
-name: Update SDK
+name: Update API specs 
 on:
+  repository_dispatch:
+    types: openapi-spec-change
   schedule:
     - cron: '0 0 * * *'
   ## Manual request that can be used for testing and retriggering failed updates
   workflow_dispatch:
 jobs:
-  generate_client:
+  generate_api_specs:
     env:
       APP_SERVICES_TOKEN: ${{ secrets.APP_SERVICES_TOKEN }}
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
@@ -21,6 +23,17 @@ jobs:
         run: sudo apt-get install jq
       - name: Fetch OpenAPI doc
         run: python scripts/fetch_api.py
+  start-generate-sdks-workflow:
+    needs: generate_api_specs # these 'need' fields are used to keep jobs running in order
+    uses: ./.github/workflows/generate-sdks.yaml
+  start-generate-errors-workflow:
+    needs: start-generate-sdks-workflow 
+    uses: ./.github/workflows/generate-errors.yaml
+  make-pull-request:
+    needs: start-generate-errors-workflow 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - name: Make pull request
         uses: peter-evans/create-pull-request@v4
         with:
@@ -31,6 +44,6 @@ jobs:
             branch-suffix: timestamp
             delete-branch: true
             body: |
-              _This pull request was auto-generated_
+              _This pull request was auto-generated from [api-update.yaml](https://github.com/redhat-developer/app-services-sdk-core/blob/main/.github/workflows/api-update.yaml)_
 
               This PR adds the latest openapi files

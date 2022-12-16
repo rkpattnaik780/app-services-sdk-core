@@ -1,0 +1,202 @@
+{
+  "kind": "ConnectorList",
+  "page": 1,
+  "size": 6,
+  "total": 6,
+  "items": [
+    {
+      "id": "cad1mh7n1idgpiedk6kg",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/cad1mh7n1idgpiedk6kg",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-06-03T14:31:32.348312Z",
+      "modified_at": "2022-06-03T14:31:32.3422Z",
+      "name": "ob-dev-prcs-2ee9bacd-3642-473a-b71f-67243487d6fe",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "deleted",
+      "resource_version": 29350,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "https://openbridge-c--ajhf-ek--ri--ifea.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-35219453-7a88-485c-8b9a-bcdeb3de694e",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "kafka_topic": "ob-dev-prcs-2ee9bacd-3642-473a-b71f-67243487d6fe",
+        "slack_channel": "#heiko-test",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "updating" }
+    },
+    {
+      "id": "caertbfn1idgpiejrj40",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/caertbfn1idgpiejrj40",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-06-06T08:45:33.34803Z",
+      "modified_at": "2022-06-06T08:45:33.341785Z",
+      "name": "ob-dev-prcs-f68a4a2c-1c40-4822-a608-dc939eabe290",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "ready",
+      "resource_version": 32129,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "https://openbridge-c--ajhf-ek--ri--ifea.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-35219453-7a88-485c-8b9a-bcdeb3de694e",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "error_handler": {
+          "dead_letter_queue": {
+            "topic": "ob-dev-brdg-d57d035a-9ba4-4d39-b5c0-4928a12f9db3-err"
+          }
+        },
+        "kafka_topic": "ob-dev-prcs-f68a4a2c-1c40-4822-a608-dc939eabe290",
+        "slack_channel": "#mc",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "assigning" }
+    },
+    {
+      "id": "cacpplec8tflorc8p8p0",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/cacpplec8tflorc8p8p0",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-06-03T05:32:05.807824Z",
+      "modified_at": "2022-06-03T05:32:05.79863Z",
+      "name": "ob-prcs-19ac150f-7003-4737-b034-91ff3624f6ad",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "deleted",
+      "resource_version": 28820,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "rhose-loca-c--o--mmk-hbcp-irvga.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-20b0c2f9-783f-4c93-a1e0-e2179c587f59",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "error_handler": {
+          "dead_letter_queue": {
+            "topic": "ob-brdg-00993e9c-e000-40b8-9cce-5bd199c2de1a-err"
+          }
+        },
+        "kafka_topic": "ob-prcs-19ac150f-7003-4737-b034-91ff3624f6ad",
+        "slack_channel": "mc",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "failed" }
+    },
+    {
+      "id": "cabnd2nn1idgpiebm0f0",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/cabnd2nn1idgpiebm0f0",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-06-01T14:24:10.74216Z",
+      "modified_at": "2022-06-01T14:24:10.737056Z",
+      "name": "ob-prcs-5ab96fb8-2c9c-42b0-b9b5-64753e4b6270",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "ready",
+      "resource_version": 26926,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "rhose-loca-c--o--mmk-hbcp-irvga.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-20b0c2f9-783f-4c93-a1e0-e2179c587f59",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "error_handler": {
+          "dead_letter_queue": {
+            "topic": "ob-brdg-eff0f3c1-99cd-47dd-8e57-61b19ca34abc-err"
+          }
+        },
+        "kafka_topic": "ob-prcs-5ab96fb8-2c9c-42b0-b9b5-64753e4b6270",
+        "slack_channel": "mc",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "ready" }
+    },
+    {
+      "id": "cacsne6c8tflorc8v840",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/cacsne6c8tflorc8v840",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-06-03T08:52:08.814063Z",
+      "modified_at": "2022-06-03T08:52:08.804537Z",
+      "name": "ob-prcs-ca48c0f2-0895-4d8b-b352-01a82a15d72f",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "ready",
+      "resource_version": 29029,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "rhose-loca-c--o--mmk-hbcp-irvga.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-20b0c2f9-783f-4c93-a1e0-e2179c587f59",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "error_handler": {
+          "dead_letter_queue": {
+            "topic": "ob-brdg-b5adbd02-eb72-446b-99d7-739457328650-err"
+          }
+        },
+        "kafka_topic": "ob-prcs-ca48c0f2-0895-4d8b-b352-01a82a15d72f",
+        "slack_channel": "mc",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "ready" }
+    },
+    {
+      "id": "ca6vj3v46g0ae32chosg",
+      "kind": "Connector",
+      "href": "/api/connector_mgmt/v1/kafka_connectors/ca6vj3v46g0ae32chosg",
+      "owner": "openbridge_kafka_supporting",
+      "created_at": "2022-05-25T09:40:31.883754Z",
+      "modified_at": "2022-05-25T09:40:31.880229Z",
+      "name": "ob-stable-prcs-73f845af-5fad-4c7e-b1d5-55f1feb59e09",
+      "connector_type_id": "slack_sink_0.1",
+      "namespace_id": "c95j6h66ar2c9mtr5vjg",
+      "channel": "stable",
+      "desired_state": "ready",
+      "resource_version": 19927,
+      "kafka": {
+        "id": "kafkaId-ignored",
+        "url": "https://openbridge-c--ajhf-ek--ri--ifea.bf2.kafka.rhcloud.com:443"
+      },
+      "service_account": {
+        "client_id": "srvc-acct-35219453-7a88-485c-8b9a-bcdeb3de694e",
+        "client_secret": ""
+      },
+      "schema_registry": { "id": "", "url": "" },
+      "connector": {
+        "kafka_topic": "ob-stable-prcs-73f845af-5fad-4c7e-b1d5-55f1feb59e09",
+        "slack_channel": "#heiko-test",
+        "slack_webhook_url": {}
+      },
+      "status": { "state": "ready" }
+    }
+  ]
+}
