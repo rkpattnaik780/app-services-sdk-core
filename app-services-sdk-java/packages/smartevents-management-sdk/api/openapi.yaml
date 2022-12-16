@@ -1,0 +1,1513 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: openbridge-dev@redhat.com
+    name: Development Team
+  description: The API exposed by the fleet manager of the SmartEvents service.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Red Hat Openshift SmartEvents Fleet Manager V2
+  version: 0.0.1
+servers:
+- url: https://api.stage.openshift.com
+- url: http://localhost:8000
+- url: https://api.openshift.com
+- url: /
+tags:
+- description: The API that allow the user to retrieve, create or delete Bridge instances.
+  name: Bridges
+- description: List Supported Cloud Providers and Regions
+  name: Cloud Providers
+- description: List and get the error definitions from the error catalog.
+  name: Error Catalog
+- description: The API that allow the user to retrieve, create or delete Processors
+    of a Bridge instance.
+  name: Processors
+paths:
+  /api/smartevents_mgmt/v2/bridges:
+    get:
+      description: Get the list of Bridge instances for the authenticated user.
+      operationId: BridgesAPI_getBridges
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          items:
+            $ref: '#/components/schemas/ManagedResourceStatus'
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Unauthorized.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Get the list of Bridge instances
+      tags:
+      - Bridges
+      x-accepts: application/json
+    post:
+      description: Create a Bridge instance for the authenticated user.
+      operationId: BridgesAPI_createBridge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgeRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeResponse'
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not enough quota.
+        "403":
+          description: Forbidden.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Create a Bridge instance
+      tags:
+      - Bridges
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/bridges/{bridgeId}:
+    delete:
+      description: Delete a Bridge instance of the authenticated user by ID.
+      operationId: BridgesAPI_deleteBridge
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Delete a Bridge instance
+      tags:
+      - Bridges
+      x-accepts: application/json
+    get:
+      description: Get a Bridge instance of the authenticated user by ID.
+      operationId: BridgesAPI_getBridge
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Get a Bridge instance
+      tags:
+      - Bridges
+      x-accepts: application/json
+    put:
+      description: Update a Bridge instance for the authenticated user.
+      operationId: BridgesAPI_updateBridge
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgeRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeResponse'
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Unauthorized.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Update a Bridge instance
+      tags:
+      - Bridges
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors:
+    get:
+      description: Get the list of Processors of a Bridge instance for the authenticated
+        user.
+      operationId: ProcessorsAPI_getProcessors
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          items:
+            $ref: '#/components/schemas/ManagedResourceStatus'
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Get the list of Processors of a Bridge instance
+      tags:
+      - Processors
+      x-accepts: application/json
+    post:
+      description: Create a Processor of a Bridge instance for the authenticated user.
+      operationId: ProcessorsAPI_createProcessor
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorResponse'
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not enough quota.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Create a Processor of a Bridge instance
+      tags:
+      - Processors
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId}:
+    delete:
+      description: Delete a Processor of a Bridge instance for the authenticated user.
+      operationId: ProcessorsAPI_deleteProcessor
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: processorId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Delete a Processor of a Bridge instance
+      tags:
+      - Processors
+      x-accepts: application/json
+    get:
+      description: Get a Processor of a Bridge instance for the authenticated user.
+      operationId: ProcessorsAPI_getProcessor
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: processorId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Get a Processor of a Bridge instance
+      tags:
+      - Processors
+      x-accepts: application/json
+    put:
+      description: Update a Processor instance for the authenticated user.
+      operationId: ProcessorsAPI_updateProcessor
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: processorId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorResponse'
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "403":
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Update a Processor instance.
+      tags:
+      - Processors
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/cloud_providers:
+    get:
+      description: Returns the list of supported Cloud Providers.
+      operationId: CloudProviderAPI_listCloudProviders
+      parameters:
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudProviderListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      summary: List Supported Cloud Providers.
+      tags:
+      - Cloud Providers
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/cloud_providers/{id}:
+    get:
+      description: Get details of the Cloud Provider specified by id.
+      operationId: CloudProviderAPI_getCloudProvider
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudProviderListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      summary: Get Cloud Provider.
+      tags:
+      - Cloud Providers
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/cloud_providers/{id}/regions:
+    get:
+      description: Returns the list of supported Regions of the specified Cloud Provider.
+      operationId: CloudProviderAPI_listCloudProviderRegions
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudRegionListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      summary: List Supported Cloud Regions.
+      tags:
+      - Cloud Providers
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/errors:
+    get:
+      description: Get the list of errors from the error catalog.
+      operationId: ErrorsAPI_getErrors
+      parameters:
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorListResponse'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      summary: Get the list of errors.
+      tags:
+      - Error Catalog
+      x-accepts: application/json
+  /api/smartevents_mgmt/v2/errors/{id}:
+    get:
+      description: Get an error from the error catalog.
+      operationId: ErrorsAPI_getError
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeError'
+          description: Success.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          description: Unauthorized.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      summary: Get an error from the error catalog.
+      tags:
+      - Error Catalog
+      x-accepts: application/json
+components:
+  schemas:
+    BridgeError:
+      example:
+        reason: reason
+        code: code
+        id: 0
+      properties:
+        id:
+          format: int32
+          type: integer
+        code:
+          type: string
+        reason:
+          type: string
+        type:
+          $ref: '#/components/schemas/BridgeErrorType'
+      type: object
+    BridgeErrorInstance:
+      properties:
+        id:
+          format: int32
+          type: integer
+        code:
+          type: string
+        reason:
+          type: string
+        type:
+          $ref: '#/components/schemas/BridgeErrorType'
+        uuid:
+          type: string
+      type: object
+    BridgeErrorType:
+      enum:
+      - USER
+      - PLATFORM
+      type: string
+    BridgeListResponse:
+      example:
+        total: 1
+        size: 6
+        kind: kind
+        page: 0
+        items:
+        - owner: owner
+          status_message: status_message
+          submitted_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
+          cloud_provider: cloud_provider
+          endpoint: endpoint
+          name: name
+          id: id
+          href: href
+          published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          region: region
+          status: ""
+        - owner: owner
+          status_message: status_message
+          submitted_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
+          cloud_provider: cloud_provider
+          endpoint: endpoint
+          name: name
+          id: id
+          href: href
+          published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          region: region
+          status: ""
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/BridgeResponse'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    BridgeRequest:
+      example:
+        error_handler: '{}'
+        name: name
+        cloud_provider: cloud_provider
+        region: region
+      properties:
+        name:
+          minLength: 1
+          nullable: false
+          type: string
+        cloud_provider:
+          minLength: 1
+          nullable: false
+          type: string
+        region:
+          minLength: 1
+          nullable: false
+          type: string
+        error_handler:
+          $ref: '#/components/schemas/Action'
+      required:
+      - cloud_provider
+      - name
+      - region
+      type: object
+    BridgeResponse:
+      example:
+        owner: owner
+        status_message: status_message
+        submitted_at: 2000-01-23T04:56:07.000+00:00
+        kind: kind
+        cloud_provider: cloud_provider
+        endpoint: endpoint
+        name: name
+        id: id
+        href: href
+        published_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
+        region: region
+        status: ""
+      properties:
+        kind:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        name:
+          type: string
+        href:
+          nullable: false
+          type: string
+        submitted_at:
+          format: date-time
+          nullable: false
+          type: string
+        published_at:
+          format: date-time
+          type: string
+        modified_at:
+          format: date-time
+          type: string
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ManagedResourceStatus'
+          - nullable: false
+        owner:
+          nullable: false
+          type: string
+        endpoint:
+          type: string
+        cloud_provider:
+          type: string
+        region:
+          type: string
+        status_message:
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      - owner
+      - status
+      - submitted_at
+      type: object
+    CloudProviderListResponse:
+      example:
+        total: 1
+        size: 6
+        kind: kind
+        page: 0
+        items:
+        - kind: kind
+          name: name
+          id: id
+          href: href
+          display_name: display_name
+          enabled: true
+        - kind: kind
+          name: name
+          id: id
+          href: href
+          display_name: display_name
+          enabled: true
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/CloudProviderResponse'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    CloudProviderResponse:
+      example:
+        kind: kind
+        name: name
+        id: id
+        href: href
+        display_name: display_name
+        enabled: true
+      properties:
+        kind:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        name:
+          type: string
+        href:
+          nullable: false
+          type: string
+        display_name:
+          nullable: false
+          type: string
+        enabled:
+          nullable: false
+          type: boolean
+      required:
+      - display_name
+      - enabled
+      - href
+      - id
+      - kind
+      type: object
+    CloudRegionListResponse:
+      example:
+        total: 1
+        size: 6
+        kind: kind
+        page: 0
+        items:
+        - kind: kind
+          name: name
+          display_name: display_name
+          enabled: true
+        - kind: kind
+          name: name
+          display_name: display_name
+          enabled: true
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/CloudRegionResponse'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    CloudRegionResponse:
+      example:
+        kind: kind
+        name: name
+        display_name: display_name
+        enabled: true
+      properties:
+        kind:
+          nullable: false
+          type: string
+        name:
+          nullable: false
+          type: string
+        display_name:
+          nullable: false
+          type: string
+        enabled:
+          nullable: false
+          type: boolean
+      required:
+      - display_name
+      - enabled
+      - kind
+      - name
+      type: object
+    Error:
+      example:
+        reason: reason
+        code: code
+        kind: kind
+        name: name
+        id: id
+        href: href
+      properties:
+        kind:
+          nullable: false
+          type: string
+        name:
+          type: string
+        code:
+          type: string
+        reason:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        href:
+          nullable: false
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      - reason
+      type: object
+    ErrorListResponse:
+      example:
+        total: 1
+        size: 6
+        kind: kind
+        page: 0
+        items:
+        - reason: reason
+          code: code
+          kind: kind
+          name: name
+          id: id
+          href: href
+        - reason: reason
+          code: code
+          kind: kind
+          name: name
+          id: id
+          href: href
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    ErrorsList:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      required:
+      - kind
+      type: object
+    List:
+      allOf:
+      - $ref: '#/components/schemas/ListResponse'
+      - $ref: '#/components/schemas/List_allOf'
+    ListResponse:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            type: object
+          type: array
+      required:
+      - kind
+      type: object
+    ManagedResourceStatus:
+      enum:
+      - accepted
+      - preparing
+      - provisioning
+      - ready
+      - deprovision
+      - deleting
+      - deleted
+      - failed
+      type: string
+    ObjectReference:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        name:
+          type: string
+        href:
+          nullable: false
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      type: object
+    ProcessingErrorListResponse:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/ProcessingErrorResponse'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    ProcessingErrorResponse:
+      properties:
+        recorded_at:
+          format: date-time
+          type: string
+        headers:
+          additionalProperties:
+            type: string
+          type: object
+        payload:
+          type: object
+      type: object
+    ProcessorListResponse:
+      example:
+        total: 1
+        size: 6
+        kind: kind
+        page: 0
+        items:
+        - owner: owner
+          submitted_at: 2000-01-23T04:56:07.000+00:00
+          flows: '{}'
+          kind: kind
+          name: name
+          id: id
+          href: href
+          published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          status: ""
+        - owner: owner
+          submitted_at: 2000-01-23T04:56:07.000+00:00
+          flows: '{}'
+          kind: kind
+          name: name
+          id: id
+          href: href
+          published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          status: ""
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/ProcessorResponse'
+          type: array
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    ProcessorRequest:
+      example:
+        flows: '{}'
+        name: name
+      properties:
+        name:
+          minLength: 1
+          nullable: false
+          type: string
+        flows:
+          nullable: false
+          type: object
+      required:
+      - flows
+      - name
+      type: object
+    ProcessorResponse:
+      example:
+        owner: owner
+        submitted_at: 2000-01-23T04:56:07.000+00:00
+        flows: '{}'
+        kind: kind
+        name: name
+        id: id
+        href: href
+        published_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
+        status: ""
+      properties:
+        kind:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        href:
+          nullable: false
+          type: string
+        submitted_at:
+          format: date-time
+          nullable: false
+          type: string
+        published_at:
+          format: date-time
+          type: string
+        modified_at:
+          format: date-time
+          type: string
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ManagedResourceStatus'
+          - nullable: false
+        owner:
+          nullable: false
+          type: string
+        name:
+          nullable: false
+          type: string
+        flows:
+          nullable: false
+          type: object
+      required:
+      - flows
+      - href
+      - id
+      - kind
+      - name
+      - owner
+      - status
+      - submitted_at
+      type: object
+    List_allOf:
+      properties:
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - page
+      - size
+      - total
+      type: object
+  securitySchemes:
+    bearer:
+      scheme: Bearer
+      type: http
+
