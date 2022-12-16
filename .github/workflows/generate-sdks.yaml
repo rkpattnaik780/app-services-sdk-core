@@ -1,0 +1,17 @@
+name: Generate SDKs
+on:
+  workflow_dispatch:
+  workflow_call:
+jobs:
+  generate_sdks:
+    env:
+      APP_SERVICES_TOKEN: ${{ secrets.APP_SERVICES_TOKEN }}
+      BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate SDKs
+        run: |
+          bash scripts/generate-go.sh
+          bash scripts/generate-js.sh
