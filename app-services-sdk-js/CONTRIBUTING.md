@@ -17,7 +17,7 @@ yarn generate
 
 All specifications are kept in `.openapi` folder:
 
-https://github.com/redhat-developer/app-services-sdk-js/tree/main/.openapi
+https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-js/tree/main/.openapi
 
 ## Useful tools
 

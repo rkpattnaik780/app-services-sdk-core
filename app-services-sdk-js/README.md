@@ -78,24 +78,24 @@ npm install -g @rhoas/api-mock
 asapi
 ```
 
-[kafkagit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/kafka-management-sdk 
+[kafkagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/kafka-management-sdk 
 [kafkanpm]: https://www.npmjs.com/package/@rhoas/kafka-management-sdk
 [kafkashield]: https://img.shields.io/npm/v/@rhoas/kafka-management-sdk
-[sagit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/service-accounts-sdk 
+[sagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/service-accounts-sdk 
 [sanpm]: https://www.npmjs.com/package/@rhoas/service-accounts-sdk
 [sashield]: https://img.shields.io/npm/v/@rhoas/service-accounts-sdk
-[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/kafka-instance-sdk 
+[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/kafka-instance-sdk 
 [kinstancenpm]: https://www.npmjs.com/package/@rhoas/kafka-instance-sdk
 [kinstanceshield]: https://img.shields.io/npm/v/@rhoas/kafka-instance-sdk
-[srinstancegit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/registry-instance-sdk 
+[srinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/registry-instance-sdk 
 [srinstancenpm]: https://www.npmjs.com/package/@rhoas/registry-instance-sdk
 [srinstanceshield]: https://img.shields.io/npm/v/@rhoas/registry-instance-sdk
-[registrygit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/registry-management-sdk 
+[registrygit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/registry-management-sdk 
 [registrynpm]: https://www.npmjs.com/package/@rhoas/registry-management-sdk
 [registryshield]: https://img.shields.io/npm/v/@rhoas/registry-management-sdk
-[connectorgit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/connector-management-sdk 
+[connectorgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/connector-management-sdk 
 [connectornpm]: https://www.npmjs.com/package/@rhoas/connector-management-sdk
 [connectorshield]: https://img.shields.io/npm/v/@rhoas/connector-management-sdk
-[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/smart-events-management-sdk 
+[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/packages/smart-events-management-sdk 
 [smarteventsnpm]: https://www.npmjs.com/package/@rhoas/smart-events-management-sdk
 [smarteventsshield]: https://img.shields.io/npm/v/@rhoas/smart-events-management-sdk

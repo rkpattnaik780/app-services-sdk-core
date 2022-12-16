@@ -46,7 +46,7 @@ To authenticate to the Instance SDK's we need to create service account
 Service account can be created using [RHOAS CLI](https://github.com/redhat-developer/app-services-cli/blob/main/docs/commands/rhoas_serviceaccount_create.adoc) or
 by UI (https://cloud.redhat.com) or by using Kafka Management SDK.
 
-For code based access you can also create service account using [ServiceAccount SDK](https://github.com/redhat-developer/app-services-sdk-js/tree/main/packages/kafka-management-sdk )
+For code based access you can also create service account using [ServiceAccount SDK](https://github.com/redhat-developer/app-services-sdk-core/app-services-sdk-js/tree/main/packages/kafka-management-sdk )
 
 ```ts
 serviceAccountAPI.createServiceAccount(...)

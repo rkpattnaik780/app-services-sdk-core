@@ -1,5 +1,7 @@
 name: Update API specs 
 on:
+  repository_dispatch:
+    types: openapi-spec-change
   schedule:
     - cron: '0 0 * * *'
   ## Manual request that can be used for testing and retriggering failed updates

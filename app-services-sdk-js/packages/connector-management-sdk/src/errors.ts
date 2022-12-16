@@ -1,6 +1,7 @@
 
 /**
    connectormgmt error codes
+
     ```ts
     apiCall.then((data) => {
         console.log(data?.data.items)
