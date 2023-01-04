@@ -108,7 +108,7 @@ fi
 
 if [ "$INPUT_FILE" = "smartevents_mgmt_v2.yaml" ] || [ "$INPUT_FILE" = "" ];
 then
-    OPENAPI_FILENAME=".openapi/smartevents_mgmt.yaml"
+    OPENAPI_FILENAME=".openapi/smartevents_mgmt_v2.yaml"
     PACKAGE_NAME="rhoas_smart_events_mgmt_sdk"
     OUTPUT_PATH="app-services-sdk-python/sdks/smart_events_mgmt_sdk"
 

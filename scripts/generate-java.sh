@@ -125,7 +125,7 @@ if [ "$INPUT_FILE" = "smartevents_mgmt_v2.yaml" ] || [ "$INPUT_FILE" = "" ];
 then
     GROUP_ID="com.redhat.cloud"
     ARTIFACT_ID="smartevents-management-sdk"
-    OPENAPI_FILENAME=".openapi/smartevents_mgmt.yaml"
+    OPENAPI_FILENAME=".openapi/smartevents_mgmt_v2.yaml"
     PACKAGE_NAME="com.openshift.cloud.api.smartevents"
     OUTPUT_PATH="app-services-sdk-java/packages/smartevents-management-sdk/"
 
