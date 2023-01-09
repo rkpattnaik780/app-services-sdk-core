@@ -210,7 +210,7 @@ class KafkaRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting] . [optional]  # noqa: E501
+            status (str): Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting, suspending, suspended, resuming] . [optional]  # noqa: E501
             cloud_provider (str): Name of Cloud used to deploy. For example AWS. [optional]  # noqa: E501
             region (str): Values will be regions of specific cloud provider. For example: us-east-1 for AWS. [optional]  # noqa: E501
             owner (str): [optional]  # noqa: E501
@@ -345,7 +345,7 @@ class KafkaRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting] . [optional]  # noqa: E501
+            status (str): Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting, suspending, suspended, resuming] . [optional]  # noqa: E501
             cloud_provider (str): Name of Cloud used to deploy. For example AWS. [optional]  # noqa: E501
             region (str): Values will be regions of specific cloud provider. For example: us-east-1 for AWS. [optional]  # noqa: E501
             owner (str): [optional]  # noqa: E501

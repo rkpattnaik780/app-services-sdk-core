@@ -43,10 +43,10 @@ tags:
 - description: 'The search API is used to browse or find artifacts in the registry.
     This section describes the operations for searching for artifacts and versions. '
   name: Search
-- description: Application functionality that is only accessible to admin users.  Includes
-    logging, global rules, and export/import of registry data.
+- description: "Application functionality that is only accessible to admin users.\
+    \  Includes logging, global rules, and export/import of registry data."
   name: Admin
-- description: System level functionality, including versioning and status information.
+- description: "System level functionality, including versioning and status information."
   name: System
 - description: Some operations related to users.
   name: Users
@@ -600,9 +600,9 @@ paths:
       tags:
       - Admin
     get:
-      description: Returns the configured logger configuration for the provided logger
-        name, if no logger configuration is persisted it will return the current default
-        log configuration in the system.
+      description: "Returns the configured logger configuration for the provided logger\
+        \ name, if no logger configuration is persisted it will return the current\
+        \ default log configuration in the system."
       operationId: getLogConfiguration
       parameters:
       - description: The name of a single logger.
@@ -690,7 +690,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemInfo'
-          description: On success, returns the system information.
+          description: "On success, returns the system information."
         "500":
           content:
             application/json:
@@ -740,7 +740,7 @@ paths:
           default: 20
           type: integer
         style: form
-      - description: Sort order, ascending (`asc`) or descending (`desc`).
+      - description: "Sort order, ascending (`asc`) or descending (`desc`)."
         explode: true
         in: query
         name: order
@@ -849,11 +849,11 @@ paths:
         posted content.
       operationId: searchArtifactsByContent
       parameters:
-      - description: Parameter that can be set to `true` to indicate that the server
-          should "canonicalize" the content when searching for matching artifacts.  Canonicalization
-          is unique to each artifact type, but typically involves removing any extra
-          whitespace and formatting the content in a consistent manner.  Must be used
-          along with the `artifactType` query parameter.
+      - description: "Parameter that can be set to `true` to indicate that the server\
+          \ should \"canonicalize\" the content when searching for matching artifacts.\
+          \  Canonicalization is unique to each artifact type, but typically involves\
+          \ removing any extra whitespace and formatting the content in a consistent\
+          \ manner.  Must be used along with the `artifactType` query parameter."
         explode: true
         in: query
         name: canonical
@@ -861,10 +861,10 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Indicates the type of artifact represented by the content being
-          used for the search.  This is only needed when using the `canonical` query
-          parameter, so that the server knows how to canonicalize the content prior
-          to searching for matching artifacts.
+      - description: "Indicates the type of artifact represented by the content being\
+          \ used for the search.  This is only needed when using the `canonical` query\
+          \ parameter, so that the server knows how to canonicalize the content prior\
+          \ to searching for matching artifacts."
         explode: true
         in: query
         name: artifactType
@@ -891,7 +891,7 @@ paths:
           default: 20
           type: integer
         style: form
-      - description: Sort order, ascending (`asc`) or descending (`desc`).
+      - description: "Sort order, ascending (`asc`) or descending (`desc`)."
         explode: true
         in: query
         name: order
@@ -954,10 +954,10 @@ paths:
       description: Exports registry data as a ZIP archive.
       operationId: exportData
       parameters:
-      - description: Indicates if the operation is done for a browser.  If true, the
-          response will be a JSON payload with a property called `href`.  This `href`
-          will be a single-use, naked download link suitable for use by a web browser
-          to download the content.
+      - description: "Indicates if the operation is done for a browser.  If true,\
+          \ the response will be a JSON payload with a property called `href`.  This\
+          \ `href` will be a single-use, naked download link suitable for use by a\
+          \ web browser to download the content."
         explode: true
         in: query
         name: forBrowser
@@ -994,9 +994,9 @@ paths:
         operation.
       operationId: importData
       parameters:
-      - description: If this header is set to false, global ids of imported data will
-          be ignored and replaced by next id in global id sequence. This allows to
-          import any data even thought the global ids would cause a conflict.
+      - description: "If this header is set to false, global ids of imported data\
+          \ will be ignored and replaced by next id in global id sequence. This allows\
+          \ to import any data even thought the global ids would cause a conflict."
         explode: false
         in: header
         name: X-Registry-Preserve-GlobalId
@@ -1004,10 +1004,10 @@ paths:
         schema:
           type: boolean
         style: simple
-      - description: If this header is set to false, content ids of imported data
-          will be ignored and replaced by next id in content id sequence. The mapping
-          between content and artifacts will be preserved. This allows to import any
-          data even thought the content ids would cause a conflict.
+      - description: "If this header is set to false, content ids of imported data\
+          \ will be ignored and replaced by next id in content id sequence. The mapping\
+          \ between content and artifacts will be preserved. This allows to import\
+          \ any data even thought the content ids would cause a conflict."
         explode: false
         in: header
         name: X-Registry-Preserve-ContentId
@@ -1051,8 +1051,8 @@ paths:
         \ (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n"
       operationId: updateArtifactState
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1060,8 +1060,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1126,8 +1126,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: deleteArtifactVersionMetaData
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1135,8 +1135,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1193,8 +1193,8 @@ paths:
         \ (HTTP error `500`)\n"
       operationId: getArtifactVersionMetaData
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1202,8 +1202,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1262,8 +1262,8 @@ paths:
         \ error `404`)\n* A server error occurred (HTTP error `500`)\n"
       operationId: updateArtifactVersionMetaData
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1271,8 +1271,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1337,8 +1337,8 @@ paths:
         \ (HTTP error `500`)\n"
       operationId: getArtifactVersion
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1346,8 +1346,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1424,8 +1424,8 @@ paths:
         \ error `404`)\n* A server error occurred (HTTP error `500`)\n"
       operationId: updateArtifactVersionState
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1433,8 +1433,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1506,8 +1506,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: deleteArtifactRules
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1515,8 +1515,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1564,8 +1564,8 @@ paths:
         \ error `404`)\n* A server error occurred (HTTP error `500`)"
       operationId: listArtifactRules
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1573,8 +1573,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1630,8 +1630,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: createArtifactRule
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1639,8 +1639,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1704,8 +1704,8 @@ paths:
         * A server error occurred (HTTP error `500`)"
       operationId: deleteArtifactRule
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1713,8 +1713,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1776,8 +1776,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: getArtifactRuleConfig
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1785,8 +1785,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1850,8 +1850,8 @@ paths:
         \ `500`)\n"
       operationId: updateArtifactRuleConfig
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -1859,8 +1859,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -1995,7 +1995,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleMapping'
-          description: When successful, returns the details of a role mapping.
+          description: "When successful, returns the details of a role mapping."
         "404":
           content:
             application/json:
@@ -2281,8 +2281,8 @@ paths:
         \ (HTTP error `500`)\n"
       operationId: getArtifactVersionReferences
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -2290,8 +2290,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -2361,7 +2361,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/ConfigurationProperty'
                 type: array
-          description: On a successful response, returns a list of configuration properties.
+          description: "On a successful response, returns a list of configuration\
+            \ properties."
         "500":
           content:
             application/json:
@@ -2538,8 +2539,8 @@ paths:
     summary: Manage a single configuration property (by name).
   /system/limits:
     get:
-      description: This operation retrieves the list of limitations on used resources,
-        that are applied on the current instance of Registry.
+      description: "This operation retrieves the list of limitations on used resources,\
+        \ that are applied on the current instance of Registry."
       operationId: getResourceLimits
       responses:
         "200":
@@ -2547,7 +2548,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Limits'
-          description: On success, returns resource limits
+          description: "On success, returns resource limits"
         "500":
           content:
             application/json:
@@ -2574,8 +2575,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: deleteArtifact
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -2583,8 +2584,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -2631,8 +2632,8 @@ paths:
         * A server error occurred (HTTP error `500`)\n"
       operationId: getLatestArtifact
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -2640,8 +2641,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -2720,8 +2721,8 @@ paths:
         (and therefore official) version of the artifact.
       operationId: updateArtifact
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -2729,8 +2730,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -2759,9 +2760,9 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactName'
         style: simple
-      - description: Specifies the artifact name of this new version of the artifact
-          content. Value of this must be Base64 encoded string. If this is not provided,
-          the server will extract the name from the artifact content.
+      - description: "Specifies the artifact name of this new version of the artifact\
+          \ content. Value of this must be Base64 encoded string. If this is not provided,\
+          \ the server will extract the name from the artifact content."
         explode: false
         in: header
         name: X-Registry-Name-Encoded
@@ -2769,9 +2770,9 @@ paths:
         schema:
           $ref: '#/components/schemas/EncodedArtifactName'
         style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Description must be ASCII-only string. If this is not
-          provided, the server will extract the description from the artifact content.
+      - description: "Specifies the artifact description of this new version of the\
+          \ artifact content. Description must be ASCII-only string. If this is not\
+          \ provided, the server will extract the description from the artifact content."
         explode: false
         in: header
         name: X-Registry-Description
@@ -2779,10 +2780,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactDescription'
         style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Value of this must be Base64 encoded string. If this is
-          not provided, the server will extract the description from the artifact
-          content.
+      - description: "Specifies the artifact description of this new version of the\
+          \ artifact content. Value of this must be Base64 encoded string. If this\
+          \ is not provided, the server will extract the description from the artifact\
+          \ content."
         explode: false
         in: header
         name: X-Registry-Description-Encoded
@@ -2852,7 +2853,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ArtifactMetaData'
-          description: When successful, returns the updated artifact metadata.
+          description: "When successful, returns the updated artifact metadata."
         "404":
           content:
             application/json:
@@ -2908,7 +2909,7 @@ paths:
         style: simple
       responses:
         "204":
-          description: When the delete operation is successful, a simple 204 is returned.
+          description: "When the delete operation is successful, a simple 204 is returned."
         "500":
           content:
             application/json:
@@ -2953,7 +2954,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Sort order, ascending (`asc`) or descending (`desc`).
+      - description: "Sort order, ascending (`asc`) or descending (`desc`)."
         explode: true
         in: query
         name: order
@@ -2979,7 +2980,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ArtifactSearchResults'
-          description: On a successful response, returns a bounded set of artifacts.
+          description: "On a successful response, returns a bounded set of artifacts."
         "500":
           content:
             application/json:
@@ -3059,7 +3060,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactType'
         style: simple
-      - description: A client-provided, globally unique identifier for the new artifact.
+      - description: "A client-provided, globally unique identifier for the new artifact."
         explode: false
         in: header
         name: X-Registry-ArtifactId
@@ -3087,11 +3088,12 @@ paths:
         schema:
           $ref: '#/components/schemas/IfExists'
         style: form
-      - description: Used only when the `ifExists` query parameter is set to `RETURN_OR_UPDATE`,
-          this parameter can be set to `true` to indicate that the server should "canonicalize"
-          the content when searching for a matching version.  The canonicalization
-          algorithm is unique to each artifact type, but typically involves removing
-          extra whitespace and formatting the content in a consistent manner.
+      - description: "Used only when the `ifExists` query parameter is set to `RETURN_OR_UPDATE`,\
+          \ this parameter can be set to `true` to indicate that the server should\
+          \ \"canonicalize\" the content when searching for a matching version.  The\
+          \ canonicalization algorithm is unique to each artifact type, but typically\
+          \ involves removing extra whitespace and formatting the content in a consistent\
+          \ manner."
         explode: true
         in: query
         name: canonical
@@ -3099,9 +3101,9 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Specifies the description of artifact being added. Description
-          must be ASCII-only string. If this is not provided, the server will extract
-          the description from the artifact content.
+      - description: "Specifies the description of artifact being added. Description\
+          \ must be ASCII-only string. If this is not provided, the server will extract\
+          \ the description from the artifact content."
         explode: false
         in: header
         name: X-Registry-Description
@@ -3109,9 +3111,9 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactDescription'
         style: simple
-      - description: Specifies the description of artifact being added. Value of this
-          must be Base64 encoded string. If this is not provided, the server will
-          extract the description from the artifact content.
+      - description: "Specifies the description of artifact being added. Value of\
+          \ this must be Base64 encoded string. If this is not provided, the server\
+          \ will extract the description from the artifact content."
         explode: false
         in: header
         name: X-Registry-Description-Encoded
@@ -3119,9 +3121,9 @@ paths:
         schema:
           $ref: '#/components/schemas/EncodedArtifactDescription'
         style: simple
-      - description: Specifies the name of artifact being added. Name must be ASCII-only
-          string. If this is not provided, the server will extract the name from the
-          artifact content.
+      - description: "Specifies the name of artifact being added. Name must be ASCII-only\
+          \ string. If this is not provided, the server will extract the name from\
+          \ the artifact content."
         explode: false
         in: header
         name: X-Registry-Name
@@ -3129,9 +3131,9 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactName'
         style: simple
-      - description: Specifies the name of artifact being added. Value of this must
-          be Base64 encoded string. If this is not provided, the server will extract
-          the name from the artifact content.
+      - description: "Specifies the name of artifact being added. Value of this must\
+          \ be Base64 encoded string. If this is not provided, the server will extract\
+          \ the name from the artifact content."
         explode: false
         in: header
         name: X-Registry-Name-Encoded
@@ -3147,8 +3149,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: 'The algorithm to use when checking the content validity. (available:
-          SHA256, MD5; default: SHA256)'
+      - description: "The algorithm to use when checking the content validity. (available:\
+          \ SHA256, MD5; default: SHA256)"
         explode: false
         in: header
         name: X-Registry-Hash-Algorithm
@@ -3239,9 +3241,9 @@ paths:
                     message: The artifact content was invalid
                     causes:
                     - description: API is missing a title
-                      context: /info[title]
+                      context: "/info[title]"
                     - description: Operation IDs must be unique
-                      context: /paths[/invoices]/put[operationId]
+                      context: "/paths[/invoices]/put[operationId]"
               schema:
                 $ref: '#/components/schemas/RuleViolationError'
           description: Common response used when an input conflicts with existing
@@ -3282,8 +3284,8 @@ paths:
         \ are enabled)."
       operationId: testUpdateArtifact
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3291,8 +3293,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3345,9 +3347,9 @@ paths:
                     message: The artifact content was invalid
                     causes:
                     - description: API is missing a title
-                      context: /info[title]
+                      context: "/info[title]"
                     - description: Operation IDs must be unique
-                      context: /paths[/invoices]/put[operationId]
+                      context: "/paths[/invoices]/put[operationId]"
               schema:
                 $ref: '#/components/schemas/RuleViolationError'
           description: Common response used when an input conflicts with existing
@@ -3379,8 +3381,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: listArtifactVersions
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3388,8 +3390,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3471,8 +3473,8 @@ paths:
         \ `500`)\n"
       operationId: createArtifactVersion
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3480,8 +3482,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3510,9 +3512,9 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactName'
         style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Description must be ASCII-only string. If this is not
-          provided, the server will extract the description from the artifact content.
+      - description: "Specifies the artifact description of this new version of the\
+          \ artifact content. Description must be ASCII-only string. If this is not\
+          \ provided, the server will extract the description from the artifact content."
         explode: false
         in: header
         name: X-Registry-Description
@@ -3520,10 +3522,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactDescription'
         style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Value of this must be Base64 encoded string. If this is
-          not provided, the server will extract the description from the artifact
-          content.
+      - description: "Specifies the artifact description of this new version of the\
+          \ artifact content. Value of this must be Base64 encoded string. If this\
+          \ is not provided, the server will extract the description from the artifact\
+          \ content."
         explode: false
         in: header
         name: X-Registry-Description-Encoded
@@ -3531,9 +3533,9 @@ paths:
         schema:
           $ref: '#/components/schemas/EncodedArtifactDescription'
         style: simple
-      - description: Specifies the artifact name of this new version of the artifact
-          content. Value of this must be Base64 encoded string. If this is not provided,
-          the server will extract the name from the artifact content.
+      - description: "Specifies the artifact name of this new version of the artifact\
+          \ content. Value of this must be Base64 encoded string. If this is not provided,\
+          \ the server will extract the name from the artifact content."
         explode: false
         in: header
         name: X-Registry-Name-Encoded
@@ -3626,9 +3628,9 @@ paths:
                     message: The artifact content was invalid
                     causes:
                     - description: API is missing a title
-                      context: /info[title]
+                      context: "/info[title]"
                     - description: Operation IDs must be unique
-                      context: /paths[/invoices]/put[operationId]
+                      context: "/paths[/invoices]/put[operationId]"
               schema:
                 $ref: '#/components/schemas/RuleViolationError'
           description: Common response used when an input conflicts with existing
@@ -3661,8 +3663,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: getArtifactMetaData
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3670,8 +3672,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3727,8 +3729,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: getArtifactVersionMetaDataByContent
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3736,8 +3738,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3745,10 +3747,11 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactId'
         style: simple
-      - description: Parameter that can be set to `true` to indicate that the server
-          should "canonicalize" the content when searching for a matching version.  Canonicalization
-          is unique to each artifact type, but typically involves removing any extra
-          whitespace and formatting the content in a consistent manner.
+      - description: "Parameter that can be set to `true` to indicate that the server\
+          \ should \"canonicalize\" the content when searching for a matching version.\
+          \  Canonicalization is unique to each artifact type, but typically involves\
+          \ removing any extra whitespace and formatting the content in a consistent\
+          \ manner."
         explode: true
         in: query
         name: canonical
@@ -3843,8 +3846,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: updateArtifactMetaData
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3852,8 +3855,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3910,8 +3913,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: getArtifactOwner
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3919,8 +3922,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -3972,8 +3975,8 @@ paths:
         * A server error occurred (HTTP error `500`)
       operationId: updateArtifactOwner
       parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
+      - description: "The artifact group ID.  Must be a string provided by the client,\
+          \ representing the name of the grouping of artifacts."
         explode: false
         in: path
         name: groupId
@@ -3981,8 +3984,8 @@ paths:
         schema:
           $ref: '#/components/schemas/GroupId'
         style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
+      - description: "The artifact ID.  Can be a string (client-provided) or UUID\
+          \ (server-generated), representing the unique artifact identifier."
         explode: false
         in: path
         name: artifactId
@@ -4079,9 +4082,9 @@ components:
                 message: The artifact content was invalid
                 causes:
                 - description: API is missing a title
-                  context: /info[title]
+                  context: "/info[title]"
                 - description: Operation IDs must be unique
-                  context: /paths[/invoices]/put[operationId]
+                  context: "/paths[/invoices]/put[operationId]"
           schema:
             $ref: '#/components/schemas/RuleViolationError'
       description: Common response used when an input conflicts with existing data.
@@ -4101,6 +4104,7 @@ components:
       description: The content of one version of one artifact.
   schemas:
     EditableMetaData:
+      description: ""
       example:
         name: Artifact Name
         description: The description of the artifact.
@@ -4116,6 +4120,7 @@ components:
         description:
           type: string
         labels:
+          description: ""
           items:
             type: string
           type: array
@@ -4129,6 +4134,7 @@ components:
       title: Root Type for EditableArtifactMetaData
       type: object
     Rule:
+      description: ""
       example:
         type: VALIDITY
         config: FULL
@@ -4157,8 +4163,8 @@ components:
           format: int32
           type: integer
         detail:
-          description: Full details about the error.  This might contain a server
-            stack trace, for example.
+          description: "Full details about the error.  This might contain a server\
+            \ stack trace, for example."
           type: string
         name:
           description: The error name - typically the classname of the exception thrown
@@ -4167,6 +4173,7 @@ components:
       title: Root Type for Error
       type: object
     RuleType:
+      description: ""
       enum:
       - VALIDITY
       - COMPATIBILITY
@@ -4174,6 +4181,7 @@ components:
       type: string
       x-codegen-package: io.apicurio.registry.types
     ArtifactType:
+      description: ""
       enum:
       - AVRO
       - PROTOBUF
@@ -4189,6 +4197,7 @@ components:
       type: string
       x-codegen-package: io.apicurio.registry.types
     UpdateState:
+      description: ""
       example:
         state: DISABLED
       properties:
@@ -4255,6 +4264,7 @@ components:
       - count
       type: object
     SortOrder:
+      description: ""
       enum:
       - asc
       - desc
@@ -4309,10 +4319,11 @@ components:
       - versions
       type: object
     RuleViolationCause:
+      description: ""
       example:
         description: External documentation URL is not valid (it must be formatted
           as a URL).
-        context: /info/externalDocs[url]
+        context: "/info/externalDocs[url]"
       properties:
         description:
           type: string
@@ -4322,21 +4333,23 @@ components:
       type: object
     GroupId:
       description: An ID of a single artifact group.
-      example: my-group
+      example: '"my-group"'
       type: string
     ArtifactId:
       description: The ID of a single artifact.
-      example: example-artifact
+      example: '"example-artifact"'
       type: string
     Version:
       description: |-
         A single version of an artifact.  Can be provided by the client when creating a new version,
         or it can be server-generated.  The value can be any string unique to the artifact, but it is
         recommended to use a simple integer or a semver value.
-      example: 3.1.6
+      example: '"3.1.6"'
       type: string
     LogConfiguration:
-      example: {}
+      description: ""
+      example:
+        level: null
       properties:
         level:
           $ref: '#/components/schemas/LogLevel'
@@ -4347,6 +4360,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/NamedLogConfiguration_allOf'
       - $ref: '#/components/schemas/LogConfiguration'
+      description: ""
       type: object
     Properties:
       additionalProperties:
@@ -4356,6 +4370,7 @@ components:
       x-codegen-inline: true
       x-codegen-type: StringMap
     IfExists:
+      description: ""
       enum:
       - FAIL
       - UPDATE
@@ -4363,11 +4378,13 @@ components:
       - RETURN_OR_UPDATE
       type: string
     SortBy:
+      description: ""
       enum:
       - name
       - createdOn
       type: string
     LogLevel:
+      description: ""
       enum:
       - DEBUG
       - TRACE
@@ -4383,6 +4400,7 @@ components:
       type: string
       x-codegen-package: io.apicurio.registry.types
     SystemInfo:
+      description: ""
       example:
         name: Apicurio Registry (SQL)
         description: The Apicurio Registry application.
@@ -4412,6 +4430,7 @@ components:
         role: READ_ONLY
       properties:
         principalId:
+          description: ""
           type: string
         role:
           $ref: '#/components/schemas/RoleType'
@@ -4423,6 +4442,7 @@ components:
       - role
       type: object
     RoleType:
+      description: ""
       enum:
       - READ_ONLY
       - DEVELOPER
@@ -4430,6 +4450,7 @@ components:
       type: string
       x-codegen-package: io.apicurio.registry.types
     UpdateRole:
+      description: ""
       example:
         role: READ_ONLY
       properties:
@@ -4462,22 +4483,22 @@ components:
       type: object
     EncodedArtifactName:
       description: Base64 encoded name of the artifact.
-      example: QXJ0aWZhY3QgbmFtZQo=
+      example: '"QXJ0aWZhY3QgbmFtZQo="'
       type: string
       x-codegen-inline: true
     EncodedArtifactDescription:
       description: Base64 encoded description of the artifact.
-      example: QXJ0aWZhY3QgZGVzY3JpcHRpb24K
+      example: '"QXJ0aWZhY3QgZGVzY3JpcHRpb24K"'
       type: string
       x-codegen-inline: true
     ArtifactName:
       description: Name of the artifact.
-      example: Artifact name
+      example: '"Artifact name"'
       type: string
       x-codegen-inline: true
     ArtifactDescription:
       description: Description of the artifact.
-      example: Artifact description
+      example: '"Artifact description"'
       type: string
       x-codegen-inline: true
     DownloadRef:
@@ -4495,6 +4516,7 @@ components:
       title: Root Type for Download
       type: object
     ArtifactMetaData:
+      description: ""
       example:
         groupId: My-Group
         id: Procurement-Invoice
@@ -4538,18 +4560,21 @@ components:
           x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         id:
           description: The ID of a single artifact.
-          example: example-artifact
+          example: '"example-artifact"'
           type: string
         version:
+          description: ""
           type: string
         type:
           $ref: '#/components/schemas/ArtifactType'
         globalId:
+          description: ""
           format: int64
           type: integer
         state:
           $ref: '#/components/schemas/ArtifactState'
         labels:
+          description: ""
           items:
             type: string
           type: array
@@ -4562,12 +4587,14 @@ components:
           x-codegen-type: StringMap
         groupId:
           description: An ID of a single artifact group.
-          example: my-group
+          example: '"my-group"'
           type: string
         contentId:
+          description: ""
           format: int64
           type: integer
         references:
+          description: ""
           items:
             $ref: '#/components/schemas/ArtifactReference'
           type: array
@@ -4603,35 +4630,42 @@ components:
       properties:
         id:
           description: The ID of a single artifact.
-          example: example-artifact
+          example: '"example-artifact"'
           type: string
         name:
+          description: ""
           type: string
         description:
+          description: ""
           type: string
         createdOn:
+          description: ""
           format: utc-date
           type: string
           x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
+          description: ""
           type: string
         type:
           $ref: '#/components/schemas/ArtifactType'
         labels:
+          description: ""
           items:
             type: string
           type: array
         state:
           $ref: '#/components/schemas/ArtifactState'
         modifiedOn:
+          description: ""
           format: utc-date
           type: string
           x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         modifiedBy:
+          description: ""
           type: string
         groupId:
           description: An ID of a single artifact group.
-          example: my-group
+          example: '"my-group"'
           type: string
       required:
       - createdBy
@@ -4642,6 +4676,7 @@ components:
       - type
       type: object
     VersionMetaData:
+      description: ""
       example:
         groupId: My-Group
         id: my-artifact-id
@@ -4680,15 +4715,17 @@ components:
         type:
           $ref: '#/components/schemas/ArtifactType'
         globalId:
+          description: ""
           format: int64
           type: integer
         state:
           $ref: '#/components/schemas/ArtifactState'
         id:
           description: The ID of a single artifact.
-          example: example-artifact
+          example: '"example-artifact"'
           type: string
         labels:
+          description: ""
           items:
             type: string
           type: array
@@ -4701,9 +4738,10 @@ components:
           x-codegen-type: StringMap
         groupId:
           description: An ID of a single artifact group.
-          example: my-group
+          example: '"my-group"'
           type: string
         contentId:
+          description: ""
           format: int64
           type: integer
       required:
@@ -4736,27 +4774,34 @@ components:
         references: {}
       properties:
         name:
+          description: ""
           type: string
         description:
+          description: ""
           type: string
         createdOn:
+          description: ""
           format: utc-date
           type: string
           x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
+          description: ""
           type: string
         type:
           $ref: '#/components/schemas/ArtifactType'
         labels:
+          description: ""
           items:
             type: string
           type: array
         state:
           $ref: '#/components/schemas/ArtifactState'
         globalId:
+          description: ""
           format: int64
           type: integer
         version:
+          description: ""
           type: string
         properties:
           additionalProperties:
@@ -4766,9 +4811,11 @@ components:
           x-codegen-inline: true
           x-codegen-type: StringMap
         contentId:
+          description: ""
           format: int64
           type: integer
         references:
+          description: ""
           items:
             $ref: '#/components/schemas/ArtifactReference'
           type: array
@@ -4794,9 +4841,9 @@ components:
         message: Artifact failed validation
         causes:
         - description: API is missing a title
-          context: /info[title]
+          context: "/info[title]"
         - description: Operation IDs must be unique
-          context: /paths[/invoices]/put[operationId]
+          context: "/paths[/invoices]/put[operationId]"
       title: Root Type for Error
       type: object
       x-codegen-extendsClass: io.apicurio.registry.rest.v2.beans.Error
@@ -4824,6 +4871,7 @@ components:
       title: Root Type for ArtifactReference
       type: object
     ContentCreateRequest:
+      description: ""
       properties:
         content:
           description: Raw content of the artifact or a valid (and accessible) URL
@@ -4840,23 +4888,27 @@ components:
       - references
       type: object
     ConfigurationProperty:
+      description: ""
       example:
         name: registry.auth.owner-only-authorization
         value: "true"
         type: boolean
         label: Owner Only Authorization
-        description: When enabled, the registry will allow only the artifact owner
-          (creator) to modify an artifact.
+        description: "When enabled, the registry will allow only the artifact owner\
+          \ (creator) to modify an artifact."
       properties:
         name:
           type: string
         value:
           type: string
         type:
+          description: ""
           type: string
         label:
+          description: ""
           type: string
         description:
+          description: ""
           type: string
       required:
       - description
@@ -4867,6 +4919,7 @@ components:
       title: Root Type for ConfigurationProperty
       type: object
     UpdateConfigurationProperty:
+      description: ""
       example:
         value: "true"
       properties:
@@ -4945,10 +4998,12 @@ components:
     NamedLogConfiguration_allOf:
       properties:
         name:
+          description: ""
           type: string
       required:
       - name
       type: object
+      example: null
     RuleViolationError_allOf:
       properties:
         causes:
@@ -4959,3 +5014,4 @@ components:
       required:
       - causes
       type: object
+      example: null

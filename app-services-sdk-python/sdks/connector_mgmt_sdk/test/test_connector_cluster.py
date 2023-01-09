@@ -16,10 +16,12 @@ import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.connector_cluster_meta import ConnectorClusterMeta
 from rhoas_connector_mgmt_sdk.model.connector_cluster_status import ConnectorClusterStatus
 from rhoas_connector_mgmt_sdk.model.connector_cluster_status_status import ConnectorClusterStatusStatus
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.object_reference import ObjectReference
 globals()['ConnectorClusterMeta'] = ConnectorClusterMeta
 globals()['ConnectorClusterStatus'] = ConnectorClusterStatus
 globals()['ConnectorClusterStatusStatus'] = ConnectorClusterStatusStatus
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ObjectReference'] = ObjectReference
 from rhoas_connector_mgmt_sdk.model.connector_cluster import ConnectorCluster
 

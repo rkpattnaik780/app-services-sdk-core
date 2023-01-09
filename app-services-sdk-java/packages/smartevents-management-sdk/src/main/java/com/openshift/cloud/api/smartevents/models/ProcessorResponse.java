@@ -40,7 +40,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   ProcessorResponse.JSON_PROPERTY_STATUS,
   ProcessorResponse.JSON_PROPERTY_OWNER,
   ProcessorResponse.JSON_PROPERTY_NAME,
-  ProcessorResponse.JSON_PROPERTY_FLOWS
+  ProcessorResponse.JSON_PROPERTY_FLOWS,
+  ProcessorResponse.JSON_PROPERTY_STATUS_MESSAGE
 })
 @JsonTypeName("ProcessorResponse")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -75,6 +76,9 @@ public class ProcessorResponse {
   public static final String JSON_PROPERTY_FLOWS = "flows";
   private Object flows;
 
+  public static final String JSON_PROPERTY_STATUS_MESSAGE = "status_message";
+  private String statusMessage;
+
   public ProcessorResponse() { 
   }
 
@@ -85,11 +89,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get kind
+   * The kind (type) of this resource
    * @return kind
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The kind (type) of this resource")
   @JsonProperty(JSON_PROPERTY_KIND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -112,11 +116,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get id
+   * The unique identifier of this resource
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The unique identifier of this resource")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -139,11 +143,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get href
+   * The URL of this resource, without the protocol
    * @return href
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "example.com/resource", required = true, value = "The URL of this resource, without the protocol")
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -170,7 +174,7 @@ public class ProcessorResponse {
    * @return submittedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "2022-03-10T12:15:50-04:00", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SUBMITTED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -197,7 +201,7 @@ public class ProcessorResponse {
    * @return publishedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "2022-03-10T12:15:50-04:00", value = "")
   @JsonProperty(JSON_PROPERTY_PUBLISHED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -224,7 +228,7 @@ public class ProcessorResponse {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "2022-03-10T12:15:50-04:00", value = "")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -274,11 +278,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get owner
+   * The user that owns this resource
    * @return owner
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "userName", required = true, value = "The user that owns this resource")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -301,11 +305,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get name
+   * The name of the processor
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "processor1", required = true, value = "The name of the processor")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -328,11 +332,11 @@ public class ProcessorResponse {
   }
 
    /**
-   * Get flows
+   * The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
    * @return flows
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor")
   @JsonProperty(JSON_PROPERTY_FLOWS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -345,6 +349,33 @@ public class ProcessorResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFlows(Object flows) {
     this.flows = flows;
+  }
+
+
+  public ProcessorResponse statusMessage(String statusMessage) {
+    
+    this.statusMessage = statusMessage;
+    return this;
+  }
+
+   /**
+   * Get statusMessage
+   * @return statusMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getStatusMessage() {
+    return statusMessage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
   }
 
 
@@ -366,12 +397,13 @@ public class ProcessorResponse {
         Objects.equals(this.status, processorResponse.status) &&
         Objects.equals(this.owner, processorResponse.owner) &&
         Objects.equals(this.name, processorResponse.name) &&
-        Objects.equals(this.flows, processorResponse.flows);
+        Objects.equals(this.flows, processorResponse.flows) &&
+        Objects.equals(this.statusMessage, processorResponse.statusMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, id, href, submittedAt, publishedAt, modifiedAt, status, owner, name, flows);
+    return Objects.hash(kind, id, href, submittedAt, publishedAt, modifiedAt, status, owner, name, flows, statusMessage);
   }
 
   @Override
@@ -388,6 +420,7 @@ public class ProcessorResponse {
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    flows: ").append(toIndentedString(flows)).append("\n");
+    sb.append("    statusMessage: ").append(toIndentedString(statusMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

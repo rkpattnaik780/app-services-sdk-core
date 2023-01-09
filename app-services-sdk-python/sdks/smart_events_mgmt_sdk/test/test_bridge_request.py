@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import rhoas_smart_events_mgmt_sdk
-from rhoas_smart_events_mgmt_sdk.model.action import Action
-globals()['Action'] = Action
 from rhoas_smart_events_mgmt_sdk.model.bridge_request import BridgeRequest
 
 

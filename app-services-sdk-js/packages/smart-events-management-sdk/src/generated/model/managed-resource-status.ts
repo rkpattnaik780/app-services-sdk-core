@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Red Hat Openshift SmartEvents Fleet Manager V1
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  * The API exposed by the fleet manager of the SmartEvents service.
  *
  * The version of the OpenAPI document: 0.0.1
@@ -25,6 +25,9 @@ export const ManagedResourceStatus = {
     Preparing: 'preparing',
     Provisioning: 'provisioning',
     Ready: 'ready',
+    UpdateAccepted: 'update_accepted',
+    UpdatePreparing: 'update_preparing',
+    UpdateProvisioning: 'update_provisioning',
     Deprovision: 'deprovision',
     Deleting: 'deleting',
     Deleted: 'deleted',

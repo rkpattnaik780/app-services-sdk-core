@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Red Hat Openshift SmartEvents Fleet Manager V1
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  * The API exposed by the fleet manager of the SmartEvents service.
  *
  * The version of the OpenAPI document: 0.0.1
@@ -13,7 +13,6 @@
  */
 
 
-import { Action } from './action';
 
 /**
  * 
@@ -22,28 +21,22 @@ import { Action } from './action';
  */
 export interface BridgeRequest {
     /**
-     * 
+     * The name of the bridge
      * @type {string}
      * @memberof BridgeRequest
      */
     'name': string;
     /**
-     * 
+     * The cloud provider where the bridge resides
      * @type {string}
      * @memberof BridgeRequest
      */
     'cloud_provider': string;
     /**
-     * 
+     * The cloud provider region where the bridge resides
      * @type {string}
      * @memberof BridgeRequest
      */
     'region': string;
-    /**
-     * 
-     * @type {Action}
-     * @memberof BridgeRequest
-     */
-    'error_handler'?: Action;
 }
 

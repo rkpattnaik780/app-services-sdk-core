@@ -35,6 +35,7 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_configuration import ConnectorConfiguration
     from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
     from rhoas_connector_mgmt_sdk.model.connector_meta import ConnectorMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.connector_status import ConnectorStatus
     from rhoas_connector_mgmt_sdk.model.connector_status_status import ConnectorStatusStatus
     from rhoas_connector_mgmt_sdk.model.kafka_connection_settings import KafkaConnectionSettings
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['ConnectorConfiguration'] = ConnectorConfiguration
     globals()['ConnectorDesiredState'] = ConnectorDesiredState
     globals()['ConnectorMeta'] = ConnectorMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ConnectorStatus'] = ConnectorStatus
     globals()['ConnectorStatusStatus'] = ConnectorStatusStatus
     globals()['KafkaConnectionSettings'] = KafkaConnectionSettings
@@ -120,6 +122,7 @@ class Connector(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'channel': (Channel,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'resource_version': (int,),  # noqa: E501
             'schema_registry': (SchemaRegistryConnectionSettings,),  # noqa: E501
             'status': (ConnectorStatusStatus,),  # noqa: E501
@@ -145,6 +148,7 @@ class Connector(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'channel': 'channel',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
         'resource_version': 'resource_version',  # noqa: E501
         'schema_registry': 'schema_registry',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -203,6 +207,7 @@ class Connector(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
             schema_registry (SchemaRegistryConnectionSettings): [optional]  # noqa: E501
             status (ConnectorStatusStatus): [optional]  # noqa: E501
@@ -323,6 +328,7 @@ class Connector(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
             schema_registry (SchemaRegistryConnectionSettings): [optional]  # noqa: E501
             status (ConnectorStatusStatus): [optional]  # noqa: E501

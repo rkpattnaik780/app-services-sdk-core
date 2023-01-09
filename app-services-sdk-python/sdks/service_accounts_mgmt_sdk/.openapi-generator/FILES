@@ -8,6 +8,10 @@ docs/DefaultApi.md
 docs/Error.md
 docs/Otp.md
 docs/RedHatErrorRepresentation.md
+docs/SSOHealthResult.md
+docs/SSOHealthResultError.md
+docs/SSOHealthResultErrorStackTraceInner.md
+docs/SSOHealthResultErrorSuppressedInner.md
 docs/ServiceAccountCreateRequestData.md
 docs/ServiceAccountData.md
 docs/ServiceAccountRequestData.md
@@ -34,6 +38,10 @@ rhoas_service_accounts_mgmt_sdk/model/red_hat_error_representation.py
 rhoas_service_accounts_mgmt_sdk/model/service_account_create_request_data.py
 rhoas_service_accounts_mgmt_sdk/model/service_account_data.py
 rhoas_service_accounts_mgmt_sdk/model/service_account_request_data.py
+rhoas_service_accounts_mgmt_sdk/model/sso_health_result.py
+rhoas_service_accounts_mgmt_sdk/model/sso_health_result_error.py
+rhoas_service_accounts_mgmt_sdk/model/sso_health_result_error_stack_trace_inner.py
+rhoas_service_accounts_mgmt_sdk/model/sso_health_result_error_suppressed_inner.py
 rhoas_service_accounts_mgmt_sdk/model/validation_exception_data.py
 rhoas_service_accounts_mgmt_sdk/model_utils.py
 rhoas_service_accounts_mgmt_sdk/models/__init__.py
@@ -55,5 +63,9 @@ test/test_service_account_create_request_data.py
 test/test_service_account_data.py
 test/test_service_account_request_data.py
 test/test_service_accounts_api.py
+test/test_sso_health_result.py
+test/test_sso_health_result_error.py
+test/test_sso_health_result_error_stack_trace_inner.py
+test/test_sso_health_result_error_suppressed_inner.py
 test/test_validation_exception_data.py
 tox.ini

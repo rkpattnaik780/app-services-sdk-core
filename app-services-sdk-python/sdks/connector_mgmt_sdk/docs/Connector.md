@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **modified_at** | **datetime** |  | [optional] 
 **channel** | [**Channel**](Channel.md) |  | [optional] 
+**annotations** | [**ConnectorResourceAnnotations**](ConnectorResourceAnnotations.md) |  | [optional] 
 **resource_version** | **int** |  | [optional] 
 **schema_registry** | [**SchemaRegistryConnectionSettings**](SchemaRegistryConnectionSettings.md) |  | [optional] 
 **status** | [**ConnectorStatusStatus**](ConnectorStatusStatus.md) |  | [optional] 

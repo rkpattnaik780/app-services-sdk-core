@@ -34,10 +34,12 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_namespace_meta_all_of import ConnectorNamespaceMetaAllOf
     from rhoas_connector_mgmt_sdk.model.connector_namespace_quota import ConnectorNamespaceQuota
     from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.object_meta import ObjectMeta
     globals()['ConnectorNamespaceMetaAllOf'] = ConnectorNamespaceMetaAllOf
     globals()['ConnectorNamespaceQuota'] = ConnectorNamespaceQuota
     globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ObjectMeta'] = ObjectMeta
 
 
@@ -103,7 +105,7 @@ class ConnectorNamespaceMeta(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'annotations': ({str: (str,)},),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'resource_version': (int,),  # noqa: E501
             'quota': (ConnectorNamespaceQuota,),  # noqa: E501
         }
@@ -166,7 +168,7 @@ class ConnectorNamespaceMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.. [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
             quota (ConnectorNamespaceQuota): [optional]  # noqa: E501
         """
@@ -276,7 +278,7 @@ class ConnectorNamespaceMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.. [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
             quota (ConnectorNamespaceQuota): [optional]  # noqa: E501
         """

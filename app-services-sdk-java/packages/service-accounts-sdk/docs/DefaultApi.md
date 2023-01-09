@@ -5,6 +5,7 @@ All URIs are relative to *https://sso.redhat.com/auth/realms/redhat-external*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAuthenticationPolicy**](DefaultApi.md#getAuthenticationPolicy) | **GET** /apis/organizations/v1/{id}/authentication-policy | Get current authentication policy information
+[**getSmoketestByName**](DefaultApi.md#getSmoketestByName) | **GET** /apis/smoketest/v1/smoketests/{checkName} | 
 [**setAuthenticationPolicy**](DefaultApi.md#setAuthenticationPolicy) | **POST** /apis/organizations/v1/{id}/authentication-policy | Update current authentication policy information
 
 
@@ -87,6 +88,83 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 
 
+## getSmoketestByName
+
+> SSOHealthResult getSmoketestByName(checkName)
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.openshift.cloud.api.serviceaccounts.invoker.ApiClient;
+import com.openshift.cloud.api.serviceaccounts.invoker.ApiException;
+import com.openshift.cloud.api.serviceaccounts.invoker.Configuration;
+import com.openshift.cloud.api.serviceaccounts.invoker.auth.*;
+import com.openshift.cloud.api.serviceaccounts.invoker.models.*;
+import com.openshift.cloud.api.serviceaccounts.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://sso.redhat.com/auth/realms/redhat-external");
+        
+        // Configure OAuth2 access token for authorization: authFlow
+        OAuth authFlow = (OAuth) defaultClient.getAuthentication("authFlow");
+        authFlow.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        // Configure OAuth2 access token for authorization: serviceAccounts
+        OAuth serviceAccounts = (OAuth) defaultClient.getAuthentication("serviceAccounts");
+        serviceAccounts.setAccessToken("YOUR ACCESS TOKEN");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        String checkName = "checkName_example"; // String | 
+        try {
+            SSOHealthResult result = apiInstance.getSmoketestByName(checkName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getSmoketestByName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **checkName** | **String**|  |
+
+### Return type
+
+[**SSOHealthResult**](SSOHealthResult.md)
+
+### Authorization
+
+[authFlow](../README.md#authFlow), [bearerAuth](../README.md#bearerAuth), [serviceAccounts](../README.md#serviceAccounts)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **0** | default response |  -  |
+
+
 ## setAuthenticationPolicy
 
 > AuthenticationPolicy setAuthenticationPolicy(id, authenticationPolicy)
@@ -156,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

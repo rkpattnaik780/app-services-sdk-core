@@ -15,8 +15,10 @@ import unittest
 import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.channel import Channel
 from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 globals()['Channel'] = Channel
 globals()['ConnectorDesiredState'] = ConnectorDesiredState
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_request_meta import ConnectorRequestMeta
 
 

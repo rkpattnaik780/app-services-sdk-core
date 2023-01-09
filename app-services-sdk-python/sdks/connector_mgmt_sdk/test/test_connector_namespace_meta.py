@@ -16,10 +16,12 @@ import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.connector_namespace_meta_all_of import ConnectorNamespaceMetaAllOf
 from rhoas_connector_mgmt_sdk.model.connector_namespace_quota import ConnectorNamespaceQuota
 from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.object_meta import ObjectMeta
 globals()['ConnectorNamespaceMetaAllOf'] = ConnectorNamespaceMetaAllOf
 globals()['ConnectorNamespaceQuota'] = ConnectorNamespaceQuota
 globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ObjectMeta'] = ObjectMeta
 from rhoas_connector_mgmt_sdk.model.connector_namespace_meta import ConnectorNamespaceMeta
 

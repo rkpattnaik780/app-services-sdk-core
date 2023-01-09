@@ -58,7 +58,7 @@ export const AcsTenantsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication serviceAccounts required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "serviceAccounts", ["api.iam.acs"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "serviceAccounts", ["api.iam.clients"], configuration)
 
 
     
@@ -99,7 +99,7 @@ export const AcsTenantsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication serviceAccounts required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "serviceAccounts", ["api.iam.acs"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "serviceAccounts", ["api.iam.clients"], configuration)
 
 
     

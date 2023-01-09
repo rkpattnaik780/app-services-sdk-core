@@ -35,6 +35,7 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_configuration import ConnectorConfiguration
     from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
     from rhoas_connector_mgmt_sdk.model.connector_request_meta import ConnectorRequestMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.kafka_connection_settings import KafkaConnectionSettings
     from rhoas_connector_mgmt_sdk.model.schema_registry_connection_settings import SchemaRegistryConnectionSettings
     from rhoas_connector_mgmt_sdk.model.service_account import ServiceAccount
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['ConnectorConfiguration'] = ConnectorConfiguration
     globals()['ConnectorDesiredState'] = ConnectorDesiredState
     globals()['ConnectorRequestMeta'] = ConnectorRequestMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['KafkaConnectionSettings'] = KafkaConnectionSettings
     globals()['SchemaRegistryConnectionSettings'] = SchemaRegistryConnectionSettings
     globals()['ServiceAccount'] = ServiceAccount
@@ -108,6 +110,7 @@ class ConnectorRequest(ModelComposed):
             'service_account': (ServiceAccount,),  # noqa: E501
             'connector': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'channel': (Channel,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'schema_registry': (SchemaRegistryConnectionSettings,),  # noqa: E501
         }
 
@@ -125,6 +128,7 @@ class ConnectorRequest(ModelComposed):
         'service_account': 'service_account',  # noqa: E501
         'connector': 'connector',  # noqa: E501
         'channel': 'channel',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
         'schema_registry': 'schema_registry',  # noqa: E501
     }
 
@@ -175,6 +179,7 @@ class ConnectorRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             schema_registry (SchemaRegistryConnectionSettings): [optional]  # noqa: E501
         """
 
@@ -287,6 +292,7 @@ class ConnectorRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             schema_registry (SchemaRegistryConnectionSettings): [optional]  # noqa: E501
         """
 

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Red Hat Openshift SmartEvents Fleet Manager V1
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  * The API exposed by the fleet manager of the SmartEvents service.
  *
  * The version of the OpenAPI document: 0.0.1
@@ -13,11 +13,7 @@
  */
 
 
-import { Action } from './action';
-import { BaseFilter } from './base-filter';
 import { ManagedResourceStatus } from './managed-resource-status';
-import { ProcessorType } from './processor-type';
-import { Source } from './source';
 
 /**
  * 
@@ -26,25 +22,19 @@ import { Source } from './source';
  */
 export interface ProcessorResponse {
     /**
-     * 
+     * The kind (type) of this resource
      * @type {string}
      * @memberof ProcessorResponse
      */
     'kind': string;
     /**
-     * 
+     * The unique identifier of this resource
      * @type {string}
      * @memberof ProcessorResponse
      */
     'id': string;
     /**
-     * 
-     * @type {string}
-     * @memberof ProcessorResponse
-     */
-    'name'?: string;
-    /**
-     * 
+     * The URL of this resource, without the protocol
      * @type {string}
      * @memberof ProcessorResponse
      */
@@ -74,41 +64,23 @@ export interface ProcessorResponse {
      */
     'status': ManagedResourceStatus;
     /**
-     * 
+     * The user that owns this resource
      * @type {string}
      * @memberof ProcessorResponse
      */
     'owner': string;
     /**
-     * 
-     * @type {ProcessorType}
-     * @memberof ProcessorResponse
-     */
-    'type': ProcessorType;
-    /**
-     * 
-     * @type {Set<BaseFilter>}
-     * @memberof ProcessorResponse
-     */
-    'filters'?: Set<BaseFilter>;
-    /**
-     * 
+     * The name of the processor
      * @type {string}
      * @memberof ProcessorResponse
      */
-    'transformationTemplate'?: string;
+    'name': string;
     /**
-     * 
-     * @type {Action}
+     * The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
+     * @type {object}
      * @memberof ProcessorResponse
      */
-    'action'?: Action;
-    /**
-     * 
-     * @type {Source}
-     * @memberof ProcessorResponse
-     */
-    'source'?: Source;
+    'flows': object;
     /**
      * 
      * @type {string}

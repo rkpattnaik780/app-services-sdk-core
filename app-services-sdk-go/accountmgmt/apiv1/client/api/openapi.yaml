@@ -148,8 +148,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -157,8 +157,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -196,8 +196,8 @@ paths:
       summary: Returns a list of accounts
     post:
       parameters:
-      - description: If true, instructs API to avoid making any changes, but rather
-          run through validations only.
+      - description: "If true, instructs API to avoid making any changes, but rather\
+          \ run through validations only."
         explode: true
         in: query
         name: dryRun
@@ -269,8 +269,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -278,8 +278,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -287,8 +287,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the RHIT account_id in the output. Could slow
-          request response time.
+      - description: "If true, includes the RHIT account_id in the output. Could slow\
+          \ request response time."
         explode: true
         in: query
         name: fetchRhit
@@ -1061,8 +1061,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClusterAuthorizationResponse'
-          description: The authorization is successful, the requested cluster has
-            a valid subscription and is within resource limits.
+          description: "The authorization is successful, the requested cluster has\
+            \ a valid subscription and is within resource limits."
         "400":
           content:
             application/json:
@@ -1124,9 +1124,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClusterRegistrationResponse'
-          description: No cluster with the specified cluster exists, one was successfully
-            created and associated with the account with the specified registry credential
-            token
+          description: "No cluster with the specified cluster exists, one was successfully\
+            \ created and associated with the account with the specified registry\
+            \ credential token"
         "400":
           content:
             application/json:
@@ -1646,8 +1646,8 @@ paths:
   /api/accounts_mgmt/v1/current_account:
     get:
       parameters:
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -2161,9 +2161,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/NotificationRequest'
-        description: The contents of the notification to send to the owner of a cluster/subscription
-          in addition to the set of template parameters which are sent automatically
-          ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID
+        description: "The contents of the notification to send to the owner of a cluster/subscription\
+          \ in addition to the set of template parameters which are sent automatically\
+          \ ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID"
         required: true
       responses:
         "202":
@@ -2272,8 +2272,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -2281,8 +2281,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -2393,8 +2393,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -2402,8 +2402,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -3520,7 +3520,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: If true, includes that ConsumedQuota should be recalculated.
+      - description: "If true, includes that ConsumedQuota should be recalculated."
         explode: true
         in: query
         name: forceRecalc
@@ -3601,8 +3601,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the related resources in the output. Could
-          slow request response time.
+      - description: "If true, includes the related resources in the output. Could\
+          \ slow request response time."
         explode: true
         in: query
         name: fetchRelatedResources
@@ -3610,7 +3610,7 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes that ConsumedQuota should be recalculated.
+      - description: "If true, includes that ConsumedQuota should be recalculated."
         explode: true
         in: query
         name: forceRecalc
@@ -3618,8 +3618,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the marketplace cloud accounts in the output.
-          Could slow request response time.
+      - description: "If true, includes the marketplace cloud accounts in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchCloudAccounts
@@ -4240,8 +4240,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the related resources in the output. Could
-          slow request response time.
+      - description: "If true, includes the related resources in the output. Could\
+          \ slow request response time."
         explode: true
         in: query
         name: fetchRelatedResources
@@ -4249,8 +4249,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the marketplace cloud accounts in the output.
-          Could slow request response time.
+      - description: "If true, includes the marketplace cloud accounts in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchCloudAccounts
@@ -5708,8 +5708,8 @@ paths:
   /api/accounts_mgmt/v1/self_entitlement/{product}:
     post:
       parameters:
-      - description: The product for self_entitlement. The supported products are
-          [rosa].
+      - description: "The product for self_entitlement. The supported products are\
+          \ [rosa]."
         explode: false
         in: path
         name: product
@@ -6171,8 +6171,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the account reference information in the output.
-          Could slow request response time.
+      - description: "If true, includes the account reference information in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchAccounts
@@ -6180,8 +6180,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -6189,8 +6189,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -6387,8 +6387,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: If true, includes the account reference information in the output.
-          Could slow request response time.
+      - description: "If true, includes the account reference information in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchAccounts
@@ -6396,8 +6396,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the labels on a subscription/organization/account
-          in the output. Could slow request response time.
+      - description: "If true, includes the labels on a subscription/organization/account\
+          \ in the output. Could slow request response time."
         explode: true
         in: query
         name: fetchLabels
@@ -6405,8 +6405,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, includes the capabilities on a subscription in the output.
-          Could slow request response time.
+      - description: "If true, includes the capabilities on a subscription in the\
+          \ output. Could slow request response time."
         explode: true
         in: query
         name: fetchCapabilities
@@ -6414,9 +6414,9 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: If true, fetches, from the clusters service, the total numbers
-          of CPU's and sockets under an obligation, and includes in the output. Could
-          slow request response time.
+      - description: "If true, fetches, from the clusters service, the total numbers\
+          \ of CPU's and sockets under an obligation, and includes in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchCpuAndSocket
@@ -6948,9 +6948,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/NotificationRequest'
-        description: The contents of the notification to send to the owner of a subscription
-          in addition to the set of template parameters which are sent automatically
-          ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID
+        description: "The contents of the notification to send to the owner of a subscription\
+          \ in addition to the set of template parameters which are sent automatically\
+          \ ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID"
         required: true
       responses:
         "202":
@@ -7640,8 +7640,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: If true, includes the account reference information in the output.
-          Could slow request response time.
+      - description: "If true, includes the account reference information in the output.\
+          \ Could slow request response time."
         explode: true
         in: query
         name: fetchAccounts
@@ -7655,7 +7655,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SubscriptionRoleBindingList'
-          description: Subscription role bindings found, or none exist
+          description: "Subscription role bindings found, or none exist"
         "401":
           content:
             application/json:
@@ -8011,8 +8011,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-          description: Unsupported action, non-existent resource type, or non-existent
-            account
+          description: "Unsupported action, non-existent resource type, or non-existent\
+            \ account"
         "500":
           content:
             application/json:
@@ -8158,9 +8158,9 @@ paths:
     post:
       deprecated: true
       parameters:
-      - description: If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,
-          if those are already included in one of the organizations provided in organization_ids,
-          do not include it in the list.
+      - description: "If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,\
+          \ if those are already included in one of the organizations provided in\
+          \ organization_ids, do not include it in the list."
         explode: true
         in: query
         name: reduceClusterList
@@ -8214,8 +8214,8 @@ paths:
           description: Unexpected error occurred while generating access review
       security:
       - Bearer: []
-      summary: Obtain resource ids for resources an account may perform the specified
-        action upon. Resource ids returned as ["*"] is shorthand for all ids.
+      summary: "Obtain resource ids for resources an account may perform the specified\
+        \ action upon. Resource ids returned as [\"*\"] is shorthand for all ids."
   /api/authorizations/v1/self_access_review:
     post:
       requestBody:
@@ -8312,9 +8312,9 @@ paths:
   /api/authorizations/v1/self_resource_review:
     post:
       parameters:
-      - description: If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,
-          if those are already included in one of the organizations provided in organization_ids,
-          do not include it in the list.
+      - description: "If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,\
+          \ if those are already included in one of the organizations provided in\
+          \ organization_ids, do not include it in the list."
         explode: true
         in: query
         name: reduceClusterList
@@ -8368,8 +8368,8 @@ paths:
           description: Unexpected error occurred while generating access review
       security:
       - Bearer: []
-      summary: Obtain resource ids for resources you may perform the specified action
-        upon. Resource ids returned as ["*"] is shorthand for all ids.
+      summary: "Obtain resource ids for resources you may perform the specified action\
+        \ upon. Resource ids returned as [\"*\"] is shorthand for all ids."
   /api/authorizations/v1/self_terms_review:
     post:
       requestBody:
@@ -8460,8 +8460,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-          description: Unsupported action, non-existent resource type, or non-existent
-            account
+          description: "Unsupported action, non-existent resource type, or non-existent\
+            \ account"
         "500":
           content:
             application/json:
@@ -8510,8 +8510,8 @@ components:
         type: string
       style: simple
     dryRun:
-      description: If true, instructs API to avoid making any changes, but rather
-        run through validations only.
+      description: "If true, instructs API to avoid making any changes, but rather\
+        \ run through validations only."
       explode: true
       in: query
       name: dryRun
@@ -8529,8 +8529,8 @@ components:
         type: string
       style: simple
     fetchAccounts:
-      description: If true, includes the account reference information in the output.
-        Could slow request response time.
+      description: "If true, includes the account reference information in the output.\
+        \ Could slow request response time."
       explode: true
       in: query
       name: fetchAccounts
@@ -8539,8 +8539,8 @@ components:
         type: boolean
       style: form
     fetchCapabilities:
-      description: If true, includes the capabilities on a subscription in the output.
-        Could slow request response time.
+      description: "If true, includes the capabilities on a subscription in the output.\
+        \ Could slow request response time."
       explode: true
       in: query
       name: fetchCapabilities
@@ -8549,8 +8549,8 @@ components:
         type: boolean
       style: form
     fetchCloudAccounts:
-      description: If true, includes the marketplace cloud accounts in the output.
-        Could slow request response time.
+      description: "If true, includes the marketplace cloud accounts in the output.\
+        \ Could slow request response time."
       explode: true
       in: query
       name: fetchCloudAccounts
@@ -8559,9 +8559,9 @@ components:
         type: boolean
       style: form
     fetchCpuAndSocket:
-      description: If true, fetches, from the clusters service, the total numbers
-        of CPU's and sockets under an obligation, and includes in the output. Could
-        slow request response time.
+      description: "If true, fetches, from the clusters service, the total numbers\
+        \ of CPU's and sockets under an obligation, and includes in the output. Could\
+        \ slow request response time."
       explode: true
       in: query
       name: fetchCpuAndSocket
@@ -8570,8 +8570,8 @@ components:
         type: boolean
       style: form
     fetchLabels:
-      description: If true, includes the labels on a subscription/organization/account
-        in the output. Could slow request response time.
+      description: "If true, includes the labels on a subscription/organization/account\
+        \ in the output. Could slow request response time."
       explode: true
       in: query
       name: fetchLabels
@@ -8580,8 +8580,8 @@ components:
         type: boolean
       style: form
     fetchRelatedResources:
-      description: If true, includes the related resources in the output. Could slow
-        request response time.
+      description: "If true, includes the related resources in the output. Could slow\
+        \ request response time."
       explode: true
       in: query
       name: fetchRelatedResources
@@ -8590,8 +8590,8 @@ components:
         type: boolean
       style: form
     fetchRhit:
-      description: If true, includes the RHIT account_id in the output. Could slow
-        request response time.
+      description: "If true, includes the RHIT account_id in the output. Could slow\
+        \ request response time."
       explode: true
       in: query
       name: fetchRhit
@@ -8617,7 +8617,7 @@ components:
         type: string
       style: form
     forceRecalc:
-      description: If true, includes that ConsumedQuota should be recalculated.
+      description: "If true, includes that ConsumedQuota should be recalculated."
       explode: true
       in: query
       name: forceRecalc
@@ -8740,7 +8740,7 @@ components:
         type: integer
       style: form
     product:
-      description: The product for self_entitlement. The supported products are [rosa].
+      description: "The product for self_entitlement. The supported products are [rosa]."
       explode: false
       in: path
       name: product
@@ -8758,9 +8758,9 @@ components:
         type: string
       style: simple
     reduceClusterList:
-      description: If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,
-        if those are already included in one of the organizations provided in organization_ids,
-        do not include it in the list.
+      description: "If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids,\
+        \ if those are already included in one of the organizations provided in organization_ids,\
+        \ do not include it in the list."
       explode: true
       in: query
       name: reduceClusterList
@@ -8983,7 +8983,7 @@ components:
     AccessTokenCfg:
       example:
         auths:
-          key: '{}'
+          key: ""
       properties:
         auths:
           additionalProperties: true
@@ -9776,13 +9776,7 @@ components:
       - $ref: '#/components/schemas/Registry_allOf'
     RegistryAddress:
       additionalProperties:
-        properties:
-          auth:
-            type: string
-          email:
-            format: email
-            type: string
-        type: object
+        $ref: '#/components/schemas/RegistryAddress_value'
       type: object
     RegistryCreateRequest:
       allOf:
@@ -10587,7 +10581,8 @@ components:
           type: string
       type: object
     TokenAuthorizationResponse:
-      example: {}
+      example:
+        account: null
       properties:
         account:
           $ref: '#/components/schemas/Account'
@@ -10638,6 +10633,7 @@ components:
       required:
       - username
       type: object
+      example: null
     AccountGroup_allOf:
       properties:
         created_at:
@@ -10663,6 +10659,7 @@ components:
       - name
       - organization_id
       type: object
+      example: null
     AccountGroupAssignment_allOf:
       properties:
         account_group_id:
@@ -10679,6 +10676,7 @@ components:
       - account_group_id
       - account_id
       type: object
+      example: null
     AccountGroupAssignmentList_allOf:
       properties:
         items:
@@ -10687,6 +10685,7 @@ components:
             - $ref: '#/components/schemas/AccountGroupAssignment'
           type: array
       type: object
+      example: null
     AccountGroupList_allOf:
       properties:
         items:
@@ -10695,6 +10694,7 @@ components:
             - $ref: '#/components/schemas/AccountGroup'
           type: array
       type: object
+      example: null
     AccountGroupRequest_allOf:
       properties:
         description:
@@ -10705,6 +10705,7 @@ components:
       - description
       - name
       type: object
+      example: null
     AccountList_allOf:
       properties:
         items:
@@ -10713,6 +10714,7 @@ components:
             - $ref: '#/components/schemas/Account'
           type: array
       type: object
+      example: null
     AccountReference_allOf:
       properties:
         email:
@@ -10722,6 +10724,7 @@ components:
         username:
           type: string
       type: object
+      example: null
     Capability_allOf:
       properties:
         inherited:
@@ -10735,6 +10738,7 @@ components:
       - name
       - value
       type: object
+      example: null
     CloudResource_allOf:
       properties:
         active:
@@ -10775,6 +10779,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     CloudResourceList_allOf:
       properties:
         items:
@@ -10782,6 +10787,7 @@ components:
             $ref: '#/components/schemas/CloudResource'
           type: array
       type: object
+      example: null
     ClusterResource_total:
       properties:
         unit:
@@ -10820,6 +10826,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     ClusterTransferList_allOf:
       properties:
         items:
@@ -10828,6 +10835,7 @@ components:
             - $ref: '#/components/schemas/ClusterTransfer'
           type: array
       type: object
+      example: null
     ConsumedQuota_allOf:
       properties:
         availability_zone_type:
@@ -10854,6 +10862,7 @@ components:
       - byoc
       - count
       type: object
+      example: null
     ConsumedQuotaList_allOf:
       properties:
         items:
@@ -10861,6 +10870,7 @@ components:
             $ref: '#/components/schemas/ConsumedQuota'
           type: array
       type: object
+      example: null
     DeletedSubscription_allOf:
       properties:
         created_at:
@@ -10874,6 +10884,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     DeletedSubscriptionList_allOf:
       properties:
         items:
@@ -10881,6 +10892,7 @@ components:
             $ref: '#/components/schemas/DeletedSubscription'
           type: array
       type: object
+      example: null
     Error_allOf:
       properties:
         code:
@@ -10890,6 +10902,7 @@ components:
         reason:
           type: string
       type: object
+      example: null
     ErrorList_allOf:
       properties:
         items:
@@ -10897,6 +10910,7 @@ components:
             $ref: '#/components/schemas/Error'
           type: array
       type: object
+      example: null
     ExcessResource_allOf:
       properties:
         availability_zone_type:
@@ -10914,6 +10928,7 @@ components:
       required:
       - byoc
       type: object
+      example: null
     FeatureToggle_allOf:
       properties:
         enabled:
@@ -10922,6 +10937,7 @@ components:
       required:
       - enabled
       type: object
+      example: null
     FeatureToggleQueryRequest_allOf:
       properties:
         organization_id:
@@ -10929,6 +10945,7 @@ components:
       required:
       - organization_id
       type: object
+      example: null
     Label_allOf:
       properties:
         account_id:
@@ -10956,6 +10973,7 @@ components:
       - key
       - value
       type: object
+      example: null
     LabelList_allOf:
       properties:
         items:
@@ -10963,6 +10981,7 @@ components:
             $ref: '#/components/schemas/Label'
           type: array
       type: object
+      example: null
     LandingPageCTLItem_shape:
       example:
         link:
@@ -10992,6 +11011,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     MetricsList_allOf:
       properties:
         items:
@@ -10999,6 +11019,7 @@ components:
             $ref: '#/components/schemas/Metric'
           type: array
       type: object
+      example: null
     Organization_allOf:
       properties:
         capabilities:
@@ -11022,6 +11043,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     OrganizationList_allOf:
       properties:
         items:
@@ -11030,6 +11052,7 @@ components:
             - $ref: '#/components/schemas/Organization'
           type: array
       type: object
+      example: null
     Permission_allOf:
       properties:
         action:
@@ -11043,6 +11066,7 @@ components:
         resource:
           type: string
       type: object
+      example: null
     PermissionList_allOf:
       properties:
         items:
@@ -11050,6 +11074,7 @@ components:
             $ref: '#/components/schemas/Permission'
           type: array
       type: object
+      example: null
     Plan_allOf:
       properties:
         category:
@@ -11059,6 +11084,7 @@ components:
         type:
           type: string
       type: object
+      example: null
     PlanList_allOf:
       properties:
         items:
@@ -11066,6 +11092,7 @@ components:
             $ref: '#/components/schemas/Plan'
           type: array
       type: object
+      example: null
     Quota_allOf:
       properties:
         created_at:
@@ -11079,6 +11106,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     QuotaCost_allOf:
       properties:
         allowed:
@@ -11104,6 +11132,7 @@ components:
       - consumed
       - quota_id
       type: object
+      example: null
     QuotaCostList_allOf:
       properties:
         items:
@@ -11111,6 +11140,7 @@ components:
             $ref: '#/components/schemas/QuotaCost'
           type: array
       type: object
+      example: null
     QuotaList_allOf:
       properties:
         items:
@@ -11118,6 +11148,7 @@ components:
             $ref: '#/components/schemas/Quota'
           type: array
       type: object
+      example: null
     QuotaRules_allOf:
       properties:
         availability_zone:
@@ -11141,6 +11172,7 @@ components:
       required:
       - cost
       type: object
+      example: null
     QuotaRulesList_allOf:
       properties:
         items:
@@ -11148,6 +11180,7 @@ components:
             $ref: '#/components/schemas/QuotaRules'
           type: array
       type: object
+      example: null
     Registry_allOf:
       properties:
         cloudAlias:
@@ -11169,6 +11202,15 @@ components:
         url:
           type: string
       type: object
+      example: null
+    RegistryAddress_value:
+      properties:
+        auth:
+          type: string
+        email:
+          format: email
+          type: string
+      type: object
     RegistryCredential_allOf:
       properties:
         account:
@@ -11188,6 +11230,7 @@ components:
         username:
           type: string
       type: object
+      example: null
     RegistryCredentialList_allOf:
       properties:
         items:
@@ -11195,6 +11238,7 @@ components:
             $ref: '#/components/schemas/RegistryCredential'
           type: array
       type: object
+      example: null
     RegistryList_allOf:
       properties:
         items:
@@ -11202,6 +11246,7 @@ components:
             $ref: '#/components/schemas/Registry'
           type: array
       type: object
+      example: null
     RelatedResource_allOf:
       properties:
         availability_zone_type:
@@ -11232,6 +11277,7 @@ components:
       - resource_anme
       - resource_type
       type: object
+      example: null
     ReservedResource_allOf:
       properties:
         availability_zone_type:
@@ -11261,6 +11307,7 @@ components:
       required:
       - byoc
       type: object
+      example: null
     ReservedResourceList_allOf:
       properties:
         items:
@@ -11268,6 +11315,7 @@ components:
             $ref: '#/components/schemas/ReservedResource'
           type: array
       type: object
+      example: null
     ResourceQuota_allOf:
       properties:
         created_at:
@@ -11291,6 +11339,7 @@ components:
       required:
       - sku_count
       type: object
+      example: null
     ResourceQuotaList_allOf:
       properties:
         items:
@@ -11298,6 +11347,7 @@ components:
             $ref: '#/components/schemas/ResourceQuota'
           type: array
       type: object
+      example: null
     Role_allOf:
       properties:
         name:
@@ -11307,6 +11357,7 @@ components:
             $ref: '#/components/schemas/Permission'
           type: array
       type: object
+      example: null
     RoleBinding_allOf:
       properties:
         account:
@@ -11339,6 +11390,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     RoleBindingList_allOf:
       properties:
         items:
@@ -11346,6 +11398,7 @@ components:
             $ref: '#/components/schemas/RoleBinding'
           type: array
       type: object
+      example: null
     RoleList_allOf:
       properties:
         items:
@@ -11353,6 +11406,7 @@ components:
             $ref: '#/components/schemas/Role'
           type: array
       type: object
+      example: null
     SKU_allOf:
       properties:
         created_at:
@@ -11364,6 +11418,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     SelfServiceLandingPageSchema_configTryLearn:
       example:
         try:
@@ -11428,6 +11483,7 @@ components:
             $ref: '#/components/schemas/SKU'
           type: array
       type: object
+      example: null
     SkuRules_allOf:
       properties:
         allowed:
@@ -11437,6 +11493,7 @@ components:
         sku:
           type: string
       type: object
+      example: null
     SkuRulesList_allOf:
       properties:
         items:
@@ -11444,6 +11501,7 @@ components:
             $ref: '#/components/schemas/SkuRules'
           type: array
       type: object
+      example: null
     Subscription_allOf:
       properties:
         capabilities:
@@ -11478,11 +11536,12 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     SubscriptionCommonFields_allOf:
       properties:
         billing_expiration_date:
-          description: If set, the date the subscription expires based on the billing
-            model
+          description: "If set, the date the subscription expires based on the billing\
+            \ model"
           format: date-time
           type: string
         billing_marketplace_account:
@@ -11562,7 +11621,7 @@ components:
           - Sockets
           type: string
         trial_end_date:
-          description: If the subscription is a trial, date the trial ends
+          description: "If the subscription is a trial, date the trial ends"
           format: date-time
           type: string
         usage:
@@ -11575,6 +11634,7 @@ components:
       required:
       - managed
       type: object
+      example: null
     SubscriptionList_allOf:
       properties:
         items:
@@ -11582,11 +11642,13 @@ components:
             $ref: '#/components/schemas/Subscription'
           type: array
       type: object
+      example: null
     SubscriptionMetric_allOf:
       properties:
         _id:
           type: string
       type: object
+      example: null
     SubscriptionMetricList_allOf:
       properties:
         items:
@@ -11594,6 +11656,7 @@ components:
             $ref: '#/components/schemas/SubscriptionMetric'
           type: array
       type: object
+      example: null
     SubscriptionRoleBinding_allOf:
       properties:
         account:
@@ -11613,6 +11676,7 @@ components:
           format: date-time
           type: string
       type: object
+      example: null
     SubscriptionRoleBindingList_allOf:
       properties:
         items:
@@ -11620,6 +11684,7 @@ components:
             $ref: '#/components/schemas/SubscriptionRoleBinding'
           type: array
       type: object
+      example: null
     Summary_allOf:
       properties:
         metrics:
@@ -11631,6 +11696,7 @@ components:
       required:
       - metrics
       type: object
+      example: null
     SummaryMetrics_allOf:
       properties:
         name:
@@ -11640,6 +11706,7 @@ components:
             $ref: '#/components/schemas/SummaryVector'
           type: array
       type: object
+      example: null
     SummaryVector_allOf:
       properties:
         time:
@@ -11648,9 +11715,10 @@ components:
         value:
           type: double
       type: object
+      example: null
   securitySchemes:
     AccessToken:
-      description: 'Authorization: AccessToken {cluster-uuid}:{access-token}'
+      description: "Authorization: AccessToken {cluster-uuid}:{access-token}"
       in: header
       name: Authorization
       type: apiKey

@@ -16,9 +16,11 @@ import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.connector_namespace_request_all_of import ConnectorNamespaceRequestAllOf
 from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
 from rhoas_connector_mgmt_sdk.model.connector_namespace_tenant_kind import ConnectorNamespaceTenantKind
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 globals()['ConnectorNamespaceRequestAllOf'] = ConnectorNamespaceRequestAllOf
 globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
 globals()['ConnectorNamespaceTenantKind'] = ConnectorNamespaceTenantKind
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_namespace_request import ConnectorNamespaceRequest
 
 

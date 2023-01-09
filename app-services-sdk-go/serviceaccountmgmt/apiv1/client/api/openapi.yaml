@@ -32,8 +32,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AcsClientRequestData'
-        description: The name, redirect URIs and the organization id of the ACS managed
-          central client
+        description: "The name, redirect URIs and the organization id of the ACS managed\
+          \ central client"
         required: true
       responses:
         "201":
@@ -75,10 +75,10 @@ paths:
                   $ref: '#/components/examples/405AcsApiDisabled'
               schema:
                 $ref: '#/components/schemas/RedHatErrorRepresentation'
-          description: Not allowed, API Currently Disabled
+          description: "Not allowed, API Currently Disabled"
       security:
       - serviceAccounts:
-        - api.iam.acs
+        - api.iam.clients
       summary: Create ACS managed central client
       tags:
       - acs_tenants
@@ -123,10 +123,10 @@ paths:
                   $ref: '#/components/examples/405AcsApiDisabled'
               schema:
                 $ref: '#/components/schemas/RedHatErrorRepresentation'
-          description: Not allowed, API Currently Disabled
+          description: "Not allowed, API Currently Disabled"
       security:
       - serviceAccounts:
-        - api.iam.acs
+        - api.iam.clients
       summary: Delete ACS managed central client
       tags:
       - acs_tenants
@@ -167,7 +167,7 @@ paths:
         style: simple
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: '#/components/schemas/AuthenticationPolicy'
       responses:
@@ -497,6 +497,24 @@ paths:
       summary: Reset service account secret by id
       tags:
       - service_accounts
+  /apis/smoketest/v1/smoketests/{checkName}:
+    get:
+      operationId: getSmoketestByName
+      parameters:
+      - explode: false
+        in: path
+        name: checkName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SSOHealthResult'
+          description: default response
 components:
   examples:
     "400FieldValidationError":
@@ -619,7 +637,7 @@ components:
           type: array
           uniqueItems: true
         orgId:
-          pattern: \d{1,10}
+          pattern: "\\d{1,10}"
           type: string
       required:
       - orgId
@@ -706,6 +724,221 @@ components:
           minLength: 0
           type: string
       type: object
+    SSOHealthResult:
+      example:
+        healthy: true
+        details:
+          key: "{}"
+        time: 6
+        message: message
+        error:
+          localizedMessage: localizedMessage
+          stackTrace:
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          suppressed:
+          - localizedMessage: localizedMessage
+            stackTrace:
+            - fileName: fileName
+              moduleVersion: moduleVersion
+              moduleName: moduleName
+              nativeMethod: true
+              methodName: methodName
+              className: className
+              lineNumber: 0
+              classLoaderName: classLoaderName
+            - fileName: fileName
+              moduleVersion: moduleVersion
+              moduleName: moduleName
+              nativeMethod: true
+              methodName: methodName
+              className: className
+              lineNumber: 0
+              classLoaderName: classLoaderName
+            message: message
+          - localizedMessage: localizedMessage
+            stackTrace:
+            - fileName: fileName
+              moduleVersion: moduleVersion
+              moduleName: moduleName
+              nativeMethod: true
+              methodName: methodName
+              className: className
+              lineNumber: 0
+              classLoaderName: classLoaderName
+            - fileName: fileName
+              moduleVersion: moduleVersion
+              moduleName: moduleName
+              nativeMethod: true
+              methodName: methodName
+              className: className
+              lineNumber: 0
+              classLoaderName: classLoaderName
+            message: message
+          message: message
+      properties:
+        message:
+          type: string
+        error:
+          $ref: '#/components/schemas/SSOHealthResult_error'
+        details:
+          additionalProperties:
+            type: object
+          type: object
+        time:
+          format: int64
+          type: integer
+        healthy:
+          type: boolean
+      type: object
+    SSOHealthResult_error_stackTrace_inner:
+      example:
+        fileName: fileName
+        moduleVersion: moduleVersion
+        moduleName: moduleName
+        nativeMethod: true
+        methodName: methodName
+        className: className
+        lineNumber: 0
+        classLoaderName: classLoaderName
+      properties:
+        classLoaderName:
+          type: string
+        moduleName:
+          type: string
+        moduleVersion:
+          type: string
+        methodName:
+          type: string
+        fileName:
+          type: string
+        lineNumber:
+          format: int32
+          type: integer
+        className:
+          type: string
+        nativeMethod:
+          type: boolean
+      type: object
+    SSOHealthResult_error_suppressed_inner:
+      example:
+        localizedMessage: localizedMessage
+        stackTrace:
+        - fileName: fileName
+          moduleVersion: moduleVersion
+          moduleName: moduleName
+          nativeMethod: true
+          methodName: methodName
+          className: className
+          lineNumber: 0
+          classLoaderName: classLoaderName
+        - fileName: fileName
+          moduleVersion: moduleVersion
+          moduleName: moduleName
+          nativeMethod: true
+          methodName: methodName
+          className: className
+          lineNumber: 0
+          classLoaderName: classLoaderName
+        message: message
+      properties:
+        stackTrace:
+          items:
+            $ref: '#/components/schemas/SSOHealthResult_error_stackTrace_inner'
+          type: array
+        message:
+          type: string
+        localizedMessage:
+          type: string
+      type: object
+    SSOHealthResult_error:
+      example:
+        localizedMessage: localizedMessage
+        stackTrace:
+        - fileName: fileName
+          moduleVersion: moduleVersion
+          moduleName: moduleName
+          nativeMethod: true
+          methodName: methodName
+          className: className
+          lineNumber: 0
+          classLoaderName: classLoaderName
+        - fileName: fileName
+          moduleVersion: moduleVersion
+          moduleName: moduleName
+          nativeMethod: true
+          methodName: methodName
+          className: className
+          lineNumber: 0
+          classLoaderName: classLoaderName
+        suppressed:
+        - localizedMessage: localizedMessage
+          stackTrace:
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          message: message
+        - localizedMessage: localizedMessage
+          stackTrace:
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          - fileName: fileName
+            moduleVersion: moduleVersion
+            moduleName: moduleName
+            nativeMethod: true
+            methodName: methodName
+            className: className
+            lineNumber: 0
+            classLoaderName: classLoaderName
+          message: message
+        message: message
+      properties:
+        stackTrace:
+          items:
+            $ref: '#/components/schemas/SSOHealthResult_error_stackTrace_inner'
+          type: array
+        message:
+          type: string
+        suppressed:
+          items:
+            $ref: '#/components/schemas/SSOHealthResult_error_suppressed_inner'
+          type: array
+        localizedMessage:
+          type: string
+      type: object
   securitySchemes:
     bearerAuth:
       bearerFormat: JWT
@@ -726,6 +959,6 @@ components:
           scopes:
             openid: Treat as an OIDC request
             api.iam.service_accounts: Grants access to the service accounts api
-            api.iam.acs: Grants access to the advanced cluster security api
+            api.iam.clients: Grants access to the advanced cluster security api
           tokenUrl: /auth/realms/redhat-external/protocol/openid-connect/token
       type: oauth2

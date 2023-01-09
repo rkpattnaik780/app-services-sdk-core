@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Red Hat Openshift SmartEvents Fleet Manager V1
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  * The API exposed by the fleet manager of the SmartEvents service.
  *
  * The version of the OpenAPI document: 0.0.1
@@ -21,13 +21,13 @@
  */
 export interface ModelError {
     /**
-     * 
+     * The kind (type) of this resource
      * @type {string}
      * @memberof ModelError
      */
     'kind': string;
     /**
-     * 
+     * The name of this resource
      * @type {string}
      * @memberof ModelError
      */

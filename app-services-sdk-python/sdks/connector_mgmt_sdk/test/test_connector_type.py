@@ -14,9 +14,11 @@ import unittest
 
 import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.channel import Channel
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_type_all_of import ConnectorTypeAllOf
 from rhoas_connector_mgmt_sdk.model.object_reference import ObjectReference
 globals()['Channel'] = Channel
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ConnectorTypeAllOf'] = ConnectorTypeAllOf
 globals()['ObjectReference'] = ObjectReference
 from rhoas_connector_mgmt_sdk.model.connector_type import ConnectorType

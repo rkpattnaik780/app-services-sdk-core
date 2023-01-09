@@ -115,9 +115,9 @@ class CloudProviderResponse(ModelNormal):
         """CloudProviderResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             display_name (str):
             enabled (bool):
 
@@ -152,7 +152,7 @@ class CloudProviderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): The name of this resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -213,9 +213,9 @@ class CloudProviderResponse(ModelNormal):
         """CloudProviderResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             display_name (str):
             enabled (bool):
 
@@ -250,7 +250,7 @@ class CloudProviderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): The name of this resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

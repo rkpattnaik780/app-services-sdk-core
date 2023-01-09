@@ -35,11 +35,13 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
     from rhoas_connector_mgmt_sdk.model.connector_meta_all_of import ConnectorMetaAllOf
     from rhoas_connector_mgmt_sdk.model.connector_request_meta import ConnectorRequestMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.object_meta import ObjectMeta
     globals()['Channel'] = Channel
     globals()['ConnectorDesiredState'] = ConnectorDesiredState
     globals()['ConnectorMetaAllOf'] = ConnectorMetaAllOf
     globals()['ConnectorRequestMeta'] = ConnectorRequestMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ObjectMeta'] = ObjectMeta
 
 
@@ -104,6 +106,7 @@ class ConnectorMeta(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'channel': (Channel,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'resource_version': (int,),  # noqa: E501
         }
 
@@ -121,6 +124,7 @@ class ConnectorMeta(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'channel': 'channel',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
         'resource_version': 'resource_version',  # noqa: E501
     }
 
@@ -171,6 +175,7 @@ class ConnectorMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
         """
 
@@ -283,6 +288,7 @@ class ConnectorMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             resource_version (int): [optional]  # noqa: E501
         """
 

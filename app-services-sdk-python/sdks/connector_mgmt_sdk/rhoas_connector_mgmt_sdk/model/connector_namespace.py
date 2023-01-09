@@ -36,12 +36,14 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_namespace_quota import ConnectorNamespaceQuota
     from rhoas_connector_mgmt_sdk.model.connector_namespace_status import ConnectorNamespaceStatus
     from rhoas_connector_mgmt_sdk.model.connector_namespace_tenant import ConnectorNamespaceTenant
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.object_reference import ObjectReference
     globals()['ConnectorNamespaceAllOf'] = ConnectorNamespaceAllOf
     globals()['ConnectorNamespaceMeta'] = ConnectorNamespaceMeta
     globals()['ConnectorNamespaceQuota'] = ConnectorNamespaceQuota
     globals()['ConnectorNamespaceStatus'] = ConnectorNamespaceStatus
     globals()['ConnectorNamespaceTenant'] = ConnectorNamespaceTenant
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ObjectReference'] = ObjectReference
 
 
@@ -109,7 +111,7 @@ class ConnectorNamespace(ModelComposed):
             'owner': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
-            'annotations': ({str: (str,)},),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'quota': (ConnectorNamespaceQuota,),  # noqa: E501
             'expiration': (str,),  # noqa: E501
         }
@@ -186,7 +188,7 @@ class ConnectorNamespace(ModelComposed):
             owner (str): [optional]  # noqa: E501
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             quota (ConnectorNamespaceQuota): [optional]  # noqa: E501
             expiration (str): Namespace expiration timestamp in RFC 3339 format. [optional]  # noqa: E501
         """
@@ -303,7 +305,7 @@ class ConnectorNamespace(ModelComposed):
             owner (str): [optional]  # noqa: E501
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             quota (ConnectorNamespaceQuota): [optional]  # noqa: E501
             expiration (str): Namespace expiration timestamp in RFC 3339 format. [optional]  # noqa: E501
         """

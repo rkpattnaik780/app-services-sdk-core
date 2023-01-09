@@ -17,11 +17,13 @@ from rhoas_connector_mgmt_sdk.model.channel import Channel
 from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
 from rhoas_connector_mgmt_sdk.model.connector_meta_all_of import ConnectorMetaAllOf
 from rhoas_connector_mgmt_sdk.model.connector_request_meta import ConnectorRequestMeta
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.object_meta import ObjectMeta
 globals()['Channel'] = Channel
 globals()['ConnectorDesiredState'] = ConnectorDesiredState
 globals()['ConnectorMetaAllOf'] = ConnectorMetaAllOf
 globals()['ConnectorRequestMeta'] = ConnectorRequestMeta
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ObjectMeta'] = ObjectMeta
 from rhoas_connector_mgmt_sdk.model.connector_meta import ConnectorMeta
 

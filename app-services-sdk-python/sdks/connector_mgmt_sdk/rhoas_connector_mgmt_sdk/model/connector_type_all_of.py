@@ -32,7 +32,9 @@ from rhoas_connector_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_connector_mgmt_sdk.model.channel import Channel
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     globals()['Channel'] = Channel
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 
 
 class ConnectorTypeAllOf(ModelNormal):
@@ -94,6 +96,7 @@ class ConnectorTypeAllOf(ModelNormal):
             'description': (str,),  # noqa: E501
             'icon_href': (str,),  # noqa: E501
             'labels': ([str],),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'featured_rank': (int,),  # noqa: E501
             'capabilities': ([str],),  # noqa: E501
             'schema': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
@@ -111,6 +114,7 @@ class ConnectorTypeAllOf(ModelNormal):
         'description': 'description',  # noqa: E501
         'icon_href': 'icon_href',  # noqa: E501
         'labels': 'labels',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
         'featured_rank': 'featured_rank',  # noqa: E501
         'capabilities': 'capabilities',  # noqa: E501
         'schema': 'schema',  # noqa: E501
@@ -163,8 +167,9 @@ class ConnectorTypeAllOf(ModelNormal):
             description (str): A description of the connector.. [optional]  # noqa: E501
             icon_href (str): URL to an icon of the connector.. [optional]  # noqa: E501
             labels ([str]): Labels used to categorize the connector. [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             featured_rank (int): Ranking for featured connectors. [optional]  # noqa: E501
-            capabilities ([str]): The capabilities supported by the conenctor. [optional]  # noqa: E501
+            capabilities ([str]): The capabilities supported by the connector. [optional]  # noqa: E501
             schema ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): A json schema that can be used to validate a ConnectorRequest connector field.. [optional]  # noqa: E501
         """
 
@@ -257,8 +262,9 @@ class ConnectorTypeAllOf(ModelNormal):
             description (str): A description of the connector.. [optional]  # noqa: E501
             icon_href (str): URL to an icon of the connector.. [optional]  # noqa: E501
             labels ([str]): Labels used to categorize the connector. [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             featured_rank (int): Ranking for featured connectors. [optional]  # noqa: E501
-            capabilities ([str]): The capabilities supported by the conenctor. [optional]  # noqa: E501
+            capabilities ([str]): The capabilities supported by the connector. [optional]  # noqa: E501
             schema ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): A json schema that can be used to validate a ConnectorRequest connector field.. [optional]  # noqa: E501
         """
 

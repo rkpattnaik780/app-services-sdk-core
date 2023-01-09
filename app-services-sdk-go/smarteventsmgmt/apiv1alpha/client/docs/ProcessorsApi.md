@@ -34,11 +34,11 @@ import (
 
 func main() {
     bridgeId := "bridgeId_example" // string | 
-    processorRequest := *openapiclient.NewProcessorRequest("Name_example", map[string]interface{}(123)) // ProcessorRequest |  (optional)
+    processorRequest := *openapiclient.NewProcessorRequest("processor1", map[string]interface{}(123)) // ProcessorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProcessorsApi.ProcessorsAPICreateProcessor(context.Background(), bridgeId).ProcessorRequest(processorRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessorsApi.ProcessorsAPICreateProcessor(context.Background(), bridgeId).ProcessorRequest(processorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessorsApi.ProcessorsAPICreateProcessor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -109,8 +109,8 @@ func main() {
     processorId := "processorId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProcessorsApi.ProcessorsAPIDeleteProcessor(context.Background(), bridgeId, processorId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessorsApi.ProcessorsAPIDeleteProcessor(context.Background(), bridgeId, processorId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessorsApi.ProcessorsAPIDeleteProcessor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,8 +180,8 @@ func main() {
     processorId := "processorId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProcessorsApi.ProcessorsAPIGetProcessor(context.Background(), bridgeId, processorId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessorsApi.ProcessorsAPIGetProcessor(context.Background(), bridgeId, processorId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessorsApi.ProcessorsAPIGetProcessor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,8 +256,8 @@ func main() {
     status := []openapiclient.ManagedResourceStatus{openapiclient.ManagedResourceStatus("accepted")} // []ManagedResourceStatus |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProcessorsApi.ProcessorsAPIGetProcessors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessorsApi.ProcessorsAPIGetProcessors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessorsApi.ProcessorsAPIGetProcessors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -329,11 +329,11 @@ import (
 func main() {
     bridgeId := "bridgeId_example" // string | 
     processorId := "processorId_example" // string | 
-    processorRequest := *openapiclient.NewProcessorRequest("Name_example", map[string]interface{}(123)) // ProcessorRequest |  (optional)
+    processorRequest := *openapiclient.NewProcessorRequest("processor1", map[string]interface{}(123)) // ProcessorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProcessorsApi.ProcessorsAPIUpdateProcessor(context.Background(), bridgeId, processorId).ProcessorRequest(processorRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProcessorsApi.ProcessorsAPIUpdateProcessor(context.Background(), bridgeId, processorId).ProcessorRequest(processorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProcessorsApi.ProcessorsAPIUpdateProcessor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

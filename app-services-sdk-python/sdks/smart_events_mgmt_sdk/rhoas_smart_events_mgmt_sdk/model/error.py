@@ -115,7 +115,7 @@ class Error(ModelNormal):
         """Error - a model defined in OpenAPI
 
         Args:
-            kind (str):
+            kind (str): The kind (type) of this resource
             reason (str):
             id (str):
             href (str):
@@ -151,7 +151,7 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): The name of this resource. [optional]  # noqa: E501
             code (str): [optional]  # noqa: E501
         """
 
@@ -212,7 +212,7 @@ class Error(ModelNormal):
         """Error - a model defined in OpenAPI
 
         Args:
-            kind (str):
+            kind (str): The kind (type) of this resource
             reason (str):
             id (str):
             href (str):
@@ -248,7 +248,7 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
+            name (str): The name of this resource. [optional]  # noqa: E501
             code (str): [optional]  # noqa: E501
         """
 

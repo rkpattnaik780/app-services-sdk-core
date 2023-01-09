@@ -8,6 +8,10 @@ docs/DefaultApi.md
 docs/Error.md
 docs/Otp.md
 docs/RedHatErrorRepresentation.md
+docs/SSOHealthResult.md
+docs/SSOHealthResultError.md
+docs/SSOHealthResultErrorStackTrace.md
+docs/SSOHealthResultErrorSuppressed.md
 docs/ServiceAccountCreateRequestData.md
 docs/ServiceAccountData.md
 docs/ServiceAccountRequestData.md
@@ -41,6 +45,10 @@ src/main/java/com/openshift/cloud/api/serviceaccounts/models/AuthenticationPolic
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/Error.java
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/Otp.java
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/RedHatErrorRepresentation.java
+src/main/java/com/openshift/cloud/api/serviceaccounts/models/SSOHealthResult.java
+src/main/java/com/openshift/cloud/api/serviceaccounts/models/SSOHealthResultError.java
+src/main/java/com/openshift/cloud/api/serviceaccounts/models/SSOHealthResultErrorStackTrace.java
+src/main/java/com/openshift/cloud/api/serviceaccounts/models/SSOHealthResultErrorSuppressed.java
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/ServiceAccountCreateRequestData.java
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/ServiceAccountData.java
 src/main/java/com/openshift/cloud/api/serviceaccounts/models/ServiceAccountRequestData.java
