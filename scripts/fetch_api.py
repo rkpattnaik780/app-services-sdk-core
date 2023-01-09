@@ -18,10 +18,7 @@ for url in endpoints:
     if basename == "openapi.yaml":
         basename = "service-accounts.yaml"
 
-    if basename == "smartevents_mgmt_v2.yaml":
-        basename = "smartevents_mgmt.yaml"
-
-            # get the directory the python script is in and then get relative path to output file
+    # get the directory the python script is in and then get relative path to output file
     output_path = f"{os.path.dirname(os.path.realpath(__file__))}/../.openapi/{basename}"
 
     subprocess.run([

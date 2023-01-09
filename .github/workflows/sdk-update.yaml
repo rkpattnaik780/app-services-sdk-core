@@ -1,0 +1,51 @@
+name: Regenerate SDKs
+on:
+  repository_dispatch:
+    types: openapi-spec-change
+  schedule:
+    - cron: '0 0 * * *'
+  ## Manual request that can be used for testing and retriggering failed updates
+  workflow_dispatch:
+jobs:
+  regenerate-sdks:
+    env:
+      APP_SERVICES_TOKEN: ${{ secrets.APP_SERVICES_TOKEN }}
+      BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16 
+      - name: Install jq
+        run: sudo apt-get install jq
+      - name: Fetch OpenAPI doc
+        run: python scripts/fetch_api.py
+      - name: Generate SDKs
+        run: |
+          bash scripts/generate-go.sh ${{ github.event.client_payload.download_url }}
+          bash scripts/generate-java.sh ${{ github.event.client_payload.download_url }}
+          bash scripts/generate-js.sh ${{ github.event.client_payload.download_url }}
+          bash scripts/generate-py.sh ${{ github.event.client_payload.download_url }}
+      - name: Fetch errors
+        run: bash scripts/errors/fetch-errors.sh
+      - name: Generate errors
+        run: node scripts/errors/generate_errors.js
+      - name: Make pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: "chore(all): re-generate SDKs"
+          commit-message: "chore(all): re-generate OpenAPI client(s)"
+          author: "app-services-ci <app-services-ci@users.noreply.github.com>"
+          branch: chore/generate-sdks
+          branch-suffix: timestamp
+          reviewers: '@redhat-developer/app-services-sdk-maintainers'
+          delete-branch: true
+          body: |
+            _This pull request was auto-generated_
+            This PR adds the latest generated SDK changes.
