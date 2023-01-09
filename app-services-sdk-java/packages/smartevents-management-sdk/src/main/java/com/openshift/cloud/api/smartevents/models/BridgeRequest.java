@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.openshift.cloud.api.smartevents.models.Action;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,8 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonPropertyOrder({
   BridgeRequest.JSON_PROPERTY_NAME,
   BridgeRequest.JSON_PROPERTY_CLOUD_PROVIDER,
-  BridgeRequest.JSON_PROPERTY_REGION,
-  BridgeRequest.JSON_PROPERTY_ERROR_HANDLER
+  BridgeRequest.JSON_PROPERTY_REGION
 })
 @JsonTypeName("BridgeRequest")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -47,9 +45,6 @@ public class BridgeRequest {
   public static final String JSON_PROPERTY_REGION = "region";
   private String region;
 
-  public static final String JSON_PROPERTY_ERROR_HANDLER = "error_handler";
-  private Action errorHandler = null;
-
   public BridgeRequest() { 
   }
 
@@ -60,11 +55,11 @@ public class BridgeRequest {
   }
 
    /**
-   * Get name
+   * The name of the bridge
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "bridge1", required = true, value = "The name of the bridge")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -87,11 +82,11 @@ public class BridgeRequest {
   }
 
    /**
-   * Get cloudProvider
+   * The cloud provider where the bridge resides
    * @return cloudProvider
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "aws", required = true, value = "The cloud provider where the bridge resides")
   @JsonProperty(JSON_PROPERTY_CLOUD_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -114,11 +109,11 @@ public class BridgeRequest {
   }
 
    /**
-   * Get region
+   * The cloud provider region where the bridge resides
    * @return region
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "us-east-1", required = true, value = "The cloud provider region where the bridge resides")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -134,33 +129,6 @@ public class BridgeRequest {
   }
 
 
-  public BridgeRequest errorHandler(Action errorHandler) {
-    
-    this.errorHandler = errorHandler;
-    return this;
-  }
-
-   /**
-   * Get errorHandler
-   * @return errorHandler
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR_HANDLER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Action getErrorHandler() {
-    return errorHandler;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR_HANDLER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorHandler(Action errorHandler) {
-    this.errorHandler = errorHandler;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -172,13 +140,12 @@ public class BridgeRequest {
     BridgeRequest bridgeRequest = (BridgeRequest) o;
     return Objects.equals(this.name, bridgeRequest.name) &&
         Objects.equals(this.cloudProvider, bridgeRequest.cloudProvider) &&
-        Objects.equals(this.region, bridgeRequest.region) &&
-        Objects.equals(this.errorHandler, bridgeRequest.errorHandler);
+        Objects.equals(this.region, bridgeRequest.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, cloudProvider, region, errorHandler);
+    return Objects.hash(name, cloudProvider, region);
   }
 
   @Override
@@ -188,7 +155,6 @@ public class BridgeRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    errorHandler: ").append(toIndentedString(errorHandler)).append("\n");
     sb.append("}");
     return sb.toString();
   }

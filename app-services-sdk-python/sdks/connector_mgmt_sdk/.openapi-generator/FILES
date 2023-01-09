@@ -38,6 +38,7 @@ docs/ConnectorNamespaceTenantKind.md
 docs/ConnectorNamespacesApi.md
 docs/ConnectorRequest.md
 docs/ConnectorRequestMeta.md
+docs/ConnectorResourceAnnotations.md
 docs/ConnectorServiceApi.md
 docs/ConnectorState.md
 docs/ConnectorStatus.md
@@ -112,6 +113,7 @@ rhoas_connector_mgmt_sdk/model/connector_namespace_tenant.py
 rhoas_connector_mgmt_sdk/model/connector_namespace_tenant_kind.py
 rhoas_connector_mgmt_sdk/model/connector_request.py
 rhoas_connector_mgmt_sdk/model/connector_request_meta.py
+rhoas_connector_mgmt_sdk/model/connector_resource_annotations.py
 rhoas_connector_mgmt_sdk/model/connector_state.py
 rhoas_connector_mgmt_sdk/model/connector_status.py
 rhoas_connector_mgmt_sdk/model/connector_status_status.py
@@ -179,6 +181,7 @@ test/test_connector_namespace_tenant_kind.py
 test/test_connector_namespaces_api.py
 test/test_connector_request.py
 test/test_connector_request_meta.py
+test/test_connector_resource_annotations.py
 test/test_connector_service_api.py
 test/test_connector_state.py
 test/test_connector_status.py

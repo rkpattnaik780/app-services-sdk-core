@@ -92,6 +92,7 @@ class ProcessorResponse(ModelNormal):
             'flows': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'published_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
+            'status_message': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class ProcessorResponse(ModelNormal):
         'flows': 'flows',  # noqa: E501
         'published_at': 'published_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
+        'status_message': 'status_message',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,14 +125,14 @@ class ProcessorResponse(ModelNormal):
         """ProcessorResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
-            owner (str):
-            name (str):
-            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            owner (str): The user that owns this resource
+            name (str): The name of the processor
+            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -165,6 +167,7 @@ class ProcessorResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
+            status_message (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,14 +231,14 @@ class ProcessorResponse(ModelNormal):
         """ProcessorResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
-            owner (str):
-            name (str):
-            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            owner (str): The user that owns this resource
+            name (str): The name of the processor
+            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,6 +273,7 @@ class ProcessorResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
+            status_message (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

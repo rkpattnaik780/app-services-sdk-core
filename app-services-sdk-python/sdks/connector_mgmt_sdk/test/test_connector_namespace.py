@@ -18,12 +18,14 @@ from rhoas_connector_mgmt_sdk.model.connector_namespace_meta import ConnectorNam
 from rhoas_connector_mgmt_sdk.model.connector_namespace_quota import ConnectorNamespaceQuota
 from rhoas_connector_mgmt_sdk.model.connector_namespace_status import ConnectorNamespaceStatus
 from rhoas_connector_mgmt_sdk.model.connector_namespace_tenant import ConnectorNamespaceTenant
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.object_reference import ObjectReference
 globals()['ConnectorNamespaceAllOf'] = ConnectorNamespaceAllOf
 globals()['ConnectorNamespaceMeta'] = ConnectorNamespaceMeta
 globals()['ConnectorNamespaceQuota'] = ConnectorNamespaceQuota
 globals()['ConnectorNamespaceStatus'] = ConnectorNamespaceStatus
 globals()['ConnectorNamespaceTenant'] = ConnectorNamespaceTenant
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ObjectReference'] = ObjectReference
 from rhoas_connector_mgmt_sdk.model.connector_namespace import ConnectorNamespace
 

@@ -43,8 +43,8 @@ func main() {
     xRegistryNameEncoded := "xRegistryNameEncoded_example" // string | Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.CreateArtifactVersion(context.Background(), groupId, artifactId).Body(body).XRegistryVersion(xRegistryVersion).XRegistryName(xRegistryName).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryNameEncoded(xRegistryNameEncoded).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.VersionsApi.CreateArtifactVersion(context.Background(), groupId, artifactId).Body(body).XRegistryVersion(xRegistryVersion).XRegistryName(xRegistryName).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryNameEncoded(xRegistryNameEncoded).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.CreateArtifactVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,8 +124,8 @@ func main() {
     dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.GetArtifactVersion(context.Background(), groupId, artifactId, version).Dereference(dereference).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.VersionsApi.GetArtifactVersion(context.Background(), groupId, artifactId, version).Dereference(dereference).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.GetArtifactVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,8 +201,8 @@ func main() {
     version := "version_example" // string | The unique identifier of a specific version of the artifact content.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.GetArtifactVersionReferences(context.Background(), groupId, artifactId, version).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.VersionsApi.GetArtifactVersionReferences(context.Background(), groupId, artifactId, version).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.GetArtifactVersionReferences``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,8 +278,8 @@ func main() {
     limit := int32(56) // int32 | The number of versions to return.  Defaults to 20. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.ListArtifactVersions(context.Background(), groupId, artifactId).Offset(offset).Limit(limit).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.VersionsApi.ListArtifactVersions(context.Background(), groupId, artifactId).Offset(offset).Limit(limit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.ListArtifactVersions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -355,8 +355,8 @@ func main() {
     updateState := *openapiclient.NewUpdateState(openapiclient.ArtifactState("ENABLED")) // UpdateState | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.UpdateArtifactVersionState(context.Background(), groupId, artifactId, version).UpdateState(updateState).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.VersionsApi.UpdateArtifactVersionState(context.Background(), groupId, artifactId, version).UpdateState(updateState).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.UpdateArtifactVersionState``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

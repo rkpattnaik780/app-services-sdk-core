@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | 
+**kind** | **str** | The kind (type) of this resource | 
 **reason** | **str** |  | 
 **id** | **str** |  | 
 **href** | **str** |  | 
-**name** | **str** |  | [optional] 
+**name** | **str** | The name of this resource | [optional] 
 **code** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

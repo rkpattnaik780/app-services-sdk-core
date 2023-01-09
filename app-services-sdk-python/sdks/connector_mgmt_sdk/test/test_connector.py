@@ -17,6 +17,7 @@ from rhoas_connector_mgmt_sdk.model.channel import Channel
 from rhoas_connector_mgmt_sdk.model.connector_configuration import ConnectorConfiguration
 from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
 from rhoas_connector_mgmt_sdk.model.connector_meta import ConnectorMeta
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_status import ConnectorStatus
 from rhoas_connector_mgmt_sdk.model.connector_status_status import ConnectorStatusStatus
 from rhoas_connector_mgmt_sdk.model.kafka_connection_settings import KafkaConnectionSettings
@@ -27,6 +28,7 @@ globals()['Channel'] = Channel
 globals()['ConnectorConfiguration'] = ConnectorConfiguration
 globals()['ConnectorDesiredState'] = ConnectorDesiredState
 globals()['ConnectorMeta'] = ConnectorMeta
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 globals()['ConnectorStatus'] = ConnectorStatus
 globals()['ConnectorStatusStatus'] = ConnectorStatusStatus
 globals()['KafkaConnectionSettings'] = KafkaConnectionSettings

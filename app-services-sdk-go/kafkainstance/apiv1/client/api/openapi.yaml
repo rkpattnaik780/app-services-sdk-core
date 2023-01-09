@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  description: API for interacting with Kafka Instance. Includes Produce, Consume
-    and Admin APIs
+  description: "API for interacting with Kafka Instance. Includes Produce, Consume\
+    \ and Admin APIs"
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -27,13 +27,13 @@ tags:
 paths:
   /api/v1/topics:
     get:
-      description: Returns a list of all of the available topics, or the list of topics
-        that meet the request query parameters. The topics returned are limited to
-        those records the requestor is authorized to view.
+      description: "Returns a list of all of the available topics, or the list of\
+        \ topics that meet the request query parameters. The topics returned are limited\
+        \ to those records the requestor is authorized to view."
       operationId: getTopics
       parameters:
       - deprecated: true
-        description: Offset of the first record to return, zero-based
+        description: "Offset of the first record to return, zero-based"
         explode: true
         in: query
         name: offset
@@ -98,7 +98,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/TopicOrderKey'
-          - {}
+          - default: name
         style: form
       responses:
         "400":
@@ -379,9 +379,9 @@ paths:
       - topics
   /api/v1/topics/{topicName}/records:
     get:
-      description: Consume a limited number of records from a topic, optionally specifying
-        a partition and an absolute offset or timestamp as the starting point for
-        message retrieval.
+      description: "Consume a limited number of records from a topic, optionally specifying\
+        \ a partition and an absolute offset or timestamp as the starting point for\
+        \ message retrieval."
       operationId: consumeRecords
       parameters:
       - description: List of properties to include for each record in the response
@@ -404,9 +404,10 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: Maximum length of string values returned in the response. Values
-          with a length that exceeds this parameter will be truncated. When this parameter
-          is not included in the request, the full string values will be returned.
+      - description: "Maximum length of string values returned in the response. Values\
+          \ with a length that exceeds this parameter will be truncated. When this\
+          \ parameter is not included in the request, the full string values will\
+          \ be returned."
         explode: true
         in: query
         name: maxValueLength
@@ -416,9 +417,9 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: Retrieve messages with an offset equal to or greater than this
-          offset. If both `timestamp` and `offset` are requested, `timestamp` is given
-          preference.
+      - description: "Retrieve messages with an offset equal to or greater than this\
+          \ offset. If both `timestamp` and `offset` are requested, `timestamp` is\
+          \ given preference."
         explode: true
         in: query
         name: offset
@@ -437,9 +438,9 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: Retrieve messages with a timestamp equal to or later than this
-          timestamp. If both `timestamp` and `offset` are requested, `timestamp` is
-          given preference.
+      - description: "Retrieve messages with a timestamp equal to or later than this\
+          \ timestamp. If both `timestamp` and `offset` are requested, `timestamp`\
+          \ is given preference."
         explode: true
         in: query
         name: timestamp
@@ -580,7 +581,7 @@ paths:
       operationId: getConsumerGroups
       parameters:
       - deprecated: true
-        description: Offset of the first record to return, zero-based
+        description: "Offset of the first record to return, zero-based"
         explode: true
         in: query
         name: offset
@@ -652,7 +653,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/ConsumerGroupOrderKey'
-          - {}
+          - default: name
         style: form
       responses:
         "200":
@@ -734,7 +735,7 @@ paths:
       - groups
   /api/v1/consumer-groups/{consumerGroupId}:
     delete:
-      description: Delete a consumer group, along with its consumers.
+      description: "Delete a consumer group, along with its consumers."
       operationId: deleteConsumerGroupById
       parameters:
       - description: Consumer group identifier
@@ -813,7 +814,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/ConsumerGroupDescriptionOrderKey'
-          - {}
+          - default: partition
         style: form
       - description: Value of partition to include. Value -1 means filter is not active.
         explode: true
@@ -980,7 +981,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclResourceTypeFilter'
-          - {}
+          - default: ANY
         style: form
       - description: ACL Resource Name Filter
         explode: true
@@ -1008,7 +1009,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclPatternTypeFilter'
-          - {}
+          - default: ANY
         style: form
       - description: |-
           ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided.
@@ -1029,8 +1030,8 @@ paths:
           default: ""
           type: string
         style: form
-      - description: ACL Operation Filter. The ACL binding operation provided should
-          be valid for the resource type in the request, if not `ANY`.
+      - description: "ACL Operation Filter. The ACL binding operation provided should\
+          \ be valid for the resource type in the request, if not `ANY`."
         examples:
           anything:
             summary: Match any ACL binding operation
@@ -1042,7 +1043,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclOperationFilter'
-          - {}
+          - default: ANY
         style: form
       - description: ACL Permission Type Filter
         examples:
@@ -1062,7 +1063,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclPermissionTypeFilter'
-          - {}
+          - default: ANY
         style: form
       responses:
         "400":
@@ -1114,9 +1115,10 @@ paths:
       tags:
       - acls
     get:
-      description: Returns a list of all of the available ACL bindings, or the list
-        of bindings that meet the user's URL query parameters. If no parameters are
-        specified, all ACL bindings known to the system will be returned (with paging).
+      description: "Returns a list of all of the available ACL bindings, or the list\
+        \ of bindings that meet the user's URL query parameters. If no parameters\
+        \ are specified, all ACL bindings known to the system will be returned (with\
+        \ paging)."
       operationId: getAcls
       parameters:
       - description: ACL Resource Type Filter
@@ -1143,7 +1145,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclResourceTypeFilter'
-          - {}
+          - default: ANY
         style: form
       - description: ACL Resource Name Filter
         explode: true
@@ -1171,7 +1173,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclPatternTypeFilter'
-          - {}
+          - default: ANY
         style: form
       - description: |-
           ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided.
@@ -1192,8 +1194,8 @@ paths:
           default: ""
           type: string
         style: form
-      - description: ACL Operation Filter. The ACL binding operation provided should
-          be valid for the resource type in the request, if not `ANY`.
+      - description: "ACL Operation Filter. The ACL binding operation provided should\
+          \ be valid for the resource type in the request, if not `ANY`."
         examples:
           anything:
             summary: Match any ACL binding operation
@@ -1205,7 +1207,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclOperationFilter'
-          - {}
+          - default: ANY
         style: form
       - description: ACL Permission Type Filter
         examples:
@@ -1225,7 +1227,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclPermissionTypeFilter'
-          - {}
+          - default: ANY
         style: form
       - description: Page number
         explode: true
@@ -1262,7 +1264,7 @@ paths:
         schema:
           allOf:
           - $ref: '#/components/schemas/AclBindingOrderKey'
-          - {}
+          - default: permission
         style: form
       responses:
         "400":
@@ -1387,7 +1389,7 @@ paths:
                     }
                 disabled:
                   summary: No configuration of ACL bindings is allowed
-                  value: '{}'
+                  value: "{}"
               schema:
                 additionalProperties:
                   items:
@@ -1527,14 +1529,14 @@ components:
           partitions:
           - 0
     RecordProduceExample:
-      description: Sample record to produce a record to partition 1, including a custom
-        header
+      description: "Sample record to produce a record to partition 1, including a\
+        \ custom header"
       value:
         kind: Record
         partition: 1
         headers:
           X-Custom-Header: header-value-1
-        value: '{ "examplekey": "example-value" }'
+        value: "{ \"examplekey\": \"example-value\" }"
   responses:
     BadRequest:
       content:
@@ -1815,6 +1817,7 @@ components:
       type: string
     ConsumerGroupResetOffsetParameters:
       example:
+        offset: null
         topics:
         - partitions:
           - 0
@@ -1932,7 +1935,7 @@ components:
             value: "1050000"
       properties:
         name:
-          description: The topic name, this value must be unique.
+          description: "The topic name, this value must be unique."
           nullable: false
           pattern: \S
           type: string
@@ -1984,7 +1987,7 @@ components:
           id: 1
       properties:
         partition:
-          description: The partition id, unique among partitions of the same topic
+          description: "The partition id, unique among partitions of the same topic"
           format: int32
           nullable: false
           type: integer
@@ -1999,12 +2002,10 @@ components:
             $ref: '#/components/schemas/Node'
           type: array
         leader:
-          allOf:
-          - $ref: '#/components/schemas/Node'
-          - description: Node that is the leader for this partition.
+          $ref: '#/components/schemas/Partition_leader'
         id:
           deprecated: true
-          description: Unique id for the partition (deprecated, use `partition` instead)
+          description: "Unique id for the partition (deprecated, use `partition` instead)"
           format: int32
           type: integer
       required:
@@ -2074,8 +2075,8 @@ components:
       - retention.bytes
       type: string
     TopicSettings:
-      description: The settings that are applicable to this topic. This includes partitions,
-        configuration information, and number of replicas.
+      description: "The settings that are applicable to this topic. This includes\
+        \ partitions, configuration information, and number of replicas."
       example:
         numPartitions: 2
         config:
@@ -2085,9 +2086,9 @@ components:
           value: "1050000"
       properties:
         numPartitions:
-          description: Number of partitions for this topic. If not specified, the
-            default for new topics is `1`. Number of partitions may not be reduced
-            when updating existing topics
+          description: "Number of partitions for this topic. If not specified, the\
+            \ default for new topics is `1`. Number of partitions may not be reduced\
+            \ when updating existing topics"
           format: int32
           maximum: 100
           minimum: 1
@@ -2186,6 +2187,7 @@ components:
       - resourceName
       - resourceType
       type: object
+      example: null
     AclBindingListPage_allOf:
       description: A page of ACL binding entries
       properties:
@@ -2194,6 +2196,7 @@ components:
             $ref: '#/components/schemas/AclBinding'
           type: array
       type: object
+      example: null
     ConsumerGroup_allOf:
       description: A group of Kafka consumers
       properties:
@@ -2216,6 +2219,7 @@ components:
       - consumers
       - groupId
       type: object
+      example: null
     ConsumerGroupList_allOf:
       description: A list of consumer groups
       properties:
@@ -2224,6 +2228,7 @@ components:
             $ref: '#/components/schemas/ConsumerGroup'
           type: array
       type: object
+      example: null
     ConsumerGroupResetOffsetResult_allOf:
       properties:
         items:
@@ -2231,6 +2236,7 @@ components:
             $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
           type: array
       type: object
+      example: null
     Error_allOf:
       description: General error response
       properties:
@@ -2252,6 +2258,7 @@ components:
           deprecated: true
           type: string
       type: object
+      example: null
     ErrorList_allOf:
       description: List of errors
       properties:
@@ -2264,16 +2271,17 @@ components:
           format: int32
           type: integer
       type: object
+      example: null
     ListDeprecated_allOf:
       properties:
         offset:
           deprecated: true
-          description: Offset of the first record returned, zero-based
+          description: "Offset of the first record returned, zero-based"
           format: int32
           type: integer
         limit:
           deprecated: true
-          description: Maximum number of records to return, from request
+          description: "Maximum number of records to return, from request"
           format: int32
           type: integer
         count:
@@ -2282,6 +2290,11 @@ components:
           format: int32
           type: integer
       type: object
+      example: null
+    Partition_leader:
+      allOf:
+      - $ref: '#/components/schemas/Node'
+      - description: Node that is the leader for this partition.
     Record_allOf:
       description: An individual record consumed from a topic or produced to a topic
       properties:
@@ -2295,9 +2308,9 @@ components:
           readOnly: true
           type: integer
         timestamp:
-          description: Timestamp associated with the record. The type is indicated
-            by `timestampType`. When producing a record, this value will be used as
-            the record's `CREATE_TIME`.
+          description: "Timestamp associated with the record. The type is indicated\
+            \ by `timestampType`. When producing a record, this value will be used\
+            \ as the record's `CREATE_TIME`."
           format: date-time
           type: string
         timestampType:
@@ -2307,7 +2320,7 @@ components:
         headers:
           additionalProperties:
             type: string
-          description: Record headers, key/value pairs
+          description: "Record headers, key/value pairs"
           type: object
         key:
           description: Record key
@@ -2319,6 +2332,7 @@ components:
       required:
       - value
       type: object
+      example: null
     RecordList_allOf:
       description: A page of records consumed from a topic
       properties:
@@ -2340,6 +2354,7 @@ components:
           format: int32
           type: integer
       type: object
+      example: null
     Topic_allOf:
       description: Kafka Topic (A feed where records are stored and published)
       properties:
@@ -2359,6 +2374,7 @@ components:
             $ref: '#/components/schemas/ConfigEntry'
           type: array
       type: object
+      example: null
     TopicsList_allOf:
       description: A list of topics.
       properties:
@@ -2367,6 +2383,7 @@ components:
             $ref: '#/components/schemas/Topic'
           type: array
       type: object
+      example: null
   securitySchemes:
     Bearer:
       bearerFormat: JWT

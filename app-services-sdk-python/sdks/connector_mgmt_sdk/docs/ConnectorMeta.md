@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **modified_at** | **datetime** |  | [optional] 
 **channel** | [**Channel**](Channel.md) |  | [optional] 
+**annotations** | [**ConnectorResourceAnnotations**](ConnectorResourceAnnotations.md) |  | [optional] 
 **resource_version** | **int** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

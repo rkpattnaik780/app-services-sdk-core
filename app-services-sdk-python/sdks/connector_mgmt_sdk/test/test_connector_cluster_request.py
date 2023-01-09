@@ -14,7 +14,9 @@ import unittest
 
 import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.connector_cluster_request_meta import ConnectorClusterRequestMeta
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 globals()['ConnectorClusterRequestMeta'] = ConnectorClusterRequestMeta
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_cluster_request import ConnectorClusterRequest
 
 

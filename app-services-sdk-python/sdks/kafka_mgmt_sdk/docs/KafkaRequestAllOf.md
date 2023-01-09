@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **multi_az** | **bool** |  | 
 **reauthentication_enabled** | **bool** |  | 
-**status** | **str** | Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting]  | [optional] 
+**status** | **str** | Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting, suspending, suspended, resuming]  | [optional] 
 **cloud_provider** | **str** | Name of Cloud used to deploy. For example AWS | [optional] 
 **region** | **str** | Values will be regions of specific cloud provider. For example: us-east-1 for AWS | [optional] 
 **owner** | **str** |  | [optional] 

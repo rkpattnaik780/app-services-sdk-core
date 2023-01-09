@@ -58,4 +58,8 @@ model_processor_list_response.go
 model_processor_request.go
 model_processor_response.go
 response.go
+test/api_bridges_test.go
+test/api_cloud_providers_test.go
+test/api_error_catalog_test.go
+test/api_processors_test.go
 utils.go

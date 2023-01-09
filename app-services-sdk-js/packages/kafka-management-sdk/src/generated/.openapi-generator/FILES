@@ -1,5 +1,6 @@
 api.ts
 api/default-api.ts
+api/enterprise-dataplane-clusters-api.ts
 api/errors-api.ts
 api/security-api.ts
 base.ts
@@ -12,8 +13,16 @@ model/cloud-provider.ts
 model/cloud-region-list-all-of.ts
 model/cloud-region-list.ts
 model/cloud-region.ts
+model/enterprise-cluster-all-of.ts
+model/enterprise-cluster-list-all-of.ts
+model/enterprise-cluster-list.ts
+model/enterprise-cluster-registration-response-all-of.ts
+model/enterprise-cluster-registration-response.ts
+model/enterprise-cluster.ts
+model/enterprise-osd-cluster-payload.ts
 model/error-list-all-of.ts
 model/error-list.ts
+model/fleetshard-parameter.ts
 model/index.ts
 model/instant-query.ts
 model/kafka-request-all-of.ts

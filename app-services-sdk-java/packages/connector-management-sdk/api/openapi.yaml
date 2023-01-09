@@ -170,7 +170,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -284,7 +284,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -420,7 +420,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -818,7 +818,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -1275,7 +1275,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -1420,7 +1420,7 @@ paths:
 
           * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
           * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+          * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
           * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
           Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -1626,6 +1626,8 @@ components:
         icon_href: /api/connector_mgmt/v1/kafka_connector_types/log_sink.png
         labels:
         - sink
+        annotations:
+        - cos.bf2.org/name: value
         capabilities:
         - data_shape
         - processors
@@ -1751,12 +1753,12 @@ components:
         name: MyNamespace
         cluster_id: 9bsv0s7tne7g02gh5g4g
         annotations:
-          connector_mgmt.bf2.org/profile: default-profile
+          cos.bf2.org/profile: default-profile
     ConnectorNamespaceEvalCreateExample:
       value:
         name: MyEvalNamespace
         annotations:
-          connector_mgmt.bf2.org/profile: evaluation-profile
+          cos.bf2.org/profile: evaluation-profile
     "400CreationExample":
       value:
         id: "103"
@@ -1908,7 +1910,7 @@ components:
 
         * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id
         * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state
-        * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank
+        * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier
         * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url
 
         Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`.
@@ -2065,6 +2067,11 @@ components:
       items:
         $ref: '#/components/schemas/AddonParameter'
       type: array
+    ConnectorResourceAnnotations:
+      additionalProperties:
+        type: string
+      description: Name-value string annotations for resource
+      type: object
     ConnectorClusterState:
       enum:
       - disconnected
@@ -2075,6 +2082,12 @@ components:
       properties:
         name:
           type: string
+        annotations:
+          additionalProperties:
+            type: string
+          description: Name-value string annotations for resource
+          type: object
+      type: object
     ConnectorClusterRequest:
       allOf:
       - $ref: '#/components/schemas/ConnectorClusterRequestMeta'
@@ -2147,11 +2160,17 @@ components:
           $ref: '#/components/schemas/Channel'
         desired_state:
           $ref: '#/components/schemas/ConnectorDesiredState'
+        annotations:
+          additionalProperties:
+            type: string
+          description: Name-value string annotations for resource
+          type: object
       required:
       - connector_type_id
       - desired_state
       - name
       - namespace_id
+      type: object
     ConnectorRequest:
       allOf:
       - $ref: '#/components/schemas/ConnectorRequestMeta'
@@ -2229,6 +2248,7 @@ components:
         annotations:
           additionalProperties:
             type: string
+          description: Name-value string annotations for resource
           type: object
       type: object
     ConnectorNamespaceQuota:
@@ -2406,12 +2426,17 @@ components:
           items:
             type: string
           type: array
+        annotations:
+          additionalProperties:
+            type: string
+          description: Name-value string annotations for resource
+          type: object
         featured_rank:
           description: Ranking for featured connectors
           format: int32
           type: integer
         capabilities:
-          description: The capabilities supported by the conenctor
+          description: The capabilities supported by the connector
           items:
             type: string
           type: array

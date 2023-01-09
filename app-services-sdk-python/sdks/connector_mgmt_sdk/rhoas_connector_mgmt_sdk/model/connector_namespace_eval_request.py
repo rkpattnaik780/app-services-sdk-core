@@ -32,7 +32,9 @@ from rhoas_connector_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 
 
 class ConnectorNamespaceEvalRequest(ModelComposed):
@@ -94,7 +96,7 @@ class ConnectorNamespaceEvalRequest(ModelComposed):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'annotations': ({str: (str,)},),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
         }
 
     @cached_property
@@ -147,7 +149,7 @@ class ConnectorNamespaceEvalRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.. [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,7 +254,7 @@ class ConnectorNamespaceEvalRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.. [optional]  # noqa: E501
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

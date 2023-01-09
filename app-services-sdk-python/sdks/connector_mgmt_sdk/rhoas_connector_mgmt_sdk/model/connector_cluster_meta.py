@@ -32,8 +32,10 @@ from rhoas_connector_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_cluster_request_meta import ConnectorClusterRequestMeta
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.object_meta import ObjectMeta
     globals()['ConnectorClusterRequestMeta'] = ConnectorClusterRequestMeta
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ObjectMeta'] = ObjectMeta
 
 
@@ -94,6 +96,7 @@ class ConnectorClusterMeta(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +109,7 @@ class ConnectorClusterMeta(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +155,7 @@ class ConnectorClusterMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +263,7 @@ class ConnectorClusterMeta(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

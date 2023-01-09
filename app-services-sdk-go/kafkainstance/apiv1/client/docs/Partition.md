@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Partition** | **int32** | The partition id, unique among partitions of the same topic | 
 **Replicas** | Pointer to [**[]Node**](Node.md) | List of replicas for the partition | [optional] 
 **Isr** | Pointer to [**[]Node**](Node.md) | List in-sync replicas for this partition. | [optional] 
-**Leader** | Pointer to [**Node**](Node.md) |  | [optional] 
+**Leader** | Pointer to [**PartitionLeader**](PartitionLeader.md) |  | [optional] 
 **Id** | Pointer to **int32** | Unique id for the partition (deprecated, use &#x60;partition&#x60; instead) | [optional] 
 
 ## Methods
@@ -101,20 +101,20 @@ HasIsr returns a boolean if a field has been set.
 
 ### GetLeader
 
-`func (o *Partition) GetLeader() Node`
+`func (o *Partition) GetLeader() PartitionLeader`
 
 GetLeader returns the Leader field if non-nil, zero value otherwise.
 
 ### GetLeaderOk
 
-`func (o *Partition) GetLeaderOk() (*Node, bool)`
+`func (o *Partition) GetLeaderOk() (*PartitionLeader, bool)`
 
 GetLeaderOk returns a tuple with the Leader field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLeader
 
-`func (o *Partition) SetLeader(v Node)`
+`func (o *Partition) SetLeader(v PartitionLeader)`
 
 SetLeader sets Leader field to given value.
 

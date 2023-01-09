@@ -14,7 +14,9 @@ import unittest
 
 import rhoas_connector_mgmt_sdk
 from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
+from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
 globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
+globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 from rhoas_connector_mgmt_sdk.model.connector_namespace_eval_request import ConnectorNamespaceEvalRequest
 
 

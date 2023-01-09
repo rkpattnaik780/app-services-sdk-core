@@ -15,5 +15,6 @@
 
 # Import APIs into API package:
 from rhoas_kafka_mgmt_sdk.api.default_api import DefaultApi
+from rhoas_kafka_mgmt_sdk.api.enterprise_dataplane_clusters_api import EnterpriseDataplaneClustersApi
 from rhoas_kafka_mgmt_sdk.api.errors_api import ErrorsApi
 from rhoas_kafka_mgmt_sdk.api.security_api import SecurityApi

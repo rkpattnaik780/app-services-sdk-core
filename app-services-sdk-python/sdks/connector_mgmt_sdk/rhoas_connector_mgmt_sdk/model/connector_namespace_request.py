@@ -34,9 +34,11 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_namespace_request_all_of import ConnectorNamespaceRequestAllOf
     from rhoas_connector_mgmt_sdk.model.connector_namespace_request_meta import ConnectorNamespaceRequestMeta
     from rhoas_connector_mgmt_sdk.model.connector_namespace_tenant_kind import ConnectorNamespaceTenantKind
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     globals()['ConnectorNamespaceRequestAllOf'] = ConnectorNamespaceRequestAllOf
     globals()['ConnectorNamespaceRequestMeta'] = ConnectorNamespaceRequestMeta
     globals()['ConnectorNamespaceTenantKind'] = ConnectorNamespaceTenantKind
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 
 
 class ConnectorNamespaceRequest(ModelComposed):
@@ -100,7 +102,7 @@ class ConnectorNamespaceRequest(ModelComposed):
             'name': (str,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'kind': (ConnectorNamespaceTenantKind,),  # noqa: E501
-            'annotations': ({str: (str,)},),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
         }
 
     @cached_property
@@ -157,7 +159,7 @@ class ConnectorNamespaceRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,7 +266,7 @@ class ConnectorNamespaceRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            annotations ({str: (str,)}): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

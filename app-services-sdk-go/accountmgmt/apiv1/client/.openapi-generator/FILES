@@ -122,6 +122,7 @@ docs/QuotaRulesAllOf.md
 docs/QuotaRulesList.md
 docs/QuotaRulesListAllOf.md
 docs/Registry.md
+docs/RegistryAddressValue.md
 docs/RegistryAllOf.md
 docs/RegistryCreateRequest.md
 docs/RegistryCredential.md
@@ -319,6 +320,7 @@ model_quota_rules_all_of.go
 model_quota_rules_list.go
 model_quota_rules_list_all_of.go
 model_registry.go
+model_registry_address_value.go
 model_registry_all_of.go
 model_registry_create_request.go
 model_registry_credential.go
@@ -401,4 +403,6 @@ model_terms_review_response.go
 model_token_authorization_request.go
 model_token_authorization_response.go
 response.go
+test/api_app_services_test.go
+test/api_default_test.go
 utils.go

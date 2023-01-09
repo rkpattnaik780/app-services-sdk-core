@@ -24,7 +24,9 @@ import com.openshift.cloud.api.connector.models.Channel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -38,6 +40,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   ConnectorTypeAllOf.JSON_PROPERTY_DESCRIPTION,
   ConnectorTypeAllOf.JSON_PROPERTY_ICON_HREF,
   ConnectorTypeAllOf.JSON_PROPERTY_LABELS,
+  ConnectorTypeAllOf.JSON_PROPERTY_ANNOTATIONS,
   ConnectorTypeAllOf.JSON_PROPERTY_FEATURED_RANK,
   ConnectorTypeAllOf.JSON_PROPERTY_CAPABILITIES,
   ConnectorTypeAllOf.JSON_PROPERTY_SCHEMA
@@ -62,6 +65,9 @@ public class ConnectorTypeAllOf {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private List<String> labels = null;
+
+  public static final String JSON_PROPERTY_ANNOTATIONS = "annotations";
+  private Map<String, String> annotations = null;
 
   public static final String JSON_PROPERTY_FEATURED_RANK = "featured_rank";
   private Integer featuredRank;
@@ -253,6 +259,41 @@ public class ConnectorTypeAllOf {
   }
 
 
+  public ConnectorTypeAllOf annotations(Map<String, String> annotations) {
+    
+    this.annotations = annotations;
+    return this;
+  }
+
+  public ConnectorTypeAllOf putAnnotationsItem(String key, String annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new HashMap<>();
+    }
+    this.annotations.put(key, annotationsItem);
+    return this;
+  }
+
+   /**
+   * Name-value string annotations for resource
+   * @return annotations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name-value string annotations for resource")
+  @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getAnnotations() {
+    return annotations;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ANNOTATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAnnotations(Map<String, String> annotations) {
+    this.annotations = annotations;
+  }
+
+
   public ConnectorTypeAllOf featuredRank(Integer featuredRank) {
     
     this.featuredRank = featuredRank;
@@ -295,11 +336,11 @@ public class ConnectorTypeAllOf {
   }
 
    /**
-   * The capabilities supported by the conenctor
+   * The capabilities supported by the connector
    * @return capabilities
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The capabilities supported by the conenctor")
+  @ApiModelProperty(value = "The capabilities supported by the connector")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -357,6 +398,7 @@ public class ConnectorTypeAllOf {
         Objects.equals(this.description, connectorTypeAllOf.description) &&
         Objects.equals(this.iconHref, connectorTypeAllOf.iconHref) &&
         Objects.equals(this.labels, connectorTypeAllOf.labels) &&
+        Objects.equals(this.annotations, connectorTypeAllOf.annotations) &&
         Objects.equals(this.featuredRank, connectorTypeAllOf.featuredRank) &&
         Objects.equals(this.capabilities, connectorTypeAllOf.capabilities) &&
         Objects.equals(this.schema, connectorTypeAllOf.schema);
@@ -364,7 +406,7 @@ public class ConnectorTypeAllOf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, channels, description, iconHref, labels, featuredRank, capabilities, schema);
+    return Objects.hash(name, version, channels, description, iconHref, labels, annotations, featuredRank, capabilities, schema);
   }
 
   @Override
@@ -377,6 +419,7 @@ public class ConnectorTypeAllOf {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    iconHref: ").append(toIndentedString(iconHref)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("    featuredRank: ").append(toIndentedString(featuredRank)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");

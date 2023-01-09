@@ -13,6 +13,10 @@ docs/DefaultApi.md
 docs/Error.md
 docs/Otp.md
 docs/RedHatErrorRepresentation.md
+docs/SSOHealthResult.md
+docs/SSOHealthResultError.md
+docs/SSOHealthResultErrorStackTraceInner.md
+docs/SSOHealthResultErrorSuppressedInner.md
 docs/ServiceAccountCreateRequestData.md
 docs/ServiceAccountData.md
 docs/ServiceAccountRequestData.md
@@ -30,6 +34,13 @@ model_red_hat_error_representation.go
 model_service_account_create_request_data.go
 model_service_account_data.go
 model_service_account_request_data.go
+model_sso_health_result.go
+model_sso_health_result_error.go
+model_sso_health_result_error_stack_trace_inner.go
+model_sso_health_result_error_suppressed_inner.go
 model_validation_exception_data.go
 response.go
+test/api_acs_tenants_test.go
+test/api_default_test.go
+test/api_service_accounts_test.go
 utils.go

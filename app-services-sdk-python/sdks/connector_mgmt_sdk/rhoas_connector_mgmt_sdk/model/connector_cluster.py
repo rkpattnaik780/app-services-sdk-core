@@ -34,10 +34,12 @@ def lazy_import():
     from rhoas_connector_mgmt_sdk.model.connector_cluster_meta import ConnectorClusterMeta
     from rhoas_connector_mgmt_sdk.model.connector_cluster_status import ConnectorClusterStatus
     from rhoas_connector_mgmt_sdk.model.connector_cluster_status_status import ConnectorClusterStatusStatus
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     from rhoas_connector_mgmt_sdk.model.object_reference import ObjectReference
     globals()['ConnectorClusterMeta'] = ConnectorClusterMeta
     globals()['ConnectorClusterStatus'] = ConnectorClusterStatus
     globals()['ConnectorClusterStatusStatus'] = ConnectorClusterStatusStatus
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
     globals()['ObjectReference'] = ObjectReference
 
 
@@ -101,6 +103,7 @@ class ConnectorCluster(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
             'status': (ConnectorClusterStatusStatus,),  # noqa: E501
         }
 
@@ -117,6 +120,7 @@ class ConnectorCluster(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
@@ -166,6 +170,7 @@ class ConnectorCluster(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             status (ConnectorClusterStatusStatus): [optional]  # noqa: E501
         """
 
@@ -277,6 +282,7 @@ class ConnectorCluster(ModelComposed):
             created_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
             status (ConnectorClusterStatusStatus): [optional]  # noqa: E501
         """
 

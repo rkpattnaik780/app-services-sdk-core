@@ -33,8 +33,8 @@ func main() {
     acsClientRequestData := *openapiclient.NewAcsClientRequestData([]string{"RedirectUris_example"}, "OrgId_example") // AcsClientRequestData | The name, redirect URIs and the organization id of the ACS managed central client
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AcsTenantsApi.CreateAcsClient(context.Background()).AcsClientRequestData(acsClientRequestData).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AcsTenantsApi.CreateAcsClient(context.Background()).AcsClientRequestData(acsClientRequestData).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AcsTenantsApi.CreateAcsClient``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -99,8 +99,8 @@ func main() {
     clientId := "clientId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AcsTenantsApi.DeleteAcsClient(context.Background(), clientId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AcsTenantsApi.DeleteAcsClient(context.Background(), clientId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AcsTenantsApi.DeleteAcsClient``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

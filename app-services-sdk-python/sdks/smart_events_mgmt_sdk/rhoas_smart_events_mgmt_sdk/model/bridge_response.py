@@ -125,16 +125,17 @@ class BridgeResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, id, href, submitted_at, status, owner, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, id, href, submitted_at, status, owner, name, *args, **kwargs):  # noqa: E501
         """BridgeResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
-            owner (str):
+            owner (str): The user that owns this resource
+            name (str): The name of the bridge
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -167,13 +168,12 @@ class BridgeResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
-            endpoint (str): [optional]  # noqa: E501
-            cloud_provider (str): [optional]  # noqa: E501
-            region (str): [optional]  # noqa: E501
-            status_message (str): [optional]  # noqa: E501
+            endpoint (str): The HTTPS endpoint on which the bridge accepts events. [optional]  # noqa: E501
+            cloud_provider (str): The cloud provider where the bridge resides. [optional]  # noqa: E501
+            region (str): The cloud provider region where the bridge resides. [optional]  # noqa: E501
+            status_message (str): A detailed status message in case there is a problem with the bridge. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -211,6 +211,7 @@ class BridgeResponse(ModelNormal):
         self.submitted_at = submitted_at
         self.status = status
         self.owner = owner
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -231,16 +232,17 @@ class BridgeResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, id, href, submitted_at, status, owner, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, id, href, submitted_at, status, owner, name, *args, **kwargs):  # noqa: E501
         """BridgeResponse - a model defined in OpenAPI
 
         Args:
-            kind (str):
-            id (str):
-            href (str):
+            kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
-            owner (str):
+            owner (str): The user that owns this resource
+            name (str): The name of the bridge
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -273,13 +275,12 @@ class BridgeResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
-            endpoint (str): [optional]  # noqa: E501
-            cloud_provider (str): [optional]  # noqa: E501
-            region (str): [optional]  # noqa: E501
-            status_message (str): [optional]  # noqa: E501
+            endpoint (str): The HTTPS endpoint on which the bridge accepts events. [optional]  # noqa: E501
+            cloud_provider (str): The cloud provider where the bridge resides. [optional]  # noqa: E501
+            region (str): The cloud provider region where the bridge resides. [optional]  # noqa: E501
+            status_message (str): A detailed status message in case there is a problem with the bridge. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -315,6 +316,7 @@ class BridgeResponse(ModelNormal):
         self.submitted_at = submitted_at
         self.status = status
         self.owner = owner
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

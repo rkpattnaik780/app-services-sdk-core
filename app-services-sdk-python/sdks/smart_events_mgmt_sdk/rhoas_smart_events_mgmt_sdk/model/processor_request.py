@@ -110,8 +110,8 @@ class ProcessorRequest(ModelNormal):
         """ProcessorRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
-            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            name (str): The name of the processor
+            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,8 +201,8 @@ class ProcessorRequest(ModelNormal):
         """ProcessorRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
-            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            name (str): The name of the processor
+            flows ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -164,8 +164,8 @@ func main() {
     fetchCapabilities := true // bool | If true, includes the capabilities on a subscription in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Fields(fields).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Fields(fields).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,8 +237,8 @@ func main() {
     fetchRhit := true // bool | If true, includes the RHIT account_id in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdGet(context.Background(), id).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).FetchRhit(fetchRhit).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdGet(context.Background(), id).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).FetchRhit(fetchRhit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -312,8 +312,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -385,8 +385,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyDelete(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyDelete(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -454,8 +454,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyGet(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyGet(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -526,8 +526,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsKeyPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -598,8 +598,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsPost(context.Background(), id).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsPost(context.Background(), id).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdLabelsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -668,8 +668,8 @@ func main() {
     accountPatchRequest := *openapiclient.NewAccountPatchRequest() // AccountPatchRequest | Updated account data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsIdPatch(context.Background(), id).AccountPatchRequest(accountPatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsIdPatch(context.Background(), id).AccountPatchRequest(accountPatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -738,8 +738,8 @@ func main() {
     dryRun := true // bool | If true, instructs API to avoid making any changes, but rather run through validations only. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1AccountsPost(context.Background()).Account(account).DryRun(dryRun).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1AccountsPost(context.Background()).Account(account).DryRun(dryRun).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1AccountsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -803,8 +803,8 @@ func main() {
     certificatesRequest := *openapiclient.NewCertificatesRequest("Type_example") // CertificatesRequest | # The payload depends on the type of the requested certificate The examples for supported types: * {\"type\": \"sca\", \"arch\": \"x86_64\"} 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CertificatesPost(context.Background()).CertificatesRequest(certificatesRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CertificatesPost(context.Background()).CertificatesRequest(certificatesRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CertificatesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -869,8 +869,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CloudResourcesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CloudResourcesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CloudResourcesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -935,8 +935,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CloudResourcesIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1001,8 +1001,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CloudResourcesIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1070,8 +1070,8 @@ func main() {
     cloudResource := *openapiclient.NewCloudResource() // CloudResource | Updated cloud resource data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdPatch(context.Background(), id).CloudResource(cloudResource).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CloudResourcesIdPatch(context.Background(), id).CloudResource(cloudResource).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CloudResourcesIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1139,8 +1139,8 @@ func main() {
     cloudResource := *openapiclient.NewCloudResource() // CloudResource | Cloud resource data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1CloudResourcesPost(context.Background()).CloudResource(cloudResource).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1CloudResourcesPost(context.Background()).CloudResource(cloudResource).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1CloudResourcesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1203,8 +1203,8 @@ func main() {
     clusterAuthorizationRequest := *openapiclient.NewClusterAuthorizationRequest("AccountUsername_example", "ClusterId_example") // ClusterAuthorizationRequest | Cluster and authorization data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ClusterAuthorizationsPost(context.Background()).ClusterAuthorizationRequest(clusterAuthorizationRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ClusterAuthorizationsPost(context.Background()).ClusterAuthorizationRequest(clusterAuthorizationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ClusterAuthorizationsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1267,8 +1267,8 @@ func main() {
     clusterRegistrationRequest := *openapiclient.NewClusterRegistrationRequest() // ClusterRegistrationRequest | Cluster and authorization data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ClusterRegistrationsPost(context.Background()).ClusterRegistrationRequest(clusterRegistrationRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ClusterRegistrationsPost(context.Background()).ClusterRegistrationRequest(clusterRegistrationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ClusterRegistrationsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1334,8 +1334,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ClusterTransfersGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ClusterTransfersGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ClusterTransfersGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1402,8 +1402,8 @@ func main() {
     clusterTransferPatchRequest := *openapiclient.NewClusterTransferPatchRequest() // ClusterTransferPatchRequest | Updated cluster transfer
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ClusterTransfersIdPatch(context.Background(), id).ClusterTransferPatchRequest(clusterTransferPatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ClusterTransfersIdPatch(context.Background(), id).ClusterTransferPatchRequest(clusterTransferPatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ClusterTransfersIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1471,8 +1471,8 @@ func main() {
     clusterTransferRequest := *openapiclient.NewClusterTransferRequest() // ClusterTransferRequest | The contents of the cluster transfer creation request
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ClusterTransfersPost(context.Background()).ClusterTransferRequest(clusterTransferRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ClusterTransfersPost(context.Background()).ClusterTransferRequest(clusterTransferRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ClusterTransfersPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1537,8 +1537,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ConfigSkusGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ConfigSkusGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ConfigSkusGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1603,8 +1603,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ConfigSkusIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1669,8 +1669,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ConfigSkusIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1738,8 +1738,8 @@ func main() {
     sKU := *openapiclient.NewSKU() // SKU | Updated sku data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdPatch(context.Background(), id).SKU(sKU).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ConfigSkusIdPatch(context.Background(), id).SKU(sKU).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ConfigSkusIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1807,8 +1807,8 @@ func main() {
     sKU := *openapiclient.NewSKU() // SKU | Sku data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ConfigSkusPost(context.Background()).SKU(sKU).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ConfigSkusPost(context.Background()).SKU(sKU).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ConfigSkusPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1874,8 +1874,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1DeletedSubscriptionsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1DeletedSubscriptionsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1DeletedSubscriptionsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1943,8 +1943,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ErrorsGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ErrorsGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ErrorsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2009,8 +2009,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ErrorsIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ErrorsIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ErrorsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2078,8 +2078,8 @@ func main() {
     featureToggleQueryRequest := *openapiclient.NewFeatureToggleQueryRequest("OrganizationId_example") // FeatureToggleQueryRequest | The context of the query
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1FeatureTogglesIdQueryPost(context.Background(), id).FeatureToggleQueryRequest(featureToggleQueryRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1FeatureTogglesIdQueryPost(context.Background(), id).FeatureToggleQueryRequest(featureToggleQueryRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1FeatureTogglesIdQueryPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2150,8 +2150,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1LabelsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1LabelsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1LabelsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2216,8 +2216,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1LandingPageSelfServiceGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1LandingPageSelfServiceGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1LandingPageSelfServiceGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2276,8 +2276,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1MetricsGet(context.Background()).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1MetricsGet(context.Background()).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1MetricsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2340,8 +2340,8 @@ func main() {
     notificationRequest := *openapiclient.NewNotificationRequest("TemplateName_example") // NotificationRequest | The contents of the notification to send to the owner of a cluster/subscription in addition to the set of template parameters which are sent automatically ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1NotifyPost(context.Background()).NotificationRequest(notificationRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1NotifyPost(context.Background()).NotificationRequest(notificationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1NotifyPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2408,8 +2408,8 @@ func main() {
     fields := "fields_example" // string | Supplies a comma-separated list of fields to be returned. Fields of sub-structures and of arrays use <structure>.<field> notation. <stucture>.* means all field of a structure Example: For each Subscription to get id, href, plan(id and kind) and labels (all fields)  ``` ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --parameter fetchLabels=true ``` (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Fields(fields).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Fields(fields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2480,8 +2480,8 @@ func main() {
     fetchCapabilities := true // bool | If true, includes the capabilities on a subscription in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdGet(context.Background(), id).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdGet(context.Background(), id).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2554,8 +2554,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2627,8 +2627,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyDelete(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyDelete(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2696,8 +2696,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyGet(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyGet(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2768,8 +2768,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsKeyPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2840,8 +2840,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsPost(context.Background(), id).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsPost(context.Background(), id).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdLabelsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2910,8 +2910,8 @@ func main() {
     organizationPatchRequest := *openapiclient.NewOrganizationPatchRequest() // OrganizationPatchRequest | Updated organization data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdPatch(context.Background(), id).OrganizationPatchRequest(organizationPatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdPatch(context.Background(), id).OrganizationPatchRequest(organizationPatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2979,8 +2979,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsIdSummaryDashboardGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsIdSummaryDashboardGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsIdSummaryDashboardGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3048,8 +3048,8 @@ func main() {
     acctGrpAsgnId := "acctGrpAsgnId_example" // string | The id of account group assignment
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdDelete(context.Background(), orgId, acctGrpAsgnId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdDelete(context.Background(), orgId, acctGrpAsgnId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3117,8 +3117,8 @@ func main() {
     acctGrpAsgnId := "acctGrpAsgnId_example" // string | The id of account group assignment
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdGet(context.Background(), orgId, acctGrpAsgnId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdGet(context.Background(), orgId, acctGrpAsgnId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3191,8 +3191,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3264,8 +3264,8 @@ func main() {
     accountGroupAssignment := *openapiclient.NewAccountGroupAssignment("AccountGroupId_example", "AccountId_example") // AccountGroupAssignment | New AccountGroup data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsPost(context.Background(), orgId).AccountGroupAssignment(accountGroupAssignment).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsPost(context.Background(), orgId).AccountGroupAssignment(accountGroupAssignment).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3334,8 +3334,8 @@ func main() {
     acctGrpId := "acctGrpId_example" // string | The id of account group
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdDelete(context.Background(), orgId, acctGrpId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdDelete(context.Background(), orgId, acctGrpId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3403,8 +3403,8 @@ func main() {
     acctGrpId := "acctGrpId_example" // string | The id of account group
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdGet(context.Background(), orgId, acctGrpId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdGet(context.Background(), orgId, acctGrpId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3475,8 +3475,8 @@ func main() {
     accountGroupRequest := *openapiclient.NewAccountGroupRequest("Description_example", "Name_example") // AccountGroupRequest | Updated account group data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdPatch(context.Background(), orgId, acctGrpId).AccountGroupRequest(accountGroupRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdPatch(context.Background(), orgId, acctGrpId).AccountGroupRequest(accountGroupRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3550,8 +3550,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3623,8 +3623,8 @@ func main() {
     accountGroupRequest := *openapiclient.NewAccountGroupRequest("Description_example", "Name_example") // AccountGroupRequest | New AccountGroup data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsPost(context.Background(), orgId).AccountGroupRequest(accountGroupRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsPost(context.Background(), orgId).AccountGroupRequest(accountGroupRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3693,8 +3693,8 @@ func main() {
     forceRecalc := true // bool | If true, includes that ConsumedQuota should be recalculated. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdConsumedQuotaGet(context.Background(), orgId).ForceRecalc(forceRecalc).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdConsumedQuotaGet(context.Background(), orgId).ForceRecalc(forceRecalc).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdConsumedQuotaGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3766,8 +3766,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaGet(context.Background(), orgId).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3839,8 +3839,8 @@ func main() {
     resourceQuotaRequest := *openapiclient.NewResourceQuotaRequest("Sku_example", int32(123)) // ResourceQuotaRequest | Resource quota data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaPost(context.Background(), orgId).ResourceQuotaRequest(resourceQuotaRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaPost(context.Background(), orgId).ResourceQuotaRequest(resourceQuotaRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3909,8 +3909,8 @@ func main() {
     quotaId := "quotaId_example" // string | The id of quota
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdDelete(context.Background(), orgId, quotaId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdDelete(context.Background(), orgId, quotaId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3978,8 +3978,8 @@ func main() {
     quotaId := "quotaId_example" // string | The id of quota
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdGet(context.Background(), orgId, quotaId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdGet(context.Background(), orgId, quotaId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4050,8 +4050,8 @@ func main() {
     resourceQuotaRequest := *openapiclient.NewResourceQuotaRequest("Sku_example", int32(123)) // ResourceQuotaRequest | Updated resource quota data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdPatch(context.Background(), orgId, quotaId).ResourceQuotaRequest(resourceQuotaRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdPatch(context.Background(), orgId, quotaId).ResourceQuotaRequest(resourceQuotaRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4121,8 +4121,8 @@ func main() {
     organization := *openapiclient.NewOrganization() // Organization | Organization data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1OrganizationsPost(context.Background()).Organization(organization).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1OrganizationsPost(context.Background()).Organization(organization).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1OrganizationsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4187,8 +4187,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1PlansGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1PlansGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1PlansGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4253,8 +4253,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1PlansIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1PlansIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1PlansIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4321,8 +4321,8 @@ func main() {
     externalResourceId := "externalResourceId_example" // string | The external resource id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1PullSecretsExternalResourceIdDelete(context.Background(), externalResourceId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1PullSecretsExternalResourceIdDelete(context.Background(), externalResourceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1PullSecretsExternalResourceIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4387,8 +4387,8 @@ func main() {
     pullSecretRequest := *openapiclient.NewPullSecretRequest("ExternalResourceId_example") // PullSecretRequest | Identifier of the resource in the external service that this pull secret relates to
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1PullSecretsPost(context.Background()).PullSecretRequest(pullSecretRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1PullSecretsPost(context.Background()).PullSecretRequest(pullSecretRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1PullSecretsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4453,8 +4453,8 @@ func main() {
     fetchCloudAccounts := true // bool | If true, includes the marketplace cloud accounts in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotaCostGet(context.Background()).Search(search).FetchRelatedResources(fetchRelatedResources).FetchCloudAccounts(fetchCloudAccounts).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotaCostGet(context.Background()).Search(search).FetchRelatedResources(fetchRelatedResources).FetchCloudAccounts(fetchCloudAccounts).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotaCostGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4521,8 +4521,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotaRulesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotaRulesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotaRulesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4589,8 +4589,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotasGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotasGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotasGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4655,8 +4655,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotasIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotasIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotasIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4721,8 +4721,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotasIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotasIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotasIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4790,8 +4790,8 @@ func main() {
     quota := *openapiclient.NewQuota() // Quota | Updated quota data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotasIdPatch(context.Background(), id).Quota(quota).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotasIdPatch(context.Background(), id).Quota(quota).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotasIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4859,8 +4859,8 @@ func main() {
     quota := *openapiclient.NewQuota() // Quota | Quota data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1QuotasPost(context.Background()).Quota(quota).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1QuotasPost(context.Background()).Quota(quota).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1QuotasPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4926,8 +4926,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistriesGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistriesGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistriesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4993,8 +4993,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistriesIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistriesIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistriesIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5066,8 +5066,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistryCredentialsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5133,8 +5133,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5199,8 +5199,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5268,8 +5268,8 @@ func main() {
     registryCredentialPatchRequest := *openapiclient.NewRegistryCredentialPatchRequest() // RegistryCredentialPatchRequest | Updated registry credential data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdPatch(context.Background(), id).RegistryCredentialPatchRequest(registryCredentialPatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdPatch(context.Background(), id).RegistryCredentialPatchRequest(registryCredentialPatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistryCredentialsIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5337,8 +5337,8 @@ func main() {
     registryCredential := *openapiclient.NewRegistryCredential() // RegistryCredential | Registry credential data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsPost(context.Background()).RegistryCredential(registryCredential).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RegistryCredentialsPost(context.Background()).RegistryCredential(registryCredential).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RegistryCredentialsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5404,8 +5404,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ReservedResourcesGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ReservedResourcesGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ReservedResourcesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5474,8 +5474,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1ResourceQuotaGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1ResourceQuotaGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1ResourceQuotaGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5544,8 +5544,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RoleBindingsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RoleBindingsGet(context.Background()).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RoleBindingsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5611,8 +5611,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RoleBindingsIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5677,8 +5677,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RoleBindingsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5746,8 +5746,8 @@ func main() {
     roleBindingRequest := *openapiclient.NewRoleBindingRequest() // RoleBindingRequest | Updated role binding data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdPatch(context.Background(), id).RoleBindingRequest(roleBindingRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RoleBindingsIdPatch(context.Background(), id).RoleBindingRequest(roleBindingRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RoleBindingsIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5815,8 +5815,8 @@ func main() {
     roleBindingCreateRequest := *openapiclient.NewRoleBindingCreateRequest("RoleId_example", "Type_example") // RoleBindingCreateRequest | Role binding data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RoleBindingsPost(context.Background()).RoleBindingCreateRequest(roleBindingCreateRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RoleBindingsPost(context.Background()).RoleBindingCreateRequest(roleBindingCreateRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RoleBindingsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5881,8 +5881,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RolesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RolesGet(context.Background()).Page(page).Size(size).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RolesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5947,8 +5947,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1RolesIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1RolesIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1RolesIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6015,8 +6015,8 @@ func main() {
     product := "product_example" // string | The product for self_entitlement. The supported products are [rosa].
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SelfEntitlementProductPost(context.Background(), product).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SelfEntitlementProductPost(context.Background(), product).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SelfEntitlementProductPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6083,8 +6083,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkuRulesGet(context.Background()).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkuRulesGet(context.Background()).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkuRulesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6147,8 +6147,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkuRulesIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkuRulesIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkuRulesIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6213,8 +6213,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkuRulesIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkuRulesIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkuRulesIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6282,8 +6282,8 @@ func main() {
     skuRules := *openapiclient.NewSkuRules() // SkuRules | Updated sku rule data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkuRulesIdPatch(context.Background(), id).SkuRules(skuRules).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkuRulesIdPatch(context.Background(), id).SkuRules(skuRules).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkuRulesIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6351,8 +6351,8 @@ func main() {
     skuRules := *openapiclient.NewSkuRules() // SkuRules | Sku rule data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkuRulesPost(context.Background()).SkuRules(skuRules).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkuRulesPost(context.Background()).SkuRules(skuRules).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkuRulesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6415,8 +6415,8 @@ func main() {
     search := "search_example" // string | Specifies the search criteria. The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement, using the names of the json attributes / column names of the account. For example, in order to retrieve all the accounts with a username starting with `my`:  ```sql username like 'my%' ```  The search criteria can also be applied on related resource. For example, in order to retrieve all the subscriptions labeled by `foo=bar`,  ```sql labels.key = 'foo' and labels.value = 'bar' ```  If the parameter isn't provided, or if the value is empty, then all the accounts that the user has permission to see will be returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkusGet(context.Background()).Search(search).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkusGet(context.Background()).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkusGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6479,8 +6479,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SkusIdGet(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SkusIdGet(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SkusIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6555,8 +6555,8 @@ func main() {
     labels := "labels_example" // string | Specifies the criteria to filter the subscription resource based on their labels. A label is represented as a `key=value` pair,  ``` labels = \"foo=bar\" ```  and multiple labels are separated by comma,  ``` labels = \"foo=bar,fooz=barz\" ``` (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsGet(context.Background()).Page(page).Size(size).Search(search).FetchAccounts(fetchAccounts).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Fields(fields).OrderBy(orderBy).Labels(labels).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsGet(context.Background()).Page(page).Size(size).Search(search).FetchAccounts(fetchAccounts).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).Fields(fields).OrderBy(orderBy).Labels(labels).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6627,8 +6627,8 @@ func main() {
     id := "id_example" // string | The id of record
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6697,8 +6697,8 @@ func main() {
     fetchCpuAndSocket := true // bool | If true, fetches, from the clusters service, the total numbers of CPU's and sockets under an obligation, and includes in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdGet(context.Background(), id).FetchAccounts(fetchAccounts).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).FetchCpuAndSocket(fetchCpuAndSocket).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdGet(context.Background(), id).FetchAccounts(fetchAccounts).FetchLabels(fetchLabels).FetchCapabilities(fetchCapabilities).FetchCpuAndSocket(fetchCpuAndSocket).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6773,8 +6773,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6846,8 +6846,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyDelete(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyDelete(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6915,8 +6915,8 @@ func main() {
     key := "key_example" // string | The key of the label
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyGet(context.Background(), id, key).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyGet(context.Background(), id, key).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6987,8 +6987,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyPatch(context.Background(), id, key).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsKeyPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7059,8 +7059,8 @@ func main() {
     label := *openapiclient.NewLabel(false, "Key_example", "Value_example") // Label | Label data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsPost(context.Background(), id).Label(label).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsPost(context.Background(), id).Label(label).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdLabelsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7131,8 +7131,8 @@ func main() {
     fields := "fields_example" // string | Supplies a comma-separated list of fields to be returned. Fields of sub-structures and of arrays use <structure>.<field> notation. <stucture>.* means all field of a structure Example: For each Subscription to get id, href, plan(id and kind) and labels (all fields)  ``` ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --parameter fetchLabels=true ``` (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdMetricsMetricNameGet(context.Background(), id, metricName).Search(search).Fields(fields).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdMetricsMetricNameGet(context.Background(), id, metricName).Search(search).Fields(fields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdMetricsMetricNameGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7204,8 +7204,8 @@ func main() {
     notificationRequest := *openapiclient.NewNotificationRequest("TemplateName_example") // NotificationRequest | The contents of the notification to send to the owner of a subscription in addition to the set of template parameters which are sent automatically ACCOUNT_USERNAME, FIRST_NAME, LAST_NAME, ORGANIZATION_NAME, ORGANIZATION_EXTERNAL_ID
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdNotifyPost(context.Background(), id).NotificationRequest(notificationRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdNotifyPost(context.Background(), id).NotificationRequest(notificationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdNotifyPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7272,8 +7272,8 @@ func main() {
     subscriptionPatchRequest := *openapiclient.NewSubscriptionPatchRequest() // SubscriptionPatchRequest | Updated subscription data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdPatch(context.Background(), id).SubscriptionPatchRequest(subscriptionPatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdPatch(context.Background(), id).SubscriptionPatchRequest(subscriptionPatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7345,8 +7345,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdReservedResourcesGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdReservedResourcesGet(context.Background(), id).Page(page).Size(size).Search(search).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdReservedResourcesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7419,8 +7419,8 @@ func main() {
     size := int32(56) // int32 | Maximum number of records to return (optional) (default to 100)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdSupportCasesGet(context.Background(), id).Page(page).Size(size).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsIdSupportCasesGet(context.Background(), id).Page(page).Size(size).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsIdSupportCasesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7487,8 +7487,8 @@ func main() {
     subscriptionCreateRequest := *openapiclient.NewSubscriptionCreateRequest("ClusterUuid_example", "PlanId_example", "Status_example") // SubscriptionCreateRequest | Subscription Creation data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsPost(context.Background()).SubscriptionCreateRequest(subscriptionCreateRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsPost(context.Background()).SubscriptionCreateRequest(subscriptionCreateRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7552,8 +7552,8 @@ func main() {
     accountId := "accountId_example" // string | The id of account
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsAccountIdDelete(context.Background(), subId, accountId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsAccountIdDelete(context.Background(), subId, accountId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsAccountIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7625,8 +7625,8 @@ func main() {
     orderBy := "orderBy_example" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement, but using the names of the json attributes / column of the account. For example, in order to retrieve all accounts ordered by username:  ```sql username asc ```  Or in order to retrieve all accounts ordered by username _and_ first name:  ```sql username asc, firstName asc ```  If the parameter isn't provided, or if the value is empty, then no explicit ordering will be applied. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsGet(context.Background(), subId).Page(page).Size(size).Search(search).Fields(fields).OrderBy(orderBy).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsGet(context.Background(), subId).Page(page).Size(size).Search(search).Fields(fields).OrderBy(orderBy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7699,8 +7699,8 @@ func main() {
     notificationContactCreateRequest := *openapiclient.NewNotificationContactCreateRequest() // NotificationContactCreateRequest | Add a notification contact by an account's username
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsPost(context.Background(), subId).NotificationContactCreateRequest(notificationContactCreateRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsPost(context.Background(), subId).NotificationContactCreateRequest(notificationContactCreateRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7769,8 +7769,8 @@ func main() {
     reservedResourceId := "reservedResourceId_example" // string | The id of reserved resource
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdDelete(context.Background(), subId, reservedResourceId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdDelete(context.Background(), subId, reservedResourceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7838,8 +7838,8 @@ func main() {
     reservedResourceId := "reservedResourceId_example" // string | The id of reserved resource
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdGet(context.Background(), subId, reservedResourceId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdGet(context.Background(), subId, reservedResourceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7910,8 +7910,8 @@ func main() {
     reservedResourcePatchRequest := *openapiclient.NewReservedResourcePatchRequest() // ReservedResourcePatchRequest | Updated reserved resource data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdPatch(context.Background(), subId, reservedResourceId).ReservedResourcePatchRequest(reservedResourcePatchRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdPatch(context.Background(), subId, reservedResourceId).ReservedResourcePatchRequest(reservedResourcePatchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7986,8 +7986,8 @@ func main() {
     fetchAccounts := true // bool | If true, includes the account reference information in the output. Could slow request response time. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsGet(context.Background(), subId).Page(page).Size(size).Search(search).OrderBy(orderBy).FetchAccounts(fetchAccounts).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsGet(context.Background(), subId).Page(page).Size(size).Search(search).OrderBy(orderBy).FetchAccounts(fetchAccounts).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8060,8 +8060,8 @@ func main() {
     subId := "subId_example" // string | The id of subscription
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdDelete(context.Background(), id, subId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdDelete(context.Background(), id, subId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8129,8 +8129,8 @@ func main() {
     subId := "subId_example" // string | The id of subscription
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdGet(context.Background(), id, subId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdGet(context.Background(), id, subId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8200,8 +8200,8 @@ func main() {
     subscriptionRoleBindingCreateRequest := *openapiclient.NewSubscriptionRoleBindingCreateRequest("AccountUsername_example", "RoleId_example") // SubscriptionRoleBindingCreateRequest | Subscription role binding data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsPost(context.Background(), subId).SubscriptionRoleBindingCreateRequest(subscriptionRoleBindingCreateRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsPost(context.Background(), subId).SubscriptionRoleBindingCreateRequest(subscriptionRoleBindingCreateRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8269,8 +8269,8 @@ func main() {
     caseId := "caseId_example" // string | The id of a support case
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SupportCasesCaseIdDelete(context.Background(), caseId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SupportCasesCaseIdDelete(context.Background(), caseId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SupportCasesCaseIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8335,8 +8335,8 @@ func main() {
     supportCasesRequest := *openapiclient.NewSupportCasesRequest("Description_example", "Severity_example", "Summary_example") // SupportCasesRequest | The contents of the support case to be created
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1SupportCasesPost(context.Background()).SupportCasesRequest(supportCasesRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1SupportCasesPost(context.Background()).SupportCasesRequest(supportCasesRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1SupportCasesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8399,8 +8399,8 @@ func main() {
     tokenAuthorizationRequest := *openapiclient.NewTokenAuthorizationRequest() // TokenAuthorizationRequest | Token authorization data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAccountsMgmtV1TokenAuthorizationPost(context.Background()).TokenAuthorizationRequest(tokenAuthorizationRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAccountsMgmtV1TokenAuthorizationPost(context.Background()).TokenAuthorizationRequest(tokenAuthorizationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAccountsMgmtV1TokenAuthorizationPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8463,8 +8463,8 @@ func main() {
     accessReview := *openapiclient.NewAccessReview("AccountUsername_example", "Action_example", "ResourceType_example") // AccessReview | Access review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1AccessReviewPost(context.Background()).AccessReview(accessReview).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1AccessReviewPost(context.Background()).AccessReview(accessReview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1AccessReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8527,8 +8527,8 @@ func main() {
     capabilityReviewRequest := *openapiclient.NewCapabilityReviewRequest("AccountUsername_example", "Capability_example", "Type_example") // CapabilityReviewRequest | Capability review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1CapabilityReviewPost(context.Background()).CapabilityReviewRequest(capabilityReviewRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1CapabilityReviewPost(context.Background()).CapabilityReviewRequest(capabilityReviewRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1CapabilityReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8591,8 +8591,8 @@ func main() {
     exportControlReviewRequest := *openapiclient.NewExportControlReviewRequest("AccountUsername_example") // ExportControlReviewRequest | Export control review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1ExportControlReviewPost(context.Background()).ExportControlReviewRequest(exportControlReviewRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1ExportControlReviewPost(context.Background()).ExportControlReviewRequest(exportControlReviewRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1ExportControlReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8655,8 +8655,8 @@ func main() {
     featureReview := *openapiclient.NewFeatureReview("Feature_example") // FeatureReview | Feature review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1FeatureReviewPost(context.Background()).FeatureReview(featureReview).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1FeatureReviewPost(context.Background()).FeatureReview(featureReview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1FeatureReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8720,8 +8720,8 @@ func main() {
     reduceClusterList := true // bool | If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids, if those are already included in one of the organizations provided in organization_ids, do not include it in the list. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1ResourceReviewPost(context.Background()).ResourceReviewRequest(resourceReviewRequest).ReduceClusterList(reduceClusterList).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1ResourceReviewPost(context.Background()).ResourceReviewRequest(resourceReviewRequest).ReduceClusterList(reduceClusterList).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1ResourceReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8785,8 +8785,8 @@ func main() {
     selfAccessReview := *openapiclient.NewSelfAccessReview("Action_example", "ResourceType_example") // SelfAccessReview | Self access review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1SelfAccessReviewPost(context.Background()).SelfAccessReview(selfAccessReview).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1SelfAccessReviewPost(context.Background()).SelfAccessReview(selfAccessReview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1SelfAccessReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8849,8 +8849,8 @@ func main() {
     selfFeatureReview := *openapiclient.NewSelfFeatureReview("Feature_example") // SelfFeatureReview | Self feature review data
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1SelfFeatureReviewPost(context.Background()).SelfFeatureReview(selfFeatureReview).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1SelfFeatureReviewPost(context.Background()).SelfFeatureReview(selfFeatureReview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1SelfFeatureReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8914,8 +8914,8 @@ func main() {
     reduceClusterList := true // bool | If true, When returning a list of cluster_ids/cluster_uuids/subscription_ids, if those are already included in one of the organizations provided in organization_ids, do not include it in the list. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1SelfResourceReviewPost(context.Background()).SelfResourceReviewRequest(selfResourceReviewRequest).ReduceClusterList(reduceClusterList).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1SelfResourceReviewPost(context.Background()).SelfResourceReviewRequest(selfResourceReviewRequest).ReduceClusterList(reduceClusterList).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1SelfResourceReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8979,8 +8979,8 @@ func main() {
     termsReview := *openapiclient.NewTermsReview("AccountUsername_example") // TermsReview | Data to check terms for
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.ApiAuthorizationsV1TermsReviewPost(context.Background()).TermsReview(termsReview).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DefaultApi.ApiAuthorizationsV1TermsReviewPost(context.Background()).TermsReview(termsReview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ApiAuthorizationsV1TermsReviewPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

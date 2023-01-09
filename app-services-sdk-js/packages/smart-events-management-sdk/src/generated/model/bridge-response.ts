@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Red Hat Openshift SmartEvents Fleet Manager V1
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  * The API exposed by the fleet manager of the SmartEvents service.
  *
  * The version of the OpenAPI document: 0.0.1
@@ -13,7 +13,6 @@
  */
 
 
-import { Action } from './action';
 import { ManagedResourceStatus } from './managed-resource-status';
 
 /**
@@ -23,25 +22,19 @@ import { ManagedResourceStatus } from './managed-resource-status';
  */
 export interface BridgeResponse {
     /**
-     * 
+     * The kind (type) of this resource
      * @type {string}
      * @memberof BridgeResponse
      */
     'kind': string;
     /**
-     * 
+     * The unique identifier of this resource
      * @type {string}
      * @memberof BridgeResponse
      */
     'id': string;
     /**
-     * 
-     * @type {string}
-     * @memberof BridgeResponse
-     */
-    'name'?: string;
-    /**
-     * 
+     * The URL of this resource, without the protocol
      * @type {string}
      * @memberof BridgeResponse
      */
@@ -71,37 +64,37 @@ export interface BridgeResponse {
      */
     'status': ManagedResourceStatus;
     /**
-     * 
+     * The user that owns this resource
      * @type {string}
      * @memberof BridgeResponse
      */
     'owner': string;
     /**
-     * 
+     * The name of the bridge
+     * @type {string}
+     * @memberof BridgeResponse
+     */
+    'name': string;
+    /**
+     * The HTTPS endpoint on which the bridge accepts events
      * @type {string}
      * @memberof BridgeResponse
      */
     'endpoint'?: string;
     /**
-     * 
-     * @type {Action}
-     * @memberof BridgeResponse
-     */
-    'error_handler'?: Action;
-    /**
-     * 
+     * The cloud provider where the bridge resides
      * @type {string}
      * @memberof BridgeResponse
      */
     'cloud_provider'?: string;
     /**
-     * 
+     * The cloud provider region where the bridge resides
      * @type {string}
      * @memberof BridgeResponse
      */
     'region'?: string;
     /**
-     * 
+     * A detailed status message in case there is a problem with the bridge
      * @type {string}
      * @memberof BridgeResponse
      */

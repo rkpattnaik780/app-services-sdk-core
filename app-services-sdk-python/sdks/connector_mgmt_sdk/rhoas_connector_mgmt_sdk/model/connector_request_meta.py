@@ -33,8 +33,10 @@ from rhoas_connector_mgmt_sdk.exceptions import ApiAttributeError
 def lazy_import():
     from rhoas_connector_mgmt_sdk.model.channel import Channel
     from rhoas_connector_mgmt_sdk.model.connector_desired_state import ConnectorDesiredState
+    from rhoas_connector_mgmt_sdk.model.connector_resource_annotations import ConnectorResourceAnnotations
     globals()['Channel'] = Channel
     globals()['ConnectorDesiredState'] = ConnectorDesiredState
+    globals()['ConnectorResourceAnnotations'] = ConnectorResourceAnnotations
 
 
 class ConnectorRequestMeta(ModelNormal):
@@ -95,6 +97,7 @@ class ConnectorRequestMeta(ModelNormal):
             'namespace_id': (str,),  # noqa: E501
             'desired_state': (ConnectorDesiredState,),  # noqa: E501
             'channel': (Channel,),  # noqa: E501
+            'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +111,7 @@ class ConnectorRequestMeta(ModelNormal):
         'namespace_id': 'namespace_id',  # noqa: E501
         'desired_state': 'desired_state',  # noqa: E501
         'channel': 'channel',  # noqa: E501
+        'annotations': 'annotations',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +162,7 @@ class ConnectorRequestMeta(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,6 +259,7 @@ class ConnectorRequestMeta(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channel (Channel): [optional]  # noqa: E501
+            annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

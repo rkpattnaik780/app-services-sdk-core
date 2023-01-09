@@ -155,7 +155,6 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       responses:
         "200":
           description: Success.
@@ -173,64 +172,6 @@ paths:
           description: Unauthorized.
         "403":
           description: Forbidden.
-        "404":
-          description: Not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
-        "500":
-          description: Internal error.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
-      security:
-      - bearer: []
-    put:
-      tags:
-      - Bridges
-      summary: Update a Bridge instance
-      description: Update a Bridge instance for the authenticated user.
-      operationId: BridgesAPI_updateBridge
-      parameters:
-      - name: bridgeId
-        in: path
-        required: true
-        schema:
-          minLength: 1
-          type: string
-          nullable: false
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BridgeRequest'
-      responses:
-        "202":
-          description: Accepted.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BridgeResponse'
-        "400":
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
-        "401":
-          description: Unauthorized.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorsList'
         "404":
           description: Not found.
           content:
@@ -299,7 +240,6 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       - name: name
         in: query
         schema:
@@ -370,7 +310,6 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       requestBody:
         content:
           application/json:
@@ -427,14 +366,12 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       - name: processorId
         in: path
         required: true
         schema:
           minLength: 1
           type: string
-          nullable: false
       responses:
         "200":
           description: Success.
@@ -479,14 +416,12 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       - name: processorId
         in: path
         required: true
         schema:
           minLength: 1
           type: string
-          nullable: false
       requestBody:
         content:
           application/json:
@@ -623,7 +558,6 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       responses:
         "200":
           description: Success.
@@ -663,7 +597,6 @@ paths:
         schema:
           minLength: 1
           type: string
-          nullable: false
       - name: page
         in: query
         schema:
@@ -820,7 +753,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -828,15 +760,12 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     BridgeRequest:
       required:
       - name
@@ -845,17 +774,20 @@ components:
       type: object
       properties:
         name:
+          description: The name of the bridge
           minLength: 1
           type: string
-          nullable: false
+          example: bridge1
         cloud_provider:
+          description: The cloud provider where the bridge resides
           minLength: 1
           type: string
-          nullable: false
+          example: aws
         region:
+          description: The cloud provider region where the bridge resides
           minLength: 1
           type: string
-          nullable: false
+          example: us-east-1
     BridgeResponse:
       required:
       - kind
@@ -864,43 +796,53 @@ components:
       - submitted_at
       - status
       - owner
+      - name
       type: object
       properties:
         kind:
+          description: The kind (type) of this resource
           type: string
-          nullable: false
         id:
-          type: string
-          nullable: false
-        name:
+          description: The unique identifier of this resource
           type: string
         href:
+          description: "The URL of this resource, without the protocol"
           type: string
-          nullable: false
+          example: example.com/resource
         submitted_at:
-          format: date-time
-          type: string
-          nullable: false
+          $ref: '#/components/schemas/ZonedDateTime'
         published_at:
-          format: date-time
-          type: string
+          $ref: '#/components/schemas/ZonedDateTime'
         modified_at:
-          format: date-time
-          type: string
+          $ref: '#/components/schemas/ZonedDateTime'
         status:
           allOf:
           - $ref: '#/components/schemas/ManagedResourceStatus'
-          - nullable: false
+          - description: The status of this resource
+            example: ready
         owner:
+          description: The user that owns this resource
           type: string
-          nullable: false
+          example: userName
+        name:
+          description: The name of the bridge
+          type: string
+          example: bridge1
         endpoint:
+          description: The HTTPS endpoint on which the bridge accepts events
           type: string
+          example: https://example.com/bridge
         cloud_provider:
+          description: The cloud provider where the bridge resides
           type: string
+          example: aws
         region:
+          description: The cloud provider region where the bridge resides
           type: string
+          example: us-east
         status_message:
+          description: A detailed status message in case there is a problem with the
+            bridge
           type: string
     CloudProviderListResponse:
       required:
@@ -912,7 +854,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -920,15 +861,12 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     CloudProviderResponse:
       required:
       - kind
@@ -939,22 +877,23 @@ components:
       type: object
       properties:
         kind:
+          description: The kind (type) of this resource
           type: string
-          nullable: false
         id:
+          description: The unique identifier of this resource
           type: string
-          nullable: false
         name:
+          description: The name of this resource
           type: string
+          example: resourceName1
         href:
+          description: "The URL of this resource, without the protocol"
           type: string
-          nullable: false
+          example: example.com/resource
         display_name:
           type: string
-          nullable: false
         enabled:
           type: boolean
-          nullable: false
     CloudRegionListResponse:
       required:
       - kind
@@ -965,7 +904,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -973,15 +911,12 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     CloudRegionResponse:
       required:
       - kind
@@ -992,16 +927,12 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         name:
           type: string
-          nullable: false
         display_name:
           type: string
-          nullable: false
         enabled:
           type: boolean
-          nullable: false
     Error:
       required:
       - kind
@@ -1011,21 +942,20 @@ components:
       type: object
       properties:
         kind:
+          description: The kind (type) of this resource
           type: string
-          nullable: false
         name:
+          description: The name of this resource
           type: string
+          example: resourceName1
         code:
           type: string
         reason:
           type: string
-          nullable: false
         id:
           type: string
-          nullable: false
         href:
           type: string
-          nullable: false
     ErrorListResponse:
       required:
       - kind
@@ -1036,7 +966,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -1044,15 +973,12 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     ErrorsList:
       required:
       - kind
@@ -1060,7 +986,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -1077,15 +1002,12 @@ components:
           page:
             format: int64
             type: integer
-            nullable: false
           size:
             format: int64
             type: integer
-            nullable: false
           total:
             format: int64
             type: integer
-            nullable: false
     ListResponse:
       required:
       - kind
@@ -1093,7 +1015,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -1104,6 +1025,9 @@ components:
       - preparing
       - provisioning
       - ready
+      - update_accepted
+      - update_preparing
+      - update_provisioning
       - deprovision
       - deleting
       - deleted
@@ -1117,16 +1041,19 @@ components:
       type: object
       properties:
         kind:
+          description: The kind (type) of this resource
           type: string
-          nullable: false
         id:
+          description: The unique identifier of this resource
           type: string
-          nullable: false
         name:
+          description: The name of this resource
           type: string
+          example: resourceName1
         href:
+          description: "The URL of this resource, without the protocol"
           type: string
-          nullable: false
+          example: example.com/resource
     ProcessingErrorListResponse:
       required:
       - kind
@@ -1137,7 +1064,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -1145,21 +1071,17 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     ProcessingErrorResponse:
       type: object
       properties:
         recorded_at:
-          format: date-time
-          type: string
+          $ref: '#/components/schemas/ZonedDateTime'
         headers:
           type: object
           additionalProperties:
@@ -1176,7 +1098,6 @@ components:
       properties:
         kind:
           type: string
-          nullable: false
         items:
           type: array
           items:
@@ -1184,15 +1105,12 @@ components:
         page:
           format: int64
           type: integer
-          nullable: false
         size:
           format: int64
           type: integer
-          nullable: false
         total:
           format: int64
           type: integer
-          nullable: false
     ProcessorRequest:
       required:
       - name
@@ -1200,12 +1118,14 @@ components:
       type: object
       properties:
         name:
+          description: The name of the processor
           minLength: 1
           type: string
-          nullable: false
+          example: processor1
         flows:
+          description: "The Camel YAML DSL code, formatted as JSON, that defines the\
+            \ flows in the processor"
           type: object
-          nullable: false
     ProcessorResponse:
       required:
       - kind
@@ -1219,39 +1139,44 @@ components:
       type: object
       properties:
         kind:
+          description: The kind (type) of this resource
           type: string
-          nullable: false
         id:
+          description: The unique identifier of this resource
           type: string
-          nullable: false
         href:
+          description: "The URL of this resource, without the protocol"
           type: string
-          nullable: false
+          example: example.com/resource
         submitted_at:
-          format: date-time
-          type: string
-          nullable: false
+          $ref: '#/components/schemas/ZonedDateTime'
         published_at:
-          format: date-time
-          type: string
+          $ref: '#/components/schemas/ZonedDateTime'
         modified_at:
-          format: date-time
-          type: string
+          $ref: '#/components/schemas/ZonedDateTime'
         status:
           allOf:
           - $ref: '#/components/schemas/ManagedResourceStatus'
-          - nullable: false
+          - description: The status of this resource
+            example: ready
         owner:
+          description: The user that owns this resource
           type: string
-          nullable: false
+          example: userName
         name:
+          description: The name of the processor
           type: string
-          nullable: false
+          example: processor1
         flows:
+          description: "The Camel YAML DSL code, formatted as JSON, that defines the\
+            \ flows in the processor"
           type: object
-          nullable: false
         status_message:
           type: string
+    ZonedDateTime:
+      format: date-time
+      type: string
+      example: 2022-03-10T12:15:50-04:00
   securitySchemes:
     bearer:
       type: http
