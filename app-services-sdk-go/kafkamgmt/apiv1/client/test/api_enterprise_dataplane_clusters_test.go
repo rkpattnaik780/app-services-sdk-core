@@ -22,6 +22,20 @@ func Test_kafkamgmtclient_EnterpriseDataplaneClustersApiService(t *testing.T) {
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
 
+    t.Run("Test EnterpriseDataplaneClustersApiService DeleteEnterpriseClusterById", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var id string
+
+        resp, httpRes, err := apiClient.EnterpriseDataplaneClustersApi.DeleteEnterpriseClusterById(context.Background(), id).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test EnterpriseDataplaneClustersApiService GetEnterpriseOsdClusters", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

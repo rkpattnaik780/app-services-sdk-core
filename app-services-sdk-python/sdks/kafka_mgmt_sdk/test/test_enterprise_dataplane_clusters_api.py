@@ -24,6 +24,12 @@ class TestEnterpriseDataplaneClustersApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_enterprise_cluster_by_id(self):
+        """Test case for delete_enterprise_cluster_by_id
+
+        """
+        pass
+
     def test_get_enterprise_osd_clusters(self):
         """Test case for get_enterprise_osd_clusters
 
