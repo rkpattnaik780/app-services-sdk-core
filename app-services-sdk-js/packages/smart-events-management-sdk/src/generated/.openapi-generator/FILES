@@ -3,6 +3,8 @@ api/bridges-api.ts
 api/cloud-providers-api.ts
 api/error-catalog-api.ts
 api/processors-api.ts
+api/sink-connectors-api.ts
+api/source-connectors-api.ts
 base.ts
 common.ts
 configuration.ts
@@ -17,6 +19,7 @@ model/cloud-provider-list-response.ts
 model/cloud-provider-response.ts
 model/cloud-region-list-response.ts
 model/cloud-region-response.ts
+model/connector-request.ts
 model/error-list-response.ts
 model/errors-list.ts
 model/index.ts
@@ -31,3 +34,7 @@ model/processing-error-response.ts
 model/processor-list-response.ts
 model/processor-request.ts
 model/processor-response.ts
+model/sink-connector-list-response.ts
+model/sink-connector-response.ts
+model/source-connector-list-response.ts
+model/source-connector-response.ts
