@@ -11,6 +11,7 @@ docs/CloudProviderResponse.md
 docs/CloudProvidersApi.md
 docs/CloudRegionListResponse.md
 docs/CloudRegionResponse.md
+docs/ConnectorRequest.md
 docs/Error.md
 docs/ErrorCatalogApi.md
 docs/ErrorListResponse.md
@@ -26,6 +27,12 @@ docs/ProcessorListResponse.md
 docs/ProcessorRequest.md
 docs/ProcessorResponse.md
 docs/ProcessorsApi.md
+docs/SinkConnectorListResponse.md
+docs/SinkConnectorResponse.md
+docs/SinkConnectorsApi.md
+docs/SourceConnectorListResponse.md
+docs/SourceConnectorResponse.md
+docs/SourceConnectorsApi.md
 requirements.txt
 rhoas_smart_events_mgmt_sdk/__init__.py
 rhoas_smart_events_mgmt_sdk/api/__init__.py
@@ -33,6 +40,8 @@ rhoas_smart_events_mgmt_sdk/api/bridges_api.py
 rhoas_smart_events_mgmt_sdk/api/cloud_providers_api.py
 rhoas_smart_events_mgmt_sdk/api/error_catalog_api.py
 rhoas_smart_events_mgmt_sdk/api/processors_api.py
+rhoas_smart_events_mgmt_sdk/api/sink_connectors_api.py
+rhoas_smart_events_mgmt_sdk/api/source_connectors_api.py
 rhoas_smart_events_mgmt_sdk/api_client.py
 rhoas_smart_events_mgmt_sdk/apis/__init__.py
 rhoas_smart_events_mgmt_sdk/configuration.py
@@ -48,6 +57,7 @@ rhoas_smart_events_mgmt_sdk/model/cloud_provider_list_response.py
 rhoas_smart_events_mgmt_sdk/model/cloud_provider_response.py
 rhoas_smart_events_mgmt_sdk/model/cloud_region_list_response.py
 rhoas_smart_events_mgmt_sdk/model/cloud_region_response.py
+rhoas_smart_events_mgmt_sdk/model/connector_request.py
 rhoas_smart_events_mgmt_sdk/model/error.py
 rhoas_smart_events_mgmt_sdk/model/error_list_response.py
 rhoas_smart_events_mgmt_sdk/model/errors_list.py
@@ -61,6 +71,10 @@ rhoas_smart_events_mgmt_sdk/model/processing_error_response.py
 rhoas_smart_events_mgmt_sdk/model/processor_list_response.py
 rhoas_smart_events_mgmt_sdk/model/processor_request.py
 rhoas_smart_events_mgmt_sdk/model/processor_response.py
+rhoas_smart_events_mgmt_sdk/model/sink_connector_list_response.py
+rhoas_smart_events_mgmt_sdk/model/sink_connector_response.py
+rhoas_smart_events_mgmt_sdk/model/source_connector_list_response.py
+rhoas_smart_events_mgmt_sdk/model/source_connector_response.py
 rhoas_smart_events_mgmt_sdk/model_utils.py
 rhoas_smart_events_mgmt_sdk/models/__init__.py
 rhoas_smart_events_mgmt_sdk/rest.py
@@ -80,6 +94,7 @@ test/test_cloud_provider_response.py
 test/test_cloud_providers_api.py
 test/test_cloud_region_list_response.py
 test/test_cloud_region_response.py
+test/test_connector_request.py
 test/test_error.py
 test/test_error_catalog_api.py
 test/test_error_list_response.py
@@ -95,4 +110,10 @@ test/test_processor_list_response.py
 test/test_processor_request.py
 test/test_processor_response.py
 test/test_processors_api.py
+test/test_sink_connector_list_response.py
+test/test_sink_connector_response.py
+test/test_sink_connectors_api.py
+test/test_source_connector_list_response.py
+test/test_source_connector_response.py
+test/test_source_connectors_api.py
 tox.ini

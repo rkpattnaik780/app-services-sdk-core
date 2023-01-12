@@ -18,3 +18,5 @@ from rhoas_smart_events_mgmt_sdk.api.bridges_api import BridgesApi
 from rhoas_smart_events_mgmt_sdk.api.cloud_providers_api import CloudProvidersApi
 from rhoas_smart_events_mgmt_sdk.api.error_catalog_api import ErrorCatalogApi
 from rhoas_smart_events_mgmt_sdk.api.processors_api import ProcessorsApi
+from rhoas_smart_events_mgmt_sdk.api.sink_connectors_api import SinkConnectorsApi
+from rhoas_smart_events_mgmt_sdk.api.source_connectors_api import SourceConnectorsApi
