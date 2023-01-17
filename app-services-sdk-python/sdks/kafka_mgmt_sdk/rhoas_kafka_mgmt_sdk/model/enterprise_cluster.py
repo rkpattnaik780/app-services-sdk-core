@@ -93,6 +93,7 @@ class EnterpriseCluster(ModelComposed):
             'id': (str,),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
+            'access_kafkas_via_private_network': (bool,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
         }
@@ -106,6 +107,7 @@ class EnterpriseCluster(ModelComposed):
         'id': 'id',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'href': 'href',  # noqa: E501
+        'access_kafkas_via_private_network': 'access_kafkas_via_private_network',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -122,6 +124,7 @@ class EnterpriseCluster(ModelComposed):
             id (str):
             kind (str):
             href (str):
+            access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -230,6 +233,7 @@ class EnterpriseCluster(ModelComposed):
             id (str):
             kind (str):
             href (str):
+            access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

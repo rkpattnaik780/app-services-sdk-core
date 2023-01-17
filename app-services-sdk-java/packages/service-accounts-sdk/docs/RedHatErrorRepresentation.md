@@ -26,7 +26,9 @@ ACS_ACCESS_INVALID | &quot;acs_access_invalid&quot;
 ACS_INVALID_REDIRECT_URI | &quot;acs_invalid_redirect_uri&quot;
 ACS_INVALID_CLIENT | &quot;acs_invalid_client&quot;
 ACS_DISABLED | &quot;acs_disabled&quot;
+SMOKETEST_ACCESS_INVALID | &quot;smoketest_access_invalid&quot;
 GENERAL_FAILURE | &quot;general_failure&quot;
+ORGANIZATION_API_ACCESS_INVALID | &quot;organization_api_access_invalid&quot;
 
 
 

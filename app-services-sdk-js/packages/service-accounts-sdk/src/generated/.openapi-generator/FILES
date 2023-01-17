@@ -17,8 +17,4 @@ model/red-hat-error-representation.ts
 model/service-account-create-request-data.ts
 model/service-account-data.ts
 model/service-account-request-data.ts
-model/ssohealth-result-error-stack-trace.ts
-model/ssohealth-result-error-suppressed.ts
-model/ssohealth-result-error.ts
-model/ssohealth-result.ts
 model/validation-exception-data.ts

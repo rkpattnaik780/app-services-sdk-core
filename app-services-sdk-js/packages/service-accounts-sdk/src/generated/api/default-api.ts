@@ -22,8 +22,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
 import { AuthenticationPolicy } from '../model';
-// @ts-ignore
-import { SSOHealthResult } from '../model';
 /**
  * DefaultApi - axios parameter creator
  * @export
@@ -42,51 +40,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             assertParamExists('getAuthenticationPolicy', 'id', id)
             const localVarPath = `/apis/organizations/v1/{id}/authentication-policy`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication authFlow required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "authFlow", [], configuration)
-
-            // authentication bearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            // authentication serviceAccounts required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "serviceAccounts", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} checkName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSmoketestByName: async (checkName: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'checkName' is not null or undefined
-            assertParamExists('getSmoketestByName', 'checkName', checkName)
-            const localVarPath = `/apis/smoketest/v1/smoketests/{checkName}`
-                .replace(`{${"checkName"}}`, encodeURIComponent(String(checkName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -194,16 +147,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} checkName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSmoketestByName(checkName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SSOHealthResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSmoketestByName(checkName, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
          * @summary Update current authentication policy information
          * @param {string} id 
          * @param {AuthenticationPolicy} [authenticationPolicy] 
@@ -233,15 +176,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         getAuthenticationPolicy(id: string, options?: any): AxiosPromise<AuthenticationPolicy> {
             return localVarFp.getAuthenticationPolicy(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} checkName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSmoketestByName(checkName: string, options?: any): AxiosPromise<SSOHealthResult> {
-            return localVarFp.getSmoketestByName(checkName, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -275,15 +209,6 @@ export interface DefaultApiInterface {
 
     /**
      * 
-     * @param {string} checkName 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApiInterface
-     */
-    getSmoketestByName(checkName: string, options?: AxiosRequestConfig): AxiosPromise<SSOHealthResult>;
-
-    /**
-     * 
      * @summary Update current authentication policy information
      * @param {string} id 
      * @param {AuthenticationPolicy} [authenticationPolicy] 
@@ -312,17 +237,6 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public getAuthenticationPolicy(id: string, options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getAuthenticationPolicy(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} checkName 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public getSmoketestByName(checkName: string, options?: AxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getSmoketestByName(checkName, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

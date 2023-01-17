@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | **string** | The kind (type) of this resource | 
 **Id** | **string** | The unique identifier of this resource | 
-**Name** | Pointer to **string** | The name of this resource | [optional] 
+**Name** | **string** | The name of this resource | 
 **Href** | **string** | The URL of this resource, without the protocol | 
 **SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSourceConnectorResponse
 
-`func NewSourceConnectorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, connectorTypeId string, connector map[string]interface{}, ) *SourceConnectorResponse`
+`func NewSourceConnectorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, connectorTypeId string, connector map[string]interface{}, ) *SourceConnectorResponse`
 
 NewSourceConnectorResponse instantiates a new SourceConnectorResponse object
 This constructor will assign default values to properties that have it defined,
@@ -95,11 +95,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *SourceConnectorResponse) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetHref
 

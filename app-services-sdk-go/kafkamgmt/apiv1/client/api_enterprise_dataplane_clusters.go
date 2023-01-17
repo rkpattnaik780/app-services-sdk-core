@@ -39,7 +39,7 @@ type EnterpriseDataplaneClustersApi interface {
 	/*
 	GetEnterpriseOsdClusters Method for GetEnterpriseOsdClusters
 
-	List all Enterprise OSD clusters
+	List all Enterprise data plane clusters
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiGetEnterpriseOsdClustersRequest
@@ -256,7 +256,7 @@ func (r ApiGetEnterpriseOsdClustersRequest) Execute() (*EnterpriseClusterList, *
 /*
 GetEnterpriseOsdClusters Method for GetEnterpriseOsdClusters
 
-List all Enterprise OSD clusters
+List all Enterprise data plane clusters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetEnterpriseOsdClustersRequest

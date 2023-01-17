@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | **string** | The kind (type) of this resource | 
 **Id** | **string** | The unique identifier of this resource | 
+**Name** | **string** | The name of this resource | 
 **Href** | **string** | The URL of this resource, without the protocol | 
 **SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
 **Owner** | **string** | The user that owns this resource | 
-**Name** | **string** | The name of the processor | 
 **Flows** | **map[string]interface{}** | The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor | 
 **StatusMessage** | Pointer to **string** |  | [optional] 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewProcessorResponse
 
-`func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, name string, flows map[string]interface{}, ) *ProcessorResponse`
+`func NewProcessorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, flows map[string]interface{}, ) *ProcessorResponse`
 
 NewProcessorResponse instantiates a new ProcessorResponse object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +73,26 @@ and a boolean to check if the value has been set.
 `func (o *ProcessorResponse) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *ProcessorResponse) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ProcessorResponse) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ProcessorResponse) SetName(v string)`
+
+SetName sets Name field to given value.
 
 
 ### GetHref
@@ -203,26 +223,6 @@ and a boolean to check if the value has been set.
 `func (o *ProcessorResponse) SetOwner(v string)`
 
 SetOwner sets Owner field to given value.
-
-
-### GetName
-
-`func (o *ProcessorResponse) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ProcessorResponse) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ProcessorResponse) SetName(v string)`
-
-SetName sets Name field to given value.
 
 
 ### GetFlows

@@ -84,11 +84,11 @@ class BridgeResponse(ModelNormal):
         return {
             'kind': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'submitted_at': (datetime,),  # noqa: E501
             'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'owner': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'published_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'endpoint': (str,),  # noqa: E501
@@ -105,11 +105,11 @@ class BridgeResponse(ModelNormal):
     attribute_map = {
         'kind': 'kind',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'href': 'href',  # noqa: E501
         'submitted_at': 'submitted_at',  # noqa: E501
         'status': 'status',  # noqa: E501
         'owner': 'owner',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'published_at': 'published_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'endpoint': 'endpoint',  # noqa: E501
@@ -125,17 +125,17 @@ class BridgeResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, id, href, submitted_at, status, owner, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, id, name, href, submitted_at, status, owner, *args, **kwargs):  # noqa: E501
         """BridgeResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
             owner (str): The user that owns this resource
-            name (str): The name of the bridge
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,11 +207,11 @@ class BridgeResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.submitted_at = submitted_at
         self.status = status
         self.owner = owner
-        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -232,17 +232,17 @@ class BridgeResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, id, href, submitted_at, status, owner, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, id, name, href, submitted_at, status, owner, *args, **kwargs):  # noqa: E501
         """BridgeResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
             owner (str): The user that owns this resource
-            name (str): The name of the bridge
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -312,11 +312,11 @@ class BridgeResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.submitted_at = submitted_at
         self.status = status
         self.owner = owner
-        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

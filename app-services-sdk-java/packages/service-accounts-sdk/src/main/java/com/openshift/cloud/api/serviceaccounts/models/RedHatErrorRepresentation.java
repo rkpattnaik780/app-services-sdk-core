@@ -59,7 +59,11 @@ public class RedHatErrorRepresentation {
     
     ACS_DISABLED("acs_disabled"),
     
-    GENERAL_FAILURE("general_failure");
+    SMOKETEST_ACCESS_INVALID("smoketest_access_invalid"),
+    
+    GENERAL_FAILURE("general_failure"),
+    
+    ORGANIZATION_API_ACCESS_INVALID("organization_api_access_invalid");
 
     private String value;
 

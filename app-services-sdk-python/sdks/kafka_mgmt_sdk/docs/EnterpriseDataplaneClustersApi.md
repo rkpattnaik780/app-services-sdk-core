@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 
 
-List all Enterprise OSD clusters
+List all Enterprise data plane clusters
 
 ### Example
 
@@ -169,7 +169,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List Enterprise OSD clusters |  -  |
+**200** | List Enterprise data plane clusters |  -  |
 **400** | Bad request |  -  |
 **401** | Auth token is invalid |  -  |
 **403** | User not authorized to access the service |  -  |
@@ -217,6 +217,7 @@ with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = enterprise_dataplane_clusters_api.EnterpriseDataplaneClustersApi(api_client)
     enterprise_osd_cluster_payload = EnterpriseOsdClusterPayload(
+        access_kafkas_via_private_network=True,
         cluster_id="cluster_id_example",
         cluster_external_id="cluster_external_id_example",
         cluster_ingress_dns_name="cluster_ingress_dns_name_example",

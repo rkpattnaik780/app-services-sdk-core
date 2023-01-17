@@ -9,7 +9,6 @@ import javax.ws.rs.core.GenericType;
 
 import com.openshift.cloud.api.serviceaccounts.models.AuthenticationPolicy;
 import com.openshift.cloud.api.serviceaccounts.models.Error;
-import com.openshift.cloud.api.serviceaccounts.models.SSOHealthResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,50 +77,6 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] { "authFlow", "bearerAuth", "serviceAccounts" };
 
     GenericType<AuthenticationPolicy> localVarReturnType = new GenericType<AuthenticationPolicy>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * 
-   * 
-   * @param checkName  (required)
-   * @return a {@code SSOHealthResult}
-   * @throws ApiException if fails to make API call
-   */
-  public SSOHealthResult getSmoketestByName(String checkName) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'checkName' is set
-    if (checkName == null) {
-      throw new ApiException(400, "Missing the required parameter 'checkName' when calling getSmoketestByName");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/apis/smoketest/v1/smoketests/{checkName}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "checkName" + "\\}", apiClient.escapeString(checkName.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "authFlow", "bearerAuth", "serviceAccounts" };
-
-    GenericType<SSOHealthResult> localVarReturnType = new GenericType<SSOHealthResult>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

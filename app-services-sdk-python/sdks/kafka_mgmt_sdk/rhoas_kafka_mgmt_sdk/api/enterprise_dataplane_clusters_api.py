@@ -291,7 +291,7 @@ class EnterpriseDataplaneClustersApi(object):
     ):
         """get_enterprise_osd_clusters  # noqa: E501
 
-        List all Enterprise OSD clusters  # noqa: E501
+        List all Enterprise data plane clusters  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

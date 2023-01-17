@@ -23,7 +23,7 @@ type SourceConnectorResponse struct {
 	// The unique identifier of this resource
 	Id string `json:"id"`
 	// The name of this resource
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 	SubmittedAt time.Time `json:"submitted_at"`
@@ -44,10 +44,11 @@ type SourceConnectorResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSourceConnectorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, connectorTypeId string, connector map[string]interface{}) *SourceConnectorResponse {
+func NewSourceConnectorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, connectorTypeId string, connector map[string]interface{}) *SourceConnectorResponse {
 	this := SourceConnectorResponse{}
 	this.Kind = kind
 	this.Id = id
+	this.Name = name
 	this.Href = href
 	this.SubmittedAt = submittedAt
 	this.Status = status
@@ -113,36 +114,28 @@ func (o *SourceConnectorResponse) SetId(v string) {
 	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *SourceConnectorResponse) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *SourceConnectorResponse) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil {
     return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SourceConnectorResponse) HasName() bool {
-	if o != nil && !isNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *SourceConnectorResponse) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetHref returns the Href field value
@@ -393,7 +386,7 @@ func (o SourceConnectorResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if true {
 		toSerialize["name"] = o.Name
 	}
 	if true {

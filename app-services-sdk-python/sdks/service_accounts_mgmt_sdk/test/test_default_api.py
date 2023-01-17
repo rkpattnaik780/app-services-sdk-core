@@ -31,12 +31,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_get_smoketest_by_name(self):
-        """Test case for get_smoketest_by_name
-
-        """
-        pass
-
     def test_set_authentication_policy(self):
         """Test case for set_authentication_policy
 

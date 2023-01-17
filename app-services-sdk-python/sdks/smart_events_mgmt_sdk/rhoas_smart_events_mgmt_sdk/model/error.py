@@ -83,10 +83,10 @@ class Error(ModelNormal):
         """
         return {
             'kind': (str,),  # noqa: E501
-            'reason': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'href': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'href': (str,),  # noqa: E501
+            'reason': (str,),  # noqa: E501
             'code': (str,),  # noqa: E501
         }
 
@@ -97,10 +97,10 @@ class Error(ModelNormal):
 
     attribute_map = {
         'kind': 'kind',  # noqa: E501
-        'reason': 'reason',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'href': 'href',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'href': 'href',  # noqa: E501
+        'reason': 'reason',  # noqa: E501
         'code': 'code',  # noqa: E501
     }
 
@@ -111,14 +111,15 @@ class Error(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, reason, id, href, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, id, name, href, reason, *args, **kwargs):  # noqa: E501
         """Error - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            name (str): The name of this resource
+            href (str): The URL of this resource, without the protocol
             reason (str):
-            id (str):
-            href (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,7 +152,6 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
             code (str): [optional]  # noqa: E501
         """
 
@@ -185,9 +185,10 @@ class Error(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.kind = kind
-        self.reason = reason
         self.id = id
+        self.name = name
         self.href = href
+        self.reason = reason
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,14 +209,15 @@ class Error(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, reason, id, href, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, id, name, href, reason, *args, **kwargs):  # noqa: E501
         """Error - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
+            id (str): The unique identifier of this resource
+            name (str): The name of this resource
+            href (str): The URL of this resource, without the protocol
             reason (str):
-            id (str):
-            href (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -248,7 +250,6 @@ class Error(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
             code (str): [optional]  # noqa: E501
         """
 
@@ -280,9 +281,10 @@ class Error(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.kind = kind
-        self.reason = reason
         self.id = id
+        self.name = name
         self.href = href
+        self.reason = reason
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

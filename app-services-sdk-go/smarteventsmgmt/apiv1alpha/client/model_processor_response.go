@@ -22,6 +22,8 @@ type ProcessorResponse struct {
 	Kind string `json:"kind"`
 	// The unique identifier of this resource
 	Id string `json:"id"`
+	// The name of this resource
+	Name string `json:"name"`
 	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 	SubmittedAt time.Time `json:"submitted_at"`
@@ -30,8 +32,6 @@ type ProcessorResponse struct {
 	Status ManagedResourceStatus `json:"status"`
 	// The user that owns this resource
 	Owner string `json:"owner"`
-	// The name of the processor
-	Name string `json:"name"`
 	// The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 	Flows map[string]interface{} `json:"flows"`
 	StatusMessage *string `json:"status_message,omitempty"`
@@ -41,15 +41,15 @@ type ProcessorResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, name string, flows map[string]interface{}) *ProcessorResponse {
+func NewProcessorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, flows map[string]interface{}) *ProcessorResponse {
 	this := ProcessorResponse{}
 	this.Kind = kind
 	this.Id = id
+	this.Name = name
 	this.Href = href
 	this.SubmittedAt = submittedAt
 	this.Status = status
 	this.Owner = owner
-	this.Name = name
 	this.Flows = flows
 	return &this
 }
@@ -108,6 +108,30 @@ func (o *ProcessorResponse) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *ProcessorResponse) SetId(v string) {
 	o.Id = v
+}
+
+// GetName returns the Name field value
+func (o *ProcessorResponse) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *ProcessorResponse) GetNameOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *ProcessorResponse) SetName(v string) {
+	o.Name = v
 }
 
 // GetHref returns the Href field value
@@ -270,30 +294,6 @@ func (o *ProcessorResponse) SetOwner(v string) {
 	o.Owner = v
 }
 
-// GetName returns the Name field value
-func (o *ProcessorResponse) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetNameOk() (*string, bool) {
-	if o == nil {
-    return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *ProcessorResponse) SetName(v string) {
-	o.Name = v
-}
-
 // GetFlows returns the Flows field value
 func (o *ProcessorResponse) GetFlows() map[string]interface{} {
 	if o == nil {
@@ -359,6 +359,9 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 		toSerialize["id"] = o.Id
 	}
 	if true {
+		toSerialize["name"] = o.Name
+	}
+	if true {
 		toSerialize["href"] = o.Href
 	}
 	if true {
@@ -375,9 +378,6 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["owner"] = o.Owner
-	}
-	if true {
-		toSerialize["name"] = o.Name
 	}
 	if true {
 		toSerialize["flows"] = o.Flows

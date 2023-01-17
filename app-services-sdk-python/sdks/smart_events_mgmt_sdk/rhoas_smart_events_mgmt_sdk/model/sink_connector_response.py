@@ -84,6 +84,7 @@ class SinkConnectorResponse(ModelNormal):
         return {
             'kind': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'submitted_at': (datetime,),  # noqa: E501
             'status': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
@@ -91,7 +92,6 @@ class SinkConnectorResponse(ModelNormal):
             'connector_type_id': (str,),  # noqa: E501
             'connector': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'uri_dsl': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'published_at': (datetime,),  # noqa: E501
             'modified_at': (datetime,),  # noqa: E501
             'status_message': (str,),  # noqa: E501
@@ -105,6 +105,7 @@ class SinkConnectorResponse(ModelNormal):
     attribute_map = {
         'kind': 'kind',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'href': 'href',  # noqa: E501
         'submitted_at': 'submitted_at',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -112,7 +113,6 @@ class SinkConnectorResponse(ModelNormal):
         'connector_type_id': 'connector_type_id',  # noqa: E501
         'connector': 'connector',  # noqa: E501
         'uri_dsl': 'uri_dsl',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'published_at': 'published_at',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'status_message': 'status_message',  # noqa: E501
@@ -125,12 +125,13 @@ class SinkConnectorResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, id, href, submitted_at, status, owner, connector_type_id, connector, uri_dsl, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, id, name, href, submitted_at, status, owner, connector_type_id, connector, uri_dsl, *args, **kwargs):  # noqa: E501
         """SinkConnectorResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
@@ -170,7 +171,6 @@ class SinkConnectorResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             status_message (str): A detailed status message in case there is a problem with the connector. [optional]  # noqa: E501
@@ -207,6 +207,7 @@ class SinkConnectorResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.submitted_at = submitted_at
         self.status = status
@@ -234,12 +235,13 @@ class SinkConnectorResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, id, href, submitted_at, status, owner, connector_type_id, connector, uri_dsl, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, id, name, href, submitted_at, status, owner, connector_type_id, connector, uri_dsl, *args, **kwargs):  # noqa: E501
         """SinkConnectorResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             submitted_at (datetime):
             status (bool, date, datetime, dict, float, int, list, str, none_type):
@@ -279,7 +281,6 @@ class SinkConnectorResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
             published_at (datetime): [optional]  # noqa: E501
             modified_at (datetime): [optional]  # noqa: E501
             status_message (str): A detailed status message in case there is a problem with the connector. [optional]  # noqa: E501
@@ -314,6 +315,7 @@ class SinkConnectorResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.submitted_at = submitted_at
         self.status = status
