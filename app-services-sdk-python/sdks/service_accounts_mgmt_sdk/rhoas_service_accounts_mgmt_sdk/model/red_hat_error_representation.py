@@ -67,7 +67,9 @@ class RedHatErrorRepresentation(ModelNormal):
             'ACS_INVALID_REDIRECT_URI': "acs_invalid_redirect_uri",
             'ACS_INVALID_CLIENT': "acs_invalid_client",
             'ACS_DISABLED': "acs_disabled",
+            'SMOKETEST_ACCESS_INVALID': "smoketest_access_invalid",
             'GENERAL_FAILURE': "general_failure",
+            'ORGANIZATION_API_ACCESS_INVALID': "organization_api_access_invalid",
         },
     }
 

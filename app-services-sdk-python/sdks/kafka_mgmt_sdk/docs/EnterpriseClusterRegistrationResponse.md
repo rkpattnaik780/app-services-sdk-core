@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **kind** | **str** |  | 
 **href** | **str** |  | 
+**access_kafkas_via_private_network** | **bool** | Indicates whether Kafkas created on this data plane cluster have to be accessed via private network | 
 **cluster_id** | **str** | OCM cluster id of the registered Enterprise cluster | [optional] 
 **status** | **str** | status of registered Enterprise cluster | [optional] 
 **fleetshard_parameters** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | [optional] 

@@ -82,6 +82,7 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'access_kafkas_via_private_network': (bool,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'fleetshard_parameters': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
@@ -93,6 +94,7 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
 
 
     attribute_map = {
+        'access_kafkas_via_private_network': 'access_kafkas_via_private_network',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'status': 'status',  # noqa: E501
         'fleetshard_parameters': 'fleetshard_parameters',  # noqa: E501
@@ -105,8 +107,11 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, access_kafkas_via_private_network, *args, **kwargs):  # noqa: E501
         """EnterpriseClusterRegistrationResponseAllOf - a model defined in OpenAPI
+
+        Args:
+            access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,6 +178,7 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.access_kafkas_via_private_network = access_kafkas_via_private_network
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +199,11 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, access_kafkas_via_private_network, *args, **kwargs):  # noqa: E501
         """EnterpriseClusterRegistrationResponseAllOf - a model defined in OpenAPI
+
+        Args:
+            access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -259,6 +268,7 @@ class EnterpriseClusterRegistrationResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.access_kafkas_via_private_network = access_kafkas_via_private_network
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

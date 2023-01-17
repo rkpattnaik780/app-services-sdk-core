@@ -5,7 +5,6 @@ All URIs are relative to *https://sso.redhat.com/auth/realms/redhat-external*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_authentication_policy**](DefaultApi.md#get_authentication_policy) | **GET** /apis/organizations/v1/{id}/authentication-policy | Get current authentication policy information
-[**get_smoketest_by_name**](DefaultApi.md#get_smoketest_by_name) | **GET** /apis/smoketest/v1/smoketests/{checkName} | 
 [**set_authentication_policy**](DefaultApi.md#set_authentication_policy) | **POST** /apis/organizations/v1/{id}/authentication-policy | Update current authentication policy information
 
 
@@ -97,94 +96,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_smoketest_by_name**
-> SSOHealthResult get_smoketest_by_name(check_name)
-
-
-
-### Example
-
-* OAuth Authentication (authFlow):
-* Bearer (JWT) Authentication (bearerAuth):
-* OAuth Authentication (serviceAccounts):
-
-```python
-import time
-import rhoas_service_accounts_mgmt_sdk
-from rhoas_service_accounts_mgmt_sdk.api import default_api
-from rhoas_service_accounts_mgmt_sdk.model.sso_health_result import SSOHealthResult
-from pprint import pprint
-# Defining the host is optional and defaults to https://sso.redhat.com/auth/realms/redhat-external
-# See configuration.py for a list of all supported configuration parameters.
-configuration = rhoas_service_accounts_mgmt_sdk.Configuration(
-    host = "https://sso.redhat.com/auth/realms/redhat-external"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: authFlow
-configuration = rhoas_service_accounts_mgmt_sdk.Configuration(
-    host = "https://sso.redhat.com/auth/realms/redhat-external"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = rhoas_service_accounts_mgmt_sdk.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Configure OAuth2 access token for authorization: serviceAccounts
-configuration = rhoas_service_accounts_mgmt_sdk.Configuration(
-    host = "https://sso.redhat.com/auth/realms/redhat-external"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with rhoas_service_accounts_mgmt_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
-    check_name = "checkName_example" # str | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.get_smoketest_by_name(check_name)
-        pprint(api_response)
-    except rhoas_service_accounts_mgmt_sdk.ApiException as e:
-        print("Exception when calling DefaultApi->get_smoketest_by_name: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **check_name** | **str**|  |
-
-### Return type
-
-[**SSOHealthResult**](SSOHealthResult.md)
-
-### Authorization
-
-[authFlow](../README.md#authFlow), [bearerAuth](../README.md#bearerAuth), [serviceAccounts](../README.md#serviceAccounts)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**0** | default response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

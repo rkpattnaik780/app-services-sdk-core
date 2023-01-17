@@ -36,20 +36,6 @@ func Test_serviceaccountsclient_DefaultApiService(t *testing.T) {
 
     })
 
-    t.Run("Test DefaultApiService GetSmoketestByName", func(t *testing.T) {
-
-        t.Skip("skip test")  // remove to run test
-
-        var checkName string
-
-        resp, httpRes, err := apiClient.DefaultApi.GetSmoketestByName(context.Background(), checkName).Execute()
-
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
-
-    })
-
     t.Run("Test DefaultApiService SetAuthenticationPolicy", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

@@ -82,6 +82,7 @@ class EnterpriseOsdClusterPayload(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'access_kafkas_via_private_network': (bool,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'cluster_external_id': (str,),  # noqa: E501
             'cluster_ingress_dns_name': (str,),  # noqa: E501
@@ -94,6 +95,7 @@ class EnterpriseOsdClusterPayload(ModelNormal):
 
 
     attribute_map = {
+        'access_kafkas_via_private_network': 'access_kafkas_via_private_network',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'cluster_external_id': 'cluster_external_id',  # noqa: E501
         'cluster_ingress_dns_name': 'cluster_ingress_dns_name',  # noqa: E501
@@ -107,10 +109,11 @@ class EnterpriseOsdClusterPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, access_kafkas_via_private_network, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
         """EnterpriseOsdClusterPayload - a model defined in OpenAPI
 
         Args:
+            access_kafkas_via_private_network (bool): Sets whether Kafkas created on this data plane cluster have to be accessed via private network
             cluster_id (str): The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
             cluster_external_id (str): external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
             cluster_ingress_dns_name (str): dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
@@ -178,6 +181,7 @@ class EnterpriseOsdClusterPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.access_kafkas_via_private_network = access_kafkas_via_private_network
         self.cluster_id = cluster_id
         self.cluster_external_id = cluster_external_id
         self.cluster_ingress_dns_name = cluster_ingress_dns_name
@@ -202,10 +206,11 @@ class EnterpriseOsdClusterPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
+    def __init__(self, access_kafkas_via_private_network, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
         """EnterpriseOsdClusterPayload - a model defined in OpenAPI
 
         Args:
+            access_kafkas_via_private_network (bool): Sets whether Kafkas created on this data plane cluster have to be accessed via private network
             cluster_id (str): The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
             cluster_external_id (str): external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
             cluster_ingress_dns_name (str): dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
@@ -271,6 +276,7 @@ class EnterpriseOsdClusterPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.access_kafkas_via_private_network = access_kafkas_via_private_network
         self.cluster_id = cluster_id
         self.cluster_external_id = cluster_external_id
         self.cluster_ingress_dns_name = cluster_ingress_dns_name

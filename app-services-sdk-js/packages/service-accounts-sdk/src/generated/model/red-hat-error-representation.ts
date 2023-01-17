@@ -45,7 +45,9 @@ export const RedHatErrorRepresentationErrorEnum = {
     AcsInvalidRedirectUri: 'acs_invalid_redirect_uri',
     AcsInvalidClient: 'acs_invalid_client',
     AcsDisabled: 'acs_disabled',
-    GeneralFailure: 'general_failure'
+    SmoketestAccessInvalid: 'smoketest_access_invalid',
+    GeneralFailure: 'general_failure',
+    OrganizationApiAccessInvalid: 'organization_api_access_invalid'
 } as const;
 
 export type RedHatErrorRepresentationErrorEnum = typeof RedHatErrorRepresentationErrorEnum[keyof typeof RedHatErrorRepresentationErrorEnum];

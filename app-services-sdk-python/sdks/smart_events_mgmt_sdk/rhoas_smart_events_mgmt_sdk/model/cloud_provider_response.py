@@ -84,10 +84,10 @@ class CloudProviderResponse(ModelNormal):
         return {
             'kind': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
-            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,10 +98,10 @@ class CloudProviderResponse(ModelNormal):
     attribute_map = {
         'kind': 'kind',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'href': 'href',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
-        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,12 +111,13 @@ class CloudProviderResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, id, href, display_name, enabled, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, id, name, href, display_name, enabled, *args, **kwargs):  # noqa: E501
         """CloudProviderResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             display_name (str):
             enabled (bool):
@@ -152,7 +153,6 @@ class CloudProviderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,6 +186,7 @@ class CloudProviderResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.display_name = display_name
         self.enabled = enabled
@@ -209,12 +210,13 @@ class CloudProviderResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, id, href, display_name, enabled, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, id, name, href, display_name, enabled, *args, **kwargs):  # noqa: E501
         """CloudProviderResponse - a model defined in OpenAPI
 
         Args:
             kind (str): The kind (type) of this resource
             id (str): The unique identifier of this resource
+            name (str): The name of this resource
             href (str): The URL of this resource, without the protocol
             display_name (str):
             enabled (bool):
@@ -250,7 +252,6 @@ class CloudProviderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of this resource. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -282,6 +283,7 @@ class CloudProviderResponse(ModelNormal):
 
         self.kind = kind
         self.id = id
+        self.name = name
         self.href = href
         self.display_name = display_name
         self.enabled = enabled

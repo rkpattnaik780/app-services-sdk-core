@@ -37,7 +37,7 @@ export interface ObjectReference {
      * @type {string}
      * @memberof ObjectReference
      */
-    'name'?: string;
+    'name': string;
     /**
      * The URL of this resource, without the protocol
      * @type {string}

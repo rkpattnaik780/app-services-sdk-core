@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **kind** | **str** | The kind (type) of this resource | 
 **id** | **str** | The unique identifier of this resource | 
+**name** | **str** | The name of this resource | 
 **href** | **str** | The URL of this resource, without the protocol | 
 **submitted_at** | **datetime** |  | 
 **status** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **owner** | **str** | The user that owns this resource | 
-**name** | **str** | The name of the bridge | 
 **published_at** | **datetime** |  | [optional] 
 **modified_at** | **datetime** |  | [optional] 
 **endpoint** | **str** | The HTTPS endpoint on which the bridge accepts events | [optional] 
