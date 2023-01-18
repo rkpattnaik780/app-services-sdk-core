@@ -1,4 +1,4 @@
-# EnterpriseClusterRegistrationResponseAllOf
+# EnterpriseClusterWithAddonParametersAllOf
 
 
 ## Properties

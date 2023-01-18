@@ -5,6 +5,8 @@ All URIs are relative to *https://api.openshift.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_enterprise_cluster_by_id**](EnterpriseDataplaneClustersApi.md#delete_enterprise_cluster_by_id) | **DELETE** /api/kafkas_mgmt/v1/clusters/{id} | 
+[**get_enterprise_cluster_by_id**](EnterpriseDataplaneClustersApi.md#get_enterprise_cluster_by_id) | **GET** /api/kafkas_mgmt/v1/clusters/{id} | 
+[**get_enterprise_cluster_with_addon_parameters**](EnterpriseDataplaneClustersApi.md#get_enterprise_cluster_with_addon_parameters) | **GET** /api/kafkas_mgmt/v1/clusters/{id}/addon_parameters | 
 [**get_enterprise_osd_clusters**](EnterpriseDataplaneClustersApi.md#get_enterprise_osd_clusters) | **GET** /api/kafkas_mgmt/v1/clusters | 
 [**register_enterprise_osd_cluster**](EnterpriseDataplaneClustersApi.md#register_enterprise_osd_cluster) | **POST** /api/kafkas_mgmt/v1/clusters | 
 
@@ -100,6 +102,168 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_enterprise_cluster_by_id**
+> EnterpriseCluster get_enterprise_cluster_by_id(id)
+
+
+
+Returns enterprise data plane cluster by ID
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+
+```python
+import time
+import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.api import enterprise_dataplane_clusters_api
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster import EnterpriseCluster
+from rhoas_kafka_mgmt_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openshift.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    host = "https://api.openshift.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = enterprise_dataplane_clusters_api.EnterpriseDataplaneClustersApi(api_client)
+    id = "id_example" # str | ID of the enterprise data plane cluster
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_enterprise_cluster_by_id(id)
+        pprint(api_response)
+    except rhoas_kafka_mgmt_sdk.ApiException as e:
+        print("Exception when calling EnterpriseDataplaneClustersApi->get_enterprise_cluster_by_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| ID of the enterprise data plane cluster |
+
+### Return type
+
+[**EnterpriseCluster**](EnterpriseCluster.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Found enterprise data plane cluster with provided ID |  -  |
+**401** | Auth token is invalid |  -  |
+**403** | User not authorized to access the service |  -  |
+**404** | No Enterprise data plane cluster with specified ID exists |  -  |
+**500** | Unexpected error occurred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_enterprise_cluster_with_addon_parameters**
+> EnterpriseClusterWithAddonParameters get_enterprise_cluster_with_addon_parameters(id)
+
+
+
+Returns enterprise data plane cluster by ID along with its addon parameters
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+
+```python
+import time
+import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.api import enterprise_dataplane_clusters_api
+from rhoas_kafka_mgmt_sdk.model.error import Error
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters import EnterpriseClusterWithAddonParameters
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openshift.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    host = "https://api.openshift.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = enterprise_dataplane_clusters_api.EnterpriseDataplaneClustersApi(api_client)
+    id = "id_example" # str | ID of the enterprise data plane cluster
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.get_enterprise_cluster_with_addon_parameters(id)
+        pprint(api_response)
+    except rhoas_kafka_mgmt_sdk.ApiException as e:
+        print("Exception when calling EnterpriseDataplaneClustersApi->get_enterprise_cluster_with_addon_parameters: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| ID of the enterprise data plane cluster |
+
+### Return type
+
+[**EnterpriseClusterWithAddonParameters**](EnterpriseClusterWithAddonParameters.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns the enterprise data plane cluster with addon parameters for an existing enterprise data plane cluster with provided ID |  -  |
+**401** | Auth token is invalid |  -  |
+**403** | User not authorized to access the service |  -  |
+**404** | No Enterprise data plane cluster with specified ID exists |  -  |
+**500** | Unexpected error occurred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_enterprise_osd_clusters**
 > EnterpriseClusterList get_enterprise_osd_clusters()
 
@@ -178,7 +342,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **register_enterprise_osd_cluster**
-> EnterpriseClusterRegistrationResponse register_enterprise_osd_cluster(enterprise_osd_cluster_payload)
+> EnterpriseClusterWithAddonParameters register_enterprise_osd_cluster(enterprise_osd_cluster_payload)
 
 
 
@@ -192,8 +356,8 @@ Register enterprise data plane cluster
 import time
 import rhoas_kafka_mgmt_sdk
 from rhoas_kafka_mgmt_sdk.api import enterprise_dataplane_clusters_api
-from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_registration_response import EnterpriseClusterRegistrationResponse
 from rhoas_kafka_mgmt_sdk.model.error import Error
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters import EnterpriseClusterWithAddonParameters
 from rhoas_kafka_mgmt_sdk.model.enterprise_osd_cluster_payload import EnterpriseOsdClusterPayload
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.openshift.com
@@ -241,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnterpriseClusterRegistrationResponse**](EnterpriseClusterRegistrationResponse.md)
+[**EnterpriseClusterWithAddonParameters**](EnterpriseClusterWithAddonParameters.md)
 
 ### Authorization
 

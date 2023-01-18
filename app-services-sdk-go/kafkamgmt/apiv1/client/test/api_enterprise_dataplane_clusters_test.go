@@ -36,6 +36,34 @@ func Test_kafkamgmtclient_EnterpriseDataplaneClustersApiService(t *testing.T) {
 
     })
 
+    t.Run("Test EnterpriseDataplaneClustersApiService GetEnterpriseClusterById", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var id string
+
+        resp, httpRes, err := apiClient.EnterpriseDataplaneClustersApi.GetEnterpriseClusterById(context.Background(), id).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test EnterpriseDataplaneClustersApiService GetEnterpriseClusterWithAddonParameters", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var id string
+
+        resp, httpRes, err := apiClient.EnterpriseDataplaneClustersApi.GetEnterpriseClusterWithAddonParameters(context.Background(), id).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test EnterpriseDataplaneClustersApiService GetEnterpriseOsdClusters", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

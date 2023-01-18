@@ -16,8 +16,8 @@ model/cloud-region.ts
 model/enterprise-cluster-all-of.ts
 model/enterprise-cluster-list-all-of.ts
 model/enterprise-cluster-list.ts
-model/enterprise-cluster-registration-response-all-of.ts
-model/enterprise-cluster-registration-response.ts
+model/enterprise-cluster-with-addon-parameters-all-of.ts
+model/enterprise-cluster-with-addon-parameters.ts
 model/enterprise-cluster.ts
 model/enterprise-osd-cluster-payload.ts
 model/error-list-all-of.ts

@@ -37,6 +37,36 @@ type EnterpriseDataplaneClustersApi interface {
 	DeleteEnterpriseClusterByIdExecute(r ApiDeleteEnterpriseClusterByIdRequest) (*Error, *http.Response, error)
 
 	/*
+	GetEnterpriseClusterById Method for GetEnterpriseClusterById
+
+	Returns enterprise data plane cluster by ID
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the enterprise data plane cluster
+	@return ApiGetEnterpriseClusterByIdRequest
+	*/
+	GetEnterpriseClusterById(ctx context.Context, id string) ApiGetEnterpriseClusterByIdRequest
+
+	// GetEnterpriseClusterByIdExecute executes the request
+	//  @return EnterpriseCluster
+	GetEnterpriseClusterByIdExecute(r ApiGetEnterpriseClusterByIdRequest) (*EnterpriseCluster, *http.Response, error)
+
+	/*
+	GetEnterpriseClusterWithAddonParameters Method for GetEnterpriseClusterWithAddonParameters
+
+	Returns enterprise data plane cluster by ID along with its addon parameters
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the enterprise data plane cluster
+	@return ApiGetEnterpriseClusterWithAddonParametersRequest
+	*/
+	GetEnterpriseClusterWithAddonParameters(ctx context.Context, id string) ApiGetEnterpriseClusterWithAddonParametersRequest
+
+	// GetEnterpriseClusterWithAddonParametersExecute executes the request
+	//  @return EnterpriseClusterWithAddonParameters
+	GetEnterpriseClusterWithAddonParametersExecute(r ApiGetEnterpriseClusterWithAddonParametersRequest) (*EnterpriseClusterWithAddonParameters, *http.Response, error)
+
+	/*
 	GetEnterpriseOsdClusters Method for GetEnterpriseOsdClusters
 
 	List all Enterprise data plane clusters
@@ -61,8 +91,8 @@ type EnterpriseDataplaneClustersApi interface {
 	RegisterEnterpriseOsdCluster(ctx context.Context) ApiRegisterEnterpriseOsdClusterRequest
 
 	// RegisterEnterpriseOsdClusterExecute executes the request
-	//  @return EnterpriseClusterRegistrationResponse
-	RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (*EnterpriseClusterRegistrationResponse, *http.Response, error)
+	//  @return EnterpriseClusterWithAddonParameters
+	RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (*EnterpriseClusterWithAddonParameters, *http.Response, error)
 }
 
 // EnterpriseDataplaneClustersApiService EnterpriseDataplaneClustersApi service
@@ -185,6 +215,298 @@ func (a *EnterpriseDataplaneClustersApiService) DeleteEnterpriseClusterByIdExecu
             		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
             		newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetEnterpriseClusterByIdRequest struct {
+	ctx context.Context
+	ApiService EnterpriseDataplaneClustersApi
+	id string
+}
+
+func (r ApiGetEnterpriseClusterByIdRequest) Execute() (*EnterpriseCluster, *http.Response, error) {
+	return r.ApiService.GetEnterpriseClusterByIdExecute(r)
+}
+
+/*
+GetEnterpriseClusterById Method for GetEnterpriseClusterById
+
+Returns enterprise data plane cluster by ID
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the enterprise data plane cluster
+ @return ApiGetEnterpriseClusterByIdRequest
+*/
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterById(ctx context.Context, id string) ApiGetEnterpriseClusterByIdRequest {
+	return ApiGetEnterpriseClusterByIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return EnterpriseCluster
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterByIdExecute(r ApiGetEnterpriseClusterByIdRequest) (*EnterpriseCluster, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EnterpriseCluster
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterById")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetEnterpriseClusterWithAddonParametersRequest struct {
+	ctx context.Context
+	ApiService EnterpriseDataplaneClustersApi
+	id string
+}
+
+func (r ApiGetEnterpriseClusterWithAddonParametersRequest) Execute() (*EnterpriseClusterWithAddonParameters, *http.Response, error) {
+	return r.ApiService.GetEnterpriseClusterWithAddonParametersExecute(r)
+}
+
+/*
+GetEnterpriseClusterWithAddonParameters Method for GetEnterpriseClusterWithAddonParameters
+
+Returns enterprise data plane cluster by ID along with its addon parameters
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the enterprise data plane cluster
+ @return ApiGetEnterpriseClusterWithAddonParametersRequest
+*/
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterWithAddonParameters(ctx context.Context, id string) ApiGetEnterpriseClusterWithAddonParametersRequest {
+	return ApiGetEnterpriseClusterWithAddonParametersRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return EnterpriseClusterWithAddonParameters
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterWithAddonParametersExecute(r ApiGetEnterpriseClusterWithAddonParametersRequest) (*EnterpriseClusterWithAddonParameters, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EnterpriseClusterWithAddonParameters
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterWithAddonParameters")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}/addon_parameters"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -398,7 +720,7 @@ func (r ApiRegisterEnterpriseOsdClusterRequest) EnterpriseOsdClusterPayload(ente
 	return r
 }
 
-func (r ApiRegisterEnterpriseOsdClusterRequest) Execute() (*EnterpriseClusterRegistrationResponse, *http.Response, error) {
+func (r ApiRegisterEnterpriseOsdClusterRequest) Execute() (*EnterpriseClusterWithAddonParameters, *http.Response, error) {
 	return r.ApiService.RegisterEnterpriseOsdClusterExecute(r)
 }
 
@@ -418,13 +740,13 @@ func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdCluster(ctx
 }
 
 // Execute executes the request
-//  @return EnterpriseClusterRegistrationResponse
-func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (*EnterpriseClusterRegistrationResponse, *http.Response, error) {
+//  @return EnterpriseClusterWithAddonParameters
+func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (*EnterpriseClusterWithAddonParameters, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EnterpriseClusterRegistrationResponse
+		localVarReturnValue  *EnterpriseClusterWithAddonParameters
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.RegisterEnterpriseOsdCluster")

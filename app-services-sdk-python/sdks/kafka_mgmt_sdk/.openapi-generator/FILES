@@ -10,8 +10,8 @@ docs/EnterpriseCluster.md
 docs/EnterpriseClusterAllOf.md
 docs/EnterpriseClusterList.md
 docs/EnterpriseClusterListAllOf.md
-docs/EnterpriseClusterRegistrationResponse.md
-docs/EnterpriseClusterRegistrationResponseAllOf.md
+docs/EnterpriseClusterWithAddonParameters.md
+docs/EnterpriseClusterWithAddonParametersAllOf.md
 docs/EnterpriseDataplaneClustersApi.md
 docs/EnterpriseOsdClusterPayload.md
 docs/Error.md
@@ -46,7 +46,6 @@ docs/SsoProvider.md
 docs/SsoProviderAllOf.md
 docs/SupportedKafkaBillingModel.md
 docs/SupportedKafkaInstanceType.md
-docs/SupportedKafkaInstanceTypeSizesInner.md
 docs/SupportedKafkaInstanceTypesList.md
 docs/SupportedKafkaInstanceTypesListAllOf.md
 docs/SupportedKafkaSize.md
@@ -76,8 +75,8 @@ rhoas_kafka_mgmt_sdk/model/enterprise_cluster.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_all_of.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list_all_of.py
-rhoas_kafka_mgmt_sdk/model/enterprise_cluster_registration_response.py
-rhoas_kafka_mgmt_sdk/model/enterprise_cluster_registration_response_all_of.py
+rhoas_kafka_mgmt_sdk/model/enterprise_cluster_with_addon_parameters.py
+rhoas_kafka_mgmt_sdk/model/enterprise_cluster_with_addon_parameters_all_of.py
 rhoas_kafka_mgmt_sdk/model/enterprise_osd_cluster_payload.py
 rhoas_kafka_mgmt_sdk/model/error.py
 rhoas_kafka_mgmt_sdk/model/error_list.py
@@ -109,7 +108,6 @@ rhoas_kafka_mgmt_sdk/model/sso_provider.py
 rhoas_kafka_mgmt_sdk/model/sso_provider_all_of.py
 rhoas_kafka_mgmt_sdk/model/supported_kafka_billing_model.py
 rhoas_kafka_mgmt_sdk/model/supported_kafka_instance_type.py
-rhoas_kafka_mgmt_sdk/model/supported_kafka_instance_type_sizes_inner.py
 rhoas_kafka_mgmt_sdk/model/supported_kafka_instance_types_list.py
 rhoas_kafka_mgmt_sdk/model/supported_kafka_instance_types_list_all_of.py
 rhoas_kafka_mgmt_sdk/model/supported_kafka_size.py
@@ -135,8 +133,8 @@ test/test_enterprise_cluster.py
 test/test_enterprise_cluster_all_of.py
 test/test_enterprise_cluster_list.py
 test/test_enterprise_cluster_list_all_of.py
-test/test_enterprise_cluster_registration_response.py
-test/test_enterprise_cluster_registration_response_all_of.py
+test/test_enterprise_cluster_with_addon_parameters.py
+test/test_enterprise_cluster_with_addon_parameters_all_of.py
 test/test_enterprise_dataplane_clusters_api.py
 test/test_enterprise_osd_cluster_payload.py
 test/test_error.py
@@ -171,7 +169,6 @@ test/test_sso_provider.py
 test/test_sso_provider_all_of.py
 test/test_supported_kafka_billing_model.py
 test/test_supported_kafka_instance_type.py
-test/test_supported_kafka_instance_type_sizes_inner.py
 test/test_supported_kafka_instance_types_list.py
 test/test_supported_kafka_instance_types_list_all_of.py
 test/test_supported_kafka_size.py

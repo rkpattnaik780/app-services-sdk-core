@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster import EnterpriseCluster
+globals()['EnterpriseCluster'] = EnterpriseCluster
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_list_all_of import EnterpriseClusterListAllOf
 
 
