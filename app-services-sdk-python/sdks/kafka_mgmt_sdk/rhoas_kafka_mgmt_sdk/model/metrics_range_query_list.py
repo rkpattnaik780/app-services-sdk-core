@@ -32,7 +32,9 @@ from rhoas_kafka_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_kafka_mgmt_sdk.model.metrics_range_query_list_all_of import MetricsRangeQueryListAllOf
+    from rhoas_kafka_mgmt_sdk.model.range_query import RangeQuery
     globals()['MetricsRangeQueryListAllOf'] = MetricsRangeQueryListAllOf
+    globals()['RangeQuery'] = RangeQuery
 
 
 class MetricsRangeQueryList(ModelComposed):
@@ -157,18 +159,14 @@ class MetricsRangeQueryList(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            for arg in args:
-                if isinstance(arg, dict):
-                    kwargs.update(arg)
-                else:
-                    raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                            args,
-                            self.__class__.__name__,
-                        ),
-                        path_to_item=_path_to_item,
-                        valid_classes=(self.__class__,),
-                    )
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -261,18 +259,14 @@ class MetricsRangeQueryList(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            for arg in args:
-                if isinstance(arg, dict):
-                    kwargs.update(arg)
-                else:
-                    raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                            args,
-                            self.__class__.__name__,
-                        ),
-                        path_to_item=_path_to_item,
-                        valid_classes=(self.__class__,),
-                    )
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
 
         self._data_store = {}
         self._check_type = _check_type

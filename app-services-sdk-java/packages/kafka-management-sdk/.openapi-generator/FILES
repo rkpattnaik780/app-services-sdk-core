@@ -10,8 +10,8 @@ docs/EnterpriseCluster.md
 docs/EnterpriseClusterAllOf.md
 docs/EnterpriseClusterList.md
 docs/EnterpriseClusterListAllOf.md
-docs/EnterpriseClusterRegistrationResponse.md
-docs/EnterpriseClusterRegistrationResponseAllOf.md
+docs/EnterpriseClusterWithAddonParameters.md
+docs/EnterpriseClusterWithAddonParametersAllOf.md
 docs/EnterpriseDataplaneClustersApi.md
 docs/EnterpriseOsdClusterPayload.md
 docs/Error.md
@@ -83,8 +83,8 @@ src/main/java/com/openshift/cloud/api/kas/models/EnterpriseCluster.java
 src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterAllOf.java
 src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterList.java
 src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterListAllOf.java
-src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterRegistrationResponse.java
-src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterRegistrationResponseAllOf.java
+src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterWithAddonParameters.java
+src/main/java/com/openshift/cloud/api/kas/models/EnterpriseClusterWithAddonParametersAllOf.java
 src/main/java/com/openshift/cloud/api/kas/models/EnterpriseOsdClusterPayload.java
 src/main/java/com/openshift/cloud/api/kas/models/Error.java
 src/main/java/com/openshift/cloud/api/kas/models/ErrorList.java

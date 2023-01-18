@@ -1,6 +1,6 @@
-# EnterpriseClusterRegistrationResponse
+# EnterpriseClusterWithAddonParameters
 
-Enterprise cluster registration endpoint response
+Enterprise cluster with addon parameters
 
 ## Properties
 Name | Type | Description | Notes

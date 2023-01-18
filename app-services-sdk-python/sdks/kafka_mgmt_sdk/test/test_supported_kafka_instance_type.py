@@ -14,9 +14,9 @@ import unittest
 
 import rhoas_kafka_mgmt_sdk
 from rhoas_kafka_mgmt_sdk.model.supported_kafka_billing_model import SupportedKafkaBillingModel
-from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_type_sizes_inner import SupportedKafkaInstanceTypeSizesInner
+from rhoas_kafka_mgmt_sdk.model.supported_kafka_size import SupportedKafkaSize
 globals()['SupportedKafkaBillingModel'] = SupportedKafkaBillingModel
-globals()['SupportedKafkaInstanceTypeSizesInner'] = SupportedKafkaInstanceTypeSizesInner
+globals()['SupportedKafkaSize'] = SupportedKafkaSize
 from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_type import SupportedKafkaInstanceType
 
 

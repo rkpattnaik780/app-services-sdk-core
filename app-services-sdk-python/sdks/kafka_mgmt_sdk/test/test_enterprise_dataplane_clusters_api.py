@@ -30,6 +30,18 @@ class TestEnterpriseDataplaneClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_enterprise_cluster_by_id(self):
+        """Test case for get_enterprise_cluster_by_id
+
+        """
+        pass
+
+    def test_get_enterprise_cluster_with_addon_parameters(self):
+        """Test case for get_enterprise_cluster_with_addon_parameters
+
+        """
+        pass
+
     def test_get_enterprise_osd_clusters(self):
         """Test case for get_enterprise_osd_clusters
 
