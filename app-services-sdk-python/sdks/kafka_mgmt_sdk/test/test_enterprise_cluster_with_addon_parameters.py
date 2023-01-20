@@ -14,10 +14,8 @@ import unittest
 
 import rhoas_kafka_mgmt_sdk
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters_all_of import EnterpriseClusterWithAddonParametersAllOf
-from rhoas_kafka_mgmt_sdk.model.fleetshard_parameter import FleetshardParameter
 from rhoas_kafka_mgmt_sdk.model.object_reference import ObjectReference
 globals()['EnterpriseClusterWithAddonParametersAllOf'] = EnterpriseClusterWithAddonParametersAllOf
-globals()['FleetshardParameter'] = FleetshardParameter
 globals()['ObjectReference'] = ObjectReference
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters import EnterpriseClusterWithAddonParameters
 

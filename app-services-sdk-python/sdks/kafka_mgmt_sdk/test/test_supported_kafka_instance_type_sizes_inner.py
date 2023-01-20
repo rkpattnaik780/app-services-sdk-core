@@ -13,15 +13,15 @@ import sys
 import unittest
 
 import rhoas_kafka_mgmt_sdk
-from rhoas_kafka_mgmt_sdk.model.supported_kafka_billing_model import SupportedKafkaBillingModel
+from rhoas_kafka_mgmt_sdk.model.supported_kafka_size import SupportedKafkaSize
+from rhoas_kafka_mgmt_sdk.model.supported_kafka_size_bytes_value_item import SupportedKafkaSizeBytesValueItem
+globals()['SupportedKafkaSize'] = SupportedKafkaSize
+globals()['SupportedKafkaSizeBytesValueItem'] = SupportedKafkaSizeBytesValueItem
 from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_type_sizes_inner import SupportedKafkaInstanceTypeSizesInner
-globals()['SupportedKafkaBillingModel'] = SupportedKafkaBillingModel
-globals()['SupportedKafkaInstanceTypeSizesInner'] = SupportedKafkaInstanceTypeSizesInner
-from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_type import SupportedKafkaInstanceType
 
 
-class TestSupportedKafkaInstanceType(unittest.TestCase):
-    """SupportedKafkaInstanceType unit test stubs"""
+class TestSupportedKafkaInstanceTypeSizesInner(unittest.TestCase):
+    """SupportedKafkaInstanceTypeSizesInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSupportedKafkaInstanceType(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSupportedKafkaInstanceType(self):
-        """Test SupportedKafkaInstanceType"""
+    def testSupportedKafkaInstanceTypeSizesInner(self):
+        """Test SupportedKafkaInstanceTypeSizesInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = SupportedKafkaInstanceType()  # noqa: E501
+        # model = SupportedKafkaInstanceTypeSizesInner()  # noqa: E501
         pass
 
 
