@@ -32,9 +32,9 @@ from rhoas_kafka_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_kafka_mgmt_sdk.model.supported_kafka_billing_model import SupportedKafkaBillingModel
-    from rhoas_kafka_mgmt_sdk.model.supported_kafka_size import SupportedKafkaSize
+    from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_type_sizes_inner import SupportedKafkaInstanceTypeSizesInner
     globals()['SupportedKafkaBillingModel'] = SupportedKafkaBillingModel
-    globals()['SupportedKafkaSize'] = SupportedKafkaSize
+    globals()['SupportedKafkaInstanceTypeSizesInner'] = SupportedKafkaInstanceTypeSizesInner
 
 
 class SupportedKafkaInstanceType(ModelNormal):
@@ -96,7 +96,7 @@ class SupportedKafkaInstanceType(ModelNormal):
             'supported_billing_models': ([SupportedKafkaBillingModel],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'sizes': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'sizes': ([SupportedKafkaInstanceTypeSizesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -157,11 +157,11 @@ class SupportedKafkaInstanceType(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier of the Kafka instance type.. [optional]  # noqa: E501
             display_name (str): Human readable name of the supported Kafka instance type. [optional]  # noqa: E501
-            sizes ([bool, date, datetime, dict, float, int, list, str, none_type]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
+            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -169,14 +169,18 @@ class SupportedKafkaInstanceType(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -245,7 +249,7 @@ class SupportedKafkaInstanceType(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier of the Kafka instance type.. [optional]  # noqa: E501
             display_name (str): Human readable name of the supported Kafka instance type. [optional]  # noqa: E501
-            sizes ([bool, date, datetime, dict, float, int, list, str, none_type]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
+            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,14 +259,18 @@ class SupportedKafkaInstanceType(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

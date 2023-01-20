@@ -32,10 +32,8 @@ from rhoas_kafka_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters_all_of import EnterpriseClusterWithAddonParametersAllOf
-    from rhoas_kafka_mgmt_sdk.model.fleetshard_parameter import FleetshardParameter
     from rhoas_kafka_mgmt_sdk.model.object_reference import ObjectReference
     globals()['EnterpriseClusterWithAddonParametersAllOf'] = EnterpriseClusterWithAddonParametersAllOf
-    globals()['FleetshardParameter'] = FleetshardParameter
     globals()['ObjectReference'] = ObjectReference
 
 
@@ -173,14 +171,18 @@ class EnterpriseClusterWithAddonParameters(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -277,14 +279,18 @@ class EnterpriseClusterWithAddonParameters(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
