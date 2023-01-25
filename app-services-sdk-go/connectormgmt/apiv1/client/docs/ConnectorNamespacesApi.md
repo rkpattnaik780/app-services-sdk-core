@@ -34,8 +34,8 @@ func main() {
     connectorNamespaceEvalRequest := *openapiclient.NewConnectorNamespaceEvalRequest() // ConnectorNamespaceEvalRequest | Connector namespace data
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorNamespacesApi.CreateEvaluationNamespace(context.Background()).ConnectorNamespaceEvalRequest(connectorNamespaceEvalRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorNamespacesApi.CreateEvaluationNamespace(context.Background()).ConnectorNamespaceEvalRequest(connectorNamespaceEvalRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.CreateEvaluationNamespace``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,8 +100,8 @@ func main() {
     connectorNamespaceId := "connectorNamespaceId_example" // string | The id of the connector namespace
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorNamespacesApi.GetConnectorNamespace(context.Background(), connectorNamespaceId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorNamespacesApi.GetConnectorNamespace(context.Background(), connectorNamespaceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.GetConnectorNamespace``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -173,8 +173,8 @@ func main() {
     search := "name = aws-sqs-source and channel = stable" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the `where` clause of a SQL statement.  Allowed fields in the search depend on the resource type:  * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url  Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`. Allowed conjunctive operators are `AND` and `OR`. However, you can use a maximum of 10 conjunctions in a search query.  Examples:  To return a Connector Type with the name `aws-sqs-source` and the channel `stable`, use the following syntax:  ``` name = aws-sqs-source and channel = stable ```[p-]  To return a connector instance with a name that starts with `aws`, use the following syntax:  ``` name like aws%25 ```  To return a connector type with a name containing `aws` matching any character case combination, use the following syntax:  ``` name ilike %25aws%25 ```  If the parameter isn't provided, or if the value is empty, then all the resources that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorNamespacesApi.ListConnectorNamespaces(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorNamespacesApi.ListConnectorNamespaces(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.ListConnectorNamespaces``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

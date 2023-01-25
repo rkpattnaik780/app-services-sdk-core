@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Unique identifier of the Kafka instance type. | [optional] 
 **DisplayName** | Pointer to **string** | Human readable name of the supported Kafka instance type | [optional] 
 **SupportedBillingModels** | [**[]SupportedKafkaBillingModel**](SupportedKafkaBillingModel.md) | A list of available kafka billing models for the instance type. Each kafka billing model item has a unique &#39;id&#39; | 
-**Sizes** | Pointer to [**[]SupportedKafkaInstanceTypeSizesInner**](SupportedKafkaInstanceTypeSizesInner.md) | A list of Kafka instance sizes available for this instance type | [optional] 
+**Sizes** | Pointer to [**[]SupportedKafkaSize**](SupportedKafkaSize.md) | A list of Kafka instance sizes available for this instance type | [optional] 
 
 ## Methods
 
@@ -100,20 +100,20 @@ SetSupportedBillingModels sets SupportedBillingModels field to given value.
 
 ### GetSizes
 
-`func (o *SupportedKafkaInstanceType) GetSizes() []SupportedKafkaInstanceTypeSizesInner`
+`func (o *SupportedKafkaInstanceType) GetSizes() []SupportedKafkaSize`
 
 GetSizes returns the Sizes field if non-nil, zero value otherwise.
 
 ### GetSizesOk
 
-`func (o *SupportedKafkaInstanceType) GetSizesOk() (*[]SupportedKafkaInstanceTypeSizesInner, bool)`
+`func (o *SupportedKafkaInstanceType) GetSizesOk() (*[]SupportedKafkaSize, bool)`
 
 GetSizesOk returns a tuple with the Sizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSizes
 
-`func (o *SupportedKafkaInstanceType) SetSizes(v []SupportedKafkaInstanceTypeSizesInner)`
+`func (o *SupportedKafkaInstanceType) SetSizes(v []SupportedKafkaSize)`
 
 SetSizes sets Sizes field to given value.
 

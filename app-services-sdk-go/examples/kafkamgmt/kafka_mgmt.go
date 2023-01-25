@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
-	kafkamgmt "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
+	rhoasAuth "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
+	kafkamgmt "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/kafkamgmt/apiv1"
 )
 
 func main() {

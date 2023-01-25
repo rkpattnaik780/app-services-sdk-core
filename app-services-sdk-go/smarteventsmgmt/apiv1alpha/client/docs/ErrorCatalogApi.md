@@ -33,8 +33,8 @@ func main() {
     id := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorCatalogApi.ErrorsAPIGetError(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorCatalogApi.ErrorsAPIGetError(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorCatalogApi.ErrorsAPIGetError``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,8 +104,8 @@ func main() {
     size := int32(56) // int32 |  (optional) (default to 100)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorCatalogApi.ErrorsAPIGetErrors(context.Background()).Page(page).Size(size).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorCatalogApi.ErrorsAPIGetErrors(context.Background()).Page(page).Size(size).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorCatalogApi.ErrorsAPIGetErrors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

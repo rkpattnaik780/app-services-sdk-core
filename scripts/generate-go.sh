@@ -38,7 +38,7 @@ generate_sdk() {
     --ignore-file-override=.openapi-generator-ignore
 }
 
-npx @openapitools/openapi-generator-cli version-manager set 6.2.1
+npx @openapitools/openapi-generator-cli version-manager set 5.2.0
 echo "Generating Go SDKs"
 additional_properties="generateInterfaces=true,enumClassPrefix=true"
 
@@ -143,3 +143,9 @@ then
     OUTPUT_PATH="app-services-sdk-go/smarteventsmgmt/apiv1alpha/client"
     generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 fi
+
+# this hack is due to the api generator not ignoring the correct files
+# so we need to revert the changes it does on these files. It ignores
+# the other mod files but for some reason it decides to change this
+git restore app-services-sdk-go/accountmgmt/apiv1/client/go.mod
+git restore app-services-sdk-go/accountmgmt/apiv1/client/go.sum

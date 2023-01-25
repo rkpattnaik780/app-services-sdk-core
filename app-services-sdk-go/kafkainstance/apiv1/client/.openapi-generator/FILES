@@ -48,7 +48,6 @@ docs/Node.md
 docs/ObjectReference.md
 docs/OffsetType.md
 docs/Partition.md
-docs/PartitionLeader.md
 docs/Record.md
 docs/RecordAllOf.md
 docs/RecordIncludedProperty.md
@@ -64,8 +63,6 @@ docs/TopicsApi.md
 docs/TopicsList.md
 docs/TopicsListAllOf.md
 docs/TopicsToResetOffset.md
-go.mod
-go.sum
 model_acl_binding.go
 model_acl_binding_all_of.go
 model_acl_binding_list_page.go
@@ -105,7 +102,6 @@ model_node.go
 model_object_reference.go
 model_offset_type.go
 model_partition.go
-model_partition_leader.go
 model_record.go
 model_record_all_of.go
 model_record_included_property.go
@@ -120,9 +116,4 @@ model_topics_list.go
 model_topics_list_all_of.go
 model_topics_to_reset_offset.go
 response.go
-test/api_acls_test.go
-test/api_errors_test.go
-test/api_groups_test.go
-test/api_records_test.go
-test/api_topics_test.go
 utils.go

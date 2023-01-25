@@ -66,8 +66,6 @@ docs/ServiceAccount.md
 docs/ServiceConnectionSettings.md
 docs/VersionMetadata.md
 docs/VersionMetadataAllOf.md
-go.mod
-go.sum
 model_addon_parameter.go
 model_channel.go
 model_connector.go
@@ -124,9 +122,4 @@ model_service_connection_settings.go
 model_version_metadata.go
 model_version_metadata_all_of.go
 response.go
-test/api_connector_clusters_test.go
-test/api_connector_namespaces_test.go
-test/api_connector_service_test.go
-test/api_connector_types_test.go
-test/api_connectors_test.go
 utils.go

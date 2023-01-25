@@ -4,9 +4,9 @@ info:
     email: rhosak-eval-support@redhat.com
     name: Red Hat Hybrid Cloud Console
     url: https://console.redhat.com/application-services/service-registry/
-  description: "Service Registry Management API is a REST API for managing Service\
-    \ Registry instances. Service Registry is a datastore for event schemas and API\
-    \ designs, which is based on the open source Apicurio Registry project."
+  description: Service Registry Management API is a REST API for managing Service
+    Registry instances. Service Registry is a datastore for event schemas and API
+    designs, which is based on the open source Apicurio Registry project.
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -22,10 +22,8 @@ servers:
 - description: current domain
   url: /
 tags:
-- description: ""
-  name: Errors
-- description: ""
-  name: Registries
+- name: Errors
+- name: Registries
 paths:
   /api/serviceregistry_mgmt/v1/registries:
     description: Manage the list of all Registry instances
@@ -187,10 +185,10 @@ paths:
       - Registries
   /api/serviceregistry_mgmt/v1/registries/{id}:
     delete:
-      description: "Deletes an existing `Registry` instance and all of the data that\
-        \ it stores. Important: Users should export the registry data before deleting\
-        \ the instance, e.g., using the Service Registry web console, core REST API,\
-        \ or `rhoas` CLI."
+      description: 'Deletes an existing `Registry` instance and all of the data that
+        it stores. Important: Users should export the registry data before deleting
+        the instance, e.g., using the Service Registry web console, core REST API,
+        or `rhoas` CLI.'
       operationId: deleteRegistry
       parameters:
       - description: A unique identifier for a `Registry` instance.
@@ -382,8 +380,8 @@ paths:
       tags:
       - Errors
   /api/serviceregistry_mgmt/v1/status:
-    description: "Retrieves the status of resources e.g., whether we have reached\
-      \ maximum service capacity"
+    description: Retrieves the status of resources e.g., whether we have reached maximum
+      service capacity
     get:
       description: Get the service status
       operationId: getServiceStatus
@@ -417,7 +415,7 @@ components:
         kind: Error
         href: /api/serviceregistry_mgmt/v1/errors/11
         code: CLOUD-SERV-API-11
-        reason: "Unable to verify JWT token: Required authorization token not found."
+        reason: 'Unable to verify JWT token: Required authorization token not found.'
         operation_id: 1iY3UhEhwmXBpWPfI2lNekpd4ZD
     "403Example":
       value:
@@ -607,9 +605,9 @@ components:
         max_instances_reached: true
       properties:
         max_instances_reached:
-          description: "Boolean property indicating if the maximum number of total\
-            \ Registry instances have been reached, therefore creation of more instances\
-            \ should not be allowed."
+          description: Boolean property indicating if the maximum number of total
+            Registry instances have been reached, therefore creation of more instances
+            should not be allowed.
           type: boolean
       title: Root type for ServiceStatus
       type: object
@@ -625,7 +623,7 @@ components:
             within a given organization.
           maxLength: 32
           minLength: 1
-          pattern: "[a-z]([a-z0-9\\-]*[a-z0-9])?"
+          pattern: '[a-z]([a-z0-9\-]*[a-z0-9])?'
           type: string
         description:
           description: User-provided description of the new Service Registry instance.
@@ -660,15 +658,24 @@ components:
             $ref: '#/components/schemas/Error'
           type: array
       type: object
-      example: null
     RegistryList_allOf:
-      example: "{\"kind\":\"RegistryList\",\"page\":\"1\",\"size\":\"1\",\"total\"\
-        :\"1\",\"items\":[{\"id\":\"llmNteR4P7waRp5nJIReG\",\"kind\":\"serviceregistry\"\
-        ,\"href\":\"/api/serviceregistry_mgmt/v1/registries/llmNteR4P7waRp5nJIReG\"\
-        ,\"name\":\"sample-registry\",\"status\":\"ready\",\"owner\":\"some_id\",\"\
-        registryUrl\":\"https://somehost:433/t/12345\",\"browserUrl\":\"https://someuihost:443/registries/12345\"\
-        ,\"created_at\":\"2020-01-01T00:00:00Z\",\"updated_at\":\"2022-01-01T00:00:00Z\"\
-        ,\"instance_type\":\"standard\"}]}"
+      example:
+        kind: RegistryList
+        page: "1"
+        size: "1"
+        total: "1"
+        items:
+        - id: llmNteR4P7waRp5nJIReG
+          kind: serviceregistry
+          href: /api/serviceregistry_mgmt/v1/registries/llmNteR4P7waRp5nJIReG
+          name: sample-registry
+          status: ready
+          owner: some_id
+          registryUrl: https://somehost:433/t/12345
+          browserUrl: https://someuihost:443/registries/12345
+          created_at: 2020-01-01T00:00:00Z
+          updated_at: 2022-01-01T00:00:00Z
+          instance_type: standard
       properties:
         items:
           items:
@@ -679,11 +686,17 @@ components:
       type: object
     Root_type_for_Registry:
       description: Service Registry instance in a multi-tenant deployment.
-      example: "{\"id\":\"42\",\"name\":\"my-registry\",\"registryUrl\":\"https://registry.apps.example.com/t/5213600b-afc9-487e-8cc3-339f4248d706\"\
-        ,\"browserUrl\":\"https://registry-ui.apps.example.com/t/5213600b-afc9-487e-8cc3-339f4248d706\"\
-        ,\"status\":\"provisioning\",\"registryDeploymentId\":1,\"owner\":\"ownername\"\
-        ,\"updated_at\":\"2022-01-01T00:00:00Z\",\"created_at\":\"2020-01-01T00:00:00Z\"\
-        ,\"instance_type\":\"standard\"}"
+      example:
+        id: "42"
+        name: my-registry
+        registryUrl: https://registry.apps.example.com/t/5213600b-afc9-487e-8cc3-339f4248d706
+        browserUrl: https://registry-ui.apps.example.com/t/5213600b-afc9-487e-8cc3-339f4248d706
+        status: provisioning
+        registryDeploymentId: 1
+        owner: ownername
+        updated_at: 2022-01-01T00:00:00Z
+        created_at: 2020-01-01T00:00:00Z
+        instance_type: standard
       properties:
         id:
           type: string
@@ -697,8 +710,8 @@ components:
           description: User-defined Registry instance name. Does not have to be unique.
           type: string
         registryDeploymentId:
-          description: "Identifier of a multi-tenant deployment, where this Service\
-            \ Registry instance resides."
+          description: Identifier of a multi-tenant deployment, where this Service
+            Registry instance resides.
           type: integer
         owner:
           description: Registry instance owner.

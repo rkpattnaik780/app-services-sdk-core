@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
-	kafkainstanceapi "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1"
+	rhoasAuth "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
+	kafkainstanceapi "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/kafkainstance/apiv1"
 )
 
 func main() {

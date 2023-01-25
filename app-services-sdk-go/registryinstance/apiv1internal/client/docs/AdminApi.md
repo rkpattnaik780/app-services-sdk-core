@@ -46,8 +46,8 @@ func main() {
     roleMapping := *openapiclient.NewRoleMapping("PrincipalId_example", openapiclient.RoleType("READ_ONLY")) // RoleMapping | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.CreateRoleMapping(context.Background()).RoleMapping(roleMapping).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.CreateRoleMapping(context.Background()).RoleMapping(roleMapping).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.CreateRoleMapping``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,8 +110,8 @@ func main() {
     principalId := "principalId_example" // string | Unique id of a principal (typically either a user or service account).
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.DeleteRoleMapping(context.Background(), principalId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.DeleteRoleMapping(context.Background(), principalId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.DeleteRoleMapping``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -156,7 +156,7 @@ No authorization required
 
 ## ExportData
 
-> *os.File ExportData(ctx).ForBrowser(forBrowser).Execute()
+> *os.File ExportData(ctx).Accept(accept).ForBrowser(forBrowser).Execute()
 
 Export registry data
 
@@ -175,11 +175,12 @@ import (
 )
 
 func main() {
+    accept := "accept_example" // string |  (optional)
     forBrowser := true // bool | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called `href`.  This `href` will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ExportData(context.Background()).ForBrowser(forBrowser).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ExportData(context.Background()).Accept(accept).ForBrowser(forBrowser).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ExportData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -200,6 +201,7 @@ Other parameters are passed through a pointer to a apiExportDataRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** |  | 
  **forBrowser** | **bool** | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. | 
 
 ### Return type
@@ -244,8 +246,8 @@ func main() {
     propertyName := "propertyName_example" // string | The name of a configuration property.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.GetConfigProperty(context.Background(), propertyName).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.GetConfigProperty(context.Background(), propertyName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.GetConfigProperty``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -314,8 +316,8 @@ func main() {
     logger := "logger_example" // string | The name of a single logger.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.GetLogConfiguration(context.Background(), logger).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.GetLogConfiguration(context.Background(), logger).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.GetLogConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -384,8 +386,8 @@ func main() {
     principalId := "principalId_example" // string | Unique id of a principal (typically either a user or service account).
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.GetRoleMapping(context.Background(), principalId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.GetRoleMapping(context.Background(), principalId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.GetRoleMapping``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -456,8 +458,8 @@ func main() {
     xRegistryPreserveContentId := true // bool | If this header is set to false, content ids of imported data will be ignored and replaced by next id in content id sequence. The mapping between content and artifacts will be preserved. This allows to import any data even thought the content ids would cause a conflict. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ImportData(context.Background()).Body(body).XRegistryPreserveGlobalId(xRegistryPreserveGlobalId).XRegistryPreserveContentId(xRegistryPreserveContentId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ImportData(context.Background()).Body(body).XRegistryPreserveGlobalId(xRegistryPreserveGlobalId).XRegistryPreserveContentId(xRegistryPreserveContentId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ImportData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -521,8 +523,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ListConfigProperties(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ListConfigProperties(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ListConfigProperties``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -582,8 +584,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ListLogConfigurations(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ListLogConfigurations(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ListLogConfigurations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -643,8 +645,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ListRoleMappings(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ListRoleMappings(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ListRoleMappings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -705,8 +707,8 @@ func main() {
     logger := "logger_example" // string | The name of a single logger.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.RemoveLogConfiguration(context.Background(), logger).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.RemoveLogConfiguration(context.Background(), logger).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.RemoveLogConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -775,8 +777,8 @@ func main() {
     propertyName := "propertyName_example" // string | The name of a configuration property.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.ResetConfigProperty(context.Background(), propertyName).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.ResetConfigProperty(context.Background(), propertyName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ResetConfigProperty``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -844,8 +846,8 @@ func main() {
     logConfiguration := *openapiclient.NewLogConfiguration(openapiclient.LogLevel("DEBUG")) // LogConfiguration | The new logger configuration.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.SetLogConfiguration(context.Background(), logger).LogConfiguration(logConfiguration).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.SetLogConfiguration(context.Background(), logger).LogConfiguration(logConfiguration).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.SetLogConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -916,8 +918,8 @@ func main() {
     updateConfigurationProperty := *openapiclient.NewUpdateConfigurationProperty("Value_example") // UpdateConfigurationProperty | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.UpdateConfigProperty(context.Background(), propertyName).UpdateConfigurationProperty(updateConfigurationProperty).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.UpdateConfigProperty(context.Background(), propertyName).UpdateConfigurationProperty(updateConfigurationProperty).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.UpdateConfigProperty``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -986,8 +988,8 @@ func main() {
     updateRole := *openapiclient.NewUpdateRole(openapiclient.RoleType("READ_ONLY")) // UpdateRole | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminApi.UpdateRoleMapping(context.Background(), principalId).UpdateRole(updateRole).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AdminApi.UpdateRoleMapping(context.Background(), principalId).UpdateRole(updateRole).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.UpdateRoleMapping``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

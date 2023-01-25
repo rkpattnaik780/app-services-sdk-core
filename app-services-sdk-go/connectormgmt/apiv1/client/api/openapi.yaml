@@ -19,16 +19,11 @@ servers:
 - description: current domain
   url: /
 tags:
-- description: ""
-  name: Connector Types
-- description: ""
-  name: Connectors
-- description: ""
-  name: Connector Clusters
-- description: ""
-  name: Connector Service
-- description: ""
-  name: Connector Namespaces
+- name: Connector Types
+- name: Connectors
+- name: Connector Clusters
+- name: Connector Service
+- name: Connector Namespaces
 paths:
   /api/connector_mgmt/v1:
     get:
@@ -692,7 +687,7 @@ paths:
               type: object
           application/json-patch+json:
             schema:
-              description: "A JSON Patch, RFC 6902 - https://tools.ietf.org/html/rfc6902"
+              description: A JSON Patch, RFC 6902 - https://tools.ietf.org/html/rfc6902
               type: object
           application/json:
             schema:
@@ -1712,7 +1707,7 @@ components:
           common:
             show_all: true
             multi_lines: true
-          topics: "foo,bar"
+          topics: foo,bar
           data_shape:
             key:
               format: STRING
@@ -1746,7 +1741,7 @@ components:
         kind: Error
         href: /api/connector_mgmt/v1/errors/103
         code: CONNECTOR-MGMT-103
-        reason: "Synchronous action is not supported, use async=true parameter"
+        reason: Synchronous action is not supported, use async=true parameter
         operation_id: 1iWIimqGcrDuL61aUxIZqBTqNRa
     "400InvalidQueryExample":
       value:
@@ -1787,7 +1782,7 @@ components:
         kind: Error
         href: /api/connector_mgmt/v1/errors/11
         code: CONNECTOR-MGMT-11
-        reason: "Unable to verify JWT token: Required authorization token not found"
+        reason: 'Unable to verify JWT token: Required authorization token not found'
         operation_id: 1iY3UhEhwmXBpWPfI2lNekpd4ZD
     "409NameConflictExample":
       value:
@@ -2222,9 +2217,9 @@ components:
     ConnectorNamespaceRequestMeta:
       properties:
         name:
-          description: "Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`,\
-            \ or it may be empty to be auto-generated."
-          pattern: "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$"
+          description: Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`,
+            or it may be empty to be auto-generated.
+          pattern: ^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$
           type: string
         annotations:
           additionalProperties:
@@ -2239,19 +2234,19 @@ components:
           type: integer
         memory_requests:
           description: Memory quota for limits or requests
-          pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+          pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
           type: string
         memory_limits:
           description: Memory quota for limits or requests
-          pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+          pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
           type: string
         cpu_requests:
           description: CPU quota for limits or requests
-          pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+          pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
           type: string
         cpu_limits:
           description: CPU quota for limits or requests
-          pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+          pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
           type: string
       type: object
     ConnectorNamespaceMeta:
@@ -2327,16 +2322,21 @@ components:
       description: A connector namespace
     MemoryQuota:
       description: Memory quota for limits or requests
-      pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+      pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
       type: string
     CpuQuota:
       description: CPU quota for limits or requests
-      pattern: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
+      pattern: ^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$
       type: string
     VersionMetadata_allOf:
-      example: "{\"kind\":\"APIVersion\",\"id\":\"v1\",\"href\":\"/api/connector_mgmt/v1\"\
-        ,\"collections\":[{\"id\":\"kafkas\",\"href\":\"/api/connector_mgmt/v1/kafka_connectors\"\
-        ,\"kind\":\"ConnectorList\"}]}"
+      example:
+        kind: APIVersion
+        id: v1
+        href: /api/connector_mgmt/v1
+        collections:
+        - id: kafkas
+          href: /api/connector_mgmt/v1/kafka_connectors
+          kind: ConnectorList
       properties:
         collections:
           items:
@@ -2358,14 +2358,12 @@ components:
             $ref: '#/components/schemas/ConnectorCluster'
           type: array
       type: object
-      example: null
     ConnectorMeta_allOf:
       properties:
         resource_version:
           format: int64
           type: integer
       type: object
-      example: null
     ConnectorStatus_status:
       properties:
         state:
@@ -2380,7 +2378,6 @@ components:
             $ref: '#/components/schemas/Connector'
           type: array
       type: object
-      example: null
     ConnectorType_allOf:
       properties:
         name:
@@ -2424,7 +2421,6 @@ components:
             connector field.
           type: object
       type: object
-      example: null
     ConnectorTypeList_allOf:
       properties:
         items:
@@ -2432,7 +2428,6 @@ components:
             $ref: '#/components/schemas/ConnectorType'
           type: array
       type: object
-      example: null
     ConnectorNamespaceMeta_allOf:
       properties:
         resource_version:
@@ -2441,7 +2436,6 @@ components:
         quota:
           $ref: '#/components/schemas/ConnectorNamespaceQuota'
       type: object
-      example: null
     ConnectorNamespaceRequest_allOf:
       properties:
         cluster_id:
@@ -2449,7 +2443,6 @@ components:
         kind:
           $ref: '#/components/schemas/ConnectorNamespaceTenantKind'
       type: object
-      example: null
     ConnectorNamespaceList_allOf:
       properties:
         items:
@@ -2457,7 +2450,6 @@ components:
             $ref: '#/components/schemas/ConnectorNamespace'
           type: array
       type: object
-      example: null
     ConnectorNamespace_allOf:
       properties:
         name:
@@ -2479,7 +2471,6 @@ components:
       - status
       - tenant
       type: object
-      example: null
   securitySchemes:
     Bearer:
       bearerFormat: JWT

@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
-	connectormgmt "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1"
+	rhoasAuth "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
+	connectormgmt "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/connectormgmt/apiv1"
 )
 
 func main() {

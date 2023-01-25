@@ -37,8 +37,8 @@ func main() {
     rule := *openapiclient.NewRule("Config_example") // Rule | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.CreateGlobalRule(context.Background()).Rule(rule).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.CreateGlobalRule(context.Background()).Rule(rule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.CreateGlobalRule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,8 +100,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.DeleteAllGlobalRules(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.DeleteAllGlobalRules(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.DeleteAllGlobalRules``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -160,8 +160,8 @@ func main() {
     rule := openapiclient.RuleType("VALIDITY") // RuleType | The unique name/type of a rule.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.DeleteGlobalRule(context.Background(), rule).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.DeleteGlobalRule(context.Background(), rule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.DeleteGlobalRule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -228,8 +228,8 @@ func main() {
     rule := openapiclient.RuleType("VALIDITY") // RuleType | The unique name/type of a rule.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.GetGlobalRuleConfig(context.Background(), rule).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.GetGlobalRuleConfig(context.Background(), rule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.GetGlobalRuleConfig``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -297,8 +297,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.ListGlobalRules(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.ListGlobalRules(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.ListGlobalRules``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -360,8 +360,8 @@ func main() {
     rule2 := *openapiclient.NewRule("Config_example") // Rule | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalRulesApi.UpdateGlobalRuleConfig(context.Background(), rule).Rule2(rule2).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.UpdateGlobalRuleConfig(context.Background(), rule).Rule2(rule2).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.UpdateGlobalRuleConfig``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

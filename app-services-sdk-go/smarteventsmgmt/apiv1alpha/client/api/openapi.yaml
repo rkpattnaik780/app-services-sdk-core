@@ -15,20 +15,20 @@ servers:
 - url: https://api.openshift.com
 - url: /
 tags:
-- description: "The API that allow the user to retrieve, create or delete Bridge instances."
+- description: The API that allow the user to retrieve, create or delete Bridge instances.
   name: Bridges
 - description: List Supported Cloud Providers and Regions
   name: Cloud Providers
 - description: List and get the error definitions from the error catalog.
   name: Error Catalog
-- description: "The API that allow the user to retrieve, create or delete Processors\
-    \ of a Bridge instance."
+- description: The API that allow the user to retrieve, create or delete Processors
+    of a Bridge instance.
   name: Processors
-- description: "The API that allow the user to retrieve, create or delete Sink Connectors\
-    \ to be used with smart-events."
+- description: The API that allow the user to retrieve, create or delete Sink Connectors
+    to be used with smart-events.
   name: Sink Connectors
-- description: "The API that allow the user to retrieve, create or delete Source Connectors\
-    \ to be used with smart-events."
+- description: The API that allow the user to retrieve, create or delete Source Connectors
+    to be used with smart-events.
   name: Source Connectors
 paths:
   /api/smartevents_mgmt/v2/bridges:
@@ -1422,7 +1422,6 @@ components:
         reason: reason
         code: code
         id: 0
-        type: null
       properties:
         id:
           format: int32
@@ -1561,7 +1560,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         submitted_at:
@@ -1671,7 +1670,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         display_name:
@@ -1746,7 +1745,7 @@ components:
       type: object
     ConnectorRequest:
       example:
-        connector: "{}"
+        connector: '{}'
         name: my-connector
         connector_type_id: slack_sink_0.1
       properties:
@@ -1788,7 +1787,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         code:
@@ -1896,7 +1895,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
       required:
@@ -1951,7 +1950,7 @@ components:
         - owner: userName
           status_message: status_message
           submitted_at: 2022-03-10T12:15:50-04:00
-          flows: "{}"
+          flows: '{}'
           kind: kind
           name: resourceName1
           id: id
@@ -1962,7 +1961,7 @@ components:
         - owner: userName
           status_message: status_message
           submitted_at: 2022-03-10T12:15:50-04:00
-          flows: "{}"
+          flows: '{}'
           kind: kind
           name: resourceName1
           id: id
@@ -1994,7 +1993,7 @@ components:
       type: object
     ProcessorRequest:
       example:
-        flows: "{}"
+        flows: '{}'
         name: processor1
       properties:
         name:
@@ -2003,8 +2002,8 @@ components:
           minLength: 1
           type: string
         flows:
-          description: "The Camel YAML DSL code, formatted as JSON, that defines the\
-            \ flows in the processor"
+          description: The Camel YAML DSL code, formatted as JSON, that defines the
+            flows in the processor
           type: object
       required:
       - flows
@@ -2015,7 +2014,7 @@ components:
         owner: userName
         status_message: status_message
         submitted_at: 2022-03-10T12:15:50-04:00
-        flows: "{}"
+        flows: '{}'
         kind: kind
         name: resourceName1
         id: id
@@ -2035,7 +2034,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         submitted_at:
@@ -2060,8 +2059,8 @@ components:
           example: userName
           type: string
         flows:
-          description: "The Camel YAML DSL code, formatted as JSON, that defines the\
-            \ flows in the processor"
+          description: The Camel YAML DSL code, formatted as JSON, that defines the
+            flows in the processor
           type: object
         status_message:
           type: string
@@ -2086,7 +2085,7 @@ components:
           status_message: status_message
           submitted_at: 2022-03-10T12:15:50-04:00
           kind: kind
-          connector: "{}"
+          connector: '{}'
           name: resourceName1
           id: id
           href: example.com/resource
@@ -2099,7 +2098,7 @@ components:
           status_message: status_message
           submitted_at: 2022-03-10T12:15:50-04:00
           kind: kind
-          connector: "{}"
+          connector: '{}'
           name: resourceName1
           id: id
           href: example.com/resource
@@ -2136,7 +2135,7 @@ components:
         status_message: status_message
         submitted_at: 2022-03-10T12:15:50-04:00
         kind: kind
-        connector: "{}"
+        connector: '{}'
         name: resourceName1
         id: id
         href: example.com/resource
@@ -2157,7 +2156,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         submitted_at:
@@ -2217,7 +2216,7 @@ components:
         items:
         - owner: userName
           status_message: status_message
-          connector: "{}"
+          connector: '{}'
           submitted_at: 2022-03-10T12:15:50-04:00
           kind: kind
           name: resourceName1
@@ -2229,7 +2228,7 @@ components:
           connector_type_id: slack_sink_0.1
         - owner: userName
           status_message: status_message
-          connector: "{}"
+          connector: '{}'
           submitted_at: 2022-03-10T12:15:50-04:00
           kind: kind
           name: resourceName1
@@ -2265,7 +2264,7 @@ components:
       example:
         owner: userName
         status_message: status_message
-        connector: "{}"
+        connector: '{}'
         submitted_at: 2022-03-10T12:15:50-04:00
         kind: kind
         name: resourceName1
@@ -2287,7 +2286,7 @@ components:
           example: resourceName1
           type: string
         href:
-          description: "The URL of this resource, without the protocol"
+          description: The URL of this resource, without the protocol
           example: example.com/resource
           type: string
         submitted_at:
@@ -2353,7 +2352,6 @@ components:
       - size
       - total
       type: object
-      example: null
   securitySchemes:
     bearer:
       scheme: Bearer
