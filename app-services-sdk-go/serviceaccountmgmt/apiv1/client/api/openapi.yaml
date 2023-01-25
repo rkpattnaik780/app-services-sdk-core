@@ -32,8 +32,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AcsClientRequestData'
-        description: "The name, redirect URIs and the organization id of the ACS managed\
-          \ central client"
+        description: The name, redirect URIs and the organization id of the ACS managed
+          central client
         required: true
       responses:
         "201":
@@ -75,7 +75,7 @@ paths:
                   $ref: '#/components/examples/405AcsApiDisabled'
               schema:
                 $ref: '#/components/schemas/RedHatErrorRepresentation'
-          description: "Not allowed, API Currently Disabled"
+          description: Not allowed, API Currently Disabled
       security:
       - serviceAccounts:
         - api.iam.clients
@@ -123,7 +123,7 @@ paths:
                   $ref: '#/components/examples/405AcsApiDisabled'
               schema:
                 $ref: '#/components/schemas/RedHatErrorRepresentation'
-          description: "Not allowed, API Currently Disabled"
+          description: Not allowed, API Currently Disabled
       security:
       - serviceAccounts:
         - api.iam.clients
@@ -621,7 +621,7 @@ components:
           type: array
           uniqueItems: true
         orgId:
-          pattern: "\\d{1,10}"
+          pattern: \d{1,10}
           type: string
       required:
       - orgId

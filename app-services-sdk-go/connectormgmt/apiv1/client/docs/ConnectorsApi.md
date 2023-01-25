@@ -37,8 +37,8 @@ func main() {
     connectorRequest := *openapiclient.NewConnectorRequest("Name_example", "ConnectorTypeId_example", "NamespaceId_example", openapiclient.ConnectorDesiredState("unassigned"), *openapiclient.NewKafkaConnectionSettings("Id_example", "Url_example"), *openapiclient.NewServiceAccount("ClientId_example", "ClientSecret_example"), map[string]interface{}(123)) // ConnectorRequest | Connector data
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorsApi.CreateConnector(context.Background()).Async(async).ConnectorRequest(connectorRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorsApi.CreateConnector(context.Background()).Async(async).ConnectorRequest(connectorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.CreateConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,8 +104,8 @@ func main() {
     id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorsApi.DeleteConnector(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorsApi.DeleteConnector(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.DeleteConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -174,8 +174,8 @@ func main() {
     id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorsApi.GetConnector(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorsApi.GetConnector(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.GetConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -247,8 +247,8 @@ func main() {
     search := "name = aws-sqs-source and channel = stable" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the `where` clause of a SQL statement.  Allowed fields in the search depend on the resource type:  * Cluster: id, created_at, updated_at, owner, organisation_id, name, state, client_id * Namespace: id, created_at, updated_at, name, cluster_id, owner, expiration, tenant_user_id, tenant_organisation_id, state * Connector Types: id, created_at, updated_at, version, name, description, label, channel, featured_rank, pricing_tier * Connectors: id, created_at, updated_at, name, owner, organisation_id, connector_type_id, desired_state, state, channel, namespace_id, kafka_id, kafka_bootstrap_server, service_account_client_id, schema_registry_id, schema_registry_url  Allowed operators are `<>`, `=`, `LIKE`, or `ILIKE`. Allowed conjunctive operators are `AND` and `OR`. However, you can use a maximum of 10 conjunctions in a search query.  Examples:  To return a Connector Type with the name `aws-sqs-source` and the channel `stable`, use the following syntax:  ``` name = aws-sqs-source and channel = stable ```[p-]  To return a connector instance with a name that starts with `aws`, use the following syntax:  ``` name like aws%25 ```  To return a connector type with a name containing `aws` matching any character case combination, use the following syntax:  ``` name ilike %25aws%25 ```  If the parameter isn't provided, or if the value is empty, then all the resources that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorsApi.ListConnectors(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorsApi.ListConnectors(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.ListConnectors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -314,11 +314,11 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    body := map[string]interface{}{ ... } // map[string]interface{} | Data to patch the connector with
+    body := map[string]interface{}(Object) // map[string]interface{} | Data to patch the connector with
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorsApi.PatchConnector(context.Background(), id).Body(body).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.PatchConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -54,8 +54,6 @@ docs/UsersApi.md
 docs/VersionMetaData.md
 docs/VersionSearchResults.md
 docs/VersionsApi.md
-go.mod
-go.sum
 model_artifact_meta_data.go
 model_artifact_owner.go
 model_artifact_reference.go
@@ -92,13 +90,4 @@ model_user_info.go
 model_version_meta_data.go
 model_version_search_results.go
 response.go
-test/api_admin_test.go
-test/api_artifact_rules_test.go
-test/api_artifacts_test.go
-test/api_global_rules_test.go
-test/api_metadata_test.go
-test/api_search_test.go
-test/api_system_test.go
-test/api_users_test.go
-test/api_versions_test.go
 utils.go

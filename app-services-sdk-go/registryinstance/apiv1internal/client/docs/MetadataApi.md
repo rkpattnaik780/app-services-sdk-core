@@ -41,8 +41,8 @@ func main() {
     version := "version_example" // string | The unique identifier of a specific version of the artifact content.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.DeleteArtifactVersionMetaData(context.Background(), groupId, artifactId, version).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.DeleteArtifactVersionMetaData(context.Background(), groupId, artifactId, version).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.DeleteArtifactVersionMetaData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -114,8 +114,8 @@ func main() {
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.GetArtifactMetaData(context.Background(), groupId, artifactId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.GetArtifactMetaData(context.Background(), groupId, artifactId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.GetArtifactMetaData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -187,8 +187,8 @@ func main() {
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.GetArtifactOwner(context.Background(), groupId, artifactId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.GetArtifactOwner(context.Background(), groupId, artifactId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.GetArtifactOwner``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -261,8 +261,8 @@ func main() {
     version := "version_example" // string | The unique identifier of a specific version of the artifact content.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.GetArtifactVersionMetaData(context.Background(), groupId, artifactId, version).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.GetArtifactVersionMetaData(context.Background(), groupId, artifactId, version).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.GetArtifactVersionMetaData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -338,8 +338,8 @@ func main() {
     canonical := true // bool | Parameter that can be set to `true` to indicate that the server should \"canonicalize\" the content when searching for a matching version.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.GetArtifactVersionMetaDataByContent(context.Background(), groupId, artifactId).Body(body).Canonical(canonical).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.GetArtifactVersionMetaDataByContent(context.Background(), groupId, artifactId).Body(body).Canonical(canonical).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.GetArtifactVersionMetaDataByContent``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -414,8 +414,8 @@ func main() {
     editableMetaData := *openapiclient.NewEditableMetaData() // EditableMetaData | Updated artifact metadata.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.UpdateArtifactMetaData(context.Background(), groupId, artifactId).EditableMetaData(editableMetaData).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.UpdateArtifactMetaData(context.Background(), groupId, artifactId).EditableMetaData(editableMetaData).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.UpdateArtifactMetaData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -487,8 +487,8 @@ func main() {
     artifactOwner := *openapiclient.NewArtifactOwner() // ArtifactOwner | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.UpdateArtifactOwner(context.Background(), groupId, artifactId).ArtifactOwner(artifactOwner).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.UpdateArtifactOwner(context.Background(), groupId, artifactId).ArtifactOwner(artifactOwner).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.UpdateArtifactOwner``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -561,8 +561,8 @@ func main() {
     editableMetaData := *openapiclient.NewEditableMetaData() // EditableMetaData | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MetadataApi.UpdateArtifactVersionMetaData(context.Background(), groupId, artifactId, version).EditableMetaData(editableMetaData).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.MetadataApi.UpdateArtifactVersionMetaData(context.Background(), groupId, artifactId, version).EditableMetaData(editableMetaData).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.UpdateArtifactVersionMetaData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

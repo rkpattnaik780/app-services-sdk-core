@@ -31,8 +31,8 @@ func main() {
     errorId := "errorId_example" // string | Error identifier
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorsApi.GetError(context.Background(), errorId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorsApi.GetError(context.Background(), errorId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorsApi.GetError``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -98,8 +98,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorsApi.GetErrors(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorsApi.GetErrors(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorsApi.GetErrors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

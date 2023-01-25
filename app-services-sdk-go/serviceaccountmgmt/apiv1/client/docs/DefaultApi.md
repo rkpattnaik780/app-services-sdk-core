@@ -31,8 +31,8 @@ func main() {
     id := "id_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.GetAuthenticationPolicy(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GetAuthenticationPolicy(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetAuthenticationPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,8 +100,8 @@ func main() {
     authenticationPolicy := *openapiclient.NewAuthenticationPolicy() // AuthenticationPolicy |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultApi.SetAuthenticationPolicy(context.Background(), id).AuthenticationPolicy(authenticationPolicy).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.SetAuthenticationPolicy(context.Background(), id).AuthenticationPolicy(authenticationPolicy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SetAuthenticationPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

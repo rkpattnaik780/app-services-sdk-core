@@ -38,7 +38,7 @@ generate_sdk() {
     --ignore-file-override=.openapi-generator-ignore
 }
 
-npx @openapitools/openapi-generator-cli version-manager set 6.2.1
+npx @openapitools/openapi-generator-cli version-manager set 5.2.0
 echo "Generating Go SDKs"
 additional_properties="generateInterfaces=true,enumClassPrefix=true"
 

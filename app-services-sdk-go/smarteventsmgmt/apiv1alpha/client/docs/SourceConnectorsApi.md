@@ -37,8 +37,8 @@ func main() {
     connectorRequest := *openapiclient.NewConnectorRequest("my-connector", "slack_sink_0.1", map[string]interface{}(123)) // ConnectorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceConnectorsApi.SourceConnectorsAPICreateSourceConnector(context.Background(), bridgeId).ConnectorRequest(connectorRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SourceConnectorsApi.SourceConnectorsAPICreateSourceConnector(context.Background(), bridgeId).ConnectorRequest(connectorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceConnectorsApi.SourceConnectorsAPICreateSourceConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -109,8 +109,8 @@ func main() {
     sourceId := "sourceId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceConnectorsApi.SourceConnectorsAPIDeleteSourceConnector(context.Background(), bridgeId, sourceId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SourceConnectorsApi.SourceConnectorsAPIDeleteSourceConnector(context.Background(), bridgeId, sourceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceConnectorsApi.SourceConnectorsAPIDeleteSourceConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,8 +180,8 @@ func main() {
     sourceId := "sourceId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceConnectorsApi.SourceConnectorsAPIGetSourceConnector(context.Background(), bridgeId, sourceId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SourceConnectorsApi.SourceConnectorsAPIGetSourceConnector(context.Background(), bridgeId, sourceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceConnectorsApi.SourceConnectorsAPIGetSourceConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,8 +256,8 @@ func main() {
     status := []openapiclient.ManagedResourceStatus{openapiclient.ManagedResourceStatus("accepted")} // []ManagedResourceStatus |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceConnectorsApi.SourceConnectorsAPIGetSourceConnectors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SourceConnectorsApi.SourceConnectorsAPIGetSourceConnectors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceConnectorsApi.SourceConnectorsAPIGetSourceConnectors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -332,8 +332,8 @@ func main() {
     connectorRequest := *openapiclient.NewConnectorRequest("my-connector", "slack_sink_0.1", map[string]interface{}(123)) // ConnectorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceConnectorsApi.SourceConnectorsAPIUpdateSourceConnector(context.Background(), bridgeId, sourceId).ConnectorRequest(connectorRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SourceConnectorsApi.SourceConnectorsAPIUpdateSourceConnector(context.Background(), bridgeId, sourceId).ConnectorRequest(connectorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceConnectorsApi.SourceConnectorsAPIUpdateSourceConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -37,8 +37,8 @@ func main() {
     connectorRequest := *openapiclient.NewConnectorRequest("my-connector", "slack_sink_0.1", map[string]interface{}(123)) // ConnectorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SinkConnectorsApi.SinkConnectorsAPICreateSinkConnector(context.Background(), bridgeId).ConnectorRequest(connectorRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SinkConnectorsApi.SinkConnectorsAPICreateSinkConnector(context.Background(), bridgeId).ConnectorRequest(connectorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SinkConnectorsApi.SinkConnectorsAPICreateSinkConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -109,8 +109,8 @@ func main() {
     sinkId := "sinkId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SinkConnectorsApi.SinkConnectorsAPIDeleteSinkConnector(context.Background(), bridgeId, sinkId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SinkConnectorsApi.SinkConnectorsAPIDeleteSinkConnector(context.Background(), bridgeId, sinkId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SinkConnectorsApi.SinkConnectorsAPIDeleteSinkConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -180,8 +180,8 @@ func main() {
     sinkId := "sinkId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SinkConnectorsApi.SinkConnectorsAPIGetSinkConnector(context.Background(), bridgeId, sinkId).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SinkConnectorsApi.SinkConnectorsAPIGetSinkConnector(context.Background(), bridgeId, sinkId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SinkConnectorsApi.SinkConnectorsAPIGetSinkConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,8 +256,8 @@ func main() {
     status := []openapiclient.ManagedResourceStatus{openapiclient.ManagedResourceStatus("accepted")} // []ManagedResourceStatus |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SinkConnectorsApi.SinkConnectorsAPIGetSinkConnectors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SinkConnectorsApi.SinkConnectorsAPIGetSinkConnectors(context.Background(), bridgeId).Name(name).Page(page).Size(size).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SinkConnectorsApi.SinkConnectorsAPIGetSinkConnectors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -332,8 +332,8 @@ func main() {
     connectorRequest := *openapiclient.NewConnectorRequest("my-connector", "slack_sink_0.1", map[string]interface{}(123)) // ConnectorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SinkConnectorsApi.SinkConnectorsAPIUpdateSinkConnector(context.Background(), bridgeId, sinkId).ConnectorRequest(connectorRequest).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SinkConnectorsApi.SinkConnectorsAPIUpdateSinkConnector(context.Background(), bridgeId, sinkId).ConnectorRequest(connectorRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SinkConnectorsApi.SinkConnectorsAPIUpdateSinkConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

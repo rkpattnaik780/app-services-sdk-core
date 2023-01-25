@@ -35,8 +35,8 @@ func main() {
     registryCreate := *openapiclient.NewRegistryCreate("Name_example") // RegistryCreate | A new `Registry` instance to be created.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistriesApi.CreateRegistry(context.Background()).RegistryCreate(registryCreate).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.RegistriesApi.CreateRegistry(context.Background()).RegistryCreate(registryCreate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.CreateRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -101,8 +101,8 @@ func main() {
     id := "id_example" // string | A unique identifier for a `Registry` instance.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistriesApi.DeleteRegistry(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.RegistriesApi.DeleteRegistry(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.DeleteRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,8 +172,8 @@ func main() {
     search := "name = my-registry and status = AVAILABLE" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: `name`, `status`. Allowed comparators are `=` or `LIKE`. Allowed joins are `AND` and `OR`, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve a request with name equal `my-registry`, the value should be:  ``` name = my-registry  ```  To retrieve a request with its name starting with `my`, the value should be:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, all the Registry instances that the user has permission to see are returned.  Note: If the query is invalid, an error is returned.  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistriesApi.GetRegistries(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.RegistriesApi.GetRegistries(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -241,8 +241,8 @@ func main() {
     id := "id_example" // string | A unique identifier for a `Registry` instance.
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RegistriesApi.GetRegistry(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.RegistriesApi.GetRegistry(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
