@@ -63,8 +63,8 @@ func (o *EnterpriseClusterWithAddonParameters) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetIdOk() (*string, bool) {
-	if o == nil {
-    return nil, false
+	if o == nil  {
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -87,8 +87,8 @@ func (o *EnterpriseClusterWithAddonParameters) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetKindOk() (*string, bool) {
-	if o == nil {
-    return nil, false
+	if o == nil  {
+		return nil, false
 	}
 	return &o.Kind, true
 }
@@ -111,8 +111,8 @@ func (o *EnterpriseClusterWithAddonParameters) GetHref() string {
 // GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetHrefOk() (*string, bool) {
-	if o == nil {
-    return nil, false
+	if o == nil  {
+		return nil, false
 	}
 	return &o.Href, true
 }
@@ -135,8 +135,8 @@ func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetwork(
 // GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
-	if o == nil {
-    return nil, false
+	if o == nil  {
+		return nil, false
 	}
 	return &o.AccessKafkasViaPrivateNetwork, true
 }
@@ -148,7 +148,7 @@ func (o *EnterpriseClusterWithAddonParameters) SetAccessKafkasViaPrivateNetwork(
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *EnterpriseClusterWithAddonParameters) GetClusterId() string {
-	if o == nil || isNil(o.ClusterId) {
+	if o == nil || o.ClusterId == nil {
 		var ret string
 		return ret
 	}
@@ -158,15 +158,15 @@ func (o *EnterpriseClusterWithAddonParameters) GetClusterId() string {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetClusterIdOk() (*string, bool) {
-	if o == nil || isNil(o.ClusterId) {
-    return nil, false
+	if o == nil || o.ClusterId == nil {
+		return nil, false
 	}
 	return o.ClusterId, true
 }
 
 // HasClusterId returns a boolean if a field has been set.
 func (o *EnterpriseClusterWithAddonParameters) HasClusterId() bool {
-	if o != nil && !isNil(o.ClusterId) {
+	if o != nil && o.ClusterId != nil {
 		return true
 	}
 
@@ -180,7 +180,7 @@ func (o *EnterpriseClusterWithAddonParameters) SetClusterId(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *EnterpriseClusterWithAddonParameters) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || o.Status == nil {
 		var ret string
 		return ret
 	}
@@ -190,15 +190,15 @@ func (o *EnterpriseClusterWithAddonParameters) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EnterpriseClusterWithAddonParameters) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || o.Status == nil {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *EnterpriseClusterWithAddonParameters) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && o.Status != nil {
 		return true
 	}
 
@@ -212,7 +212,7 @@ func (o *EnterpriseClusterWithAddonParameters) SetStatus(v string) {
 
 // GetFleetshardParameters returns the FleetshardParameters field value if set, zero value otherwise.
 func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParameters() []FleetshardParameter {
-	if o == nil || isNil(o.FleetshardParameters) {
+	if o == nil || o.FleetshardParameters == nil {
 		var ret []FleetshardParameter
 		return ret
 	}
@@ -221,16 +221,16 @@ func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParameters() []Fleet
 
 // GetFleetshardParametersOk returns a tuple with the FleetshardParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParametersOk() ([]FleetshardParameter, bool) {
-	if o == nil || isNil(o.FleetshardParameters) {
-    return nil, false
+func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParametersOk() (*[]FleetshardParameter, bool) {
+	if o == nil || o.FleetshardParameters == nil {
+		return nil, false
 	}
 	return o.FleetshardParameters, true
 }
 
 // HasFleetshardParameters returns a boolean if a field has been set.
 func (o *EnterpriseClusterWithAddonParameters) HasFleetshardParameters() bool {
-	if o != nil && !isNil(o.FleetshardParameters) {
+	if o != nil && o.FleetshardParameters != nil {
 		return true
 	}
 
@@ -239,7 +239,7 @@ func (o *EnterpriseClusterWithAddonParameters) HasFleetshardParameters() bool {
 
 // SetFleetshardParameters gets a reference to the given []FleetshardParameter and assigns it to the FleetshardParameters field.
 func (o *EnterpriseClusterWithAddonParameters) SetFleetshardParameters(v []FleetshardParameter) {
-	o.FleetshardParameters = v
+	o.FleetshardParameters = &v
 }
 
 func (o EnterpriseClusterWithAddonParameters) MarshalJSON() ([]byte, error) {

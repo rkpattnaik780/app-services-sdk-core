@@ -1,7 +1,7 @@
 """
-    Service Registry API
+    Apicurio Registry API [v2]
 
-    Service Registry Instance API  NOTE: This API cannot be called directly from the portal.  # noqa: E501
+    Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.   # noqa: E501
 
     The version of the OpenAPI document: 2.2.5.Final
     Contact: apicurio@lists.jboss.org
@@ -76,7 +76,6 @@ class ArtifactsApi(object):
                     'body',
                 ],
                 'nullable': [
-                    'body',
                 ],
                 'enum': [
                     'x_registry_hash_algorithm',
@@ -98,7 +97,7 @@ class ArtifactsApi(object):
                     'group_id':
                         (str,),
                     'body':
-                        (bool, date, datetime, dict, float, int, list, str, none_type,),
+                        (file_type,),
                     'x_registry_artifact_type':
                         (ArtifactType,),
                     'x_registry_artifact_id':
@@ -868,7 +867,7 @@ class ArtifactsApi(object):
 
         Args:
             group_id (str): Unique ID of an artifact group.
-            body (bool, date, datetime, dict, float, int, list, str, none_type): The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
+            body (file_type): The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
 
         Keyword Args:
             x_registry_artifact_type (ArtifactType): Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`). [optional]
