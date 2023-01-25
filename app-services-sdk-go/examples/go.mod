@@ -1,4 +1,4 @@
-module github.com/redhat-developer/app-services-sdk-go/internal/examples
+module github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/internals/examples
 
 go 1.15
 
