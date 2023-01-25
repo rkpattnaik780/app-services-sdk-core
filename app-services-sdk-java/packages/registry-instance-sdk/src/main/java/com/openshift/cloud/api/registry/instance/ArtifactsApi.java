@@ -64,7 +64,7 @@ public class ArtifactsApi {
    * @return a {@code ArtifactMetaData}
    * @throws ApiException if fails to make API call
    */
-  public ArtifactMetaData createArtifact(String groupId, Object body, ArtifactType xRegistryArtifactType, String xRegistryArtifactId, String xRegistryVersion, IfExists ifExists, Boolean canonical, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryName, String xRegistryNameEncoded, String xRegistryContentHash, String xRegistryHashAlgorithm) throws ApiException {
+  public ArtifactMetaData createArtifact(String groupId, File body, ArtifactType xRegistryArtifactType, String xRegistryArtifactId, String xRegistryVersion, IfExists ifExists, Boolean canonical, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryName, String xRegistryNameEncoded, String xRegistryContentHash, String xRegistryHashAlgorithm) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set

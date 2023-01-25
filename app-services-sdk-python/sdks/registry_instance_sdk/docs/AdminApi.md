@@ -188,13 +188,14 @@ configuration = rhoas_registry_instance_sdk.Configuration(
 with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
+    accept = "Accept_example" # str |  (optional)
     for_browser = True # bool | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called `href`.  This `href` will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Export registry data
-        api_response = api_instance.export_data(for_browser=for_browser)
+        api_response = api_instance.export_data(accept=accept, for_browser=for_browser)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling AdminApi->export_data: %s\n" % e)
@@ -205,6 +206,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **str**|  | [optional]
  **for_browser** | **bool**| Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. | [optional]
 
 ### Return type

@@ -108,8 +108,8 @@ func main() {
     id := "id_example" // string | ID of the enterprise data plane cluster
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnterpriseDataplaneClustersApi.GetEnterpriseClusterById(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.EnterpriseDataplaneClustersApi.GetEnterpriseClusterById(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `EnterpriseDataplaneClustersApi.GetEnterpriseClusterById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -178,8 +178,8 @@ func main() {
     id := "id_example" // string | ID of the enterprise data plane cluster
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EnterpriseDataplaneClustersApi.GetEnterpriseClusterWithAddonParameters(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.EnterpriseDataplaneClustersApi.GetEnterpriseClusterWithAddonParameters(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `EnterpriseDataplaneClustersApi.GetEnterpriseClusterWithAddonParameters``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
