@@ -597,6 +597,7 @@ components:
           - acs_invalid_client
           - acs_disabled
           - smoketest_access_invalid
+          - smoketest_not_found
           - general_failure
           - organization_api_access_invalid
           type: string
