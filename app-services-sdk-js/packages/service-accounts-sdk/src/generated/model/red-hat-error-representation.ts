@@ -46,6 +46,7 @@ export const RedHatErrorRepresentationErrorEnum = {
     AcsInvalidClient: 'acs_invalid_client',
     AcsDisabled: 'acs_disabled',
     SmoketestAccessInvalid: 'smoketest_access_invalid',
+    SmoketestNotFound: 'smoketest_not_found',
     GeneralFailure: 'general_failure',
     OrganizationApiAccessInvalid: 'organization_api_access_invalid'
 } as const;
