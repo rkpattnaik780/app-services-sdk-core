@@ -108,15 +108,10 @@ type ApiDeleteEnterpriseClusterByIdRequest struct {
 	ApiService EnterpriseDataplaneClustersApi
 	async *bool
 	id string
-	force *bool
 }
 
 func (r ApiDeleteEnterpriseClusterByIdRequest) Async(async bool) ApiDeleteEnterpriseClusterByIdRequest {
 	r.async = &async
-	return r
-}
-func (r ApiDeleteEnterpriseClusterByIdRequest) Force(force bool) ApiDeleteEnterpriseClusterByIdRequest {
-	r.force = &force
 	return r
 }
 
@@ -168,9 +163,6 @@ func (a *EnterpriseDataplaneClustersApiService) DeleteEnterpriseClusterByIdExecu
 	}
 
 	localVarQueryParams.Add("async", parameterToString(*r.async, ""))
-	if r.force != nil {
-		localVarQueryParams.Add("force", parameterToString(*r.force, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

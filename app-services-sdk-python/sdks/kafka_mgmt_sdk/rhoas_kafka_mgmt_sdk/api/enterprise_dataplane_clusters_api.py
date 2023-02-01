@@ -55,7 +55,6 @@ class EnterpriseDataplaneClustersApi(object):
                 'all': [
                     '_async',
                     'id',
-                    'force',
                 ],
                 'required': [
                     '_async',
@@ -78,18 +77,14 @@ class EnterpriseDataplaneClustersApi(object):
                         (bool,),
                     'id':
                         (str,),
-                    'force':
-                        (bool,),
                 },
                 'attribute_map': {
                     '_async': 'async',
                     'id': 'id',
-                    'force': 'force',
                 },
                 'location_map': {
                     '_async': 'query',
                     'id': 'path',
-                    'force': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -320,7 +315,6 @@ class EnterpriseDataplaneClustersApi(object):
             id (str): ID of the enterprise data plane cluster
 
         Keyword Args:
-            force (bool): When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster. When skipped and enterprise cluster has any kafkas associated with it, the request will fail.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
