@@ -48,19 +48,10 @@ with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
     api_instance = enterprise_dataplane_clusters_api.EnterpriseDataplaneClustersApi(api_client)
     _async = True # bool | Perform the action in an asynchronous manner
     id = "id_example" # str | ID of the enterprise data plane cluster
-    force = True # bool | When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster. When skipped and enterprise cluster has any kafkas associated with it, the request will fail. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.delete_enterprise_cluster_by_id(_async, id)
-        pprint(api_response)
-    except rhoas_kafka_mgmt_sdk.ApiException as e:
-        print("Exception when calling EnterpriseDataplaneClustersApi->delete_enterprise_cluster_by_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.delete_enterprise_cluster_by_id(_async, id, force=force)
         pprint(api_response)
     except rhoas_kafka_mgmt_sdk.ApiException as e:
         print("Exception when calling EnterpriseDataplaneClustersApi->delete_enterprise_cluster_by_id: %s\n" % e)
@@ -73,7 +64,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_async** | **bool**| Perform the action in an asynchronous manner |
  **id** | **str**| ID of the enterprise data plane cluster |
- **force** | **bool**| When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster. When skipped and enterprise cluster has any kafkas associated with it, the request will fail. | [optional]
 
 ### Return type
 
