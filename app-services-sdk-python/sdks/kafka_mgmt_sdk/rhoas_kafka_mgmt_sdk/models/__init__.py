@@ -27,6 +27,7 @@ from rhoas_kafka_mgmt_sdk.model.error_list import ErrorList
 from rhoas_kafka_mgmt_sdk.model.error_list_all_of import ErrorListAllOf
 from rhoas_kafka_mgmt_sdk.model.fleetshard_parameter import FleetshardParameter
 from rhoas_kafka_mgmt_sdk.model.instant_query import InstantQuery
+from rhoas_kafka_mgmt_sdk.model.kafka_promote_request import KafkaPromoteRequest
 from rhoas_kafka_mgmt_sdk.model.kafka_request import KafkaRequest
 from rhoas_kafka_mgmt_sdk.model.kafka_request_all_of import KafkaRequestAllOf
 from rhoas_kafka_mgmt_sdk.model.kafka_request_list import KafkaRequestList

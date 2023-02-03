@@ -20,6 +20,7 @@ docs/ErrorListAllOf.md
 docs/ErrorsApi.md
 docs/FleetshardParameter.md
 docs/InstantQuery.md
+docs/KafkaPromoteRequest.md
 docs/KafkaRequest.md
 docs/KafkaRequestAllOf.md
 docs/KafkaRequestList.md
@@ -91,6 +92,7 @@ src/main/java/com/openshift/cloud/api/kas/models/ErrorList.java
 src/main/java/com/openshift/cloud/api/kas/models/ErrorListAllOf.java
 src/main/java/com/openshift/cloud/api/kas/models/FleetshardParameter.java
 src/main/java/com/openshift/cloud/api/kas/models/InstantQuery.java
+src/main/java/com/openshift/cloud/api/kas/models/KafkaPromoteRequest.java
 src/main/java/com/openshift/cloud/api/kas/models/KafkaRequest.java
 src/main/java/com/openshift/cloud/api/kas/models/KafkaRequestAllOf.java
 src/main/java/com/openshift/cloud/api/kas/models/KafkaRequestList.java
