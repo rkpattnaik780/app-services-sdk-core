@@ -25,6 +25,7 @@ model/error-list.ts
 model/fleetshard-parameter.ts
 model/index.ts
 model/instant-query.ts
+model/kafka-promote-request.ts
 model/kafka-request-all-of.ts
 model/kafka-request-list-all-of.ts
 model/kafka-request-list.ts

@@ -20,6 +20,7 @@ docs/ErrorListAllOf.md
 docs/ErrorsApi.md
 docs/FleetshardParameter.md
 docs/InstantQuery.md
+docs/KafkaPromoteRequest.md
 docs/KafkaRequest.md
 docs/KafkaRequestAllOf.md
 docs/KafkaRequestList.md
@@ -84,6 +85,7 @@ rhoas_kafka_mgmt_sdk/model/error_list.py
 rhoas_kafka_mgmt_sdk/model/error_list_all_of.py
 rhoas_kafka_mgmt_sdk/model/fleetshard_parameter.py
 rhoas_kafka_mgmt_sdk/model/instant_query.py
+rhoas_kafka_mgmt_sdk/model/kafka_promote_request.py
 rhoas_kafka_mgmt_sdk/model/kafka_request.py
 rhoas_kafka_mgmt_sdk/model/kafka_request_all_of.py
 rhoas_kafka_mgmt_sdk/model/kafka_request_list.py
@@ -145,6 +147,7 @@ test/test_error_list_all_of.py
 test/test_errors_api.py
 test/test_fleetshard_parameter.py
 test/test_instant_query.py
+test/test_kafka_promote_request.py
 test/test_kafka_request.py
 test/test_kafka_request_all_of.py
 test/test_kafka_request_list.py

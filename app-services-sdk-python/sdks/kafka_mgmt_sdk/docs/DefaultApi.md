@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_metrics_by_instant_query**](DefaultApi.md#get_metrics_by_instant_query) | **GET** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
 [**get_metrics_by_range_query**](DefaultApi.md#get_metrics_by_range_query) | **GET** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 [**get_version_metadata**](DefaultApi.md#get_version_metadata) | **GET** /api/kafkas_mgmt/v1 | 
+[**promote_kafka**](DefaultApi.md#promote_kafka) | **POST** /api/kafkas_mgmt/v1/kafkas/{id}/promote | 
 [**update_kafka_by_id**](DefaultApi.md#update_kafka_by_id) | **PATCH** /api/kafkas_mgmt/v1/kafkas/{id} | 
 
 
@@ -939,6 +940,96 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Version metadata |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **promote_kafka**
+> promote_kafka(id, _async, kafka_promote_request)
+
+
+
+Promote a Kafka instance. Promotion is performed asynchronously. The `async` query parameter has to be set to `true`. Only kafka instances with an `eval` billing_model are supported
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+
+```python
+import time
+import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.api import default_api
+from rhoas_kafka_mgmt_sdk.model.kafka_promote_request import KafkaPromoteRequest
+from rhoas_kafka_mgmt_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openshift.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    host = "https://api.openshift.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = rhoas_kafka_mgmt_sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = default_api.DefaultApi(api_client)
+    id = "id_example" # str | The ID of record
+    _async = True # bool | Perform the action in an asynchronous manner. False by default.
+    kafka_promote_request = KafkaPromoteRequest(
+        desired_kafka_billing_model="desired_kafka_billing_model_example",
+        desired_marketplace="desired_marketplace_example",
+        desired_billing_cloud_account_id="desired_billing_cloud_account_id_example",
+    ) # KafkaPromoteRequest | Kafka promotion request
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_instance.promote_kafka(id, _async, kafka_promote_request)
+    except rhoas_kafka_mgmt_sdk.ApiException as e:
+        print("Exception when calling DefaultApi->promote_kafka: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The ID of record |
+ **_async** | **bool**| Perform the action in an asynchronous manner. False by default. |
+ **kafka_promote_request** | [**KafkaPromoteRequest**](KafkaPromoteRequest.md)| Kafka promotion request |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Kafka promotion request accepted |  -  |
+**400** | Validation errors occurred |  -  |
+**401** | Auth token is invalid |  -  |
+**403** | User forbidden either because the user is not authorized to access the service. |  -  |
+**404** | The requested resource doesn&#39;t exist |  -  |
+**409** | A conflict has been detected with the usage of this resource |  -  |
+**500** | A server error occurred while promoting the Kafka request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
