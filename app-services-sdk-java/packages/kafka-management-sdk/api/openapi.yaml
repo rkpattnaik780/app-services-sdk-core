@@ -474,7 +474,7 @@ paths:
 
           ```
           name = my-kafka and cloud_provider = aws
-          ```[p-]
+          ```
 
           To return a Kafka instance with a name that starts with `my`, use the following syntax:
 
@@ -980,7 +980,8 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
       security:
       - Bearer: []
@@ -1062,7 +1063,8 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
       security:
       - Bearer: []
@@ -1704,6 +1706,7 @@ components:
         billing_cloud_account_id: "123456789012"
         marketplace: aws
         billing_model: marketplace
+        cluster_id: 21grk30a21grk30a21grk30a21grk30a
     KafkaRequestFailedCreationStatusExample:
       value:
         id: 1iSY6RQ3JKI8Q0OTmjQFd3ocFRg
@@ -1998,7 +2001,6 @@ components:
     EnterpriseOsdClusterPayloadExample:
       value:
         cluster_id: 1234abcd1234abcd1234abcd1234abcd
-        cluster_external_id: 69d631de-9b7f-4bc2-bf4f-4d3295a7b25e
         cluster_ingress_dns_name: apps.enterprise-aws.awdk.s1.devshift.org
         kafka_machine_pool_node_count: 9
         access_kafkas_via_private_network: false
@@ -2143,7 +2145,7 @@ components:
 
         ```
         name = my-kafka and cloud_provider = aws
-        ```[p-]
+        ```
 
         To return a Kafka instance with a name that starts with `my`, use the following syntax:
 
@@ -2265,6 +2267,7 @@ components:
       description: Schema for the request body sent to /kafkas POST
       example:
         reauthentication_enabled: true
+        cluster_id: cluster_id
         marketplace: marketplace
         billing_model: billing_model
         billing_cloud_account_id: billing_cloud_account_id
@@ -2304,6 +2307,10 @@ components:
           type: string
         billing_model:
           description: billing model to use
+          nullable: true
+          type: string
+        cluster_id:
+          description: enterprise OSD cluster ID to be used for kafka creation
           nullable: true
           type: string
       required:
@@ -2377,7 +2384,7 @@ components:
           type: string
         ams_product:
           description: 'AMS product to be used. Accepted values: [''RHOSAK'', ''RHOSAKTrial'',
-            ''RHOSAKEval'']'
+            ''RHOSAKEval'', ''RHOSAKCC'']'
           minLength: 1
           type: string
         ams_billing_models:
@@ -2626,7 +2633,6 @@ components:
       example:
         kafka_machine_pool_node_count: 0
         cluster_id: cluster_id
-        cluster_external_id: cluster_external_id
         access_kafkas_via_private_network: true
         cluster_ingress_dns_name: cluster_ingress_dns_name
       properties:
@@ -2637,10 +2643,6 @@ components:
         cluster_id:
           description: The data plane cluster ID. This is the ID of the cluster obtained
             from OpenShift Cluster Manager (OCM) API
-          type: string
-        cluster_external_id:
-          description: external cluster ID. Can be obtained from the response JSON
-            of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
           type: string
         cluster_ingress_dns_name:
           description: dns name of the cluster. Can be obtained from the response
@@ -2657,7 +2659,6 @@ components:
           type: integer
       required:
       - access_kafkas_via_private_network
-      - cluster_external_id
       - cluster_id
       - cluster_ingress_dns_name
       - kafka_machine_pool_node_count
@@ -2745,6 +2746,11 @@ components:
         promotion_status:
           description: 'Status of the Kafka request promotion. Possible values: [''promoting'',
             ''failed'']. If unset it means no promotion is in progress.'
+          type: string
+        cluster_id:
+          description: The ID of the data plane where Kafka is deployed on. This information
+            is only returned for kafka whose billing model is enterprise
+          nullable: true
           type: string
         promotion_details:
           description: Details of the Kafka request promotion. It can be set when

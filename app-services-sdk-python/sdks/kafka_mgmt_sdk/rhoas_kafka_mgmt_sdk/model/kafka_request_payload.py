@@ -90,6 +90,7 @@ class KafkaRequestPayload(ModelNormal):
             'billing_cloud_account_id': (str, none_type,),  # noqa: E501
             'marketplace': (str, none_type,),  # noqa: E501
             'billing_model': (str, none_type,),  # noqa: E501
+            'cluster_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class KafkaRequestPayload(ModelNormal):
         'billing_cloud_account_id': 'billing_cloud_account_id',  # noqa: E501
         'marketplace': 'marketplace',  # noqa: E501
         'billing_model': 'billing_model',  # noqa: E501
+        'cluster_id': 'cluster_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +161,7 @@ class KafkaRequestPayload(ModelNormal):
             billing_cloud_account_id (str, none_type): cloud account id used to purchase the instance. [optional]  # noqa: E501
             marketplace (str, none_type): marketplace where the instance is purchased on. [optional]  # noqa: E501
             billing_model (str, none_type): billing model to use. [optional]  # noqa: E501
+            cluster_id (str, none_type): enterprise OSD cluster ID to be used for kafka creation. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +258,7 @@ class KafkaRequestPayload(ModelNormal):
             billing_cloud_account_id (str, none_type): cloud account id used to purchase the instance. [optional]  # noqa: E501
             marketplace (str, none_type): marketplace where the instance is purchased on. [optional]  # noqa: E501
             billing_model (str, none_type): billing model to use. [optional]  # noqa: E501
+            cluster_id (str, none_type): enterprise OSD cluster ID to be used for kafka creation. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

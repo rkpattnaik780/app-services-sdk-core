@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **marketplace** | **str** |  | [optional] 
 **billing_model** | **str** |  | [optional] 
 **promotion_status** | **str** | Status of the Kafka request promotion. Possible values: [&#39;promoting&#39;, &#39;failed&#39;]. If unset it means no promotion is in progress. | [optional] 
+**cluster_id** | **str, none_type** | The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise | [optional] 
 **promotion_details** | **str** | Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

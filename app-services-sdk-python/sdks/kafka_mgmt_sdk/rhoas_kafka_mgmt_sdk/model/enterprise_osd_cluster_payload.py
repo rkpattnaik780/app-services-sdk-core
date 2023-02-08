@@ -84,7 +84,6 @@ class EnterpriseOsdClusterPayload(ModelNormal):
         return {
             'access_kafkas_via_private_network': (bool,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
-            'cluster_external_id': (str,),  # noqa: E501
             'cluster_ingress_dns_name': (str,),  # noqa: E501
             'kafka_machine_pool_node_count': (int,),  # noqa: E501
         }
@@ -97,7 +96,6 @@ class EnterpriseOsdClusterPayload(ModelNormal):
     attribute_map = {
         'access_kafkas_via_private_network': 'access_kafkas_via_private_network',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
-        'cluster_external_id': 'cluster_external_id',  # noqa: E501
         'cluster_ingress_dns_name': 'cluster_ingress_dns_name',  # noqa: E501
         'kafka_machine_pool_node_count': 'kafka_machine_pool_node_count',  # noqa: E501
     }
@@ -109,13 +107,12 @@ class EnterpriseOsdClusterPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, access_kafkas_via_private_network, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, access_kafkas_via_private_network, cluster_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
         """EnterpriseOsdClusterPayload - a model defined in OpenAPI
 
         Args:
             access_kafkas_via_private_network (bool): Sets whether Kafkas created on this data plane cluster have to be accessed via private network
             cluster_id (str): The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
-            cluster_external_id (str): external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
             cluster_ingress_dns_name (str): dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
             kafka_machine_pool_node_count (int): The node count given to the created kafka machine pool.  The machine pool must be created via /api/clusters_mgmt/v1/clusters/<cluster_id>/machine_pools prior to passing this value. The created machine pool must have a `bf2.org/kafkaInstanceProfileType=standard` label and a `bf2.org/kafkaInstanceProfileType=standard:NoExecute` taint. The name of the machine pool must be `kafka-standard`  The node count value has to be a multiple of 3 with a minimum of 3 nodes.
 
@@ -183,7 +180,6 @@ class EnterpriseOsdClusterPayload(ModelNormal):
 
         self.access_kafkas_via_private_network = access_kafkas_via_private_network
         self.cluster_id = cluster_id
-        self.cluster_external_id = cluster_external_id
         self.cluster_ingress_dns_name = cluster_ingress_dns_name
         self.kafka_machine_pool_node_count = kafka_machine_pool_node_count
         for var_name, var_value in kwargs.items():
@@ -206,13 +202,12 @@ class EnterpriseOsdClusterPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, access_kafkas_via_private_network, cluster_id, cluster_external_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
+    def __init__(self, access_kafkas_via_private_network, cluster_id, cluster_ingress_dns_name, kafka_machine_pool_node_count, *args, **kwargs):  # noqa: E501
         """EnterpriseOsdClusterPayload - a model defined in OpenAPI
 
         Args:
             access_kafkas_via_private_network (bool): Sets whether Kafkas created on this data plane cluster have to be accessed via private network
             cluster_id (str): The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
-            cluster_external_id (str): external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
             cluster_ingress_dns_name (str): dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
             kafka_machine_pool_node_count (int): The node count given to the created kafka machine pool.  The machine pool must be created via /api/clusters_mgmt/v1/clusters/<cluster_id>/machine_pools prior to passing this value. The created machine pool must have a `bf2.org/kafkaInstanceProfileType=standard` label and a `bf2.org/kafkaInstanceProfileType=standard:NoExecute` taint. The name of the machine pool must be `kafka-standard`  The node count value has to be a multiple of 3 with a minimum of 3 nodes.
 
@@ -278,7 +273,6 @@ class EnterpriseOsdClusterPayload(ModelNormal):
 
         self.access_kafkas_via_private_network = access_kafkas_via_private_network
         self.cluster_id = cluster_id
-        self.cluster_external_id = cluster_external_id
         self.cluster_ingress_dns_name = cluster_ingress_dns_name
         self.kafka_machine_pool_node_count = kafka_machine_pool_node_count
         for var_name, var_value in kwargs.items():
