@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **billing_cloud_account_id** | **str, none_type** | cloud account id used to purchase the instance | [optional] 
 **marketplace** | **str, none_type** | marketplace where the instance is purchased on | [optional] 
 **billing_model** | **str, none_type** | billing model to use | [optional] 
+**cluster_id** | **str, none_type** | enterprise OSD cluster ID to be used for kafka creation | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

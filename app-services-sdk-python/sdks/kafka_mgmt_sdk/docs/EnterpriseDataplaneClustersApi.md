@@ -373,7 +373,6 @@ with rhoas_kafka_mgmt_sdk.ApiClient(configuration) as api_client:
     enterprise_osd_cluster_payload = EnterpriseOsdClusterPayload(
         access_kafkas_via_private_network=True,
         cluster_id="cluster_id_example",
-        cluster_external_id="cluster_external_id_example",
         cluster_ingress_dns_name="cluster_ingress_dns_name_example",
         kafka_machine_pool_node_count=1,
     ) # EnterpriseOsdClusterPayload | Enterprise data plane cluster details

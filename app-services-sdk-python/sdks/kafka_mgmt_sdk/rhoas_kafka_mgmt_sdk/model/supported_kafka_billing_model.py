@@ -125,7 +125,7 @@ class SupportedKafkaBillingModel(ModelNormal):
         Args:
             id (str): Identifier for the Kafka billing model
             ams_resource (str): AMS resource to be used. Accepted values: ['rhosak']
-            ams_product (str): AMS product to be used. Accepted values: ['RHOSAK', 'RHOSAKTrial', 'RHOSAKEval']
+            ams_product (str): AMS product to be used. Accepted values: ['RHOSAK', 'RHOSAKTrial', 'RHOSAKEval', 'RHOSAKCC']
             ams_billing_models ([str]): List of AMS available billing models: Accepted values: ['marketplace', 'marketplace-rhm', 'marketplace-aws']
 
         Keyword Args:
@@ -220,7 +220,7 @@ class SupportedKafkaBillingModel(ModelNormal):
         Args:
             id (str): Identifier for the Kafka billing model
             ams_resource (str): AMS resource to be used. Accepted values: ['rhosak']
-            ams_product (str): AMS product to be used. Accepted values: ['RHOSAK', 'RHOSAKTrial', 'RHOSAKEval']
+            ams_product (str): AMS product to be used. Accepted values: ['RHOSAK', 'RHOSAKTrial', 'RHOSAKEval', 'RHOSAKCC']
             ams_billing_models ([str]): List of AMS available billing models: Accepted values: ['marketplace', 'marketplace-rhm', 'marketplace-aws']
 
         Keyword Args:

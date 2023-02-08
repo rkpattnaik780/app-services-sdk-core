@@ -118,6 +118,7 @@ class KafkaRequestAllOf(ModelNormal):
             'marketplace': (str,),  # noqa: E501
             'billing_model': (str,),  # noqa: E501
             'promotion_status': (str,),  # noqa: E501
+            'cluster_id': (str, none_type,),  # noqa: E501
             'promotion_details': (str,),  # noqa: E501
         }
 
@@ -157,6 +158,7 @@ class KafkaRequestAllOf(ModelNormal):
         'marketplace': 'marketplace',  # noqa: E501
         'billing_model': 'billing_model',  # noqa: E501
         'promotion_status': 'promotion_status',  # noqa: E501
+        'cluster_id': 'cluster_id',  # noqa: E501
         'promotion_details': 'promotion_details',  # noqa: E501
     }
 
@@ -233,6 +235,7 @@ class KafkaRequestAllOf(ModelNormal):
             marketplace (str): [optional]  # noqa: E501
             billing_model (str): [optional]  # noqa: E501
             promotion_status (str): Status of the Kafka request promotion. Possible values: ['promoting', 'failed']. If unset it means no promotion is in progress.. [optional]  # noqa: E501
+            cluster_id (str, none_type): The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise. [optional]  # noqa: E501
             promotion_details (str): Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed. [optional]  # noqa: E501
         """
 
@@ -353,6 +356,7 @@ class KafkaRequestAllOf(ModelNormal):
             marketplace (str): [optional]  # noqa: E501
             billing_model (str): [optional]  # noqa: E501
             promotion_status (str): Status of the Kafka request promotion. Possible values: ['promoting', 'failed']. If unset it means no promotion is in progress.. [optional]  # noqa: E501
+            cluster_id (str, none_type): The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise. [optional]  # noqa: E501
             promotion_details (str): Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed. [optional]  # noqa: E501
         """
 
