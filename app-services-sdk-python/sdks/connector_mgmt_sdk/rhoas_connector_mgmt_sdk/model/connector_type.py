@@ -102,6 +102,7 @@ class ConnectorType(ModelComposed):
             'href': (str,),  # noqa: E501
             'channels': ([Channel],),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'deprecated': (bool,),  # noqa: E501
             'icon_href': (str,),  # noqa: E501
             'labels': ([str],),  # noqa: E501
             'annotations': (ConnectorResourceAnnotations,),  # noqa: E501
@@ -123,6 +124,7 @@ class ConnectorType(ModelComposed):
         'href': 'href',  # noqa: E501
         'channels': 'channels',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'deprecated': 'deprecated',  # noqa: E501
         'icon_href': 'icon_href',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'annotations': 'annotations',  # noqa: E501
@@ -177,6 +179,7 @@ class ConnectorType(ModelComposed):
             href (str): [optional]  # noqa: E501
             channels ([Channel]): Channels of the connector type.. [optional]  # noqa: E501
             description (str): A description of the connector.. [optional]  # noqa: E501
+            deprecated (bool): Connector type is deprecated and removed from the catalog.. [optional]  # noqa: E501
             icon_href (str): URL to an icon of the connector.. [optional]  # noqa: E501
             labels ([str]): Labels used to categorize the connector. [optional]  # noqa: E501
             annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
@@ -293,6 +296,7 @@ class ConnectorType(ModelComposed):
             href (str): [optional]  # noqa: E501
             channels ([Channel]): Channels of the connector type.. [optional]  # noqa: E501
             description (str): A description of the connector.. [optional]  # noqa: E501
+            deprecated (bool): Connector type is deprecated and removed from the catalog.. [optional]  # noqa: E501
             icon_href (str): URL to an icon of the connector.. [optional]  # noqa: E501
             labels ([str]): Labels used to categorize the connector. [optional]  # noqa: E501
             annotations (ConnectorResourceAnnotations): [optional]  # noqa: E501
