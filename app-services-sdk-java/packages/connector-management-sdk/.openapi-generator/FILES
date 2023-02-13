@@ -42,7 +42,6 @@ docs/ConnectorState.md
 docs/ConnectorStatus.md
 docs/ConnectorStatusStatus.md
 docs/ConnectorType.md
-docs/ConnectorTypeAllOf.md
 docs/ConnectorTypeLabelCount.md
 docs/ConnectorTypeLabelCountList.md
 docs/ConnectorTypeList.md
@@ -120,7 +119,6 @@ src/main/java/com/openshift/cloud/api/connector/models/ConnectorState.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorStatus.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorStatusStatus.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorType.java
-src/main/java/com/openshift/cloud/api/connector/models/ConnectorTypeAllOf.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorTypeLabelCount.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorTypeLabelCountList.java
 src/main/java/com/openshift/cloud/api/connector/models/ConnectorTypeList.java

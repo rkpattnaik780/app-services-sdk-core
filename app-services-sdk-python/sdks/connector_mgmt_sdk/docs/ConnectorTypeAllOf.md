@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **version** | **str** | Version of the connector type. | [optional] 
 **channels** | [**[Channel]**](Channel.md) | Channels of the connector type. | [optional] 
 **description** | **str** | A description of the connector. | [optional] 
+**deprecated** | **bool** | Connector type is deprecated and removed from the catalog. | [optional] 
 **icon_href** | **str** | URL to an icon of the connector. | [optional] 
 **labels** | **[str]** | Labels used to categorize the connector | [optional] 
 **annotations** | [**ConnectorResourceAnnotations**](ConnectorResourceAnnotations.md) |  | [optional] 

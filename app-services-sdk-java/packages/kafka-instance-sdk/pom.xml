@@ -5,7 +5,7 @@
     <artifactId>kafka-instance-sdk</artifactId>
     <packaging>jar</packaging>
     <name>kafka-instance-sdk</name>
-    <version>0.13.0-SNAPSHOT</version>
+    <version>0.13.1-SNAPSHOT</version>
     <scm>
         <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
         <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
