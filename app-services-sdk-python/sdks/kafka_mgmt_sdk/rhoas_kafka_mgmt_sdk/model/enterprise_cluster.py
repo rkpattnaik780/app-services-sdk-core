@@ -32,9 +32,13 @@ from rhoas_kafka_mgmt_sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of import EnterpriseClusterAllOf
-    from rhoas_kafka_mgmt_sdk.model.object_reference import ObjectReference
+    from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of_capacity_information import EnterpriseClusterAllOfCapacityInformation
+    from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_list_item import EnterpriseClusterListItem
+    from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_types_list import SupportedKafkaInstanceTypesList
     globals()['EnterpriseClusterAllOf'] = EnterpriseClusterAllOf
-    globals()['ObjectReference'] = ObjectReference
+    globals()['EnterpriseClusterAllOfCapacityInformation'] = EnterpriseClusterAllOfCapacityInformation
+    globals()['EnterpriseClusterListItem'] = EnterpriseClusterListItem
+    globals()['SupportedKafkaInstanceTypesList'] = SupportedKafkaInstanceTypesList
 
 
 class EnterpriseCluster(ModelComposed):
@@ -94,8 +98,13 @@ class EnterpriseCluster(ModelComposed):
             'kind': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'access_kafkas_via_private_network': (bool,),  # noqa: E501
+            'multi_az': (bool,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'cloud_provider': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'supported_instance_types': (SupportedKafkaInstanceTypesList,),  # noqa: E501
+            'capacity_information': (EnterpriseClusterAllOfCapacityInformation,),  # noqa: E501
         }
 
     @cached_property
@@ -108,8 +117,13 @@ class EnterpriseCluster(ModelComposed):
         'kind': 'kind',  # noqa: E501
         'href': 'href',  # noqa: E501
         'access_kafkas_via_private_network': 'access_kafkas_via_private_network',  # noqa: E501
+        'multi_az': 'multi_az',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'cloud_provider': 'cloud_provider',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'supported_instance_types': 'supported_instance_types',  # noqa: E501
+        'capacity_information': 'capacity_information',  # noqa: E501
     }
 
     read_only_vars = {
@@ -125,6 +139,7 @@ class EnterpriseCluster(ModelComposed):
             kind (str):
             href (str):
             access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
+            multi_az (bool): A flag indicating whether this cluster is available on multiple availability zones or not
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -155,8 +170,12 @@ class EnterpriseCluster(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cluster_id (str): ocm cluster id of the registered Enterprise cluster. [optional]  # noqa: E501
-            status (str): status of registered Enterprise cluster. [optional]  # noqa: E501
+            cluster_id (str): The OCM's cluster id of the registered Enterprise cluster.. [optional]  # noqa: E501
+            status (str): The status of Enterprise cluster registration. [optional]  # noqa: E501
+            cloud_provider (str): The cloud provider for this cluster. This valus will be used as the Kafka's cloud provider value when a Kafka is created on this cluster. [optional]  # noqa: E501
+            region (str): The region of this cluster. This valus will be used as the Kafka's region value when a Kafka is created on this cluster. [optional]  # noqa: E501
+            supported_instance_types (SupportedKafkaInstanceTypesList): [optional]  # noqa: E501
+            capacity_information (EnterpriseClusterAllOfCapacityInformation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +253,7 @@ class EnterpriseCluster(ModelComposed):
             kind (str):
             href (str):
             access_kafkas_via_private_network (bool): Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
+            multi_az (bool): A flag indicating whether this cluster is available on multiple availability zones or not
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -264,8 +284,12 @@ class EnterpriseCluster(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cluster_id (str): ocm cluster id of the registered Enterprise cluster. [optional]  # noqa: E501
-            status (str): status of registered Enterprise cluster. [optional]  # noqa: E501
+            cluster_id (str): The OCM's cluster id of the registered Enterprise cluster.. [optional]  # noqa: E501
+            status (str): The status of Enterprise cluster registration. [optional]  # noqa: E501
+            cloud_provider (str): The cloud provider for this cluster. This valus will be used as the Kafka's cloud provider value when a Kafka is created on this cluster. [optional]  # noqa: E501
+            region (str): The region of this cluster. This valus will be used as the Kafka's region value when a Kafka is created on this cluster. [optional]  # noqa: E501
+            supported_instance_types (SupportedKafkaInstanceTypesList): [optional]  # noqa: E501
+            capacity_information (EnterpriseClusterAllOfCapacityInformation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -336,7 +360,7 @@ class EnterpriseCluster(ModelComposed):
           ],
           'allOf': [
               EnterpriseClusterAllOf,
-              ObjectReference,
+              EnterpriseClusterListItem,
           ],
           'oneOf': [
           ],

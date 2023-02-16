@@ -5,7 +5,7 @@ A page of records consumed from a topic
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[Record]**](Record.md) |  | [optional] 
+**items** | [**[Record]**](Record.md) |  | 
 **total** | **int** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | [optional] 
 **size** | **int** | Not used | [optional] 
 **page** | **int** | Not used | [optional] 

@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorListAllOf {
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<Error> items = null;
+  private List<Error> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private Integer total;
@@ -55,9 +55,6 @@ public class ErrorListAllOf {
   }
 
   public ErrorListAllOf addItemsItem(Error itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
     this.items.add(itemsItem);
     return this;
   }
@@ -66,10 +63,10 @@ public class ErrorListAllOf {
    * Get items
    * @return items
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ITEMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Error> getItems() {
     return items;
@@ -77,7 +74,7 @@ public class ErrorListAllOf {
 
 
   @JsonProperty(JSON_PROPERTY_ITEMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setItems(List<Error> items) {
     this.items = items;
   }

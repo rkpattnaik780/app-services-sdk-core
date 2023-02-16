@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **version** | **str** |  | [optional] 
 **instance_type** | **str** |  | [optional] 
 **instance_type_name** | **str** | This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead. | [optional] 
-**kafka_storage_size** | **str** | Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead. | [optional] 
 **max_data_retention_size** | [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
 **browser_url** | **str** |  | [optional] 
 **size_id** | **str** |  | [optional] 

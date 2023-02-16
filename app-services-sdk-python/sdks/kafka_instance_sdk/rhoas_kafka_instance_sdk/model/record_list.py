@@ -91,8 +91,8 @@ class RecordList(ModelComposed):
         """
         lazy_import()
         return {
-            'items': ([Record],),  # noqa: E501
             'total': (int,),  # noqa: E501
+            'items': ([Record],),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'page': (int,),  # noqa: E501
@@ -104,8 +104,8 @@ class RecordList(ModelComposed):
 
 
     attribute_map = {
-        'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
+        'items': 'items',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'size': 'size',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -120,8 +120,8 @@ class RecordList(ModelComposed):
         """RecordList - a model defined in OpenAPI
 
         Keyword Args:
-            items ([Record]):
             total (int): Total number of records returned in this request. This value does not indicate the total number of records in the topic.
+            items ([Record]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -228,8 +228,8 @@ class RecordList(ModelComposed):
         """RecordList - a model defined in OpenAPI
 
         Keyword Args:
-            items ([Record]):
             total (int): Total number of records returned in this request. This value does not indicate the total number of records in the topic.
+            items ([Record]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

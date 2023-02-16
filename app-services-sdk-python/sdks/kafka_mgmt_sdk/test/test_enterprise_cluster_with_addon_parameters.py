@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_list_item import EnterpriseClusterListItem
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters_all_of import EnterpriseClusterWithAddonParametersAllOf
-from rhoas_kafka_mgmt_sdk.model.object_reference import ObjectReference
+globals()['EnterpriseClusterListItem'] = EnterpriseClusterListItem
 globals()['EnterpriseClusterWithAddonParametersAllOf'] = EnterpriseClusterWithAddonParametersAllOf
-globals()['ObjectReference'] = ObjectReference
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_with_addon_parameters import EnterpriseClusterWithAddonParameters
 
 

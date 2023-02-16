@@ -31,12 +31,12 @@ from rhoas_service_registry_mgmt_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from rhoas_service_registry_mgmt_sdk.model.abstract_list import AbstractList
     from rhoas_service_registry_mgmt_sdk.model.error import Error
     from rhoas_service_registry_mgmt_sdk.model.error_list_all_of import ErrorListAllOf
-    from rhoas_service_registry_mgmt_sdk.model.list import List
+    globals()['AbstractList'] = AbstractList
     globals()['Error'] = Error
     globals()['ErrorListAllOf'] = ErrorListAllOf
-    globals()['List'] = List
 
 
 class ErrorList(ModelComposed):
@@ -333,8 +333,8 @@ class ErrorList(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              AbstractList,
               ErrorListAllOf,
-              List,
           ],
           'oneOf': [
           ],

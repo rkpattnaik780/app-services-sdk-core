@@ -104,7 +104,6 @@ class KafkaRequestAllOf(ModelNormal):
             'version': (str,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
             'instance_type_name': (str,),  # noqa: E501
-            'kafka_storage_size': (str,),  # noqa: E501
             'max_data_retention_size': (SupportedKafkaSizeBytesValueItem,),  # noqa: E501
             'browser_url': (str,),  # noqa: E501
             'size_id': (str,),  # noqa: E501
@@ -144,7 +143,6 @@ class KafkaRequestAllOf(ModelNormal):
         'version': 'version',  # noqa: E501
         'instance_type': 'instance_type',  # noqa: E501
         'instance_type_name': 'instance_type_name',  # noqa: E501
-        'kafka_storage_size': 'kafka_storage_size',  # noqa: E501
         'max_data_retention_size': 'max_data_retention_size',  # noqa: E501
         'browser_url': 'browser_url',  # noqa: E501
         'size_id': 'size_id',  # noqa: E501
@@ -221,7 +219,6 @@ class KafkaRequestAllOf(ModelNormal):
             version (str): [optional]  # noqa: E501
             instance_type (str): [optional]  # noqa: E501
             instance_type_name (str): This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.. [optional]  # noqa: E501
-            kafka_storage_size (str): Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead.. [optional]  # noqa: E501
             max_data_retention_size (SupportedKafkaSizeBytesValueItem): [optional]  # noqa: E501
             browser_url (str): [optional]  # noqa: E501
             size_id (str): [optional]  # noqa: E501
@@ -342,7 +339,6 @@ class KafkaRequestAllOf(ModelNormal):
             version (str): [optional]  # noqa: E501
             instance_type (str): [optional]  # noqa: E501
             instance_type_name (str): This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.. [optional]  # noqa: E501
-            kafka_storage_size (str): Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead.. [optional]  # noqa: E501
             max_data_retention_size (SupportedKafkaSizeBytesValueItem): [optional]  # noqa: E501
             browser_url (str): [optional]  # noqa: E501
             size_id (str): [optional]  # noqa: E501

@@ -91,8 +91,8 @@ class ConsumerGroupList(ModelComposed):
         """
         lazy_import()
         return {
-            'items': ([ConsumerGroup],),  # noqa: E501
             'total': (int,),  # noqa: E501
+            'items': ([ConsumerGroup],),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'page': (int,),  # noqa: E501
@@ -107,8 +107,8 @@ class ConsumerGroupList(ModelComposed):
 
 
     attribute_map = {
-        'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
+        'items': 'items',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'size': 'size',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -126,8 +126,8 @@ class ConsumerGroupList(ModelComposed):
         """ConsumerGroupList - a model defined in OpenAPI
 
         Keyword Args:
-            items ([ConsumerGroup]):
             total (int): Total number of entries in the full result set
+            items ([ConsumerGroup]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -237,8 +237,8 @@ class ConsumerGroupList(ModelComposed):
         """ConsumerGroupList - a model defined in OpenAPI
 
         Keyword Args:
-            items ([ConsumerGroup]):
             total (int): Total number of entries in the full result set
+            items ([ConsumerGroup]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

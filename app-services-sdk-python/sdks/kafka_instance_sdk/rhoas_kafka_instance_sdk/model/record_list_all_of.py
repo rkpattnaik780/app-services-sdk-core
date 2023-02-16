@@ -112,8 +112,11 @@ class RecordListAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, items, *args, **kwargs):  # noqa: E501
         """RecordListAllOf - a model defined in OpenAPI
+
+        Args:
+            items ([Record]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,7 +149,6 @@ class RecordListAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            items ([Record]): [optional]  # noqa: E501
             total (int): Total number of records returned in this request. This value does not indicate the total number of records in the topic.. [optional]  # noqa: E501
             size (int): Not used. [optional]  # noqa: E501
             page (int): Not used. [optional]  # noqa: E501
@@ -181,6 +183,7 @@ class RecordListAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.items = items
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,8 +204,11 @@ class RecordListAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, items, *args, **kwargs):  # noqa: E501
         """RecordListAllOf - a model defined in OpenAPI
+
+        Args:
+            items ([Record]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,7 +241,6 @@ class RecordListAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            items ([Record]): [optional]  # noqa: E501
             total (int): Total number of records returned in this request. This value does not indicate the total number of records in the topic.. [optional]  # noqa: E501
             size (int): Not used. [optional]  # noqa: E501
             page (int): Not used. [optional]  # noqa: E501
@@ -268,6 +273,7 @@ class RecordListAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.items = items
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

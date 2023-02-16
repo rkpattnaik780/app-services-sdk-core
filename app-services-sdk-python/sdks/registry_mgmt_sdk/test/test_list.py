@@ -13,7 +13,11 @@ import sys
 import unittest
 
 import rhoas_service_registry_mgmt_sdk
+from rhoas_service_registry_mgmt_sdk.model.abstract_list import AbstractList
+from rhoas_service_registry_mgmt_sdk.model.list_all_of import ListAllOf
 from rhoas_service_registry_mgmt_sdk.model.object_reference import ObjectReference
+globals()['AbstractList'] = AbstractList
+globals()['ListAllOf'] = ListAllOf
 globals()['ObjectReference'] = ObjectReference
 from rhoas_service_registry_mgmt_sdk.model.list import List
 

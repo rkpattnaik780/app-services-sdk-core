@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[ConsumerGroupResetOffsetResultItem]**](ConsumerGroupResetOffsetResultItem.md) |  | 
 **total** | **int** | Total number of entries in the full result set | 
+**items** | [**[ConsumerGroupResetOffsetResultItem]**](ConsumerGroupResetOffsetResultItem.md) |  | 
 **kind** | **str** |  | [optional] 
 **size** | **int** | Number of entries per page (returned for fetch requests) | [optional] 
 **page** | **int** | Current page number (returned for fetch requests) | [optional] 

@@ -1,9 +1,11 @@
 api/openapi.yaml
+docs/AbstractList.md
 docs/DefaultApi.md
 docs/Error.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
 docs/ErrorsApi.md
+docs/ListAllOf.md
 docs/ModelList.md
 docs/ObjectReference.md
 docs/RegistriesApi.md
@@ -34,9 +36,11 @@ src/main/java/com/openshift/cloud/api/srs/invoker/auth/ApiKeyAuth.java
 src/main/java/com/openshift/cloud/api/srs/invoker/auth/Authentication.java
 src/main/java/com/openshift/cloud/api/srs/invoker/auth/HttpBasicAuth.java
 src/main/java/com/openshift/cloud/api/srs/invoker/auth/HttpBearerAuth.java
+src/main/java/com/openshift/cloud/api/srs/models/AbstractList.java
 src/main/java/com/openshift/cloud/api/srs/models/Error.java
 src/main/java/com/openshift/cloud/api/srs/models/ErrorList.java
 src/main/java/com/openshift/cloud/api/srs/models/ErrorListAllOf.java
+src/main/java/com/openshift/cloud/api/srs/models/ListAllOf.java
 src/main/java/com/openshift/cloud/api/srs/models/ModelList.java
 src/main/java/com/openshift/cloud/api/srs/models/ObjectReference.java
 src/main/java/com/openshift/cloud/api/srs/models/Registry.java
