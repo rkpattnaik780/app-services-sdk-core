@@ -81,7 +81,6 @@ class List(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'items': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'total': (int,),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
@@ -94,7 +93,6 @@ class List(ModelNormal):
 
 
     attribute_map = {
-        'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -108,11 +106,10 @@ class List(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, items, total, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, total, *args, **kwargs):  # noqa: E501
         """List - a model defined in OpenAPI
 
         Args:
-            items ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             total (int): Total number of entries in the full result set
 
         Keyword Args:
@@ -180,7 +177,6 @@ class List(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.items = items
         self.total = total
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -202,11 +198,10 @@ class List(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, items, total, *args, **kwargs):  # noqa: E501
+    def __init__(self, total, *args, **kwargs):  # noqa: E501
         """List - a model defined in OpenAPI
 
         Args:
-            items ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             total (int): Total number of entries in the full result set
 
         Keyword Args:
@@ -272,7 +267,6 @@ class List(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.items = items
         self.total = total
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -31,10 +31,10 @@ from rhoas_service_registry_mgmt_sdk.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from rhoas_service_registry_mgmt_sdk.model.list import List
+    from rhoas_service_registry_mgmt_sdk.model.abstract_list import AbstractList
     from rhoas_service_registry_mgmt_sdk.model.registry import Registry
     from rhoas_service_registry_mgmt_sdk.model.registry_list_all_of import RegistryListAllOf
-    globals()['List'] = List
+    globals()['AbstractList'] = AbstractList
     globals()['Registry'] = Registry
     globals()['RegistryListAllOf'] = RegistryListAllOf
 
@@ -333,7 +333,7 @@ class RegistryList(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              List,
+              AbstractList,
               RegistryListAllOf,
           ],
           'oneOf': [

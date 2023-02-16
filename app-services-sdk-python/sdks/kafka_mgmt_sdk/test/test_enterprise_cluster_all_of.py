@@ -13,6 +13,10 @@ import sys
 import unittest
 
 import rhoas_kafka_mgmt_sdk
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of_capacity_information import EnterpriseClusterAllOfCapacityInformation
+from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_types_list import SupportedKafkaInstanceTypesList
+globals()['EnterpriseClusterAllOfCapacityInformation'] = EnterpriseClusterAllOfCapacityInformation
+globals()['SupportedKafkaInstanceTypesList'] = SupportedKafkaInstanceTypesList
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of import EnterpriseClusterAllOf
 
 

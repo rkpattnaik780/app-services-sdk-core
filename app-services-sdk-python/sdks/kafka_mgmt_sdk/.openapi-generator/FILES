@@ -8,8 +8,11 @@ docs/CloudRegionListAllOf.md
 docs/DefaultApi.md
 docs/EnterpriseCluster.md
 docs/EnterpriseClusterAllOf.md
+docs/EnterpriseClusterAllOfCapacityInformation.md
 docs/EnterpriseClusterList.md
 docs/EnterpriseClusterListAllOf.md
+docs/EnterpriseClusterListItem.md
+docs/EnterpriseClusterListItemAllOf.md
 docs/EnterpriseClusterWithAddonParameters.md
 docs/EnterpriseClusterWithAddonParametersAllOf.md
 docs/EnterpriseDataplaneClustersApi.md
@@ -75,8 +78,11 @@ rhoas_kafka_mgmt_sdk/model/cloud_region_list.py
 rhoas_kafka_mgmt_sdk/model/cloud_region_list_all_of.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_all_of.py
+rhoas_kafka_mgmt_sdk/model/enterprise_cluster_all_of_capacity_information.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list_all_of.py
+rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list_item.py
+rhoas_kafka_mgmt_sdk/model/enterprise_cluster_list_item_all_of.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_with_addon_parameters.py
 rhoas_kafka_mgmt_sdk/model/enterprise_cluster_with_addon_parameters_all_of.py
 rhoas_kafka_mgmt_sdk/model/enterprise_osd_cluster_payload.py
@@ -135,8 +141,11 @@ test/test_cloud_region_list_all_of.py
 test/test_default_api.py
 test/test_enterprise_cluster.py
 test/test_enterprise_cluster_all_of.py
+test/test_enterprise_cluster_all_of_capacity_information.py
 test/test_enterprise_cluster_list.py
 test/test_enterprise_cluster_list_all_of.py
+test/test_enterprise_cluster_list_item.py
+test/test_enterprise_cluster_list_item_all_of.py
 test/test_enterprise_cluster_with_addon_parameters.py
 test/test_enterprise_cluster_with_addon_parameters_all_of.py
 test/test_enterprise_dataplane_clusters_api.py

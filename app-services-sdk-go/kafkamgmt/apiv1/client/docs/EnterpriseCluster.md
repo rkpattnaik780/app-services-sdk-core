@@ -8,14 +8,19 @@ Name | Type | Description | Notes
 **Kind** | **string** |  | 
 **Href** | **string** |  | 
 **AccessKafkasViaPrivateNetwork** | **bool** | Indicates whether Kafkas created on this data plane cluster have to be accessed via private network | 
-**ClusterId** | Pointer to **string** | ocm cluster id of the registered Enterprise cluster | [optional] 
-**Status** | Pointer to **string** | status of registered Enterprise cluster | [optional] 
+**ClusterId** | Pointer to **string** | The OCM&#39;s cluster id of the registered Enterprise cluster. | [optional] 
+**Status** | Pointer to **string** | The status of Enterprise cluster registration | [optional] 
+**CloudProvider** | Pointer to **string** | The cloud provider for this cluster. This valus will be used as the Kafka&#39;s cloud provider value when a Kafka is created on this cluster | [optional] 
+**Region** | Pointer to **string** | The region of this cluster. This valus will be used as the Kafka&#39;s region value when a Kafka is created on this cluster | [optional] 
+**MultiAz** | **bool** | A flag indicating whether this cluster is available on multiple availability zones or not | 
+**SupportedInstanceTypes** | Pointer to [**SupportedKafkaInstanceTypesList**](SupportedKafkaInstanceTypesList.md) |  | [optional] 
+**CapacityInformation** | Pointer to [**EnterpriseClusterAllOfCapacityInformation**](EnterpriseClusterAllOfCapacityInformation.md) |  | [optional] 
 
 ## Methods
 
 ### NewEnterpriseCluster
 
-`func NewEnterpriseCluster(id string, kind string, href string, accessKafkasViaPrivateNetwork bool, ) *EnterpriseCluster`
+`func NewEnterpriseCluster(id string, kind string, href string, accessKafkasViaPrivateNetwork bool, multiAz bool, ) *EnterpriseCluster`
 
 NewEnterpriseCluster instantiates a new EnterpriseCluster object
 This constructor will assign default values to properties that have it defined,
@@ -159,6 +164,126 @@ SetStatus sets Status field to given value.
 `func (o *EnterpriseCluster) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetCloudProvider
+
+`func (o *EnterpriseCluster) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *EnterpriseCluster) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *EnterpriseCluster) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *EnterpriseCluster) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
+
+### GetRegion
+
+`func (o *EnterpriseCluster) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *EnterpriseCluster) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *EnterpriseCluster) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+### HasRegion
+
+`func (o *EnterpriseCluster) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
+
+### GetMultiAz
+
+`func (o *EnterpriseCluster) GetMultiAz() bool`
+
+GetMultiAz returns the MultiAz field if non-nil, zero value otherwise.
+
+### GetMultiAzOk
+
+`func (o *EnterpriseCluster) GetMultiAzOk() (*bool, bool)`
+
+GetMultiAzOk returns a tuple with the MultiAz field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultiAz
+
+`func (o *EnterpriseCluster) SetMultiAz(v bool)`
+
+SetMultiAz sets MultiAz field to given value.
+
+
+### GetSupportedInstanceTypes
+
+`func (o *EnterpriseCluster) GetSupportedInstanceTypes() SupportedKafkaInstanceTypesList`
+
+GetSupportedInstanceTypes returns the SupportedInstanceTypes field if non-nil, zero value otherwise.
+
+### GetSupportedInstanceTypesOk
+
+`func (o *EnterpriseCluster) GetSupportedInstanceTypesOk() (*SupportedKafkaInstanceTypesList, bool)`
+
+GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedInstanceTypes
+
+`func (o *EnterpriseCluster) SetSupportedInstanceTypes(v SupportedKafkaInstanceTypesList)`
+
+SetSupportedInstanceTypes sets SupportedInstanceTypes field to given value.
+
+### HasSupportedInstanceTypes
+
+`func (o *EnterpriseCluster) HasSupportedInstanceTypes() bool`
+
+HasSupportedInstanceTypes returns a boolean if a field has been set.
+
+### GetCapacityInformation
+
+`func (o *EnterpriseCluster) GetCapacityInformation() EnterpriseClusterAllOfCapacityInformation`
+
+GetCapacityInformation returns the CapacityInformation field if non-nil, zero value otherwise.
+
+### GetCapacityInformationOk
+
+`func (o *EnterpriseCluster) GetCapacityInformationOk() (*EnterpriseClusterAllOfCapacityInformation, bool)`
+
+GetCapacityInformationOk returns a tuple with the CapacityInformation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCapacityInformation
+
+`func (o *EnterpriseCluster) SetCapacityInformation(v EnterpriseClusterAllOfCapacityInformation)`
+
+SetCapacityInformation sets CapacityInformation field to given value.
+
+### HasCapacityInformation
+
+`func (o *EnterpriseCluster) HasCapacityInformation() bool`
+
+HasCapacityInformation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

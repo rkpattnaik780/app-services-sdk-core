@@ -6,9 +6,11 @@ base.ts
 common.ts
 configuration.ts
 index.ts
+model/abstract-list.ts
 model/error-list-all-of.ts
 model/error-list.ts
 model/index.ts
+model/list-all-of.ts
 model/list.ts
 model/model-error.ts
 model/object-reference.ts

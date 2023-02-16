@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | 
 **total** | **int** | Total number of entries in the full result set | 
 **kind** | **str** |  | [optional] 
 **size** | **int** | Number of entries per page (returned for fetch requests) | [optional] 

@@ -14,9 +14,13 @@ import unittest
 
 import rhoas_kafka_mgmt_sdk
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of import EnterpriseClusterAllOf
-from rhoas_kafka_mgmt_sdk.model.object_reference import ObjectReference
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_all_of_capacity_information import EnterpriseClusterAllOfCapacityInformation
+from rhoas_kafka_mgmt_sdk.model.enterprise_cluster_list_item import EnterpriseClusterListItem
+from rhoas_kafka_mgmt_sdk.model.supported_kafka_instance_types_list import SupportedKafkaInstanceTypesList
 globals()['EnterpriseClusterAllOf'] = EnterpriseClusterAllOf
-globals()['ObjectReference'] = ObjectReference
+globals()['EnterpriseClusterAllOfCapacityInformation'] = EnterpriseClusterAllOfCapacityInformation
+globals()['EnterpriseClusterListItem'] = EnterpriseClusterListItem
+globals()['SupportedKafkaInstanceTypesList'] = SupportedKafkaInstanceTypesList
 from rhoas_kafka_mgmt_sdk.model.enterprise_cluster import EnterpriseCluster
 
 

@@ -94,9 +94,9 @@ class SupportedKafkaInstanceType(ModelNormal):
         lazy_import()
         return {
             'supported_billing_models': ([SupportedKafkaBillingModel],),  # noqa: E501
+            'sizes': ([SupportedKafkaInstanceTypeSizesInner],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'sizes': ([SupportedKafkaInstanceTypeSizesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -106,9 +106,9 @@ class SupportedKafkaInstanceType(ModelNormal):
 
     attribute_map = {
         'supported_billing_models': 'supported_billing_models',  # noqa: E501
+        'sizes': 'sizes',  # noqa: E501
         'id': 'id',  # noqa: E501
         'display_name': 'display_name',  # noqa: E501
-        'sizes': 'sizes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -118,11 +118,12 @@ class SupportedKafkaInstanceType(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, supported_billing_models, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, supported_billing_models, sizes, *args, **kwargs):  # noqa: E501
         """SupportedKafkaInstanceType - a model defined in OpenAPI
 
         Args:
             supported_billing_models ([SupportedKafkaBillingModel]): A list of available kafka billing models for the instance type. Each kafka billing model item has a unique 'id'
+            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,7 +158,6 @@ class SupportedKafkaInstanceType(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier of the Kafka instance type.. [optional]  # noqa: E501
             display_name (str): Human readable name of the supported Kafka instance type. [optional]  # noqa: E501
-            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,6 +190,7 @@ class SupportedKafkaInstanceType(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.supported_billing_models = supported_billing_models
+        self.sizes = sizes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,11 +211,12 @@ class SupportedKafkaInstanceType(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, supported_billing_models, *args, **kwargs):  # noqa: E501
+    def __init__(self, supported_billing_models, sizes, *args, **kwargs):  # noqa: E501
         """SupportedKafkaInstanceType - a model defined in OpenAPI
 
         Args:
             supported_billing_models ([SupportedKafkaBillingModel]): A list of available kafka billing models for the instance type. Each kafka billing model item has a unique 'id'
+            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,7 +251,6 @@ class SupportedKafkaInstanceType(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Unique identifier of the Kafka instance type.. [optional]  # noqa: E501
             display_name (str): Human readable name of the supported Kafka instance type. [optional]  # noqa: E501
-            sizes ([SupportedKafkaInstanceTypeSizesInner]): A list of Kafka instance sizes available for this instance type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,6 +281,7 @@ class SupportedKafkaInstanceType(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.supported_billing_models = supported_billing_models
+        self.sizes = sizes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

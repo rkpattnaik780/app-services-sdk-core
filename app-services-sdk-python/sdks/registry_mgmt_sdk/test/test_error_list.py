@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import rhoas_service_registry_mgmt_sdk
+from rhoas_service_registry_mgmt_sdk.model.abstract_list import AbstractList
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from rhoas_service_registry_mgmt_sdk.model.error_list_all_of import ErrorListAllOf
-from rhoas_service_registry_mgmt_sdk.model.list import List
+globals()['AbstractList'] = AbstractList
 globals()['Error'] = Error
 globals()['ErrorListAllOf'] = ErrorListAllOf
-globals()['List'] = List
 from rhoas_service_registry_mgmt_sdk.model.error_list import ErrorList
 
 

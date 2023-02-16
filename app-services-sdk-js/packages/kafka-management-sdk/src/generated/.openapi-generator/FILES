@@ -13,8 +13,11 @@ model/cloud-provider.ts
 model/cloud-region-list-all-of.ts
 model/cloud-region-list.ts
 model/cloud-region.ts
+model/enterprise-cluster-all-of-capacity-information.ts
 model/enterprise-cluster-all-of.ts
 model/enterprise-cluster-list-all-of.ts
+model/enterprise-cluster-list-item-all-of.ts
+model/enterprise-cluster-list-item.ts
 model/enterprise-cluster-list.ts
 model/enterprise-cluster-with-addon-parameters-all-of.ts
 model/enterprise-cluster-with-addon-parameters.ts

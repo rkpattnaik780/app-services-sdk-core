@@ -91,8 +91,8 @@ class AclBindingListPage(ModelComposed):
         """
         lazy_import()
         return {
-            'items': ([AclBinding],),  # noqa: E501
             'total': (int,),  # noqa: E501
+            'items': ([AclBinding],),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'page': (int,),  # noqa: E501
@@ -104,8 +104,8 @@ class AclBindingListPage(ModelComposed):
 
 
     attribute_map = {
-        'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
+        'items': 'items',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'size': 'size',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -120,8 +120,8 @@ class AclBindingListPage(ModelComposed):
         """AclBindingListPage - a model defined in OpenAPI
 
         Keyword Args:
-            items ([AclBinding]):
             total (int): Total number of entries in the full result set
+            items ([AclBinding]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -228,8 +228,8 @@ class AclBindingListPage(ModelComposed):
         """AclBindingListPage - a model defined in OpenAPI
 
         Keyword Args:
-            items ([AclBinding]):
             total (int): Total number of entries in the full result set
+            items ([AclBinding]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

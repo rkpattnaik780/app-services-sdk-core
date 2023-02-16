@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[Error]**](Error.md) |  | 
 **total** | **int** | Total number of errors returned in this request | 
+**items** | [**[Error]**](Error.md) |  | 
 **kind** | **str** |  | [optional] 
 **size** | **int** | Number of entries per page (returned for fetch requests) | [optional] 
 **page** | **int** | Current page number (returned for fetch requests) | [optional] 

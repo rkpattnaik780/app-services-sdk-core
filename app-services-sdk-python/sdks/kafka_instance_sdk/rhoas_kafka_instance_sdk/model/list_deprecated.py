@@ -89,7 +89,6 @@ class ListDeprecated(ModelComposed):
         """
         lazy_import()
         return {
-            'items': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'total': (int,),  # noqa: E501
             'kind': (str,),  # noqa: E501
             'size': (int,),  # noqa: E501
@@ -105,7 +104,6 @@ class ListDeprecated(ModelComposed):
 
 
     attribute_map = {
-        'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -124,7 +122,6 @@ class ListDeprecated(ModelComposed):
         """ListDeprecated - a model defined in OpenAPI
 
         Keyword Args:
-            items ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             total (int): Total number of entries in the full result set
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -235,7 +232,6 @@ class ListDeprecated(ModelComposed):
         """ListDeprecated - a model defined in OpenAPI
 
         Keyword Args:
-            items ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]):
             total (int): Total number of entries in the full result set
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
