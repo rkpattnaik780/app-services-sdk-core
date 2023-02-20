@@ -1,9 +1,9 @@
 package apiv1alpha
 
 import (
-	"github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/core"
+	"github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/core"
 
-	apiv1 "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/smarteventsmgmt/apiv1alpha/client"
+	apiv1 "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/smarteventsmgmt/apiv1alpha/client"
 )
 
 // Config defines the available configuration options

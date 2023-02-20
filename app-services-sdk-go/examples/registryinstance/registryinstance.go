@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	rhoasAuth "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
-	registryinstance "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal"
+	rhoasAuth "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
+	registryinstance "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal"
 )
 
 func main() {

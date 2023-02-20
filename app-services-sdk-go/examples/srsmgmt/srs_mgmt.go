@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	rhoasAuth "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
-	registrymgmt "github.com/jackdelahunt/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1"
+	rhoasAuth "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/auth/apiv1"
+	registrymgmt "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registrymgmt/apiv1"
 )
 
 func main() {
