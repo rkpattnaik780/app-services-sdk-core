@@ -1,7 +1,9 @@
 .gitlab-ci.yml
 docs/AbstractList.md
 docs/DefaultApi.md
+docs/Empty.md
 docs/Error.md
+docs/ErrorAllOf.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
 docs/ErrorsApi.md
@@ -29,7 +31,9 @@ rhoas_service_registry_mgmt_sdk/configuration.py
 rhoas_service_registry_mgmt_sdk/exceptions.py
 rhoas_service_registry_mgmt_sdk/model/__init__.py
 rhoas_service_registry_mgmt_sdk/model/abstract_list.py
+rhoas_service_registry_mgmt_sdk/model/empty.py
 rhoas_service_registry_mgmt_sdk/model/error.py
+rhoas_service_registry_mgmt_sdk/model/error_all_of.py
 rhoas_service_registry_mgmt_sdk/model/error_list.py
 rhoas_service_registry_mgmt_sdk/model/error_list_all_of.py
 rhoas_service_registry_mgmt_sdk/model/list.py
@@ -52,7 +56,9 @@ test-requirements.txt
 test/__init__.py
 test/test_abstract_list.py
 test/test_default_api.py
+test/test_empty.py
 test/test_error.py
+test/test_error_all_of.py
 test/test_error_list.py
 test/test_error_list_all_of.py
 test/test_errors_api.py

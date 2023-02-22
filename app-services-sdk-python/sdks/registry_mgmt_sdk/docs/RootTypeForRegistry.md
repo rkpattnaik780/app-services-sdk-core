@@ -5,7 +5,6 @@ Service Registry instance in a multi-tenant deployment.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
 **status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **name** | **str** | User-defined Registry instance name. Does not have to be unique. | 
 **owner** | **str** | Registry instance owner. | 

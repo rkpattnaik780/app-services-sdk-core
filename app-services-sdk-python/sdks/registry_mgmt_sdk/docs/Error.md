@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reason** | **str** |  | 
 **id** | **str** |  | 
 **kind** | **str** |  | 
 **href** | **str** |  | 
+**reason** | **str** |  | 
 **code** | **str** |  | 
 **operation_id** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

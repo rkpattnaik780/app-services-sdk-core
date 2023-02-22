@@ -22,6 +22,7 @@ Get the service status
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import default_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from rhoas_service_registry_mgmt_sdk.model.service_status import ServiceStatus
 from pprint import pprint
@@ -69,7 +70,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -77,6 +78,8 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully returned service status. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
 **500** | Internal error retrieving service status. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

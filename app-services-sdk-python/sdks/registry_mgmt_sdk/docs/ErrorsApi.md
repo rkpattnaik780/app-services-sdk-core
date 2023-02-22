@@ -22,6 +22,7 @@ Get information about a specific error type
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import errors_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.openshift.com
@@ -35,7 +36,7 @@ configuration = rhoas_service_registry_mgmt_sdk.Configuration(
 with rhoas_service_registry_mgmt_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = errors_api.ErrorsApi(api_client)
-    id = 1 # int | A unique identifier for an error type.
+    id = "id_example" # str | The id of the object you wish to interact with.
 
     # example passing only required values which don't have defaults set
     try:
@@ -50,7 +51,7 @@ with rhoas_service_registry_mgmt_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique identifier for an error type. |
+ **id** | **str**| The id of the object you wish to interact with. |
 
 ### Return type
 
@@ -63,7 +64,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -71,6 +72,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response - returns a single &#x60;Error&#x60;. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
 **404** | No Service Registry with the specified id exists. |  -  |
 **500** | Unexpected error occurred. |  -  |
 
@@ -90,6 +93,7 @@ Get the list of all errors
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import errors_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.error_list import ErrorList
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from pprint import pprint
@@ -135,7 +139,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -143,7 +147,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
-**500** | Unexpected error occurred |  -  |
+**400** | Invalid request content or parameters. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
+**500** | Unexpected error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
