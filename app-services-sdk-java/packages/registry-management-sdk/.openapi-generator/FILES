@@ -1,7 +1,9 @@
 api/openapi.yaml
 docs/AbstractList.md
 docs/DefaultApi.md
+docs/Empty.md
 docs/Error.md
+docs/ErrorAllOf.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
 docs/ErrorsApi.md
@@ -37,7 +39,9 @@ src/main/java/com/openshift/cloud/api/srs/invoker/auth/Authentication.java
 src/main/java/com/openshift/cloud/api/srs/invoker/auth/HttpBasicAuth.java
 src/main/java/com/openshift/cloud/api/srs/invoker/auth/HttpBearerAuth.java
 src/main/java/com/openshift/cloud/api/srs/models/AbstractList.java
+src/main/java/com/openshift/cloud/api/srs/models/Empty.java
 src/main/java/com/openshift/cloud/api/srs/models/Error.java
+src/main/java/com/openshift/cloud/api/srs/models/ErrorAllOf.java
 src/main/java/com/openshift/cloud/api/srs/models/ErrorList.java
 src/main/java/com/openshift/cloud/api/srs/models/ErrorListAllOf.java
 src/main/java/com/openshift/cloud/api/srs/models/ListAllOf.java

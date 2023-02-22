@@ -3,7 +3,7 @@
  *
  * Service Registry Management API is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
  *
- * API version: 0.0.6
+ * API version: 1.0.0
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -17,11 +17,11 @@ import (
 
 // Error struct for Error
 type Error struct {
-	Reason string `json:"reason"`
-	OperationId *string `json:"operation_id,omitempty"`
 	Id string `json:"id"`
 	Kind string `json:"kind"`
 	Href string `json:"href"`
+	Reason string `json:"reason"`
+	OperationId *string `json:"operation_id,omitempty"`
 	Code string `json:"code"`
 }
 
@@ -29,12 +29,12 @@ type Error struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewError(reason string, id string, kind string, href string, code string) *Error {
+func NewError(id string, kind string, href string, reason string, code string) *Error {
 	this := Error{}
-	this.Reason = reason
 	this.Id = id
 	this.Kind = kind
 	this.Href = href
+	this.Reason = reason
 	this.Code = code
 	return &this
 }
@@ -45,62 +45,6 @@ func NewError(reason string, id string, kind string, href string, code string) *
 func NewErrorWithDefaults() *Error {
 	this := Error{}
 	return &this
-}
-
-// GetReason returns the Reason field value
-func (o *Error) GetReason() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Reason
-}
-
-// GetReasonOk returns a tuple with the Reason field value
-// and a boolean to check if the value has been set.
-func (o *Error) GetReasonOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Reason, true
-}
-
-// SetReason sets field value
-func (o *Error) SetReason(v string) {
-	o.Reason = v
-}
-
-// GetOperationId returns the OperationId field value if set, zero value otherwise.
-func (o *Error) GetOperationId() string {
-	if o == nil || o.OperationId == nil {
-		var ret string
-		return ret
-	}
-	return *o.OperationId
-}
-
-// GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Error) GetOperationIdOk() (*string, bool) {
-	if o == nil || o.OperationId == nil {
-		return nil, false
-	}
-	return o.OperationId, true
-}
-
-// HasOperationId returns a boolean if a field has been set.
-func (o *Error) HasOperationId() bool {
-	if o != nil && o.OperationId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOperationId gets a reference to the given string and assigns it to the OperationId field.
-func (o *Error) SetOperationId(v string) {
-	o.OperationId = &v
 }
 
 // GetId returns the Id field value
@@ -175,6 +119,62 @@ func (o *Error) SetHref(v string) {
 	o.Href = v
 }
 
+// GetReason returns the Reason field value
+func (o *Error) GetReason() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Reason
+}
+
+// GetReasonOk returns a tuple with the Reason field value
+// and a boolean to check if the value has been set.
+func (o *Error) GetReasonOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Reason, true
+}
+
+// SetReason sets field value
+func (o *Error) SetReason(v string) {
+	o.Reason = v
+}
+
+// GetOperationId returns the OperationId field value if set, zero value otherwise.
+func (o *Error) GetOperationId() string {
+	if o == nil || o.OperationId == nil {
+		var ret string
+		return ret
+	}
+	return *o.OperationId
+}
+
+// GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Error) GetOperationIdOk() (*string, bool) {
+	if o == nil || o.OperationId == nil {
+		return nil, false
+	}
+	return o.OperationId, true
+}
+
+// HasOperationId returns a boolean if a field has been set.
+func (o *Error) HasOperationId() bool {
+	if o != nil && o.OperationId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOperationId gets a reference to the given string and assigns it to the OperationId field.
+func (o *Error) SetOperationId(v string) {
+	o.OperationId = &v
+}
+
 // GetCode returns the Code field value
 func (o *Error) GetCode() string {
 	if o == nil {
@@ -202,12 +202,6 @@ func (o *Error) SetCode(v string) {
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["reason"] = o.Reason
-	}
-	if o.OperationId != nil {
-		toSerialize["operation_id"] = o.OperationId
-	}
-	if true {
 		toSerialize["id"] = o.Id
 	}
 	if true {
@@ -215,6 +209,12 @@ func (o Error) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["href"] = o.Href
+	}
+	if true {
+		toSerialize["reason"] = o.Reason
+	}
+	if o.OperationId != nil {
+		toSerialize["operation_id"] = o.OperationId
 	}
 	if true {
 		toSerialize["code"] = o.Code

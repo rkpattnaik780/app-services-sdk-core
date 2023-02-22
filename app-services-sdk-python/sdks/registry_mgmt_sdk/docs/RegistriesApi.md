@@ -25,6 +25,7 @@ Create a new Registry instance
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import registries_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.registry_create import RegistryCreate
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from rhoas_service_registry_mgmt_sdk.model.registry import Registry
@@ -80,7 +81,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -88,9 +89,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. The full request to create a new &#x60;Registry&#x60; instance is processed asynchronously. The user should verify the result of the operation by reading the &#x60;status&#x60; property of the created &#x60;Registry&#x60; instance. |  -  |
-**401** | Auth token is invalid. |  -  |
-**403** | User is not authorized to access the service. |  -  |
+**400** | Invalid request content or parameters. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
+**409** | Registry with the given name already exists, limit on the number of instances has been reached, or other precondition has not been met. |  -  |
+**415** | Unsupported media type. The server expects a JSON request. |  -  |
 **500** | Unexpected error occurred. |  -  |
+**503** | Service has temporary issues while processing your request, please try again. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -109,6 +114,7 @@ Deletes an existing `Registry` instance and all of the data that it stores. Impo
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import registries_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.openshift.com
@@ -131,7 +137,7 @@ configuration = rhoas_service_registry_mgmt_sdk.Configuration(
 with rhoas_service_registry_mgmt_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = registries_api.RegistriesApi(api_client)
-    id = "id_example" # str | A unique identifier for a `Registry` instance.
+    id = "id_example" # str | The id of the object you wish to interact with.
 
     # example passing only required values which don't have defaults set
     try:
@@ -146,7 +152,7 @@ with rhoas_service_registry_mgmt_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique identifier for a &#x60;Registry&#x60; instance. |
+ **id** | **str**| The id of the object you wish to interact with. |
 
 ### Return type
 
@@ -159,7 +165,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: */*, application/json
 
 
 ### HTTP response details
@@ -167,9 +173,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful response. |  -  |
-**401** | Auth token is invalid |  -  |
-**403** | User is not authorized to access the service. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
 **404** | No Service Registry instance with the specified id exists |  -  |
+**500** | Unexpected error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -188,6 +195,7 @@ Get the list of all Registry instances
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import registries_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.registry_list import RegistryList
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from pprint import pprint
@@ -214,7 +222,7 @@ with rhoas_service_registry_mgmt_sdk.ApiClient(configuration) as api_client:
     page = 0 # int | Page index. (optional)
     size = 100 # int | Number of items in each page. (optional)
     order_by = "name asc" # str | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement. Each query can be ordered by any of the request fields. For example, to retrieve all Registry instances ordered by their name:  ```sql name asc ```  Or to retrieve all Registry instances ordered by their name _and_ created date:  ```sql name asc, created_at asc ```  If the parameter isn't provided, or if the value is empty,  the results are ordered by name. (optional)
-    search = "name = my-registry and status = AVAILABLE" # str | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: `name`, `status`. Allowed comparators are `=` or `LIKE`. Allowed joins are `AND` and `OR`, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve a request with name equal `my-registry`, the value should be:  ``` name = my-registry  ```  To retrieve a request with its name starting with `my`, the value should be:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, all the Registry instances that the user has permission to see are returned.  Note: If the query is invalid, an error is returned.  (optional)
+    search = "name = example-registry and status = ready" # str | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: `name`, `status`. Allowed comparators are `=` or `LIKE`. Allowed joins are `AND` and `OR`, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve a request with name equal `my-registry`, the value should be:  ``` name = my-registry  ```  To retrieve a request with its name starting with `my`, the value should be:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, all the Registry instances that the user has permission to see are returned.  Note: If the query is invalid, an error is returned.  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -246,7 +254,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -254,8 +262,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
-**401** | Auth token is invalid. |  -  |
-**403** | User is not authorized to access the service. |  -  |
+**400** | Invalid request content or parameters. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
 **500** | Unexpected error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -275,6 +284,7 @@ Gets the details of a single instance of a `Registry`.
 import time
 import rhoas_service_registry_mgmt_sdk
 from rhoas_service_registry_mgmt_sdk.api import registries_api
+from rhoas_service_registry_mgmt_sdk.model.empty import Empty
 from rhoas_service_registry_mgmt_sdk.model.error import Error
 from rhoas_service_registry_mgmt_sdk.model.registry import Registry
 from pprint import pprint
@@ -298,7 +308,7 @@ configuration = rhoas_service_registry_mgmt_sdk.Configuration(
 with rhoas_service_registry_mgmt_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = registries_api.RegistriesApi(api_client)
-    id = "id_example" # str | A unique identifier for a `Registry` instance.
+    id = "id_example" # str | The id of the object you wish to interact with.
 
     # example passing only required values which don't have defaults set
     try:
@@ -314,7 +324,7 @@ with rhoas_service_registry_mgmt_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique identifier for a &#x60;Registry&#x60; instance. |
+ **id** | **str**| The id of the object you wish to interact with. |
 
 ### Return type
 
@@ -327,7 +337,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 
 ### HTTP response details
@@ -335,9 +345,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response - returns a single &#x60;Registry&#x60; instance. |  -  |
-**401** | Auth token is invalid. |  -  |
-**403** | User is not authorized to access the service. |  -  |
+**401** | Authentication was not successful. Make sure the token is valid. |  -  |
+**403** | User is not authorized to perform the operation. |  -  |
 **404** | No Service Registry instance with specified id exists. |  -  |
+**500** | Unexpected error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
