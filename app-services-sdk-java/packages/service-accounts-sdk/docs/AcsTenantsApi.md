@@ -152,6 +152,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request if clientId is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
 | **405** | Not allowed, API Currently Disabled |  -  |
