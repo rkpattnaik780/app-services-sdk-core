@@ -117,6 +117,7 @@ import rhoas_service_accounts_mgmt_sdk
 from rhoas_service_accounts_mgmt_sdk.api import acs_tenants_api
 from rhoas_service_accounts_mgmt_sdk.model.error import Error
 from rhoas_service_accounts_mgmt_sdk.model.red_hat_error_representation import RedHatErrorRepresentation
+from rhoas_service_accounts_mgmt_sdk.model.validation_exception_data import ValidationExceptionData
 from pprint import pprint
 # Defining the host is optional and defaults to https://sso.redhat.com/auth/realms/redhat-external
 # See configuration.py for a list of all supported configuration parameters.
@@ -175,6 +176,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**400** | Bad Request if clientId is invalid |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 **405** | Not allowed, API Currently Disabled |  -  |

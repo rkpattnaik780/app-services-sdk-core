@@ -100,6 +100,15 @@ paths:
           content:
             application/json: {}
           description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request Example:
+                  $ref: '#/components/examples/400FieldValidationError'
+              schema:
+                $ref: '#/components/schemas/ValidationExceptionData'
+          description: Bad Request if clientId is invalid
         "401":
           content:
             application/json:
