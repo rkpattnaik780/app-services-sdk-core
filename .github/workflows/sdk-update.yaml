@@ -25,7 +25,7 @@ jobs:
       - name: Install jq
         run: sudo apt-get install jq
       - name: Fetch OpenAPI doc
-        run: python scripts/fetch_api.py
+        run: bash scripts/fetch-api.sh
       - name: Generate SDKs
         run: |
           bash scripts/generate-go.sh ${{ github.event.client_payload.download_url }}
