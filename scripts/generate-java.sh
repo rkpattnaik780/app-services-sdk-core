@@ -159,4 +159,4 @@ then
         --ignore-file-override=.openapi-generator-ignore
 fi
 
-rm .openapi/*.processed
+rm -Rf .openapi/*.processed
