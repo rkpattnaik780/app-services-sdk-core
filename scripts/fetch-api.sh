@@ -14,14 +14,7 @@ endpoints=(
 )
 
 for endpoint in ${endpoints[*]}; do
-    filename=$(echo "${endpoint##*/}")
-
-    if [[ ${filename} == "openapi.yaml" ]]; then
-        filename="service-accounts.yaml"
-    fi
-    if [[ ${filename} == "openapi-gen.json" ]]; then
-        filename="registry-instance.json"
-    fi
+    filename=$(${SCRIPT_DIR}/get-filename.sh ${endpoint})
 
     output_filename="${SCRIPT_DIR}/../.openapi/${filename}"
 

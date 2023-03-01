@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # if input file is a empty string that means this is a workflow run
 # manualy and we want to generate all sdks 
 INPUT_FILE=`basename $1`
-
-# if the input file is openapi.yaml that means it should be 
-# service accounts, change the INPUT_FILE and make the service
-# accounts file up to date with the new changes
-if [ "$INPUT_FILE" = "openapi.yaml" ];
-then
-    INPUT_FILE="service-accounts.yaml"
-fi
+INPUT_FILE=$(${SCRIPT_DIR}/get-filename.sh ${INPUT_FILE})
 
 echo "========================="
 echo "Input file is $INPUT_FILE"
