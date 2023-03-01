@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **createdBy** | **String** |  | 
-**createdOn** | **String** |  | 
+**createdOn** | **OffsetDateTime** |  | 
 **modifiedBy** | **String** |  | 
-**modifiedOn** | **String** |  | 
+**modifiedOn** | **OffsetDateTime** |  | 
 **id** | **String** | The ID of a single artifact. | 
 **version** | **String** |  | 
-**type** | **ArtifactType** |  | 
+**type** | **String** |  | 
 **globalId** | **Long** |  | 
 **state** | **ArtifactState** |  | 
 **labels** | **List&lt;String&gt;** |  |  [optional]

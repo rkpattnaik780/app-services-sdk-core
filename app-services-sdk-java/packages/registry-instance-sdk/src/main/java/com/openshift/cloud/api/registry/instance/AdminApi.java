@@ -7,12 +7,16 @@ import com.openshift.cloud.api.registry.instance.invoker.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.openshift.cloud.api.registry.instance.models.ArtifactTypeInfo;
 import com.openshift.cloud.api.registry.instance.models.ConfigurationProperty;
+import com.openshift.cloud.api.registry.instance.models.DownloadRef;
 import com.openshift.cloud.api.registry.instance.models.Error;
 import java.io.File;
 import com.openshift.cloud.api.registry.instance.models.LogConfiguration;
 import com.openshift.cloud.api.registry.instance.models.NamedLogConfiguration;
 import com.openshift.cloud.api.registry.instance.models.RoleMapping;
+import com.openshift.cloud.api.registry.instance.models.Rule;
+import com.openshift.cloud.api.registry.instance.models.RuleType;
 import com.openshift.cloud.api.registry.instance.models.UpdateConfigurationProperty;
 import com.openshift.cloud.api.registry.instance.models.UpdateRole;
 
@@ -41,6 +45,48 @@ public class AdminApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Create global rule
+   * Adds a rule to the list of globally configured rules.  This operation can fail for the following reasons:  * The rule type is unknown (HTTP error &#x60;400&#x60;) * The rule already exists (HTTP error &#x60;409&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @param rule  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createGlobalRule(Rule rule) throws ApiException {
+    Object localVarPostBody = rule;
+    
+    // verify the required parameter 'rule' is set
+    if (rule == null) {
+      throw new ApiException(400, "Missing the required parameter 'rule' when calling createGlobalRule");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * Create a new role mapping
    * Creates a new mapping between a user/principal and a role.  This operation can fail for the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;)  
@@ -82,6 +128,85 @@ public class AdminApi {
 
 
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Delete all global rules
+   * Deletes all globally configured rules.  This operation can fail for the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAllGlobalRules() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
+   * Delete global rule
+   * Deletes a single global rule.  If this is the only rule configured, this is the same as deleting **all** rules.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error &#x60;400&#x60;) * No rule with name/type &#x60;rule&#x60; exists (HTTP error &#x60;404&#x60;) * Rule cannot be deleted (HTTP error &#x60;409&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @param rule The unique name/type of a rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGlobalRule(RuleType rule) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'rule' is set
+    if (rule == null) {
+      throw new ApiException(400, "Missing the required parameter 'rule' when calling deleteGlobalRule");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules/{rule}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "rule" + "\\}", apiClient.escapeString(rule.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * Delete a role mapping
@@ -129,12 +254,11 @@ public class AdminApi {
   /**
    * Export registry data
    * Exports registry data as a ZIP archive.
-   * @param accept  (optional)
    * @param forBrowser Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
    * @return a {@code File}
    * @throws ApiException if fails to make API call
    */
-  public File exportData(String accept, Boolean forBrowser) throws ApiException {
+  public File exportData(Boolean forBrowser) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -148,9 +272,7 @@ public class AdminApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "forBrowser", forBrowser));
 
-    if (accept != null)
-      localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-
+    
     
     
     final String[] localVarAccepts = {
@@ -210,6 +332,50 @@ public class AdminApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ConfigurationProperty> localVarReturnType = new GenericType<ConfigurationProperty>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get global rule configuration
+   * Returns information about the named globally configured rule.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error &#x60;400&#x60;) * No rule with name/type &#x60;rule&#x60; exists (HTTP error &#x60;404&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @param rule The unique name/type of a rule. (required)
+   * @return a {@code Rule}
+   * @throws ApiException if fails to make API call
+   */
+  public Rule getGlobalRuleConfig(RuleType rule) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'rule' is set
+    if (rule == null) {
+      throw new ApiException(400, "Missing the required parameter 'rule' when calling getGlobalRuleConfig");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules/{rule}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "rule" + "\\}", apiClient.escapeString(rule.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<Rule> localVarReturnType = new GenericType<Rule>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -349,6 +515,43 @@ if (xRegistryPreserveContentId != null)
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
+   * List artifact types
+   * Gets a list of all the configured artifact types.  This operation can fail for the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @return a {@code List<ArtifactTypeInfo>}
+   * @throws ApiException if fails to make API call
+   */
+  public List<ArtifactTypeInfo> listArtifactTypes() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/admin/artifactTypes".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ArtifactTypeInfo>> localVarReturnType = new GenericType<List<ArtifactTypeInfo>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * List all configuration properties
    * Returns a list of all configuration properties that have been set.  The list is not paged.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;) 
    * @return a {@code List<ConfigurationProperty>}
@@ -383,6 +586,43 @@ if (xRegistryPreserveContentId != null)
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ConfigurationProperty>> localVarReturnType = new GenericType<List<ConfigurationProperty>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * List global rules
+   * Gets a list of all the currently configured global rules (if any).  This operation can fail for the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @return a {@code List<RuleType>}
+   * @throws ApiException if fails to make API call
+   */
+  public List<RuleType> listGlobalRules() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<RuleType>> localVarReturnType = new GenericType<List<RuleType>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -645,6 +885,56 @@ if (xRegistryPreserveContentId != null)
 
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
+  /**
+   * Update global rule configuration
+   * Updates the configuration for a globally configured rule.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error &#x60;400&#x60;) * No rule with name/type &#x60;rule&#x60; exists (HTTP error &#x60;404&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @param rule The unique name/type of a rule. (required)
+   * @param rule2  (required)
+   * @return a {@code Rule}
+   * @throws ApiException if fails to make API call
+   */
+  public Rule updateGlobalRuleConfig(RuleType rule, Rule rule2) throws ApiException {
+    Object localVarPostBody = rule2;
+    
+    // verify the required parameter 'rule' is set
+    if (rule == null) {
+      throw new ApiException(400, "Missing the required parameter 'rule' when calling updateGlobalRuleConfig");
+    }
+    
+    // verify the required parameter 'rule2' is set
+    if (rule2 == null) {
+      throw new ApiException(400, "Missing the required parameter 'rule2' when calling updateGlobalRuleConfig");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/admin/rules/{rule}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "rule" + "\\}", apiClient.escapeString(rule.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<Rule> localVarReturnType = new GenericType<Rule>() {};
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * Update a role mapping
    * Updates a single role mapping for one user/principal.  This operation can fail for the following reasons:  * No role mapping for the principalId exists (HTTP error &#x60;404&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 

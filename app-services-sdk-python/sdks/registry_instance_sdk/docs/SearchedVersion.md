@@ -5,9 +5,9 @@ Models a single artifact from the result set returned when searching for artifac
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | **str** |  | 
+**created_on** | **datetime** |  | 
 **created_by** | **str** |  | 
-**type** | [**ArtifactType**](ArtifactType.md) |  | 
+**type** | **str** |  | 
 **state** | [**ArtifactState**](ArtifactState.md) |  | 
 **global_id** | **int** |  | 
 **version** | **str** |  | 

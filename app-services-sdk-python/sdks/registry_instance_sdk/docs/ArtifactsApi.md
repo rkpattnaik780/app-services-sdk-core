@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**list_artifacts_in_group**](ArtifactsApi.md#list_artifacts_in_group) | **GET** /groups/{groupId}/artifacts | List artifacts in group
 [**references_by_content_hash**](ArtifactsApi.md#references_by_content_hash) | **GET** /ids/contentHashes/{contentHash}/references | List artifact references by hash
 [**references_by_content_id**](ArtifactsApi.md#references_by_content_id) | **GET** /ids/contentIds/{contentId}/references | List artifact references by content ID
-[**references_by_global_id**](ArtifactsApi.md#references_by_global_id) | **GET** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
+[**references_by_global_id**](ArtifactsApi.md#references_by_global_id) | **GET** /ids/globalIds/{globalId}/references | List artifact references by global ID
 [**update_artifact**](ArtifactsApi.md#update_artifact) | **PUT** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 [**update_artifact_state**](ArtifactsApi.md#update_artifact_state) | **PUT** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
 
@@ -35,7 +35,6 @@ import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
 from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
-from rhoas_registry_instance_sdk.model.artifact_type import ArtifactType
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
 from rhoas_registry_instance_sdk.model.error import Error
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
@@ -51,9 +50,9 @@ configuration = rhoas_registry_instance_sdk.Configuration(
 with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    group_id = "my-group" # str | Unique ID of an artifact group.
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     body = open('{"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}', 'rb') # file_type | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
-    x_registry_artifact_type = ArtifactType("AVRO") # ArtifactType | Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) (optional)
+    x_registry_artifact_type = "AVRO" # str | Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) (optional)
     x_registry_artifact_id = "X-Registry-ArtifactId_example" # str | A client-provided, globally unique identifier for the new artifact. (optional)
     x_registry_version = "3.1.6" # str | Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version `1`). (optional)
     if_exists = IfExists("FAIL") # IfExists | Set this option to instruct the server on what to do if the artifact already exists. (optional)
@@ -64,6 +63,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     x_registry_name_encoded = "QXJ0aWZhY3QgbmFtZQo=" # str | Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
     x_registry_content_hash = "X-Registry-Content-Hash_example" # str | Specifies the (optional) hash of the artifact to be verified. (optional)
     x_registry_hash_algorithm = "SHA256" # str | The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) (optional)
+    content_type = "Content-Type_example" # str | This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -77,7 +77,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # and optional values
     try:
         # Create artifact
-        api_response = api_instance.create_artifact(group_id, body, x_registry_artifact_type=x_registry_artifact_type, x_registry_artifact_id=x_registry_artifact_id, x_registry_version=x_registry_version, if_exists=if_exists, canonical=canonical, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_content_hash=x_registry_content_hash, x_registry_hash_algorithm=x_registry_hash_algorithm)
+        api_response = api_instance.create_artifact(group_id, body, x_registry_artifact_type=x_registry_artifact_type, x_registry_artifact_id=x_registry_artifact_id, x_registry_version=x_registry_version, if_exists=if_exists, canonical=canonical, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_content_hash=x_registry_content_hash, x_registry_hash_algorithm=x_registry_hash_algorithm, content_type=content_type)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
@@ -88,9 +88,9 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **str**| Unique ID of an artifact group. |
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **body** | **file_type**| The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
- **x_registry_artifact_type** | **ArtifactType**| Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) | [optional]
+ **x_registry_artifact_type** | **str**| Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) | [optional]
  **x_registry_artifact_id** | **str**| A client-provided, globally unique identifier for the new artifact. | [optional]
  **x_registry_version** | **str**| Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version &#x60;1&#x60;). | [optional]
  **if_exists** | **IfExists**| Set this option to instruct the server on what to do if the artifact already exists. | [optional]
@@ -101,6 +101,7 @@ Name | Type | Description  | Notes
  **x_registry_name_encoded** | **str**| Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **x_registry_content_hash** | **str**| Specifies the (optional) hash of the artifact to be verified. | [optional]
  **x_registry_hash_algorithm** | **str**| The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) | [optional]
+ **content_type** | **str**| This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. | [optional]
 
 ### Return type
 
@@ -112,7 +113,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/vnd.json
  - **Accept**: application/json
 
 
@@ -224,7 +225,7 @@ configuration = rhoas_registry_instance_sdk.Configuration(
 with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    group_id = "my-group" # str | Unique ID of an artifact group.
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
 
     # example passing only required values which don't have defaults set
     try:
@@ -239,7 +240,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **str**| Unique ID of an artifact group. |
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
 
 ### Return type
 
@@ -594,7 +595,7 @@ configuration = rhoas_registry_instance_sdk.Configuration(
 with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    group_id = "my-group" # str | Unique ID of an artifact group.
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     limit = 1 # int | The number of artifacts to return.  Defaults to 20. (optional)
     offset = 1 # int | The number of artifacts to skip before starting the result set.  Defaults to 0. (optional)
     order = SortOrder("asc") # SortOrder | Sort order, ascending (`asc`) or descending (`desc`). (optional)
@@ -623,7 +624,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **str**| Unique ID of an artifact group. |
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **limit** | **int**| The number of artifacts to return.  Defaults to 20. | [optional]
  **offset** | **int**| The number of artifacts to skip before starting the result set.  Defaults to 0. | [optional]
  **order** | **SortOrder**| Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | [optional]
@@ -789,9 +790,9 @@ No authorization required
 # **references_by_global_id**
 > [ArtifactReference] references_by_global_id(global_id)
 
-Returns a list with all the references for the artifact with the given global id.
+List artifact references by global ID
 
-Returns a list containing all the artifact references using the artifact global id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
+Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
 
 ### Example
 
@@ -817,7 +818,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Returns a list with all the references for the artifact with the given global id.
+        # List artifact references by global ID
         api_response = api_instance.references_by_global_id(global_id)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
@@ -884,12 +885,13 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-    body = None # bool, date, datetime, dict, float, int, list, str, none_type | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
+    body = open('{"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}', 'rb') # file_type | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
     x_registry_version = "3.1.6" # str | Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically. (optional)
     x_registry_name = "Artifact name" # str | Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. (optional)
     x_registry_name_encoded = "QXJ0aWZhY3QgbmFtZQo=" # str | Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
     x_registry_description = "Artifact description" # str | Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content. (optional)
     x_registry_description_encoded = "QXJ0aWZhY3QgZGVzY3JpcHRpb24K" # str | Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. (optional)
+    content_type = "Content-Type_example" # str | This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -903,7 +905,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # and optional values
     try:
         # Update artifact
-        api_response = api_instance.update_artifact(group_id, artifact_id, body, x_registry_version=x_registry_version, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded)
+        api_response = api_instance.update_artifact(group_id, artifact_id, body, x_registry_version=x_registry_version, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, content_type=content_type)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling ArtifactsApi->update_artifact: %s\n" % e)
@@ -916,12 +918,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
- **body** | **bool, date, datetime, dict, float, int, list, str, none_type**| The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
+ **body** | **file_type**| The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
  **x_registry_version** | **str**| Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically. | [optional]
  **x_registry_name** | **str**| Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **x_registry_name_encoded** | **str**| Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **x_registry_description** | **str**| Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content. | [optional]
  **x_registry_description_encoded** | **str**| Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. | [optional]
+ **content_type** | **str**| This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. | [optional]
 
 ### Return type
 
@@ -933,7 +936,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/vnd.json
  - **Accept**: application/json
 
 

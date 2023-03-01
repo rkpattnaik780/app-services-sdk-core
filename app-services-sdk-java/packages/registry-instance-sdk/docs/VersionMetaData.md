@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **createdBy** | **String** |  | 
-**createdOn** | **String** |  | 
-**type** | **ArtifactType** |  | 
+**createdOn** | **OffsetDateTime** |  | 
+**type** | **String** |  | 
 **globalId** | **Long** |  | 
 **state** | **ArtifactState** |  |  [optional]
 **id** | **String** | The ID of a single artifact. | 

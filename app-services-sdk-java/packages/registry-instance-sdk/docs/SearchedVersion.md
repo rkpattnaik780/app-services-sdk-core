@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
-**createdOn** | **String** |  | 
+**createdOn** | **OffsetDateTime** |  | 
 **createdBy** | **String** |  | 
-**type** | **ArtifactType** |  | 
+**type** | **String** |  | 
 **labels** | **List&lt;String&gt;** |  |  [optional]
 **state** | **ArtifactState** |  | 
 **globalId** | **Long** |  | 

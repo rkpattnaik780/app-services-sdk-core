@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**listArtifactsInGroup**](ArtifactsApi.md#listArtifactsInGroup) | **GET** /groups/{groupId}/artifacts | List artifacts in group
 [**referencesByContentHash**](ArtifactsApi.md#referencesByContentHash) | **GET** /ids/contentHashes/{contentHash}/references | List artifact references by hash
 [**referencesByContentId**](ArtifactsApi.md#referencesByContentId) | **GET** /ids/contentIds/{contentId}/references | List artifact references by content ID
-[**referencesByGlobalId**](ArtifactsApi.md#referencesByGlobalId) | **GET** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
+[**referencesByGlobalId**](ArtifactsApi.md#referencesByGlobalId) | **GET** /ids/globalIds/{globalId}/references | List artifact references by global ID
 [**updateArtifact**](ArtifactsApi.md#updateArtifact) | **PUT** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 [**updateArtifactState**](ArtifactsApi.md#updateArtifactState) | **PUT** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## createArtifact
 
-> ArtifactMetaData createArtifact(groupId, body, xRegistryArtifactType, xRegistryArtifactId, xRegistryVersion, ifExists, canonical, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryName, xRegistryNameEncoded, xRegistryContentHash, xRegistryHashAlgorithm)
+> ArtifactMetaData createArtifact(groupId, body, xRegistryArtifactType, xRegistryArtifactId, xRegistryVersion, ifExists, canonical, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryName, xRegistryNameEncoded, xRegistryContentHash, xRegistryHashAlgorithm, contentType)
 
 Create artifact
 
@@ -44,9 +44,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ArtifactsApi apiInstance = new ArtifactsApi(defaultClient);
-        String groupId = "groupId_example"; // String | Unique ID of an artifact group.
+        String groupId = "groupId_example"; // String | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
         File body = {"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}; // File | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
-        ArtifactType xRegistryArtifactType = ArtifactType.fromValue("AVRO"); // ArtifactType | Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`)
+        String xRegistryArtifactType = "xRegistryArtifactType_example"; // String | Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`)
         String xRegistryArtifactId = "xRegistryArtifactId_example"; // String | A client-provided, globally unique identifier for the new artifact.
         String xRegistryVersion = "xRegistryVersion_example"; // String | Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version `1`).
         IfExists ifExists = IfExists.fromValue("FAIL"); // IfExists | Set this option to instruct the server on what to do if the artifact already exists.
@@ -57,8 +57,9 @@ public class Example {
         String xRegistryNameEncoded = "xRegistryNameEncoded_example"; // String | Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content.
         String xRegistryContentHash = "xRegistryContentHash_example"; // String | Specifies the (optional) hash of the artifact to be verified.
         String xRegistryHashAlgorithm = "SHA256"; // String | The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256)
+        String contentType = "contentType_example"; // String | This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise.
         try {
-            ArtifactMetaData result = apiInstance.createArtifact(groupId, body, xRegistryArtifactType, xRegistryArtifactId, xRegistryVersion, ifExists, canonical, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryName, xRegistryNameEncoded, xRegistryContentHash, xRegistryHashAlgorithm);
+            ArtifactMetaData result = apiInstance.createArtifact(groupId, body, xRegistryArtifactType, xRegistryArtifactId, xRegistryVersion, ifExists, canonical, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryName, xRegistryNameEncoded, xRegistryContentHash, xRegistryHashAlgorithm, contentType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ArtifactsApi#createArtifact");
@@ -76,9 +77,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Unique ID of an artifact group. |
+ **groupId** | **String**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **body** | **File**| The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
- **xRegistryArtifactType** | [**ArtifactType**](.md)| Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) | [optional] [enum: AVRO, PROTOBUF, JSON, OPENAPI, ASYNCAPI, GRAPHQL, KCONNECT, WSDL, XSD, XML]
+ **xRegistryArtifactType** | **String**| Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) | [optional]
  **xRegistryArtifactId** | **String**| A client-provided, globally unique identifier for the new artifact. | [optional]
  **xRegistryVersion** | **String**| Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version &#x60;1&#x60;). | [optional]
  **ifExists** | [**IfExists**](.md)| Set this option to instruct the server on what to do if the artifact already exists. | [optional] [enum: FAIL, UPDATE, RETURN, RETURN_OR_UPDATE]
@@ -89,6 +90,7 @@ Name | Type | Description  | Notes
  **xRegistryNameEncoded** | **String**| Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **xRegistryContentHash** | **String**| Specifies the (optional) hash of the artifact to be verified. | [optional]
  **xRegistryHashAlgorithm** | **String**| The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) | [optional] [enum: SHA256, MD5]
+ **contentType** | **String**| This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. | [optional]
 
 ### Return type
 
@@ -100,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/vnd.json
 - **Accept**: application/json
 
 
@@ -206,7 +208,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ArtifactsApi apiInstance = new ArtifactsApi(defaultClient);
-        String groupId = "groupId_example"; // String | Unique ID of an artifact group.
+        String groupId = "groupId_example"; // String | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
         try {
             apiInstance.deleteArtifactsInGroup(groupId);
         } catch (ApiException e) {
@@ -225,7 +227,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Unique ID of an artifact group. |
+ **groupId** | **String**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
 
 ### Return type
 
@@ -550,7 +552,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ArtifactsApi apiInstance = new ArtifactsApi(defaultClient);
-        String groupId = "groupId_example"; // String | Unique ID of an artifact group.
+        String groupId = "groupId_example"; // String | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
         Integer limit = 56; // Integer | The number of artifacts to return.  Defaults to 20.
         Integer offset = 56; // Integer | The number of artifacts to skip before starting the result set.  Defaults to 0.
         SortOrder order = SortOrder.fromValue("asc"); // SortOrder | Sort order, ascending (`asc`) or descending (`desc`).
@@ -574,7 +576,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Unique ID of an artifact group. |
+ **groupId** | **String**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **limit** | **Integer**| The number of artifacts to return.  Defaults to 20. | [optional]
  **offset** | **Integer**| The number of artifacts to skip before starting the result set.  Defaults to 0. | [optional]
  **order** | [**SortOrder**](.md)| Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | [optional] [enum: asc, desc]
@@ -737,9 +739,9 @@ No authorization required
 
 > List&lt;ArtifactReference&gt; referencesByGlobalId(globalId)
 
-Returns a list with all the references for the artifact with the given global id.
+List artifact references by global ID
 
-Returns a list containing all the artifact references using the artifact global id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;)
+Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;)
 
 ### Example
 
@@ -801,7 +803,7 @@ No authorization required
 
 ## updateArtifact
 
-> ArtifactMetaData updateArtifact(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryNameEncoded, xRegistryDescription, xRegistryDescriptionEncoded)
+> ArtifactMetaData updateArtifact(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryNameEncoded, xRegistryDescription, xRegistryDescriptionEncoded, contentType)
 
 Update artifact
 
@@ -825,14 +827,15 @@ public class Example {
         ArtifactsApi apiInstance = new ArtifactsApi(defaultClient);
         String groupId = "groupId_example"; // String | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
         String artifactId = "artifactId_example"; // String | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-        Object body = {"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}; // Object | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
+        File body = {"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}; // File | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
         String xRegistryVersion = "xRegistryVersion_example"; // String | Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically.
         String xRegistryName = "xRegistryName_example"; // String | Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content.
         String xRegistryNameEncoded = "xRegistryNameEncoded_example"; // String | Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content.
         String xRegistryDescription = "xRegistryDescription_example"; // String | Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content.
         String xRegistryDescriptionEncoded = "xRegistryDescriptionEncoded_example"; // String | Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content.
+        String contentType = "contentType_example"; // String | This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise.
         try {
-            ArtifactMetaData result = apiInstance.updateArtifact(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryNameEncoded, xRegistryDescription, xRegistryDescriptionEncoded);
+            ArtifactMetaData result = apiInstance.updateArtifact(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryNameEncoded, xRegistryDescription, xRegistryDescriptionEncoded, contentType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ArtifactsApi#updateArtifact");
@@ -852,12 +855,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifactId** | **String**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
- **body** | **Object**| The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
+ **body** | **File**| The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  |
  **xRegistryVersion** | **String**| Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically. | [optional]
  **xRegistryName** | **String**| Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **xRegistryNameEncoded** | **String**| Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **xRegistryDescription** | **String**| Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content. | [optional]
  **xRegistryDescriptionEncoded** | **String**| Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. | [optional]
+ **contentType** | **String**| This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. | [optional]
 
 ### Return type
 
@@ -869,7 +873,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/vnd.json
 - **Accept**: application/json
 
 

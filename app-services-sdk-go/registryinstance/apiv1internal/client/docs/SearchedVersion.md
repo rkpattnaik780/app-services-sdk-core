@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**CreatedOn** | **string** |  | 
+**CreatedOn** | **time.Time** |  | 
 **CreatedBy** | **string** |  | 
-**Type** | [**ArtifactType**](ArtifactType.md) |  | 
+**Type** | **string** |  | 
 **Labels** | Pointer to **[]string** |  | [optional] 
 **State** | [**ArtifactState**](ArtifactState.md) |  | 
 **GlobalId** | **int64** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSearchedVersion
 
-`func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, references []ArtifactReference, ) *SearchedVersion`
+`func NewSearchedVersion(createdOn time.Time, createdBy string, type_ string, state ArtifactState, globalId int64, version string, contentId int64, references []ArtifactReference, ) *SearchedVersion`
 
 NewSearchedVersion instantiates a new SearchedVersion object
 This constructor will assign default values to properties that have it defined,
@@ -88,20 +88,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetCreatedOn
 
-`func (o *SearchedVersion) GetCreatedOn() string`
+`func (o *SearchedVersion) GetCreatedOn() time.Time`
 
 GetCreatedOn returns the CreatedOn field if non-nil, zero value otherwise.
 
 ### GetCreatedOnOk
 
-`func (o *SearchedVersion) GetCreatedOnOk() (*string, bool)`
+`func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool)`
 
 GetCreatedOnOk returns a tuple with the CreatedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedOn
 
-`func (o *SearchedVersion) SetCreatedOn(v string)`
+`func (o *SearchedVersion) SetCreatedOn(v time.Time)`
 
 SetCreatedOn sets CreatedOn field to given value.
 
@@ -128,20 +128,20 @@ SetCreatedBy sets CreatedBy field to given value.
 
 ### GetType
 
-`func (o *SearchedVersion) GetType() ArtifactType`
+`func (o *SearchedVersion) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SearchedVersion) GetTypeOk() (*ArtifactType, bool)`
+`func (o *SearchedVersion) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SearchedVersion) SetType(v ArtifactType)`
+`func (o *SearchedVersion) SetType(v string)`
 
 SetType sets Type field to given value.
 

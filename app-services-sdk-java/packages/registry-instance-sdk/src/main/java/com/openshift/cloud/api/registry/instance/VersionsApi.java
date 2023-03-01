@@ -52,10 +52,11 @@ public class VersionsApi {
    * @param xRegistryDescription Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content. (optional)
    * @param xRegistryDescriptionEncoded Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. (optional)
    * @param xRegistryNameEncoded Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
+   * @param contentType This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. (optional)
    * @return a {@code VersionMetaData}
    * @throws ApiException if fails to make API call
    */
-  public VersionMetaData createArtifactVersion(String groupId, String artifactId, Object body, String xRegistryVersion, String xRegistryName, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryNameEncoded) throws ApiException {
+  public VersionMetaData createArtifactVersion(String groupId, String artifactId, File body, String xRegistryVersion, String xRegistryName, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryNameEncoded, String contentType) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set
@@ -95,6 +96,8 @@ if (xRegistryDescriptionEncoded != null)
       localVarHeaderParams.put("X-Registry-Description-Encoded", apiClient.parameterToString(xRegistryDescriptionEncoded));
 if (xRegistryNameEncoded != null)
       localVarHeaderParams.put("X-Registry-Name-Encoded", apiClient.parameterToString(xRegistryNameEncoded));
+if (contentType != null)
+      localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
 
     
     
@@ -104,7 +107,7 @@ if (xRegistryNameEncoded != null)
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "application/json", "application/vnd.json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

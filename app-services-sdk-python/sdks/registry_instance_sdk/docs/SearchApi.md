@@ -118,7 +118,6 @@ Returns a paginated list of all artifacts with at least one version that matches
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import search_api
-from rhoas_registry_instance_sdk.model.artifact_type import ArtifactType
 from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSearchResults
 from rhoas_registry_instance_sdk.model.error import Error
 from pprint import pprint
@@ -135,7 +134,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     api_instance = search_api.SearchApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The content to search for.
     canonical = True # bool | Parameter that can be set to `true` to indicate that the server should \"canonicalize\" the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the `artifactType` query parameter. (optional)
-    artifact_type = ArtifactType("AVRO") # ArtifactType | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the `canonical` query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. (optional)
+    artifact_type = "AVRO" # str | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the `canonical` query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. (optional)
     offset = 0 # int | The number of artifacts to skip before starting to collect the result set.  Defaults to 0. (optional) if omitted the server will use the default value of 0
     limit = 20 # int | The number of artifacts to return.  Defaults to 20. (optional) if omitted the server will use the default value of 20
     order = "asc" # str | Sort order, ascending (`asc`) or descending (`desc`). (optional)
@@ -166,7 +165,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **file_type**| The content to search for. |
  **canonical** | **bool**| Parameter that can be set to &#x60;true&#x60; to indicate that the server should \&quot;canonicalize\&quot; the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the &#x60;artifactType&#x60; query parameter. | [optional]
- **artifact_type** | **ArtifactType**| Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. | [optional]
+ **artifact_type** | **str**| Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. | [optional]
  **offset** | **int**| The number of artifacts to skip before starting to collect the result set.  Defaults to 0. | [optional] if omitted the server will use the default value of 0
  **limit** | **int**| The number of artifacts to return.  Defaults to 20. | [optional] if omitted the server will use the default value of 20
  **order** | **str**| Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | [optional]

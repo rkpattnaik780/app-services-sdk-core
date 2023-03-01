@@ -10,7 +10,6 @@ import javax.ws.rs.core.GenericType;
 import com.openshift.cloud.api.registry.instance.models.ArtifactMetaData;
 import com.openshift.cloud.api.registry.instance.models.ArtifactReference;
 import com.openshift.cloud.api.registry.instance.models.ArtifactSearchResults;
-import com.openshift.cloud.api.registry.instance.models.ArtifactType;
 import com.openshift.cloud.api.registry.instance.models.ContentCreateRequest;
 import com.openshift.cloud.api.registry.instance.models.Error;
 import java.io.File;
@@ -48,7 +47,7 @@ public class ArtifactsApi {
   /**
    * Create artifact
    * Creates a new artifact by posting the artifact content.  The body of the request should be the raw content of the artifact.  This is typically in JSON format for *most* of the  supported types, but may be in another format for a few (for example, &#x60;PROTOBUF&#x60;).  The registry attempts to figure out what kind of artifact is being added from the following supported list:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  Alternatively, you can specify the artifact type using the &#x60;X-Registry-ArtifactType&#x60;  HTTP request header, or include a hint in the request&#39;s &#x60;Content-Type&#x60;.  For example:  &#x60;&#x60;&#x60; Content-Type: application/json; artifactType&#x3D;AVRO &#x60;&#x60;&#x60;  An artifact is created using the content provided in the body of the request.  This content is created under a unique artifact ID that can be provided in the request using the &#x60;X-Registry-ArtifactId&#x60; request header.  If not provided in the request, the server generates a unique ID for the artifact.  It is typically recommended that callers provide the ID, because this is typically a meaningful identifier,  and for most use cases should be supplied by the caller.  If an artifact with the provided artifact ID already exists, the default behavior is for the server to reject the content with a 409 error.  However, the caller can supply the &#x60;ifExists&#x60; query parameter to alter this default behavior. The &#x60;ifExists&#x60; query parameter can have one of the following values:  * &#x60;FAIL&#x60; (*default*) - server rejects the content with a 409 error * &#x60;UPDATE&#x60; - server updates the existing artifact and returns the new metadata * &#x60;RETURN&#x60; - server does not create or add content to the server, but instead  returns the metadata for the existing artifact * &#x60;RETURN_OR_UPDATE&#x60; - server returns an existing **version** that matches the  provided content if such a version exists, otherwise a new version is created  This operation may fail for one of the following reasons:  * An invalid &#x60;ArtifactType&#x60; was indicated (HTTP error &#x60;400&#x60;) * No &#x60;ArtifactType&#x60; was indicated and the server could not determine one from the content (HTTP error &#x60;400&#x60;) * Provided content (request body) was empty (HTTP error &#x60;400&#x60;) * An artifact with the provided ID already exists (HTTP error &#x60;409&#x60;) * The content violates one of the configured global rules (HTTP error &#x60;409&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
-   * @param groupId Unique ID of an artifact group. (required)
+   * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. (required)
    * @param body The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  (required)
    * @param xRegistryArtifactType Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) (optional)
    * @param xRegistryArtifactId A client-provided, globally unique identifier for the new artifact. (optional)
@@ -61,10 +60,11 @@ public class ArtifactsApi {
    * @param xRegistryNameEncoded Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
    * @param xRegistryContentHash Specifies the (optional) hash of the artifact to be verified. (optional)
    * @param xRegistryHashAlgorithm The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) (optional)
+   * @param contentType This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. (optional)
    * @return a {@code ArtifactMetaData}
    * @throws ApiException if fails to make API call
    */
-  public ArtifactMetaData createArtifact(String groupId, File body, ArtifactType xRegistryArtifactType, String xRegistryArtifactId, String xRegistryVersion, IfExists ifExists, Boolean canonical, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryName, String xRegistryNameEncoded, String xRegistryContentHash, String xRegistryHashAlgorithm) throws ApiException {
+  public ArtifactMetaData createArtifact(String groupId, File body, String xRegistryArtifactType, String xRegistryArtifactId, String xRegistryVersion, IfExists ifExists, Boolean canonical, String xRegistryDescription, String xRegistryDescriptionEncoded, String xRegistryName, String xRegistryNameEncoded, String xRegistryContentHash, String xRegistryHashAlgorithm, String contentType) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set
@@ -108,6 +108,8 @@ if (xRegistryContentHash != null)
       localVarHeaderParams.put("X-Registry-Content-Hash", apiClient.parameterToString(xRegistryContentHash));
 if (xRegistryHashAlgorithm != null)
       localVarHeaderParams.put("X-Registry-Hash-Algorithm", apiClient.parameterToString(xRegistryHashAlgorithm));
+if (contentType != null)
+      localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
 
     
     
@@ -117,7 +119,7 @@ if (xRegistryHashAlgorithm != null)
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "application/json", "application/vnd.json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -179,7 +181,7 @@ if (xRegistryHashAlgorithm != null)
   /**
    * Delete artifacts in group
    * Deletes all of the artifacts that exist in a given group.
-   * @param groupId Unique ID of an artifact group. (required)
+   * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteArtifactsInGroup(String groupId) throws ApiException {
@@ -409,7 +411,7 @@ if (xRegistryHashAlgorithm != null)
   /**
    * List artifacts in group
    * Returns a list of all artifacts in the group.  This list is paged.
-   * @param groupId Unique ID of an artifact group. (required)
+   * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. (required)
    * @param limit The number of artifacts to return.  Defaults to 20. (optional)
    * @param offset The number of artifacts to skip before starting the result set.  Defaults to 0. (optional)
    * @param order Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). (optional)
@@ -547,8 +549,8 @@ if (xRegistryHashAlgorithm != null)
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Returns a list with all the references for the artifact with the given global id.
-   * Returns a list containing all the artifact references using the artifact global id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;)
+   * List artifact references by global ID
+   * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error &#x60;500&#x60;)
    * @param globalId Global identifier for an artifact version. (required)
    * @return a {@code List<ArtifactReference>}
    * @throws ApiException if fails to make API call
@@ -601,10 +603,11 @@ if (xRegistryHashAlgorithm != null)
    * @param xRegistryNameEncoded Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
    * @param xRegistryDescription Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content. (optional)
    * @param xRegistryDescriptionEncoded Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. (optional)
+   * @param contentType This header is explicit so clients using the OpenAPI Generator are able select the content type. Ignore otherwise. (optional)
    * @return a {@code ArtifactMetaData}
    * @throws ApiException if fails to make API call
    */
-  public ArtifactMetaData updateArtifact(String groupId, String artifactId, Object body, String xRegistryVersion, String xRegistryName, String xRegistryNameEncoded, String xRegistryDescription, String xRegistryDescriptionEncoded) throws ApiException {
+  public ArtifactMetaData updateArtifact(String groupId, String artifactId, File body, String xRegistryVersion, String xRegistryName, String xRegistryNameEncoded, String xRegistryDescription, String xRegistryDescriptionEncoded, String contentType) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set
@@ -644,6 +647,8 @@ if (xRegistryDescription != null)
       localVarHeaderParams.put("X-Registry-Description", apiClient.parameterToString(xRegistryDescription));
 if (xRegistryDescriptionEncoded != null)
       localVarHeaderParams.put("X-Registry-Description-Encoded", apiClient.parameterToString(xRegistryDescriptionEncoded));
+if (contentType != null)
+      localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
 
     
     
@@ -653,7 +658,7 @@ if (xRegistryDescriptionEncoded != null)
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      "application/json", "application/vnd.json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

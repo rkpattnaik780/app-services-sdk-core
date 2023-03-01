@@ -2,7 +2,7 @@ api.ts
 api/admin-api.ts
 api/artifact-rules-api.ts
 api/artifacts-api.ts
-api/global-rules-api.ts
+api/groups-api.ts
 api/metadata-api.ts
 api/search-api.ts
 api/system-api.ts
@@ -17,11 +17,14 @@ model/artifact-owner.ts
 model/artifact-reference.ts
 model/artifact-search-results.ts
 model/artifact-state.ts
-model/artifact-type.ts
+model/artifact-type-info.ts
 model/configuration-property.ts
 model/content-create-request.ts
+model/create-group-meta-data.ts
 model/download-ref.ts
 model/editable-meta-data.ts
+model/group-meta-data.ts
+model/group-search-results.ts
 model/if-exists.ts
 model/index.ts
 model/limits.ts
@@ -38,6 +41,7 @@ model/rule-violation-error-all-of.ts
 model/rule-violation-error.ts
 model/rule.ts
 model/searched-artifact.ts
+model/searched-group.ts
 model/searched-version.ts
 model/sort-by.ts
 model/sort-order.ts

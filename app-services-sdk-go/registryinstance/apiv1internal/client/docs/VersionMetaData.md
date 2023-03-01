@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **CreatedBy** | **string** |  | 
-**CreatedOn** | **string** |  | 
-**Type** | [**ArtifactType**](ArtifactType.md) |  | 
+**CreatedOn** | **time.Time** |  | 
+**Type** | **string** |  | 
 **GlobalId** | **int64** |  | 
 **State** | Pointer to [**ArtifactState**](ArtifactState.md) |  | [optional] 
 **Id** | **string** | The ID of a single artifact. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewVersionMetaData
 
-`func NewVersionMetaData(version string, createdBy string, createdOn string, type_ ArtifactType, globalId int64, id string, contentId int64, ) *VersionMetaData`
+`func NewVersionMetaData(version string, createdBy string, createdOn time.Time, type_ string, globalId int64, id string, contentId int64, ) *VersionMetaData`
 
 NewVersionMetaData instantiates a new VersionMetaData object
 This constructor will assign default values to properties that have it defined,
@@ -129,40 +129,40 @@ SetCreatedBy sets CreatedBy field to given value.
 
 ### GetCreatedOn
 
-`func (o *VersionMetaData) GetCreatedOn() string`
+`func (o *VersionMetaData) GetCreatedOn() time.Time`
 
 GetCreatedOn returns the CreatedOn field if non-nil, zero value otherwise.
 
 ### GetCreatedOnOk
 
-`func (o *VersionMetaData) GetCreatedOnOk() (*string, bool)`
+`func (o *VersionMetaData) GetCreatedOnOk() (*time.Time, bool)`
 
 GetCreatedOnOk returns a tuple with the CreatedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedOn
 
-`func (o *VersionMetaData) SetCreatedOn(v string)`
+`func (o *VersionMetaData) SetCreatedOn(v time.Time)`
 
 SetCreatedOn sets CreatedOn field to given value.
 
 
 ### GetType
 
-`func (o *VersionMetaData) GetType() ArtifactType`
+`func (o *VersionMetaData) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *VersionMetaData) GetTypeOk() (*ArtifactType, bool)`
+`func (o *VersionMetaData) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *VersionMetaData) SetType(v ArtifactType)`
+`func (o *VersionMetaData) SetType(v string)`
 
 SetType sets Type field to given value.
 

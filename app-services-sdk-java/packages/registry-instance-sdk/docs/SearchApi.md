@@ -122,7 +122,7 @@ public class Example {
         SearchApi apiInstance = new SearchApi(defaultClient);
         File body = new File("/path/to/file"); // File | The content to search for.
         Boolean canonical = true; // Boolean | Parameter that can be set to `true` to indicate that the server should \"canonicalize\" the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the `artifactType` query parameter.
-        ArtifactType artifactType = ArtifactType.fromValue("AVRO"); // ArtifactType | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the `canonical` query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts.
+        String artifactType = "artifactType_example"; // String | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the `canonical` query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts.
         Integer offset = 0; // Integer | The number of artifacts to skip before starting to collect the result set.  Defaults to 0.
         Integer limit = 20; // Integer | The number of artifacts to return.  Defaults to 20.
         String order = "asc"; // String | Sort order, ascending (`asc`) or descending (`desc`).
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **File**| The content to search for. |
  **canonical** | **Boolean**| Parameter that can be set to &#x60;true&#x60; to indicate that the server should \&quot;canonicalize\&quot; the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the &#x60;artifactType&#x60; query parameter. | [optional]
- **artifactType** | [**ArtifactType**](.md)| Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. | [optional] [enum: AVRO, PROTOBUF, JSON, OPENAPI, ASYNCAPI, GRAPHQL, KCONNECT, WSDL, XSD, XML]
+ **artifactType** | **String**| Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. | [optional]
  **offset** | **Integer**| The number of artifacts to skip before starting to collect the result set.  Defaults to 0. | [optional] [default to 0]
  **limit** | **Integer**| The number of artifacts to return.  Defaults to 20. | [optional] [default to 20]
  **order** | **String**| Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | [optional] [enum: asc, desc]

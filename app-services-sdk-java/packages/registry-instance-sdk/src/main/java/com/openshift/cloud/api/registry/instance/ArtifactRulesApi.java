@@ -8,6 +8,7 @@ import com.openshift.cloud.api.registry.instance.invoker.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.openshift.cloud.api.registry.instance.models.Error;
+import java.io.File;
 import com.openshift.cloud.api.registry.instance.models.Rule;
 import com.openshift.cloud.api.registry.instance.models.RuleType;
 import com.openshift.cloud.api.registry.instance.models.RuleViolationError;
@@ -317,7 +318,7 @@ public class ArtifactRulesApi {
    * @param body The content of the artifact being tested. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  (required)
    * @throws ApiException if fails to make API call
    */
-  public void testUpdateArtifact(String groupId, String artifactId, Object body) throws ApiException {
+  public void testUpdateArtifact(String groupId, String artifactId, File body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set

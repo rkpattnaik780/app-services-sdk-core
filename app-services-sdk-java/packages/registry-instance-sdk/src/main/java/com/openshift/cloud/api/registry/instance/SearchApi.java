@@ -8,7 +8,6 @@ import com.openshift.cloud.api.registry.instance.invoker.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.openshift.cloud.api.registry.instance.models.ArtifactSearchResults;
-import com.openshift.cloud.api.registry.instance.models.ArtifactType;
 import com.openshift.cloud.api.registry.instance.models.Error;
 import java.io.File;
 import com.openshift.cloud.api.registry.instance.models.SortBy;
@@ -111,7 +110,7 @@ public class SearchApi {
    * @return a {@code ArtifactSearchResults}
    * @throws ApiException if fails to make API call
    */
-  public ArtifactSearchResults searchArtifactsByContent(File body, Boolean canonical, ArtifactType artifactType, Integer offset, Integer limit, String order, String orderby) throws ApiException {
+  public ArtifactSearchResults searchArtifactsByContent(File body, Boolean canonical, String artifactType, Integer offset, Integer limit, String order, String orderby) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set

@@ -11,6 +11,7 @@ import com.openshift.cloud.api.registry.instance.models.ArtifactMetaData;
 import com.openshift.cloud.api.registry.instance.models.ArtifactOwner;
 import com.openshift.cloud.api.registry.instance.models.EditableMetaData;
 import com.openshift.cloud.api.registry.instance.models.Error;
+import java.io.File;
 import com.openshift.cloud.api.registry.instance.models.VersionMetaData;
 
 import java.util.ArrayList;
@@ -265,7 +266,7 @@ public class MetadataApi {
    * @return a {@code VersionMetaData}
    * @throws ApiException if fails to make API call
    */
-  public VersionMetaData getArtifactVersionMetaDataByContent(String groupId, String artifactId, Object body, Boolean canonical) throws ApiException {
+  public VersionMetaData getArtifactVersionMetaDataByContent(String groupId, String artifactId, File body, Boolean canonical) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'groupId' is set

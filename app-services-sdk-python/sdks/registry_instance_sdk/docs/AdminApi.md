@@ -4,22 +4,102 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_global_rule**](AdminApi.md#create_global_rule) | **POST** /admin/rules | Create global rule
 [**create_role_mapping**](AdminApi.md#create_role_mapping) | **POST** /admin/roleMappings | Create a new role mapping
+[**delete_all_global_rules**](AdminApi.md#delete_all_global_rules) | **DELETE** /admin/rules | Delete all global rules
+[**delete_global_rule**](AdminApi.md#delete_global_rule) | **DELETE** /admin/rules/{rule} | Delete global rule
 [**delete_role_mapping**](AdminApi.md#delete_role_mapping) | **DELETE** /admin/roleMappings/{principalId} | Delete a role mapping
 [**export_data**](AdminApi.md#export_data) | **GET** /admin/export | Export registry data
 [**get_config_property**](AdminApi.md#get_config_property) | **GET** /admin/config/properties/{propertyName} | Get configuration property value
+[**get_global_rule_config**](AdminApi.md#get_global_rule_config) | **GET** /admin/rules/{rule} | Get global rule configuration
 [**get_log_configuration**](AdminApi.md#get_log_configuration) | **GET** /admin/loggers/{logger} | Get a single logger configuration
 [**get_role_mapping**](AdminApi.md#get_role_mapping) | **GET** /admin/roleMappings/{principalId} | Return a single role mapping
 [**import_data**](AdminApi.md#import_data) | **POST** /admin/import | Import registry data
+[**list_artifact_types**](AdminApi.md#list_artifact_types) | **GET** /admin/artifactTypes | List artifact types
 [**list_config_properties**](AdminApi.md#list_config_properties) | **GET** /admin/config/properties | List all configuration properties
+[**list_global_rules**](AdminApi.md#list_global_rules) | **GET** /admin/rules | List global rules
 [**list_log_configurations**](AdminApi.md#list_log_configurations) | **GET** /admin/loggers | List logging configurations
 [**list_role_mappings**](AdminApi.md#list_role_mappings) | **GET** /admin/roleMappings | List all role mappings
 [**remove_log_configuration**](AdminApi.md#remove_log_configuration) | **DELETE** /admin/loggers/{logger} | Removes logger configuration
 [**reset_config_property**](AdminApi.md#reset_config_property) | **DELETE** /admin/config/properties/{propertyName} | Reset a configuration property
 [**set_log_configuration**](AdminApi.md#set_log_configuration) | **PUT** /admin/loggers/{logger} | Set a logger&#39;s configuration
 [**update_config_property**](AdminApi.md#update_config_property) | **PUT** /admin/config/properties/{propertyName} | Update a configuration property
+[**update_global_rule_config**](AdminApi.md#update_global_rule_config) | **PUT** /admin/rules/{rule} | Update global rule configuration
 [**update_role_mapping**](AdminApi.md#update_role_mapping) | **PUT** /admin/roleMappings/{principalId} | Update a role mapping
 
+
+# **create_global_rule**
+> create_global_rule(rule)
+
+Create global rule
+
+Adds a rule to the list of globally configured rules.  This operation can fail for the following reasons:  * The rule type is unknown (HTTP error `400`) * The rule already exists (HTTP error `409`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.rule import Rule
+from rhoas_registry_instance_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    rule = Rule(
+        config="config_example",
+        type=RuleType("VALIDITY"),
+    ) # Rule | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create global rule
+        api_instance.create_global_rule(rule)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->create_global_rule: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule** | [**Rule**](Rule.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The global rule was added. |  -  |
+**400** | Common response for all operations that can return a &#x60;400&#x60; error. |  -  |
+**409** | Common response used when an input conflicts with existing data. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_role_mapping**
 > create_role_mapping(role_mapping)
@@ -89,6 +169,138 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returned when the role mapping was successfully created. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_all_global_rules**
+> delete_all_global_rules()
+
+Delete all global rules
+
+Deletes all globally configured rules.  This operation can fail for the following reasons:  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Delete all global rules
+        api_instance.delete_all_global_rules()
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->delete_all_global_rules: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | All global rules have been removed successfully. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_global_rule**
+> delete_global_rule(rule)
+
+Delete global rule
+
+Deletes a single global rule.  If this is the only rule configured, this is the same as deleting **all** rules.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error `400`) * No rule with name/type `rule` exists (HTTP error `404`) * Rule cannot be deleted (HTTP error `409`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.rule_type import RuleType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete global rule
+        api_instance.delete_global_rule(rule)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->delete_global_rule: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule** | **RuleType**| The unique name/type of a rule. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The global rule was successfully deleted. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -175,6 +387,7 @@ Exports registry data as a ZIP archive.
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.download_ref import DownloadRef
 from rhoas_registry_instance_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -188,14 +401,13 @@ configuration = rhoas_registry_instance_sdk.Configuration(
 with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
-    accept = "Accept_example" # str |  (optional)
     for_browser = True # bool | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called `href`.  This `href` will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Export registry data
-        api_response = api_instance.export_data(accept=accept, for_browser=for_browser)
+        api_response = api_instance.export_data(for_browser=for_browser)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling AdminApi->export_data: %s\n" % e)
@@ -206,7 +418,6 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept** | **str**|  | [optional]
  **for_browser** | **bool**| Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. | [optional]
 
 ### Return type
@@ -297,6 +508,77 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The configuration property value. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_global_rule_config**
+> Rule get_global_rule_config(rule)
+
+Get global rule configuration
+
+Returns information about the named globally configured rule.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error `400`) * No rule with name/type `rule` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.rule import Rule
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.rule_type import RuleType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get global rule configuration
+        api_response = api_instance.get_global_rule_config(rule)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->get_global_rule_config: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule** | **RuleType**| The unique name/type of a rule. |
+
+### Return type
+
+[**Rule**](Rule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The global rule&#39;s configuration. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
@@ -520,6 +802,71 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_artifact_types**
+> [ArtifactTypeInfo] list_artifact_types()
+
+List artifact types
+
+Gets a list of all the configured artifact types.  This operation can fail for the following reasons:  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_type_info import ArtifactTypeInfo
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List artifact types
+        api_response = api_instance.list_artifact_types()
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->list_artifact_types: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[ArtifactTypeInfo]**](ArtifactTypeInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of available artifact types. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_config_properties**
 > [ConfigurationProperty] list_config_properties()
 
@@ -581,6 +928,71 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | On a successful response, returns a list of configuration properties. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_global_rules**
+> [RuleType] list_global_rules()
+
+List global rules
+
+Gets a list of all the currently configured global rules (if any).  This operation can fail for the following reasons:  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.rule_type import RuleType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List global rules
+        api_response = api_instance.list_global_rules()
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->list_global_rules: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[RuleType]**](RuleType.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of names of the globally configured rules. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -994,6 +1406,82 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The configuration property was updated. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_global_rule_config**
+> Rule update_global_rule_config(rule, rule2)
+
+Update global rule configuration
+
+Updates the configuration for a globally configured rule.  This operation can fail for the following reasons:  * Invalid rule name/type (HTTP error `400`) * No rule with name/type `rule` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import admin_api
+from rhoas_registry_instance_sdk.model.rule import Rule
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.rule_type import RuleType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
+    rule2 = Rule(
+        config="config_example",
+        type=RuleType("VALIDITY"),
+    ) # Rule | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update global rule configuration
+        api_response = api_instance.update_global_rule_config(rule, rule2)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling AdminApi->update_global_rule_config: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule** | **RuleType**| The unique name/type of a rule. |
+ **rule2** | [**Rule**](Rule.md)|  |
+
+### Return type
+
+[**Rule**](Rule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The global rule&#39;s configuration was successfully updated. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 

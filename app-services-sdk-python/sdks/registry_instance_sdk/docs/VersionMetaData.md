@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **str** |  | 
 **created_by** | **str** |  | 
-**created_on** | **str** |  | 
-**type** | [**ArtifactType**](ArtifactType.md) |  | 
+**created_on** | **datetime** |  | 
+**type** | **str** |  | 
 **global_id** | **int** |  | 
 **id** | **str** | The ID of a single artifact. | 
 **content_id** | **int** |  | 
