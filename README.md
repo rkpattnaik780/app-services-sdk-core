@@ -7,6 +7,14 @@
 | Java   | [app-services-sdk-java](/app-services-sdk-java/)        |
 |  Go   | [app-services-sdk-go](/app-services-sdk-go/)        |
 
+## Structure
+
+RHOAS SDK's are delivered as set of individual packages.
+SDK's are divided into two types:
+
+- **Management SDKs** - support creating services
+- **Instance SDKs** -  support interaction with services (limited to capabilities not supported by upstream tools)
+
 ## Purpose of this repository
 
 Repository contains source code for openapi based generator along with automation scripts that generate all
@@ -19,14 +27,6 @@ Typescript and JavaScript packages and API clients for RHOAS services
 ## Prequisites
 
 - [NodeJS 14.x lts](https://nodejs.org/en/about/releases/) or above
-
-## Introduction
-
-RHOAS TypeScript SDK's are delivered as set of the individual npm packages.
-SDK's are divided into two types:
-
-- **Management SDKs** - support creating services
-- **Instance SDKs** -  support interaction with services (limited to capabilities not supported by upstream tools)
 
 Typically developers need to integrate with Management SDK's to create or manage service instances 
 and later use upstream libraries or management SDK's to interact with services.
@@ -113,14 +113,6 @@ Java packages and API clients for RHOAS services
 - [NodeJS 14.x lts](https://nodejs.org/en/about/releases/) or above
 - [Maven 3.6.x](https://maven.apache.org) or above
 - [YQ 4.6.x](https://github.com/mikefarah/yq#install) or above
-
-## Introduction
-
-RHOAS Java SDK's are delivered as set of the individual maven packages.
-SDK's are divided into two types:
-
-- **Management SDKs** - support creating services
-- **Instance SDKs** -  support interaction with services (limited to capabilities not supported by upstream tools)
 
 Typically developers need to integrate with Management SDK's to create or manage service instances
 and later use upstream libraries or management SDK's to interact with services.
