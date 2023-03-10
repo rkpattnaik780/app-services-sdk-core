@@ -1,5 +1,7 @@
 # RHOAS Core SDKs
 
+> If you are moving a project from the old RHOAS SDKs to core read this [moving](./MOVING.md) doc to get started.
+
 | Supported Langauge  | SDK |
 | ----------- | ----------- |
 | JavaScript/TypeScript  | [app-services-sdk-js](/app-services-sdk-js/) |
@@ -77,8 +79,6 @@ $ python -m pip install rhoas-sdks
 ```
 
 ## RHOAS App Services SDK for Python
-
-> NOTE: Some of these APIs are under development and may sometimes cause backwards-incompatible changes.
 
 All packages are now available and can be accessed by just importing them as shown below:
 
@@ -165,8 +165,6 @@ import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go"
 ```
 
 ## Management SDKs
-
-> NOTE: Some of these APIs are under development and may sometimes cause backwards-incompatible changes.
 
 
 | API                       | Status | Package                                                                                                                                                         |

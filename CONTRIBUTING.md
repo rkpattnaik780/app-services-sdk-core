@@ -1,16 +1,10 @@
 # Contributing
 
-## Documentation portal
+### Updating OpenAPI spec
 
-Documentation portal is available https://console.redhat.com/docs/api
+All specifications are kept in `.openapi` folder:
 
-> NOTE: Documentation portal uses `doc-portal` branch as source for the API
-When releasing service to production we need to trigger documentation portal release
-
-### Releasing documentation portal changes
-
-Create release with `docs/` prefix. For example `docs/v0.1.0`.
-Review openapi updates.
+https://github.com/redhat-developer/app-services-sdk-core/tree/main/.openapi
 
 ## Autogeneration of SDKs
 
@@ -24,15 +18,48 @@ Review openapi updates.
 make generate
 ```
 
+## Updating error codes
+
+Error codes are fetched dynamically from backend and generated inside every SDK.
+To generate error codes execute:
+
+```bash
+bash scripts/errors/fetch-errors.sh
+node scripts/errors/generate_errors.js
+```
+
 ## Checking standards
 
 ```bash
 spectral lint ./.openapi/kafka-admin-rest.yaml 
 ```
 
-For more info see:
+## Onboarding a new API
+The OpenAPI Spec file should be validated before being added to the SDK genartion list.
+This can be done as follows:
 
+```bash
+npm install -g @rhoas/spectral-ruleset
+rhoasapi lint openapi.yaml
+```
+
+For more info see:
 <http://api.appservices.tech/spectral/>
+
+
+The [generate](./scripts) script for each langauge should then be updated with the new API details.
+
+## Documentation portal
+
+Documentation portal is available https://console.redhat.com/docs/api
+
+> NOTE: Documentation portal uses `doc-portal` branch as source for the API
+When releasing service to production we need to trigger documentation portal release
+
+### Releasing documentation portal changes
+
+Create release with `docs/` prefix. For example `docs/v0.1.0`.
+Review openapi updates.
 
 ### Certificate of Origin
 
