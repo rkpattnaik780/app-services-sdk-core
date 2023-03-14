@@ -15,7 +15,7 @@ RHOAS SDK's are delivered as set of individual packages.
 SDK's are divided into two types:
 
 - **Management SDKs** - support creating services
-- **Instance SDKs** -  support interaction with services (limited to capabilities not supported by upstream tools)
+- **Instance SDKs** -  support direct interaction with services
 
 ## Purpose of this repository
 
@@ -29,11 +29,6 @@ Typescript and JavaScript packages and API clients for RHOAS services
 ## Prequisites
 
 - [NodeJS 14.x lts](https://nodejs.org/en/about/releases/) or above
-
-Typically developers need to integrate with Management SDK's to create or manage service instances 
-and later use upstream libraries or management SDK's to interact with services.
-
-You can view all SDK packages directly in [npm](https://www.npmjs.com/search?q=keywords:rhoas)
 
 ## Management SDK's
 
@@ -110,14 +105,7 @@ Java packages and API clients for RHOAS services
 
 ## Prequisites
 
-- [NodeJS 14.x lts](https://nodejs.org/en/about/releases/) or above
 - [Maven 3.6.x](https://maven.apache.org) or above
-- [YQ 4.6.x](https://github.com/mikefarah/yq#install) or above
-
-Typically developers need to integrate with Management SDK's to create or manage service instances
-and later use upstream libraries or management SDK's to interact with services.
-
-You can view all SDK packages directly in [GitHub](https://github.com/orgs/redhat-developer/packages)
 
 ## Management SDK's
 

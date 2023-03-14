@@ -137,23 +137,3 @@ Class | Method | HTTP request | Description
 ## Author
 
 it-user-team-list@redhat.com
-
-
-## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in rhoas_service_accounts_mgmt_sdk.apis and rhoas_service_accounts_mgmt_sdk.models may fail with a
-RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
-
-Solution 1:
-Use specific imports for apis and models like:
-- `from rhoas_service_accounts_mgmt_sdk.api.default_api import DefaultApi`
-- `from rhoas_service_accounts_mgmt_sdk.model.pet import Pet`
-
-Solution 2:
-Before importing the package, adjust the maximum recursion limit as shown below:
-```
-import sys
-sys.setrecursionlimit(1500)
-import rhoas_service_accounts_mgmt_sdk
-from rhoas_service_accounts_mgmt_sdk.apis import *
-from rhoas_service_accounts_mgmt_sdk.models import *
-```
