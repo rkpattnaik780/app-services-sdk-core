@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateArtifactVersion**](VersionsApi.md#CreateArtifactVersion) | **Post** /groups/{groupId}/artifacts/{artifactId}/versions | Create artifact version
+[**DeleteArtifactVersion**](VersionsApi.md#DeleteArtifactVersion) | **Delete** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Delete artifact version
 [**GetArtifactVersion**](VersionsApi.md#GetArtifactVersion) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Get artifact version
 [**GetArtifactVersionReferences**](VersionsApi.md#GetArtifactVersionReferences) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references | Get artifact version
 [**ListArtifactVersions**](VersionsApi.md#ListArtifactVersions) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions | List artifact versions
@@ -92,6 +93,80 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/vnd.json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteArtifactVersion
+
+> DeleteArtifactVersion(ctx, groupId, artifactId, version).Execute()
+
+Delete artifact version
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    groupId := "groupId_example" // string | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version := "version_example" // string | The unique identifier of a specific version of the artifact content.
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.VersionsApi.DeleteArtifactVersion(context.Background(), groupId, artifactId, version).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.DeleteArtifactVersion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**groupId** | **string** | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. | 
+**artifactId** | **string** | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. | 
+**version** | **string** | The unique identifier of a specific version of the artifact content. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteArtifactVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -113,6 +113,48 @@ export const VersionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it\'s discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+         * @summary Delete artifact version
+         * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+         * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+         * @param {string} version The unique identifier of a specific version of the artifact content.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteArtifactVersion: async (groupId: string, artifactId: string, version: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'groupId' is not null or undefined
+            assertParamExists('deleteArtifactVersion', 'groupId', groupId)
+            // verify required parameter 'artifactId' is not null or undefined
+            assertParamExists('deleteArtifactVersion', 'artifactId', artifactId)
+            // verify required parameter 'version' is not null or undefined
+            assertParamExists('deleteArtifactVersion', 'version', version)
+            const localVarPath = `/groups/{groupId}/artifacts/{artifactId}/versions/{version}`
+                .replace(`{${"groupId"}}`, encodeURIComponent(String(groupId)))
+                .replace(`{${"artifactId"}}`, encodeURIComponent(String(artifactId)))
+                .replace(`{${"version"}}`, encodeURIComponent(String(version)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact version
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -327,6 +369,19 @@ export const VersionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it\'s discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+         * @summary Delete artifact version
+         * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+         * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+         * @param {string} version The unique identifier of a specific version of the artifact content.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteArtifactVersion(groupId: string, artifactId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteArtifactVersion(groupId, artifactId, version, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact version
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -410,6 +465,18 @@ export const VersionsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.createArtifactVersion(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryNameEncoded, contentType, options).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it\'s discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+         * @summary Delete artifact version
+         * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+         * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+         * @param {string} version The unique identifier of a specific version of the artifact content.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteArtifactVersion(groupId: string, artifactId: string, version: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteArtifactVersion(groupId, artifactId, version, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact version
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -486,6 +553,18 @@ export interface VersionsApiInterface {
      * @memberof VersionsApiInterface
      */
     createArtifactVersion(groupId: string, artifactId: string, body: any, xRegistryVersion?: string, xRegistryName?: string, xRegistryDescription?: string, xRegistryDescriptionEncoded?: string, xRegistryNameEncoded?: string, contentType?: string, options?: AxiosRequestConfig): AxiosPromise<VersionMetaData>;
+
+    /**
+     * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it\'s discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+     * @summary Delete artifact version
+     * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+     * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+     * @param {string} version The unique identifier of a specific version of the artifact content.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VersionsApiInterface
+     */
+    deleteArtifactVersion(groupId: string, artifactId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
@@ -565,6 +644,20 @@ export class VersionsApi extends BaseAPI implements VersionsApiInterface {
      */
     public createArtifactVersion(groupId: string, artifactId: string, body: any, xRegistryVersion?: string, xRegistryName?: string, xRegistryDescription?: string, xRegistryDescriptionEncoded?: string, xRegistryNameEncoded?: string, contentType?: string, options?: AxiosRequestConfig) {
         return VersionsApiFp(this.configuration).createArtifactVersion(groupId, artifactId, body, xRegistryVersion, xRegistryName, xRegistryDescription, xRegistryDescriptionEncoded, xRegistryNameEncoded, contentType, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it\'s discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+     * @summary Delete artifact version
+     * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+     * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+     * @param {string} version The unique identifier of a specific version of the artifact content.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VersionsApi
+     */
+    public deleteArtifactVersion(groupId: string, artifactId: string, version: string, options?: AxiosRequestConfig) {
+        return VersionsApiFp(this.configuration).deleteArtifactVersion(groupId, artifactId, version, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

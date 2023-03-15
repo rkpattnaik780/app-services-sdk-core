@@ -60,6 +60,32 @@ This operation can fail for the following reasons:
 	CreateArtifactVersionExecute(r ApiCreateArtifactVersionRequest) (VersionMetaData, *_nethttp.Response, error)
 
 	/*
+	 * DeleteArtifactVersion Delete artifact version
+	 * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version`
+are needed. If this is the only version of the artifact, this operation is the same as 
+deleting the entire artifact.
+
+This feature is disabled by default and it's discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* No version with this `version` exists (HTTP error `404`)
+ * Feature is disabled (HTTP error `405`)
+ * A server error occurred (HTTP error `500`)
+
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @param version The unique identifier of a specific version of the artifact content.
+	 * @return ApiDeleteArtifactVersionRequest
+	 */
+	DeleteArtifactVersion(ctx _context.Context, groupId string, artifactId string, version string) ApiDeleteArtifactVersionRequest
+
+	/*
+	 * DeleteArtifactVersionExecute executes the request
+	 */
+	DeleteArtifactVersionExecute(r ApiDeleteArtifactVersionRequest) (*_nethttp.Response, error)
+
+	/*
 	 * GetArtifactVersion Get artifact version
 	 * Retrieves a single version of the artifact content.  Both the `artifactId` and the
 unique `version` number must be provided.  The `Content-Type` of the response depends 
@@ -373,6 +399,148 @@ func (a *VersionsApiService) CreateArtifactVersionExecute(r ApiCreateArtifactVer
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteArtifactVersionRequest struct {
+	ctx _context.Context
+	ApiService VersionsApi
+	groupId string
+	artifactId string
+	version string
+}
+
+
+func (r ApiDeleteArtifactVersionRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DeleteArtifactVersionExecute(r)
+}
+
+/*
+ * DeleteArtifactVersion Delete artifact version
+ * Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version`
+are needed. If this is the only version of the artifact, this operation is the same as 
+deleting the entire artifact.
+
+This feature is disabled by default and it's discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* No version with this `version` exists (HTTP error `404`)
+ * Feature is disabled (HTTP error `405`)
+ * A server error occurred (HTTP error `500`)
+
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+ * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+ * @param version The unique identifier of a specific version of the artifact content.
+ * @return ApiDeleteArtifactVersionRequest
+ */
+func (a *VersionsApiService) DeleteArtifactVersion(ctx _context.Context, groupId string, artifactId string, version string) ApiDeleteArtifactVersionRequest {
+	return ApiDeleteArtifactVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		groupId: groupId,
+		artifactId: artifactId,
+		version: version,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *VersionsApiService) DeleteArtifactVersionExecute(r ApiDeleteArtifactVersionRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionsApiService.DeleteArtifactVersion")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/groups/{groupId}/artifacts/{artifactId}/versions/{version}"
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", _neturl.PathEscape(parameterToString(r.groupId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"artifactId"+"}", _neturl.PathEscape(parameterToString(r.artifactId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", _neturl.PathEscape(parameterToString(r.version, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 405 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiGetArtifactVersionRequest struct {

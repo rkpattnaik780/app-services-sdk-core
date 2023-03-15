@@ -117,6 +117,63 @@ if (contentType != null)
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Delete artifact version
+   * Deletes a single version of the artifact. Parameters &#x60;groupId&#x60;, &#x60;artifactId&#x60; and the unique &#x60;version&#x60; are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it&#39;s discouraged for normal usage. To enable it, set the &#x60;registry.rest.artifact.deletion.enabled&#x60; property to true. This operation can fail for the following reasons:  * No artifact with this &#x60;artifactId&#x60; exists (HTTP error &#x60;404&#x60;) * No version with this &#x60;version&#x60; exists (HTTP error &#x60;404&#x60;)  * Feature is disabled (HTTP error &#x60;405&#x60;)  * A server error occurred (HTTP error &#x60;500&#x60;) 
+   * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. (required)
+   * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. (required)
+   * @param version The unique identifier of a specific version of the artifact content. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteArtifactVersion(String groupId, String artifactId, String version) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling deleteArtifactVersion");
+    }
+    
+    // verify the required parameter 'artifactId' is set
+    if (artifactId == null) {
+      throw new ApiException(400, "Missing the required parameter 'artifactId' when calling deleteArtifactVersion");
+    }
+    
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(400, "Missing the required parameter 'version' when calling deleteArtifactVersion");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/groups/{groupId}/artifacts/{artifactId}/versions/{version}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()))
+      .replaceAll("\\{" + "artifactId" + "\\}", apiClient.escapeString(artifactId.toString()))
+      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
    * Get artifact version
    * Retrieves a single version of the artifact content.  Both the &#x60;artifactId&#x60; and the unique &#x60;version&#x60; number must be provided.  The &#x60;Content-Type&#x60; of the response depends  on the artifact type.  In most cases, this is &#x60;application/json&#x60;, but for some types  it may be different (for example, &#x60;PROTOBUF&#x60;).  This operation can fail for the following reasons:  * No artifact with this &#x60;artifactId&#x60; exists (HTTP error &#x60;404&#x60;) * No version with this &#x60;version&#x60; exists (HTTP error &#x60;404&#x60;) * A server error occurred (HTTP error &#x60;500&#x60;) 
    * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. (required)
