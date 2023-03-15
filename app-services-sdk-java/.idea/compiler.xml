@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="connector-management-sdk" />
+        <module name="registry-management-sdk" />
+        <module name="service-accounts-sdk" />
+        <module name="smartevents-management-sdk" />
+        <module name="kafka-instance-sdk" />
+        <module name="registry-instance-sdk" />
+        <module name="kafka-management-sdk" />
+        <module name="account-management-sdk" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
