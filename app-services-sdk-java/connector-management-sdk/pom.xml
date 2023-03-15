@@ -13,6 +13,9 @@
 
   <artifactId>connector-management-sdk</artifactId>
   <name>Connector Management SDK</name>
+  <description>
+    Connector Management SDK for RHOAS API supports creating and managing connector instances
+  </description>
 
   <dependencies>
     <dependency>

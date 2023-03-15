@@ -13,6 +13,9 @@
 
   <artifactId>registry-management-sdk</artifactId>
   <name>Registry Management SDK</name>
+  <description>
+    Registry Management SDK for RHOAS API supports creating and managing Service Registry instances
+  </description>
 
   <dependencies>
     <dependency>

@@ -13,6 +13,9 @@
 
   <artifactId>service-accounts-sdk</artifactId>
   <name>Service Accounts SDK</name>
+  <description>
+    Service Accounts SDK for RHOAS API supports interaction with Service Accounts 
+  </description>
 
   <dependencies>
     <dependency>

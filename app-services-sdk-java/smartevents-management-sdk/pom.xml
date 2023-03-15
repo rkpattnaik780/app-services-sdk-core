@@ -13,6 +13,7 @@
 
   <artifactId>smartevents-management-sdk</artifactId>
   <name>Smartevents Management SDK</name>
+  <description>Smartevents Management SDK for the RHOAS API</description>
 
   <dependencies>
     <dependency>

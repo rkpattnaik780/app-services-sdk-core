@@ -13,6 +13,9 @@
 
   <artifactId>account-management-sdk</artifactId>
   <name>Account Management SDK</name>
+  <description>
+    Account Management SDK for RHOAS API 
+  </description>
 
   <dependencies>
     <dependency>

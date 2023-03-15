@@ -6,7 +6,12 @@
   <artifactId>app-services-sdk-java</artifactId>
   <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
   <version>999-SNAPSHOT</version>
-  <name>Red Hat Java SDKs generated with Kiota</name>
+  <name>Red Hat Java SDKs</name>
+  <description>
+    Red Hat Java RHOAS SDK's are delivered as set of individual packages. SDK's are divided into two types. 
+    Management SDKs support creating services and instance SDKs support direct interaction with services
+  </description>
+  <url>https://github.com/redhat-developer/app-services-sdk-core</url>
   <packaging>pom</packaging>
 
   <properties>

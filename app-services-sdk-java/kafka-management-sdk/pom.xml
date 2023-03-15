@@ -6,13 +6,16 @@
   
   <parent>
       <artifactId>app-services-sdk-java</artifactId>
-    <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
-    <version>999-SNAPSHOT</version>
+      <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+      <version>999-SNAPSHOT</version>
       <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>kafka-management-sdk</artifactId>
   <name>Kafka Management SDK</name>
+  <description>
+    Kafka Management SDK for RHOAS API supports creating and managing Kafka instances
+  </description>
 
   <dependencies>
     <dependency>
