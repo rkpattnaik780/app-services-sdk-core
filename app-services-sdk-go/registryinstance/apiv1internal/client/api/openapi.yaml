@@ -1348,6 +1348,86 @@ paths:
       - Metadata
     summary: Manage the metadata for a single version of an artifact in the registry.
   /groups/{groupId}/artifacts/{artifactId}/versions/{version}:
+    delete:
+      description: "Deletes a single version of the artifact. Parameters `groupId`,\
+        \ `artifactId` and the unique `version`\nare needed. If this is the only version\
+        \ of the artifact, this operation is the same as \ndeleting the entire artifact.\n\
+        \nThis feature is disabled by default and it's discouraged for normal usage.\
+        \ To enable it, set the `registry.rest.artifact.deletion.enabled` property\
+        \ to true. This operation can fail for the following reasons:\n\n* No artifact\
+        \ with this `artifactId` exists (HTTP error `404`)\n* No version with this\
+        \ `version` exists (HTTP error `404`)\n * Feature is disabled (HTTP error\
+        \ `405`)\n * A server error occurred (HTTP error `500`)\n"
+      operationId: deleteArtifactVersion
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      - description: The unique identifier of a specific version of the artifact content.
+        explode: false
+        in: path
+        name: version
+        required: true
+        schema:
+          $ref: '#/components/schemas/Version'
+        style: simple
+      responses:
+        "204":
+          description: The artifact version was successfully deleted.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "405":
+          content:
+            application/json:
+              examples:
+                MethodNotAllowedExample:
+                  value:
+                    error_code: 405
+                    message: Method is currently not supported or disabled.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail due to method
+            not allowed or disabled.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Delete artifact version
+      tags:
+      - Versions
     get:
       description: "Retrieves a single version of the artifact content.  Both the\
         \ `artifactId` and the\nunique `version` number must be provided.  The `Content-Type`\
@@ -4323,6 +4403,18 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
       description: Common response for all operations that can return a `404` error.
+    MethodNotAllowed:
+      content:
+        application/json:
+          examples:
+            MethodNotAllowedExample:
+              value:
+                error_code: 405
+                message: Method is currently not supported or disabled.
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: Common response for all operations that can fail due to method
+        not allowed or disabled.
     ServerError:
       content:
         application/json:

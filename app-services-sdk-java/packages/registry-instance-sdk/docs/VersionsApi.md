@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createArtifactVersion**](VersionsApi.md#createArtifactVersion) | **POST** /groups/{groupId}/artifacts/{artifactId}/versions | Create artifact version
+[**deleteArtifactVersion**](VersionsApi.md#deleteArtifactVersion) | **DELETE** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Delete artifact version
 [**getArtifactVersion**](VersionsApi.md#getArtifactVersion) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Get artifact version
 [**getArtifactVersionReferences**](VersionsApi.md#getArtifactVersionReferences) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references | Get artifact version
 [**listArtifactVersions**](VersionsApi.md#listArtifactVersions) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions | List artifact versions
@@ -94,6 +95,78 @@ No authorization required
 | **200** | The artifact version was successfully created. |  -  |
 | **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 | **409** | Common response used when an input conflicts with existing data. |  -  |
+| **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+
+## deleteArtifactVersion
+
+> deleteArtifactVersion(groupId, artifactId, version)
+
+Delete artifact version
+
+Deletes a single version of the artifact. Parameters &#x60;groupId&#x60;, &#x60;artifactId&#x60; and the unique &#x60;version&#x60; are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it&#39;s discouraged for normal usage. To enable it, set the &#x60;registry.rest.artifact.deletion.enabled&#x60; property to true. This operation can fail for the following reasons:  * No artifact with this &#x60;artifactId&#x60; exists (HTTP error &#x60;404&#x60;) * No version with this &#x60;version&#x60; exists (HTTP error &#x60;404&#x60;)  * Feature is disabled (HTTP error &#x60;405&#x60;)  * A server error occurred (HTTP error &#x60;500&#x60;) 
+
+### Example
+
+```java
+// Import classes:
+import com.openshift.cloud.api.registry.instance.invoker.ApiClient;
+import com.openshift.cloud.api.registry.instance.invoker.ApiException;
+import com.openshift.cloud.api.registry.instance.invoker.Configuration;
+import com.openshift.cloud.api.registry.instance.invoker.models.*;
+import com.openshift.cloud.api.registry.instance.VersionsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+
+        VersionsApi apiInstance = new VersionsApi(defaultClient);
+        String groupId = "groupId_example"; // String | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+        String artifactId = "artifactId_example"; // String | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+        String version = "version_example"; // String | The unique identifier of a specific version of the artifact content.
+        try {
+            apiInstance.deleteArtifactVersion(groupId, artifactId, version);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling VersionsApi#deleteArtifactVersion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **String**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifactId** | **String**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **String**| The unique identifier of a specific version of the artifact content. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | The artifact version was successfully deleted. |  -  |
+| **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+| **405** | Common response for all operations that can fail due to method not allowed or disabled. |  -  |
 | **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_artifact_version**](VersionsApi.md#create_artifact_version) | **POST** /groups/{groupId}/artifacts/{artifactId}/versions | Create artifact version
+[**delete_artifact_version**](VersionsApi.md#delete_artifact_version) | **DELETE** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Delete artifact version
 [**get_artifact_version**](VersionsApi.md#get_artifact_version) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Get artifact version
 [**get_artifact_version_references**](VersionsApi.md#get_artifact_version_references) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references | Get artifact version
 [**list_artifact_versions**](VersionsApi.md#list_artifact_versions) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions | List artifact versions
@@ -105,6 +106,79 @@ No authorization required
 **200** | The artifact version was successfully created. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **409** | Common response used when an input conflicts with existing data. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_artifact_version**
+> delete_artifact_version(group_id, artifact_id, version)
+
+Delete artifact version
+
+Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it's discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = versions_api.VersionsApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete artifact version
+        api_instance.delete_artifact_version(group_id, artifact_id, version)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->delete_artifact_version: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **str**| The unique identifier of a specific version of the artifact content. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The artifact version was successfully deleted. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**405** | Common response for all operations that can fail due to method not allowed or disabled. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

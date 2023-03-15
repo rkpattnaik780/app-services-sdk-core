@@ -135,6 +135,67 @@ class VersionsApi(object):
             },
             api_client=api_client
         )
+        self.delete_artifact_version_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [],
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}',
+                'operation_id': 'delete_artifact_version',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                ],
+                'required': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (str,),
+                    'artifact_id':
+                        (str,),
+                    'version':
+                        (str,),
+                },
+                'attribute_map': {
+                    'group_id': 'groupId',
+                    'artifact_id': 'artifactId',
+                    'version': 'version',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'artifact_id': 'path',
+                    'version': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_artifact_version_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
@@ -493,6 +554,97 @@ class VersionsApi(object):
         kwargs['body'] = \
             body
         return self.create_artifact_version_endpoint.call_with_http_info(**kwargs)
+
+    def delete_artifact_version(
+        self,
+        group_id,
+        artifact_id,
+        version,
+        **kwargs
+    ):
+        """Delete artifact version  # noqa: E501
+
+        Deletes a single version of the artifact. Parameters `groupId`, `artifactId` and the unique `version` are needed. If this is the only version of the artifact, this operation is the same as  deleting the entire artifact.  This feature is disabled by default and it's discouraged for normal usage. To enable it, set the `registry.rest.artifact.deletion.enabled` property to true. This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`)  * Feature is disabled (HTTP error `405`)  * A server error occurred (HTTP error `500`)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_artifact_version(group_id, artifact_id, version, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            group_id (str): The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+            artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+            version (str): The unique identifier of a specific version of the artifact content.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['group_id'] = \
+            group_id
+        kwargs['artifact_id'] = \
+            artifact_id
+        kwargs['version'] = \
+            version
+        return self.delete_artifact_version_endpoint.call_with_http_info(**kwargs)
 
     def get_artifact_version(
         self,

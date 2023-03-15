@@ -31,6 +31,13 @@ class TestVersionsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_artifact_version(self):
+        """Test case for delete_artifact_version
+
+        Delete artifact version  # noqa: E501
+        """
+        pass
+
     def test_get_artifact_version(self):
         """Test case for get_artifact_version
 
