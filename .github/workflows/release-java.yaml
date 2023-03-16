@@ -1,4 +1,4 @@
-name: Release Workflow
+name: Java Release
 
 on:
   workflow_dispatch:
@@ -34,6 +34,8 @@ jobs:
           cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
           gpg --list-secret-keys --keyid-format LONG
       - name: Compile
+        env:
+          OFFLINE_TOKEN: ${{ secrets.OFFLINE_TOKEN }}
         working-directory: app-services-sdk-java
         run: mvn clean install
       - name: Set git identity
