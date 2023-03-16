@@ -46,9 +46,10 @@ jobs:
         working-directory: app-services-sdk-java
         run: |
           mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ github.event.inputs.release-version }}
-          git checkout -b ${{ github.event.inputs.release-version }}
+          git checkout -b release-${{ github.event.inputs.release-version }}
           git add .
           git commit -m "Release version update ${{ github.event.inputs.release-version }}"
+          git push origin release-${{ github.event.inputs.release-version }}
           git tag ${{ github.event.inputs.release-version }}
           git push origin ${{ github.event.inputs.release-version }}
       - name: Publish
