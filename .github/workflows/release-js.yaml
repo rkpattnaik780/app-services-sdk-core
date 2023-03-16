@@ -1,4 +1,4 @@
-name: npm-publish
+name: JavaScript Release
 on:
   workflow_dispatch:
 jobs:
