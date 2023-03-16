@@ -1,4 +1,0 @@
-{
-  "enabled": false,
-  "extends": [ "github>redhat-developer/app-services-renovate-config" ]
-}

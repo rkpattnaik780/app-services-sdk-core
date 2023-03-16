@@ -1,114 +1,69 @@
-name: release-java
+name: Release Workflow
+
 on:
   workflow_dispatch:
+    inputs:
+      release-version:
+        description: 'Version being released'
+        required: true
+      branch:
+        description: 'Branch to release from'
+        required: true
+        default: 'main'
+
 jobs:
-  npm-publish:
-    name: mvn-publishdeploy
-    runs-on: ubuntu-latest
+  release:
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
         with:
-          node-version: '14'        
-      - name: Use Java 15
-        uses: actions/setup-java@v2
-        with:
-              distribution: 'temurin'
-              java-version: '11'
-              check-latest: true
-              server-id: ossrh
-              server-username: MAVEN_USERNAME
-              server-password: MAVEN_PASSWORD
+          java-version: '11'
+          distribution: 'temurin'
+          check-latest: true
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+          gpg-passphrase: MAVEN_GPG_SECRET_KEY_PASSWORD
       - id: install-secret-key
         name: Install gpg secret key
         run: |
           cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
-          gpg --list-secret-keys --keyid-format LONG              
-      - name: Inject slug/short variables
-        # v4
-        uses: rlespinasse/github-slug-action@a362e5fb42057a3a23a62218b050838f1bacca5d
-      - name: Validate Tag
-        run: npx semver $GITHUB_REF_SLUG
-      - name: Version and build kafka-management-sdk
-        working-directory: ./app-services-sdk-java/packages/kafka-management-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease
-      - name: Version and build kafka-instance-sdk
-        working-directory: ./app-services-sdk-java/packages/kafka-instance-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease
-      - name: Version and build registry-management-sdk
-        working-directory: ./app-services-sdk-java/packages/registry-management-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease              
-      - name: Version and build connector-management-sdk
-        working-directory: ./app-services-sdk-java/packages/connector-management-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease   
-      - name: Version and build service-accounts-sdk
-        working-directory: ./app-services-sdk-java/packages/service-accounts-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease 
-      - name: Version and build smartevents
-        working-directory: ./app-services-sdk-java/packages/smartevents-management-sdk
-        run : | 
-          mvn versions:set -DnewVersion=$GITHUB_REF_SLUG   
-          mvn package -Prelease
-      - name: Publish kafka-management-sdk
-        working-directory: ./app-services-sdk-java/packages/kafka-management-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}  deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-      - name: Publish kafka-instance-sdk
-        working-directory: ./app-services-sdk-java/packages/kafka-instance-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-      - name: Publish registry-management-sdk
-        working-directory: ./app-services-sdk-java/packages/registry-management-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-      - name: Publish connector-management-sdk
-        working-directory: ./app-services-sdk-java/packages/connector-management-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}        
-      - name: Publish smartevents-management-sdk
-        working-directory: ./app-services-sdk-java/packages/smartevents-management-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}  deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}  
-      - name: Publish service accounts
-        working-directory: ./app-services-sdk-java/packages/service-accounts-sdk
-        run: mvn --batch-mode -Prelease      -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}  deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}  
-      - name: Install git-chglog
-        # v1
-        uses: craicoverflow/install-git-chglog@6d338c1d96dcbf12a2115fbe8e5b9817293aae33
-      - name: Generate changelog
+          gpg --list-secret-keys --keyid-format LONG
+      - name: Compile
+        working-directory: app-services-sdk-java
+        run: mvn clean install
+      - name: Set git identity
         run: |
-          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
-          echo "$(git-chglog $GITHUB_REF_SLUG 2> /dev/null || echo '**PRERELEASE**')" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-      - name: Update Release Notes
-        # 2.0
-        uses: meeDamian/github-release@7ae19492500104f636b3fee4d8103af0fed36c8e
+          git config user.name ci-bot
+          git config user.email ci-bot@andreatp.io
+      - name: Release the new version
+        working-directory: app-services-sdk-java
+        run: |
+          mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ github.event.inputs.release-version }}
+          git add .
+          git commit -m "Release version update ${{ github.event.inputs.release-version }}"
+          git push
+          git tag ${{ github.event.inputs.release-version }}
+          git push origin ${{ github.event.inputs.release-version }}
+      - name: Publish
+        working-directory: app-services-sdk-java
+        run : mvn --batch-mode clean deploy -Prelease -DskipTests=true
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          MAVEN_GPG_SECRET_KEY_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+      - name: Release
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: ${{ env.CHANGELOG }}
-          allow_override: true
+          tag_name: ${{ github.event.inputs.release-version }}
+      - name: Back to Snapshot
+        working-directory: app-services-sdk-java
+        run: |
+          mvn versions:set -DgenerateBackupPoms=false -DnewVersion=999-SNAPSHOT
+          git add .
+          git commit -m "Snapshot version update"
+          git push
