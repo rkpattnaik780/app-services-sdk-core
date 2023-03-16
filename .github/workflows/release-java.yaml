@@ -54,7 +54,7 @@ jobs:
           git push origin ${{ github.event.inputs.release-version }}
       - name: Publish
         working-directory: app-services-sdk-java
-        run : mvn --batch-mode clean deploy -Prelease -DskipTests=true
+        run : mvn --batch-mode clean deploy -Prelease -DskipTests=true -e
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
