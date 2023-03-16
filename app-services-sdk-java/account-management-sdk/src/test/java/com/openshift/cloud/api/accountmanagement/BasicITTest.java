@@ -33,7 +33,7 @@ public class BasicITTest {
                 .get(10, TimeUnit.SECONDS);
 
         // Assert
-        Assertions.assertEquals("aperuffo@redhat.com", account.getUsername());
+        Assertions.assertEquals("jdelahun@redhat.com", account.getUsername());
     }
 
 }
