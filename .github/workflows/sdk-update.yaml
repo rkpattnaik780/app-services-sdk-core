@@ -29,7 +29,6 @@ jobs:
       - name: Generate SDKs
         run: |
           bash scripts/generate-go.sh ${{ github.event.client_payload.download_url }}
-          bash scripts/generate-java.sh ${{ github.event.client_payload.download_url }}
           bash scripts/generate-js.sh ${{ github.event.client_payload.download_url }}
           bash scripts/generate-py.sh ${{ github.event.client_payload.download_url }}
       - name: Fetch errors
