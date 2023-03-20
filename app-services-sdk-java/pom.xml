@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>app-services-sdk-java</artifactId>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <version>999-SNAPSHOT</version>
   <name>Red Hat Java SDKs</name>
   <description>
