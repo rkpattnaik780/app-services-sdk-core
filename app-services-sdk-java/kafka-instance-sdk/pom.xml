@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-      <artifactId>app-services-sdk-java</artifactId>
-      <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
-        <version>999-SNAPSHOT</version>
-      <relativePath>../pom.xml</relativePath>
+    <artifactId>app-services-sdk-java</artifactId>
+    <groupId>com.redhat.cloud</groupId>
+    <version>999-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>kafka-instance-sdk</artifactId>
