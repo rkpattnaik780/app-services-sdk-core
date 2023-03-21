@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the SupportedKafkaSize type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &SupportedKafkaSize{}
+// checks if the SupportedKafkaInstanceTypeSizesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SupportedKafkaInstanceTypeSizesInner{}
 
-// SupportedKafkaSize Supported Kafka Size
-type SupportedKafkaSize struct {
+// SupportedKafkaInstanceTypeSizesInner struct for SupportedKafkaInstanceTypeSizesInner
+type SupportedKafkaInstanceTypeSizesInner struct {
 	// Unique identifier of this Kafka instance size.
 	Id *string `json:"id,omitempty"`
 	// Display name of this Kafka instance size.
@@ -55,25 +55,25 @@ type SupportedKafkaSize struct {
 	MaturityStatus *string `json:"maturity_status,omitempty"`
 }
 
-// NewSupportedKafkaSize instantiates a new SupportedKafkaSize object
+// NewSupportedKafkaInstanceTypeSizesInner instantiates a new SupportedKafkaInstanceTypeSizesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupportedKafkaSize() *SupportedKafkaSize {
-	this := SupportedKafkaSize{}
+func NewSupportedKafkaInstanceTypeSizesInner() *SupportedKafkaInstanceTypeSizesInner {
+	this := SupportedKafkaInstanceTypeSizesInner{}
 	return &this
 }
 
-// NewSupportedKafkaSizeWithDefaults instantiates a new SupportedKafkaSize object
+// NewSupportedKafkaInstanceTypeSizesInnerWithDefaults instantiates a new SupportedKafkaInstanceTypeSizesInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSupportedKafkaSizeWithDefaults() *SupportedKafkaSize {
-	this := SupportedKafkaSize{}
+func NewSupportedKafkaInstanceTypeSizesInnerWithDefaults() *SupportedKafkaInstanceTypeSizesInner {
+	this := SupportedKafkaInstanceTypeSizesInner{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetId() string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetId() string {
 	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *SupportedKafkaSize) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetIdOk() (*string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetIdOk() (*string, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *SupportedKafkaSize) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasId() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -100,12 +100,12 @@ func (o *SupportedKafkaSize) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *SupportedKafkaSize) SetId(v string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetId(v string) {
 	o.Id = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetDisplayName() string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetDisplayName() string {
 	if o == nil || IsNil(o.DisplayName) {
 		var ret string
 		return ret
@@ -115,7 +115,7 @@ func (o *SupportedKafkaSize) GetDisplayName() string {
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetDisplayNameOk() (*string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetDisplayNameOk() (*string, bool) {
 	if o == nil || IsNil(o.DisplayName) {
 		return nil, false
 	}
@@ -123,7 +123,7 @@ func (o *SupportedKafkaSize) GetDisplayNameOk() (*string, bool) {
 }
 
 // HasDisplayName returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasDisplayName() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasDisplayName() bool {
 	if o != nil && !IsNil(o.DisplayName) {
 		return true
 	}
@@ -132,12 +132,12 @@ func (o *SupportedKafkaSize) HasDisplayName() bool {
 }
 
 // SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
-func (o *SupportedKafkaSize) SetDisplayName(v string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
 // GetIngressThroughputPerSec returns the IngressThroughputPerSec field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetIngressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetIngressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
 	if o == nil || IsNil(o.IngressThroughputPerSec) {
 		var ret SupportedKafkaSizeBytesValueItem
 		return ret
@@ -147,7 +147,7 @@ func (o *SupportedKafkaSize) GetIngressThroughputPerSec() SupportedKafkaSizeByte
 
 // GetIngressThroughputPerSecOk returns a tuple with the IngressThroughputPerSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetIngressThroughputPerSecOk() (SupportedKafkaSizeBytesValueItem, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetIngressThroughputPerSecOk() (SupportedKafkaSizeBytesValueItem, bool) {
 	if o == nil || IsNil(o.IngressThroughputPerSec) {
 		return SupportedKafkaSizeBytesValueItem{}, false
 	}
@@ -155,7 +155,7 @@ func (o *SupportedKafkaSize) GetIngressThroughputPerSecOk() (SupportedKafkaSizeB
 }
 
 // HasIngressThroughputPerSec returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasIngressThroughputPerSec() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasIngressThroughputPerSec() bool {
 	if o != nil && !IsNil(o.IngressThroughputPerSec) {
 		return true
 	}
@@ -164,12 +164,12 @@ func (o *SupportedKafkaSize) HasIngressThroughputPerSec() bool {
 }
 
 // SetIngressThroughputPerSec gets a reference to the given SupportedKafkaSizeBytesValueItem and assigns it to the IngressThroughputPerSec field.
-func (o *SupportedKafkaSize) SetIngressThroughputPerSec(v SupportedKafkaSizeBytesValueItem) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetIngressThroughputPerSec(v SupportedKafkaSizeBytesValueItem) {
 	o.IngressThroughputPerSec = v
 }
 
 // GetEgressThroughputPerSec returns the EgressThroughputPerSec field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetEgressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetEgressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
 	if o == nil || IsNil(o.EgressThroughputPerSec) {
 		var ret SupportedKafkaSizeBytesValueItem
 		return ret
@@ -179,7 +179,7 @@ func (o *SupportedKafkaSize) GetEgressThroughputPerSec() SupportedKafkaSizeBytes
 
 // GetEgressThroughputPerSecOk returns a tuple with the EgressThroughputPerSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetEgressThroughputPerSecOk() (SupportedKafkaSizeBytesValueItem, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetEgressThroughputPerSecOk() (SupportedKafkaSizeBytesValueItem, bool) {
 	if o == nil || IsNil(o.EgressThroughputPerSec) {
 		return SupportedKafkaSizeBytesValueItem{}, false
 	}
@@ -187,7 +187,7 @@ func (o *SupportedKafkaSize) GetEgressThroughputPerSecOk() (SupportedKafkaSizeBy
 }
 
 // HasEgressThroughputPerSec returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasEgressThroughputPerSec() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasEgressThroughputPerSec() bool {
 	if o != nil && !IsNil(o.EgressThroughputPerSec) {
 		return true
 	}
@@ -196,12 +196,12 @@ func (o *SupportedKafkaSize) HasEgressThroughputPerSec() bool {
 }
 
 // SetEgressThroughputPerSec gets a reference to the given SupportedKafkaSizeBytesValueItem and assigns it to the EgressThroughputPerSec field.
-func (o *SupportedKafkaSize) SetEgressThroughputPerSec(v SupportedKafkaSizeBytesValueItem) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetEgressThroughputPerSec(v SupportedKafkaSizeBytesValueItem) {
 	o.EgressThroughputPerSec = v
 }
 
 // GetTotalMaxConnections returns the TotalMaxConnections field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetTotalMaxConnections() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetTotalMaxConnections() int32 {
 	if o == nil || IsNil(o.TotalMaxConnections) {
 		var ret int32
 		return ret
@@ -211,7 +211,7 @@ func (o *SupportedKafkaSize) GetTotalMaxConnections() int32 {
 
 // GetTotalMaxConnectionsOk returns a tuple with the TotalMaxConnections field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetTotalMaxConnectionsOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetTotalMaxConnectionsOk() (*int32, bool) {
 	if o == nil || IsNil(o.TotalMaxConnections) {
 		return nil, false
 	}
@@ -219,7 +219,7 @@ func (o *SupportedKafkaSize) GetTotalMaxConnectionsOk() (*int32, bool) {
 }
 
 // HasTotalMaxConnections returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasTotalMaxConnections() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasTotalMaxConnections() bool {
 	if o != nil && !IsNil(o.TotalMaxConnections) {
 		return true
 	}
@@ -228,12 +228,12 @@ func (o *SupportedKafkaSize) HasTotalMaxConnections() bool {
 }
 
 // SetTotalMaxConnections gets a reference to the given int32 and assigns it to the TotalMaxConnections field.
-func (o *SupportedKafkaSize) SetTotalMaxConnections(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetTotalMaxConnections(v int32) {
 	o.TotalMaxConnections = &v
 }
 
 // GetMaxDataRetentionSize returns the MaxDataRetentionSize field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem {
 	if o == nil || IsNil(o.MaxDataRetentionSize) {
 		var ret SupportedKafkaSizeBytesValueItem
 		return ret
@@ -243,7 +243,7 @@ func (o *SupportedKafkaSize) GetMaxDataRetentionSize() SupportedKafkaSizeBytesVa
 
 // GetMaxDataRetentionSizeOk returns a tuple with the MaxDataRetentionSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaxDataRetentionSizeOk() (SupportedKafkaSizeBytesValueItem, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxDataRetentionSizeOk() (SupportedKafkaSizeBytesValueItem, bool) {
 	if o == nil || IsNil(o.MaxDataRetentionSize) {
 		return SupportedKafkaSizeBytesValueItem{}, false
 	}
@@ -251,7 +251,7 @@ func (o *SupportedKafkaSize) GetMaxDataRetentionSizeOk() (SupportedKafkaSizeByte
 }
 
 // HasMaxDataRetentionSize returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaxDataRetentionSize() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaxDataRetentionSize() bool {
 	if o != nil && !IsNil(o.MaxDataRetentionSize) {
 		return true
 	}
@@ -260,12 +260,12 @@ func (o *SupportedKafkaSize) HasMaxDataRetentionSize() bool {
 }
 
 // SetMaxDataRetentionSize gets a reference to the given SupportedKafkaSizeBytesValueItem and assigns it to the MaxDataRetentionSize field.
-func (o *SupportedKafkaSize) SetMaxDataRetentionSize(v SupportedKafkaSizeBytesValueItem) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaxDataRetentionSize(v SupportedKafkaSizeBytesValueItem) {
 	o.MaxDataRetentionSize = v
 }
 
 // GetMaxPartitions returns the MaxPartitions field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaxPartitions() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxPartitions() int32 {
 	if o == nil || IsNil(o.MaxPartitions) {
 		var ret int32
 		return ret
@@ -275,7 +275,7 @@ func (o *SupportedKafkaSize) GetMaxPartitions() int32 {
 
 // GetMaxPartitionsOk returns a tuple with the MaxPartitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaxPartitionsOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxPartitionsOk() (*int32, bool) {
 	if o == nil || IsNil(o.MaxPartitions) {
 		return nil, false
 	}
@@ -283,7 +283,7 @@ func (o *SupportedKafkaSize) GetMaxPartitionsOk() (*int32, bool) {
 }
 
 // HasMaxPartitions returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaxPartitions() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaxPartitions() bool {
 	if o != nil && !IsNil(o.MaxPartitions) {
 		return true
 	}
@@ -292,12 +292,12 @@ func (o *SupportedKafkaSize) HasMaxPartitions() bool {
 }
 
 // SetMaxPartitions gets a reference to the given int32 and assigns it to the MaxPartitions field.
-func (o *SupportedKafkaSize) SetMaxPartitions(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaxPartitions(v int32) {
 	o.MaxPartitions = &v
 }
 
 // GetMaxDataRetentionPeriod returns the MaxDataRetentionPeriod field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaxDataRetentionPeriod() string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxDataRetentionPeriod() string {
 	if o == nil || IsNil(o.MaxDataRetentionPeriod) {
 		var ret string
 		return ret
@@ -307,7 +307,7 @@ func (o *SupportedKafkaSize) GetMaxDataRetentionPeriod() string {
 
 // GetMaxDataRetentionPeriodOk returns a tuple with the MaxDataRetentionPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaxDataRetentionPeriodOk() (*string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxDataRetentionPeriodOk() (*string, bool) {
 	if o == nil || IsNil(o.MaxDataRetentionPeriod) {
 		return nil, false
 	}
@@ -315,7 +315,7 @@ func (o *SupportedKafkaSize) GetMaxDataRetentionPeriodOk() (*string, bool) {
 }
 
 // HasMaxDataRetentionPeriod returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaxDataRetentionPeriod() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaxDataRetentionPeriod() bool {
 	if o != nil && !IsNil(o.MaxDataRetentionPeriod) {
 		return true
 	}
@@ -324,12 +324,12 @@ func (o *SupportedKafkaSize) HasMaxDataRetentionPeriod() bool {
 }
 
 // SetMaxDataRetentionPeriod gets a reference to the given string and assigns it to the MaxDataRetentionPeriod field.
-func (o *SupportedKafkaSize) SetMaxDataRetentionPeriod(v string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaxDataRetentionPeriod(v string) {
 	o.MaxDataRetentionPeriod = &v
 }
 
 // GetMaxConnectionAttemptsPerSec returns the MaxConnectionAttemptsPerSec field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaxConnectionAttemptsPerSec() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxConnectionAttemptsPerSec() int32 {
 	if o == nil || IsNil(o.MaxConnectionAttemptsPerSec) {
 		var ret int32
 		return ret
@@ -339,7 +339,7 @@ func (o *SupportedKafkaSize) GetMaxConnectionAttemptsPerSec() int32 {
 
 // GetMaxConnectionAttemptsPerSecOk returns a tuple with the MaxConnectionAttemptsPerSec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaxConnectionAttemptsPerSecOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxConnectionAttemptsPerSecOk() (*int32, bool) {
 	if o == nil || IsNil(o.MaxConnectionAttemptsPerSec) {
 		return nil, false
 	}
@@ -347,7 +347,7 @@ func (o *SupportedKafkaSize) GetMaxConnectionAttemptsPerSecOk() (*int32, bool) {
 }
 
 // HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaxConnectionAttemptsPerSec() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaxConnectionAttemptsPerSec() bool {
 	if o != nil && !IsNil(o.MaxConnectionAttemptsPerSec) {
 		return true
 	}
@@ -356,12 +356,12 @@ func (o *SupportedKafkaSize) HasMaxConnectionAttemptsPerSec() bool {
 }
 
 // SetMaxConnectionAttemptsPerSec gets a reference to the given int32 and assigns it to the MaxConnectionAttemptsPerSec field.
-func (o *SupportedKafkaSize) SetMaxConnectionAttemptsPerSec(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaxConnectionAttemptsPerSec(v int32) {
 	o.MaxConnectionAttemptsPerSec = &v
 }
 
 // GetMaxMessageSize returns the MaxMessageSize field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaxMessageSize() SupportedKafkaSizeBytesValueItem {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxMessageSize() SupportedKafkaSizeBytesValueItem {
 	if o == nil || IsNil(o.MaxMessageSize) {
 		var ret SupportedKafkaSizeBytesValueItem
 		return ret
@@ -371,7 +371,7 @@ func (o *SupportedKafkaSize) GetMaxMessageSize() SupportedKafkaSizeBytesValueIte
 
 // GetMaxMessageSizeOk returns a tuple with the MaxMessageSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaxMessageSizeOk() (SupportedKafkaSizeBytesValueItem, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaxMessageSizeOk() (SupportedKafkaSizeBytesValueItem, bool) {
 	if o == nil || IsNil(o.MaxMessageSize) {
 		return SupportedKafkaSizeBytesValueItem{}, false
 	}
@@ -379,7 +379,7 @@ func (o *SupportedKafkaSize) GetMaxMessageSizeOk() (SupportedKafkaSizeBytesValue
 }
 
 // HasMaxMessageSize returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaxMessageSize() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaxMessageSize() bool {
 	if o != nil && !IsNil(o.MaxMessageSize) {
 		return true
 	}
@@ -388,12 +388,12 @@ func (o *SupportedKafkaSize) HasMaxMessageSize() bool {
 }
 
 // SetMaxMessageSize gets a reference to the given SupportedKafkaSizeBytesValueItem and assigns it to the MaxMessageSize field.
-func (o *SupportedKafkaSize) SetMaxMessageSize(v SupportedKafkaSizeBytesValueItem) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaxMessageSize(v SupportedKafkaSizeBytesValueItem) {
 	o.MaxMessageSize = v
 }
 
 // GetMinInSyncReplicas returns the MinInSyncReplicas field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMinInSyncReplicas() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMinInSyncReplicas() int32 {
 	if o == nil || IsNil(o.MinInSyncReplicas) {
 		var ret int32
 		return ret
@@ -403,7 +403,7 @@ func (o *SupportedKafkaSize) GetMinInSyncReplicas() int32 {
 
 // GetMinInSyncReplicasOk returns a tuple with the MinInSyncReplicas field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMinInSyncReplicasOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMinInSyncReplicasOk() (*int32, bool) {
 	if o == nil || IsNil(o.MinInSyncReplicas) {
 		return nil, false
 	}
@@ -411,7 +411,7 @@ func (o *SupportedKafkaSize) GetMinInSyncReplicasOk() (*int32, bool) {
 }
 
 // HasMinInSyncReplicas returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMinInSyncReplicas() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMinInSyncReplicas() bool {
 	if o != nil && !IsNil(o.MinInSyncReplicas) {
 		return true
 	}
@@ -420,12 +420,12 @@ func (o *SupportedKafkaSize) HasMinInSyncReplicas() bool {
 }
 
 // SetMinInSyncReplicas gets a reference to the given int32 and assigns it to the MinInSyncReplicas field.
-func (o *SupportedKafkaSize) SetMinInSyncReplicas(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMinInSyncReplicas(v int32) {
 	o.MinInSyncReplicas = &v
 }
 
 // GetReplicationFactor returns the ReplicationFactor field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetReplicationFactor() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetReplicationFactor() int32 {
 	if o == nil || IsNil(o.ReplicationFactor) {
 		var ret int32
 		return ret
@@ -435,7 +435,7 @@ func (o *SupportedKafkaSize) GetReplicationFactor() int32 {
 
 // GetReplicationFactorOk returns a tuple with the ReplicationFactor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetReplicationFactorOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetReplicationFactorOk() (*int32, bool) {
 	if o == nil || IsNil(o.ReplicationFactor) {
 		return nil, false
 	}
@@ -443,7 +443,7 @@ func (o *SupportedKafkaSize) GetReplicationFactorOk() (*int32, bool) {
 }
 
 // HasReplicationFactor returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasReplicationFactor() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasReplicationFactor() bool {
 	if o != nil && !IsNil(o.ReplicationFactor) {
 		return true
 	}
@@ -452,12 +452,12 @@ func (o *SupportedKafkaSize) HasReplicationFactor() bool {
 }
 
 // SetReplicationFactor gets a reference to the given int32 and assigns it to the ReplicationFactor field.
-func (o *SupportedKafkaSize) SetReplicationFactor(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetReplicationFactor(v int32) {
 	o.ReplicationFactor = &v
 }
 
 // GetSupportedAzModes returns the SupportedAzModes field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetSupportedAzModes() []string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetSupportedAzModes() []string {
 	if o == nil || IsNil(o.SupportedAzModes) {
 		var ret []string
 		return ret
@@ -467,7 +467,7 @@ func (o *SupportedKafkaSize) GetSupportedAzModes() []string {
 
 // GetSupportedAzModesOk returns a tuple with the SupportedAzModes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetSupportedAzModesOk() ([]string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetSupportedAzModesOk() ([]string, bool) {
 	if o == nil || IsNil(o.SupportedAzModes) {
 		return nil, false
 	}
@@ -475,7 +475,7 @@ func (o *SupportedKafkaSize) GetSupportedAzModesOk() ([]string, bool) {
 }
 
 // HasSupportedAzModes returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasSupportedAzModes() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasSupportedAzModes() bool {
 	if o != nil && !IsNil(o.SupportedAzModes) {
 		return true
 	}
@@ -484,12 +484,12 @@ func (o *SupportedKafkaSize) HasSupportedAzModes() bool {
 }
 
 // SetSupportedAzModes gets a reference to the given []string and assigns it to the SupportedAzModes field.
-func (o *SupportedKafkaSize) SetSupportedAzModes(v []string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetSupportedAzModes(v []string) {
 	o.SupportedAzModes = v
 }
 
 // GetLifespanSeconds returns the LifespanSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedKafkaSize) GetLifespanSeconds() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetLifespanSeconds() int32 {
 	if o == nil || IsNil(o.LifespanSeconds.Get()) {
 		var ret int32
 		return ret
@@ -500,7 +500,7 @@ func (o *SupportedKafkaSize) GetLifespanSeconds() int32 {
 // GetLifespanSecondsOk returns a tuple with the LifespanSeconds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedKafkaSize) GetLifespanSecondsOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetLifespanSecondsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -508,7 +508,7 @@ func (o *SupportedKafkaSize) GetLifespanSecondsOk() (*int32, bool) {
 }
 
 // HasLifespanSeconds returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasLifespanSeconds() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasLifespanSeconds() bool {
 	if o != nil && o.LifespanSeconds.IsSet() {
 		return true
 	}
@@ -517,21 +517,21 @@ func (o *SupportedKafkaSize) HasLifespanSeconds() bool {
 }
 
 // SetLifespanSeconds gets a reference to the given NullableInt32 and assigns it to the LifespanSeconds field.
-func (o *SupportedKafkaSize) SetLifespanSeconds(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetLifespanSeconds(v int32) {
 	o.LifespanSeconds.Set(&v)
 }
 // SetLifespanSecondsNil sets the value for LifespanSeconds to be an explicit nil
-func (o *SupportedKafkaSize) SetLifespanSecondsNil() {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetLifespanSecondsNil() {
 	o.LifespanSeconds.Set(nil)
 }
 
 // UnsetLifespanSeconds ensures that no value is present for LifespanSeconds, not even an explicit nil
-func (o *SupportedKafkaSize) UnsetLifespanSeconds() {
+func (o *SupportedKafkaInstanceTypeSizesInner) UnsetLifespanSeconds() {
 	o.LifespanSeconds.Unset()
 }
 
 // GetQuotaConsumed returns the QuotaConsumed field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetQuotaConsumed() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetQuotaConsumed() int32 {
 	if o == nil || IsNil(o.QuotaConsumed) {
 		var ret int32
 		return ret
@@ -541,7 +541,7 @@ func (o *SupportedKafkaSize) GetQuotaConsumed() int32 {
 
 // GetQuotaConsumedOk returns a tuple with the QuotaConsumed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetQuotaConsumedOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetQuotaConsumedOk() (*int32, bool) {
 	if o == nil || IsNil(o.QuotaConsumed) {
 		return nil, false
 	}
@@ -549,7 +549,7 @@ func (o *SupportedKafkaSize) GetQuotaConsumedOk() (*int32, bool) {
 }
 
 // HasQuotaConsumed returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasQuotaConsumed() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasQuotaConsumed() bool {
 	if o != nil && !IsNil(o.QuotaConsumed) {
 		return true
 	}
@@ -558,13 +558,13 @@ func (o *SupportedKafkaSize) HasQuotaConsumed() bool {
 }
 
 // SetQuotaConsumed gets a reference to the given int32 and assigns it to the QuotaConsumed field.
-func (o *SupportedKafkaSize) SetQuotaConsumed(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetQuotaConsumed(v int32) {
 	o.QuotaConsumed = &v
 }
 
 // GetQuotaType returns the QuotaType field value if set, zero value otherwise.
 // Deprecated
-func (o *SupportedKafkaSize) GetQuotaType() string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetQuotaType() string {
 	if o == nil || IsNil(o.QuotaType) {
 		var ret string
 		return ret
@@ -575,7 +575,7 @@ func (o *SupportedKafkaSize) GetQuotaType() string {
 // GetQuotaTypeOk returns a tuple with the QuotaType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // Deprecated
-func (o *SupportedKafkaSize) GetQuotaTypeOk() (*string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetQuotaTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.QuotaType) {
 		return nil, false
 	}
@@ -583,7 +583,7 @@ func (o *SupportedKafkaSize) GetQuotaTypeOk() (*string, bool) {
 }
 
 // HasQuotaType returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasQuotaType() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasQuotaType() bool {
 	if o != nil && !IsNil(o.QuotaType) {
 		return true
 	}
@@ -593,12 +593,12 @@ func (o *SupportedKafkaSize) HasQuotaType() bool {
 
 // SetQuotaType gets a reference to the given string and assigns it to the QuotaType field.
 // Deprecated
-func (o *SupportedKafkaSize) SetQuotaType(v string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetQuotaType(v string) {
 	o.QuotaType = &v
 }
 
 // GetCapacityConsumed returns the CapacityConsumed field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetCapacityConsumed() int32 {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetCapacityConsumed() int32 {
 	if o == nil || IsNil(o.CapacityConsumed) {
 		var ret int32
 		return ret
@@ -608,7 +608,7 @@ func (o *SupportedKafkaSize) GetCapacityConsumed() int32 {
 
 // GetCapacityConsumedOk returns a tuple with the CapacityConsumed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetCapacityConsumedOk() (*int32, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetCapacityConsumedOk() (*int32, bool) {
 	if o == nil || IsNil(o.CapacityConsumed) {
 		return nil, false
 	}
@@ -616,7 +616,7 @@ func (o *SupportedKafkaSize) GetCapacityConsumedOk() (*int32, bool) {
 }
 
 // HasCapacityConsumed returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasCapacityConsumed() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasCapacityConsumed() bool {
 	if o != nil && !IsNil(o.CapacityConsumed) {
 		return true
 	}
@@ -625,12 +625,12 @@ func (o *SupportedKafkaSize) HasCapacityConsumed() bool {
 }
 
 // SetCapacityConsumed gets a reference to the given int32 and assigns it to the CapacityConsumed field.
-func (o *SupportedKafkaSize) SetCapacityConsumed(v int32) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetCapacityConsumed(v int32) {
 	o.CapacityConsumed = &v
 }
 
 // GetMaturityStatus returns the MaturityStatus field value if set, zero value otherwise.
-func (o *SupportedKafkaSize) GetMaturityStatus() string {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaturityStatus() string {
 	if o == nil || IsNil(o.MaturityStatus) {
 		var ret string
 		return ret
@@ -640,7 +640,7 @@ func (o *SupportedKafkaSize) GetMaturityStatus() string {
 
 // GetMaturityStatusOk returns a tuple with the MaturityStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedKafkaSize) GetMaturityStatusOk() (*string, bool) {
+func (o *SupportedKafkaInstanceTypeSizesInner) GetMaturityStatusOk() (*string, bool) {
 	if o == nil || IsNil(o.MaturityStatus) {
 		return nil, false
 	}
@@ -648,7 +648,7 @@ func (o *SupportedKafkaSize) GetMaturityStatusOk() (*string, bool) {
 }
 
 // HasMaturityStatus returns a boolean if a field has been set.
-func (o *SupportedKafkaSize) HasMaturityStatus() bool {
+func (o *SupportedKafkaInstanceTypeSizesInner) HasMaturityStatus() bool {
 	if o != nil && !IsNil(o.MaturityStatus) {
 		return true
 	}
@@ -657,11 +657,11 @@ func (o *SupportedKafkaSize) HasMaturityStatus() bool {
 }
 
 // SetMaturityStatus gets a reference to the given string and assigns it to the MaturityStatus field.
-func (o *SupportedKafkaSize) SetMaturityStatus(v string) {
+func (o *SupportedKafkaInstanceTypeSizesInner) SetMaturityStatus(v string) {
 	o.MaturityStatus = &v
 }
 
-func (o SupportedKafkaSize) MarshalJSON() ([]byte, error) {
+func (o SupportedKafkaInstanceTypeSizesInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -669,7 +669,7 @@ func (o SupportedKafkaSize) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o SupportedKafkaSize) ToMap() (map[string]interface{}, error) {
+func (o SupportedKafkaInstanceTypeSizesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -728,38 +728,38 @@ func (o SupportedKafkaSize) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableSupportedKafkaSize struct {
-	value *SupportedKafkaSize
+type NullableSupportedKafkaInstanceTypeSizesInner struct {
+	value *SupportedKafkaInstanceTypeSizesInner
 	isSet bool
 }
 
-func (v NullableSupportedKafkaSize) Get() *SupportedKafkaSize {
+func (v NullableSupportedKafkaInstanceTypeSizesInner) Get() *SupportedKafkaInstanceTypeSizesInner {
 	return v.value
 }
 
-func (v *NullableSupportedKafkaSize) Set(val *SupportedKafkaSize) {
+func (v *NullableSupportedKafkaInstanceTypeSizesInner) Set(val *SupportedKafkaInstanceTypeSizesInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSupportedKafkaSize) IsSet() bool {
+func (v NullableSupportedKafkaInstanceTypeSizesInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSupportedKafkaSize) Unset() {
+func (v *NullableSupportedKafkaInstanceTypeSizesInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSupportedKafkaSize(val *SupportedKafkaSize) *NullableSupportedKafkaSize {
-	return &NullableSupportedKafkaSize{value: val, isSet: true}
+func NewNullableSupportedKafkaInstanceTypeSizesInner(val *SupportedKafkaInstanceTypeSizesInner) *NullableSupportedKafkaInstanceTypeSizesInner {
+	return &NullableSupportedKafkaInstanceTypeSizesInner{value: val, isSet: true}
 }
 
-func (v NullableSupportedKafkaSize) MarshalJSON() ([]byte, error) {
+func (v NullableSupportedKafkaInstanceTypeSizesInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSupportedKafkaSize) UnmarshalJSON(src []byte) error {
+func (v *NullableSupportedKafkaInstanceTypeSizesInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
