@@ -56,6 +56,7 @@ docs/SsoProvider.md
 docs/SsoProviderAllOf.md
 docs/SupportedKafkaBillingModel.md
 docs/SupportedKafkaInstanceType.md
+docs/SupportedKafkaInstanceTypeSizesInner.md
 docs/SupportedKafkaInstanceTypesList.md
 docs/SupportedKafkaInstanceTypesListAllOf.md
 docs/SupportedKafkaSize.md
@@ -110,6 +111,7 @@ model_sso_provider.go
 model_sso_provider_all_of.go
 model_supported_kafka_billing_model.go
 model_supported_kafka_instance_type.go
+model_supported_kafka_instance_type_sizes_inner.go
 model_supported_kafka_instance_types_list.go
 model_supported_kafka_instance_types_list_all_of.go
 model_supported_kafka_size.go
@@ -118,4 +120,8 @@ model_values.go
 model_version_metadata.go
 model_version_metadata_all_of.go
 response.go
+test/api_default_test.go
+test/api_enterprise_dataplane_clusters_test.go
+test/api_errors_test.go
+test/api_security_test.go
 utils.go
