@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${kafka-instance-sdk.url}</url>
+          <file>${kafka-instance-sdk.url}</file>
           <namespace>com.openshift.cloud.api.kas.auth</namespace>
         </configuration>
       </plugin>

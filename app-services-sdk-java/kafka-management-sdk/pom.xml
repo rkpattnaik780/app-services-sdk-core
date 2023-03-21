@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${kas-fleet-manager-sdk.url}</url>
+          <file>${kas-fleet-manager-sdk.url}</file>
           <namespace>com.openshift.cloud.api.kas</namespace>
         </configuration>
       </plugin>

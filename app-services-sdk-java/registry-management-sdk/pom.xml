@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${registry-management-sdk.url}</url>
+          <file>${registry-management-sdk.url}</file>
           <namespace>com.openshift.cloud.api.srs</namespace>
         </configuration>
       </plugin>

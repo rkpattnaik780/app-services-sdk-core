@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${service-accounts-sdk.url}</url>
+          <file>${service-accounts-sdk.url}</file>
           <namespace>com.openshift.cloud.api.serviceaccounts</namespace>
         </configuration>
       </plugin>
