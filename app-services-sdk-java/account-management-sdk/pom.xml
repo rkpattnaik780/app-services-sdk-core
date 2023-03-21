@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${account-management-sdk.url}</url>
+          <file>${account-management-sdk.url}</file>
           <!-- This is Openshift API, should it belong to a different project? -->
           <namespace>com.openshift.cloud.api.accountmanagement</namespace>
         </configuration>

@@ -68,7 +68,7 @@
           </execution>
         </executions>
         <configuration>
-          <url>${connector-management-sdk.url}</url>
+          <file>${connector-management-sdk.url}</file>
           <namespace>com.openshift.cloud.api.connector</namespace>
         </configuration>
       </plugin>
