@@ -32,6 +32,20 @@ bash scripts/errors/fetch-errors.sh
 node scripts/errors/generate_errors.js
 ```
 
+## Releases
+### Java
+- Go to the actions tab in Github
+- Go to the `Java Release` workflow 
+- Press `Run workflow` and enter the new version that will be released pointing to the correct branch
+- The workflow will run creating a Github release with the version name and a branch `release-{version}`
+
+### GO
+- Go to the releases tab in Github and draft a new release
+- The tag should follow the format `app-services-sdk-go/v{Major-Minor-Path}`
+- The title of the release should follow the format `app-services-sdk-go app-services-sdk-go/v{Major-Minor-Path}`
+- Auto generate the patch notes making any changes you find sutible
+- Press `Publish release`
+
 ## Checking standards
 
 ## Onboarding a new API
