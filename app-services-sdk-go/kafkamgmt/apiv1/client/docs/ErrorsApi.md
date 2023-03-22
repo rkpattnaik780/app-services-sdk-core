@@ -26,15 +26,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorsApi.GetErrorById(context.Background(), id).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorsApi.GetErrorById(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorsApi.GetErrorById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -96,14 +96,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ErrorsApi.GetErrors(context.Background()).Execute()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ErrorsApi.GetErrors(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ErrorsApi.GetErrors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

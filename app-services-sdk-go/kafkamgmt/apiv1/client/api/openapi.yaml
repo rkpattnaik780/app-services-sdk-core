@@ -99,7 +99,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-              example: null
           description: Deleted
         "400":
           content:
@@ -107,7 +106,6 @@ paths:
               examples:
                 "400DeletionExample":
                   $ref: '#/components/examples/400DeletionExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -117,7 +115,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -127,7 +124,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -137,7 +133,6 @@ paths:
               examples:
                 "404DeleteExample":
                   $ref: '#/components/examples/404DeleteExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Kafka request with specified ID exists
@@ -147,7 +142,6 @@ paths:
               examples:
                 "500DeleteExample":
                   $ref: '#/components/examples/500DeleteExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -172,10 +166,8 @@ paths:
               examples:
                 KafkaRequestGetResponseExample:
                   $ref: '#/components/examples/KafkaRequestExample'
-                  value: null
                 KafkaRequestGetResponseWithFailedCreationStatusExample:
                   $ref: '#/components/examples/KafkaRequestFailedCreationStatusExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/KafkaRequest'
           description: Kafka request found by ID
@@ -185,7 +177,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -195,7 +186,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -205,7 +195,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Kafka request with specified ID exists
@@ -215,7 +204,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -247,7 +235,6 @@ paths:
               examples:
                 KafkaRequestPostResponseExample:
                   $ref: '#/components/examples/KafkaRequestExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/KafkaRequest'
           description: Kafka updated by ID
@@ -257,7 +244,6 @@ paths:
               examples:
                 MissingParameterExample:
                   $ref: '#/components/examples/400MissingParameterExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Bad request
@@ -267,7 +253,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -277,7 +262,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User is not authorised to access the service
@@ -287,7 +271,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Kafka found with the specified ID
@@ -297,7 +280,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -332,7 +314,6 @@ paths:
             examples:
               KafkaPromoteRequestExample:
                 $ref: '#/components/examples/KafkaPromoteRequestExample'
-                value: null
             schema:
               $ref: '#/components/schemas/KafkaPromoteRequest'
         description: Kafka promotion request
@@ -346,7 +327,6 @@ paths:
               examples:
                 "400CreationExample":
                   $ref: '#/components/examples/400CreationExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -356,7 +336,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -366,7 +345,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User forbidden either because the user is not authorized to
@@ -377,7 +355,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: The requested resource doesn't exist
@@ -387,7 +364,6 @@ paths:
               examples:
                 "409NameConflictExample":
                   $ref: '#/components/examples/409NameConflictExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: A conflict has been detected with the usage of this resource
@@ -397,7 +373,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: A server error occurred while promoting the Kafka request
@@ -531,7 +506,6 @@ paths:
               examples:
                 InvalidQueryExample:
                   $ref: '#/components/examples/400InvalidQueryExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Bad request
@@ -541,7 +515,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -551,7 +524,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -561,7 +533,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -585,13 +556,10 @@ paths:
             examples:
               USRegion:
                 $ref: '#/components/examples/USRegionExample'
-                value: null
               EURegion:
                 $ref: '#/components/examples/EURegionExample'
-                value: null
               ExplicitSizeExample:
                 $ref: '#/components/examples/ExplicitSizeExample'
-                value: null
             schema:
               $ref: '#/components/schemas/KafkaRequestPayload'
         description: Kafka data
@@ -603,7 +571,6 @@ paths:
               examples:
                 KafkaRequestPostResponseExample:
                   $ref: '#/components/examples/KafkaRequestExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/KafkaRequest'
           description: Accepted
@@ -613,7 +580,6 @@ paths:
               examples:
                 "400CreationExample":
                   $ref: '#/components/examples/400CreationExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -623,7 +589,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -633,13 +598,10 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
                 "403MaxAllowedInstanceReachedExample":
                   $ref: '#/components/examples/403MaxAllowedInstanceReachedExample'
-                  value: null
                 "403TermsNotAcceptedExample":
                   $ref: '#/components/examples/403TermsNotAcceptedExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User forbidden either because the user is not authorized to
@@ -651,7 +613,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: The requested resource doesn't exist
@@ -661,7 +622,6 @@ paths:
               examples:
                 "409NameConflictExample":
                   $ref: '#/components/examples/409NameConflictExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: A conflict has been detected in the creation of this resource
@@ -671,7 +631,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: An unexpected error occurred while creating the Kafka request
@@ -717,7 +676,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -727,7 +685,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -781,7 +738,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -791,7 +747,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -833,10 +788,8 @@ paths:
               examples:
                 "400UnsupportedRegionExample":
                   $ref: '#/components/examples/400UnsupportedRegionExample'
-                  value: null
                 "400UnsupportedProviderExample":
                   $ref: '#/components/examples/400UnsupportedProviderExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Cloud provider or region is not supported
@@ -846,7 +799,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -856,7 +808,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -888,7 +839,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -898,7 +848,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -908,7 +857,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -925,7 +873,6 @@ paths:
             examples:
               sa:
                 $ref: '#/components/examples/ServiceAccountRequestExample'
-                value: null
             schema:
               $ref: '#/components/schemas/ServiceAccountRequest'
         description: Service account request
@@ -937,7 +884,6 @@ paths:
               examples:
                 serviceaccount:
                   $ref: '#/components/examples/ServiceAccountExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/ServiceAccount'
           description: Service account created
@@ -947,7 +893,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -957,7 +902,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: List of service accounts
@@ -967,7 +911,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1001,7 +944,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1011,7 +953,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1021,7 +962,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1049,7 +989,6 @@ paths:
               examples:
                 sa:
                   $ref: '#/components/examples/ServiceAccountByIdExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/ServiceAccount'
           description: Returns a service account by ID
@@ -1077,7 +1016,6 @@ paths:
               examples:
                 sa-reset:
                   $ref: '#/components/examples/ServiceAccountExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/ServiceAccount'
           description: Reset credentials
@@ -1087,7 +1025,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1097,7 +1034,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1107,7 +1043,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1132,7 +1067,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1142,7 +1076,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1216,7 +1149,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1226,7 +1158,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1270,7 +1201,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1280,7 +1210,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1312,7 +1241,6 @@ paths:
               examples:
                 MissingParameterExample:
                   $ref: '#/components/examples/400MissingParameterExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Bad request
@@ -1322,7 +1250,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1332,7 +1259,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Kafka id not found
@@ -1342,7 +1268,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1365,7 +1290,6 @@ paths:
               examples:
                 InvalidQueryExample:
                   $ref: '#/components/examples/400InvalidQueryExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Bad request
@@ -1375,7 +1299,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1385,7 +1308,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1395,7 +1317,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1412,7 +1333,6 @@ paths:
             examples:
               EnterpriseOsdClusterPayloadExample:
                 $ref: '#/components/examples/EnterpriseOsdClusterPayloadExample'
-                value: null
             schema:
               $ref: '#/components/schemas/EnterpriseOsdClusterPayload'
         description: Enterprise data plane cluster details
@@ -1430,10 +1350,8 @@ paths:
               examples:
                 "400InvalidClusterIdExample":
                   $ref: '#/components/examples/400InvalidClusterIdExample'
-                  value: null
                 "400InvalidExternalClusterIdExample":
                   $ref: '#/components/examples/400InvalidExternalClusterIdExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -1443,7 +1361,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1453,7 +1370,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User is not authorized to access the service
@@ -1463,7 +1379,6 @@ paths:
               examples:
                 "409ClusterIdConflictExample":
                   $ref: '#/components/examples/409ClusterIdConflictExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: A conflict has been detected in the creation of this resource
@@ -1473,7 +1388,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: An unexpected error occurred while registering Enterprise cluster
@@ -1514,7 +1428,6 @@ paths:
               examples:
                 "400DeletionExample":
                   $ref: '#/components/examples/400DeletionExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -1524,7 +1437,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1534,7 +1446,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1544,7 +1455,6 @@ paths:
               examples:
                 "404DeleteExample":
                   $ref: '#/components/examples/404DeleteExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Enterprise cluster with specified ID exists
@@ -1554,7 +1464,6 @@ paths:
               examples:
                 "500DeleteExample":
                   $ref: '#/components/examples/500DeleteExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1581,7 +1490,6 @@ paths:
               examples:
                 EnterpriseClusterListItemExample:
                   $ref: '#/components/examples/EnterpriseClusterListItemExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/EnterpriseCluster'
           description: Found enterprise data plane cluster with provided ID
@@ -1591,7 +1499,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1601,7 +1508,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1611,7 +1517,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Enterprise data plane cluster with specified ID exists
@@ -1621,7 +1526,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1650,7 +1554,6 @@ paths:
               examples:
                 EnterpriseClusterWithAddonsExample:
                   $ref: '#/components/examples/EnterpriseClusterWithAddonParametersExample'
-                  value: null
               schema:
                 $ref: '#/components/schemas/EnterpriseClusterWithAddonParameters'
           description: Returns the enterprise data plane cluster with addon parameters
@@ -1661,7 +1564,6 @@ paths:
               examples:
                 "401Example":
                   $ref: '#/components/examples/401Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Auth token is invalid
@@ -1671,7 +1573,6 @@ paths:
               examples:
                 "403Example":
                   $ref: '#/components/examples/403Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: User not authorized to access the service
@@ -1681,7 +1582,6 @@ paths:
               examples:
                 "404Example":
                   $ref: '#/components/examples/404Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: No Enterprise data plane cluster with specified ID exists
@@ -1691,7 +1591,6 @@ paths:
               examples:
                 "500Example":
                   $ref: '#/components/examples/500Example'
-                  value: null
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unexpected error occurred
@@ -1763,7 +1662,7 @@ components:
         owner: api_kafka_service
         name: serviceapi
         bootstrap_server_host: serviceapi-1isy6rq3jki8q0otmjqfd3ocfrg.apps.mk-bttg0jn170hp.x5u8.s1.devshift.org
-        admin_api_server_url: "https://admin-server-mk-e-e-e-e-c---{}ld{-}-n-vp--bltg.rhcloud.com"
+        admin_api_server_url: https://admin-server-mk-e-e-e-e-c---{}ld{-}-n-vp--bltg.rhcloud.com
         created_at: 2020-10-05T12:51:24.053142Z
         updated_at: 2020-10-05T12:56:36.362208Z
         version: 2.6.0
@@ -1795,7 +1694,7 @@ components:
         owner: api_kafka_service
         name: serviceapi
         bootstrap_server_host: serviceapi-1isy6rq3jki8q0otmjqfd3ocfrg.apps.mk-bttg0jn170hp.x5u8.s1.devshift.org
-        admin_api_server_url: "https://admin-server-mk-e-e-e-e-c---{}ld{-}-n-vp--bltg.rhcloud.com"
+        admin_api_server_url: https://admin-server-mk-e-e-e-e-c---{}ld{-}-n-vp--bltg.rhcloud.com
         created_at: 2020-10-05T12:51:24.053142Z
         updated_at: 2020-10-05T12:56:36.362208Z
         failed_reason: a reason the Kafka request creation failed
@@ -1851,7 +1750,7 @@ components:
       value:
         kind: CloudRegion
         id: us-east-1
-        display_name: "US East, N. Virginia"
+        display_name: US East, N. Virginia
         enabled: true
         capacity:
         - instance_type: standard
@@ -1930,7 +1829,7 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/103
         code: KAFKAS-MGMT-103
-        reason: "Synchronous action is not supported, use async=true parameter"
+        reason: Synchronous action is not supported, use async=true parameter
         operation_id: 1iWIimqGcrDuL61aUxIZqBTqNRa
     "400CreationExample":
       value:
@@ -1938,7 +1837,7 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/103
         code: KAFKAS-MGMT-103
-        reason: "Synchronous action is not supported, use async=true parameter"
+        reason: Synchronous action is not supported, use async=true parameter
         operation_id: 1iWIimqGcrDuL61aUxIZqBTqNRa
     "400InvalidQueryExample":
       value:
@@ -1946,10 +1845,10 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/23
         code: KAFKAS-MGMT-23
-        reason: "Failed to parse search query: Unable to list Kafka requests for api_kafka_service:\
-          \ KAFKAS-MGMT-23: Failed to parse search query: Unsupported column name\
-          \ for search: 'id'. Supported column names are: region, name, cloud_provider,\
-          \ name, status. Query invalid: id = 123"
+        reason: 'Failed to parse search query: Unable to list Kafka requests for api_kafka_service:
+          KAFKAS-MGMT-23: Failed to parse search query: Unsupported column name for
+          search: ''id''. Supported column names are: region, name, cloud_provider,
+          name, status. Query invalid: id = 123'
         operation_id: 1lWDGuybIrEnxrAem724gqkkiDv
     "400UnsupportedProviderExample":
       value:
@@ -1973,7 +1872,7 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/21
         code: KAFKAS-MGMT-21
-        reason: "missing path parameter: kafka id"
+        reason: 'missing path parameter: kafka id'
         operation_id: 1lWDGuybIrEnxrAem724gqkkiDv
     "400InvalidClusterIdExample":
       value:
@@ -2012,7 +1911,7 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/11
         code: KAFKAS-MGMT-11
-        reason: "Unable to verify JWT token: Required authorization token not found"
+        reason: 'Unable to verify JWT token: Required authorization token not found'
         operation_id: 1iY3UhEhwmXBpWPfI2lNekpd4ZD
     "403Example":
       value:
@@ -2069,10 +1968,10 @@ components:
         kind: Error
         href: /api/kafkas_mgmt/v1/errors/9
         code: KAFKAS-MGMT-9
-        reason: "error deleting syncset: OCM-EX-9: failed to delete syncset: ext-serviceapi-1ix03lndlmq0qfc7sita5sljv8e\
-          \ for cluster id: 1g5d88q0lrcdv4g7alb7slfgnj3dhbsj%!(EXTRA *errors.Error=identifier\
-          \ is '404', code is 'CLUSTERS-MGMT-404' and operation identifier is '1g5or50viu07oealuehrkc26dgftj1ac':\
-          \ Cluster '1g5d88q0lrcdv4g7alb7slfgnj3dhbsj' not found)"
+        reason: 'error deleting syncset: OCM-EX-9: failed to delete syncset: ext-serviceapi-1ix03lndlmq0qfc7sita5sljv8e
+          for cluster id: 1g5d88q0lrcdv4g7alb7slfgnj3dhbsj%!(EXTRA *errors.Error=identifier
+          is ''404'', code is ''CLUSTERS-MGMT-404'' and operation identifier is ''1g5or50viu07oealuehrkc26dgftj1ac'':
+          Cluster ''1g5d88q0lrcdv4g7alb7slfgnj3dhbsj'' not found)'
         operation_id: 1iYTsWry6nsqb2sNmFj5bXpD7Ca
     EnterpriseOsdClusterPayloadExample:
       value:
@@ -2361,18 +2260,17 @@ components:
             in
           type: string
         name:
-          description: "The name of the Kafka cluster. It must consist of lower-case\
-            \ alphanumeric characters or '-', start with an alphabetic character,\
-            \ and end with an alphanumeric character, and can not be longer than 32\
-            \ characters."
+          description: The name of the Kafka cluster. It must consist of lower-case
+            alphanumeric characters or '-', start with an alphabetic character, and
+            end with an alphanumeric character, and can not be longer than 32 characters.
           type: string
         region:
           description: The region where the Kafka cluster will be created in
           type: string
         reauthentication_enabled:
-          description: "Whether connection reauthentication is enabled or not. If\
-            \ set to true, connection reauthentication on the Kafka instance will\
-            \ be required every 5 minutes. The default value is true"
+          description: Whether connection reauthentication is enabled or not. If set
+            to true, connection reauthentication on the Kafka instance will be required
+            every 5 minutes. The default value is true
           nullable: true
           type: boolean
         plan:
@@ -2404,15 +2302,15 @@ components:
         desired_kafka_billing_model: desired_kafka_billing_model
       properties:
         desired_kafka_billing_model:
-          description: "The desired Kafka billing model to promote the kafka instance\
-            \ to. Promotion is performed asynchronously. Accepted values: ['marketplace',\
-            \ 'standard']"
+          description: 'The desired Kafka billing model to promote the kafka instance
+            to. Promotion is performed asynchronously. Accepted values: [''marketplace'',
+            ''standard'']'
           minLength: 1
           type: string
         desired_marketplace:
-          description: "The desired billing marketplace to promote the kafka instance\
-            \ to. Accepted values: ['aws', 'rhm']. Only considered when desired_kafka_billing_model\
-            \ is 'marketplace'"
+          description: 'The desired billing marketplace to promote the kafka instance
+            to. Accepted values: [''aws'', ''rhm'']. Only considered when desired_kafka_billing_model
+            is ''marketplace'''
           minLength: 1
           type: string
         desired_billing_cloud_account_id:
@@ -2446,7 +2344,8 @@ components:
           description: A list of Kafka instance sizes available for this instance
             type
           items:
-            $ref: '#/components/schemas/SupportedKafkaInstanceType_sizes_inner'
+            allOf:
+            - $ref: '#/components/schemas/SupportedKafkaSize'
           type: array
       required:
       - sizes
@@ -2460,17 +2359,17 @@ components:
           minLength: 1
           type: string
         ams_resource:
-          description: "AMS resource to be used. Accepted values: ['rhosak']"
+          description: 'AMS resource to be used. Accepted values: [''rhosak'']'
           minLength: 1
           type: string
         ams_product:
-          description: "AMS product to be used. Accepted values: ['RHOSAK', 'RHOSAKTrial',\
-            \ 'RHOSAKEval', 'RHOSAKCC']"
+          description: 'AMS product to be used. Accepted values: [''RHOSAK'', ''RHOSAKTrial'',
+            ''RHOSAKEval'', ''RHOSAKCC'']'
           minLength: 1
           type: string
         ams_billing_models:
-          description: "List of AMS available billing models: Accepted values: ['marketplace',\
-            \ 'marketplace-rhm', 'marketplace-aws']"
+          description: 'List of AMS available billing models: Accepted values: [''marketplace'',
+            ''marketplace-rhm'', ''marketplace-aws'']'
           items:
             minLength: 1
             type: string
@@ -2522,8 +2421,8 @@ components:
           description: Replication factor available to this Kafka instance size.
           type: integer
         supported_az_modes:
-          description: "List of Availability Zone modes that this Kafka instance size\
-            \ supports. The possible values are \"single\", \"multi\"."
+          description: List of Availability Zone modes that this Kafka instance size
+            supports. The possible values are "single", "multi".
           items:
             type: string
           type: array
@@ -2537,8 +2436,8 @@ components:
           type: integer
         quota_type:
           deprecated: true
-          description: "Quota type used by this Kafka instance size. This is now deprecated,\
-            \ please refer to supported_billing_models at instance-type level instead."
+          description: Quota type used by this Kafka instance size. This is now deprecated,
+            please refer to supported_billing_models at instance-type level instead.
           type: string
         capacity_consumed:
           description: Data plane cluster capacity consumed by this Kafka instance
@@ -2576,8 +2475,8 @@ components:
           description: Name of the cloud provider for display purposes.
           type: string
         name:
-          description: "Human friendly identifier of the cloud provider, for example\
-            \ `aws`."
+          description: Human friendly identifier of the cloud provider, for example
+            `aws`.
           type: string
         enabled:
           description: Whether the cloud provider is enabled for deploying an OSD
@@ -2595,7 +2494,7 @@ components:
           description: Unique identifier of the object.
           type: string
         display_name:
-          description: "Name of the region for display purposes, for example `N. Virginia`."
+          description: Name of the region for display purposes, for example `N. Virginia`.
           type: string
         enabled:
           default: false
@@ -2648,7 +2547,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
       - $ref: '#/components/schemas/ServiceAccountListItem_allOf'
-      description: ""
     ServiceAccountList:
       allOf:
       - $ref: '#/components/schemas/ServiceAccountList_allOf'
@@ -2709,9 +2607,9 @@ components:
           nullable: true
           type: string
         reauthentication_enabled:
-          description: "Whether connection reauthentication is enabled or not. If\
-            \ set to true, connection reauthentication on the Kafka instance will\
-            \ be required every 5 minutes."
+          description: Whether connection reauthentication is enabled or not. If set
+            to true, connection reauthentication on the Kafka instance will be required
+            every 5 minutes.
           nullable: true
           type: boolean
       type: object
@@ -2772,13 +2670,13 @@ components:
       required:
       - items
       type: object
-      example: null
     KafkaRequest_allOf:
-      example: "{\"$ref\":\"#/components/examples/KafkaRequestExample\"}"
+      example:
+        $ref: '#/components/examples/KafkaRequestExample'
       properties:
         status:
-          description: "Values: [accepted, preparing, provisioning, ready, failed,\
-            \ deprovision, deleting, suspending, suspended, resuming] "
+          description: 'Values: [accepted, preparing, provisioning, ready, failed,
+            deprovision, deleting, suspending, suspended, resuming] '
           type: string
         cloud_provider:
           description: Name of Cloud used to deploy. For example AWS
@@ -2786,8 +2684,8 @@ components:
         multi_az:
           type: boolean
         region:
-          description: "Values will be regions of specific cloud provider. For example:\
-            \ us-east-1 for AWS"
+          description: 'Values will be regions of specific cloud provider. For example:
+            us-east-1 for AWS'
           type: string
         owner:
           type: string
@@ -2818,8 +2716,8 @@ components:
           type: string
         instance_type_name:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: string
         reauthentication_enabled:
           type: boolean
@@ -2831,33 +2729,33 @@ components:
           type: string
         ingress_throughput_per_sec:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: string
         egress_throughput_per_sec:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: string
         total_max_connections:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: integer
         max_partitions:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: integer
         max_data_retention_period:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: string
         max_connection_attempts_per_sec:
           deprecated: true
-          description: "This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}\
-            \ endpoint to retrieve the field instead."
+          description: This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region}
+            endpoint to retrieve the field instead.
           type: integer
         billing_cloud_account_id:
           type: string
@@ -2866,8 +2764,8 @@ components:
         billing_model:
           type: string
         promotion_status:
-          description: "Status of the Kafka request promotion. Possible values: ['promoting',\
-            \ 'failed']. If unset it means no promotion is in progress."
+          description: 'Status of the Kafka request promotion. Possible values: [''promoting'',
+            ''failed'']. If unset it means no promotion is in progress.'
           type: string
         cluster_id:
           description: The ID of the data plane where Kafka is deployed on. This information
@@ -2883,8 +2781,13 @@ components:
       - reauthentication_enabled
       type: object
     KafkaRequestList_allOf:
-      example: "{\"kind\":\"KafkaRequestList\",\"page\":\"1\",\"size\":\"1\",\"total\"\
-        :\"1\",\"item\":{\"$ref\":\"#/components/examples/KafkaRequestExample\"}}"
+      example:
+        kind: KafkaRequestList
+        page: "1"
+        size: "1"
+        total: "1"
+        item:
+          $ref: '#/components/examples/KafkaRequestExample'
       properties:
         items:
           items:
@@ -2895,9 +2798,13 @@ components:
       - items
       type: object
     EnterpriseClusterList_allOf:
-      example: "{\"kind\":\"ClusterList\",\"page\":\"1\",\"size\":\"1\",\"total\"\
-        :\"1\",\"item\":{\"$ref\":\"#/components/examples/EnterpriseClusterListItemExample\"\
-        }}"
+      example:
+        kind: ClusterList
+        page: "1"
+        size: "1"
+        total: "1"
+        item:
+          $ref: '#/components/examples/EnterpriseClusterListItemExample'
       properties:
         items:
           items:
@@ -2935,12 +2842,13 @@ components:
       - access_kafkas_via_private_network
       - multi_az
       type: object
-      example: null
     EnterpriseCluster_allOf_capacity_information:
       description: Returns the capacity related information
-      example: "{\"kafka_machine_pool_node_count\":3,\"maximum_kafka_streaming_units\"\
-        :1,\"remaining_kafka_streaming_units\":0,\"consumed_kafka_streaming_units\"\
-        :1}"
+      example:
+        kafka_machine_pool_node_count: 3
+        maximum_kafka_streaming_units: 1
+        remaining_kafka_streaming_units: 0
+        consumed_kafka_streaming_units: 1
       properties:
         kafka_machine_pool_node_count:
           description: The kafka machine pool node count provided during cluster registration
@@ -2970,12 +2878,16 @@ components:
         capacity_information:
           $ref: '#/components/schemas/EnterpriseCluster_allOf_capacity_information'
       type: object
-      example: null
     VersionMetadata_allOf:
-      example: "{\"kind\":\"APIVersion\",\"id\":\"v1\",\"href\":\"/api/kafkas_mgmt/v1\"\
-        ,\"server_version\":\"24a263e8631d713b3104c1a70c143644ab91de6f\",\"collections\"\
-        :[{\"id\":\"kafkas\",\"href\":\"/api/kafkas_mgmt/v1/kafkas\",\"kind\":\"KafkaList\"\
-        }]}"
+      example:
+        kind: APIVersion
+        id: v1
+        href: /api/kafkas_mgmt/v1
+        server_version: 24a263e8631d713b3104c1a70c143644ab91de6f
+        collections:
+        - id: kafkas
+          href: /api/kafkas_mgmt/v1/kafkas
+          kind: KafkaList
       properties:
         server_version:
           type: string
@@ -2986,8 +2898,9 @@ components:
           type: array
       type: object
     SupportedKafkaInstanceTypesList_allOf:
-      example: "{\"instance_types\":{\"$ref\":\"#/components/examples/SupportedKafkaInstanceTypeListExample\"\
-        }}"
+      example:
+        instance_types:
+          $ref: '#/components/examples/SupportedKafkaInstanceTypeListExample'
       properties:
         instance_types:
           items:
@@ -2997,12 +2910,14 @@ components:
       required:
       - items
       type: object
-    SupportedKafkaInstanceType_sizes_inner:
-      allOf:
-      - $ref: '#/components/schemas/SupportedKafkaSize'
     CloudProviderList_allOf:
-      example: "{\"kind\":\"CloudProviderList\",\"page\":\"1\",\"size\":\"1\",\"total\"\
-        :\"1\",\"item\":{\"$ref\":\"#/components/examples/CloudProviderExample\"}}"
+      example:
+        kind: CloudProviderList
+        page: "1"
+        size: "1"
+        total: "1"
+        item:
+          $ref: '#/components/examples/CloudProviderExample'
       properties:
         items:
           items:
@@ -3013,8 +2928,13 @@ components:
       - items
       type: object
     CloudRegionList_allOf:
-      example: "{\"kind\":\"CloudRegionList\",\"page\":\"1\",\"size\":\"1\",\"total\"\
-        :\"1\",\"item\":{\"$ref\":\"#/components/examples/CloudRegionExample\"}}"
+      example:
+        kind: CloudRegionList
+        page: "1"
+        size: "1"
+        total: "1"
+        item:
+          $ref: '#/components/examples/CloudRegionExample'
       properties:
         items:
           items:
@@ -3025,16 +2945,15 @@ components:
       - items
       type: object
     ServiceAccount_allOf:
-      example: "{\"$ref\":\"#/components/examples/ServiceAccountExample\"}"
+      example:
+        $ref: '#/components/examples/ServiceAccountExample'
       properties:
         id:
           description: server generated unique id of the service account
           type: string
         name:
-          description: ""
           type: string
         description:
-          description: ""
           type: string
         client_id:
           type: string
@@ -3075,10 +2994,11 @@ components:
           description: description of the service account
           type: string
       type: object
-      example: null
     ServiceAccountList_allOf:
-      example: "{\"kind\":\"ServiceAccountList\",\"items\":[{\"$ref\":\"#/components/examples/ServiceAccountListItemExample\"\
-        }]}"
+      example:
+        kind: ServiceAccountList
+        items:
+        - $ref: '#/components/examples/ServiceAccountListItemExample'
       properties:
         kind:
           type: string
@@ -3092,7 +3012,8 @@ components:
       - kind
       type: object
     SsoProvider_allOf:
-      example: "{\"$ref\":\"#/components/examples/SsoProviderExample\"}"
+      example:
+        $ref: '#/components/examples/SsoProviderExample'
       properties:
         name:
           description: name of the sso provider
@@ -3108,8 +3029,11 @@ components:
           type: string
       type: object
     MetricsRangeQueryList_allOf:
-      example: "{\"kind\":\"MetricsRangeQueryList\",\"id\":\"1nbpS70HduPe4l0to8jSg2CLzfu\"\
-        ,\"items\":{\"$ref\":\"#/components/examples/MetricsRangeQueryExample\"}}"
+      example:
+        kind: MetricsRangeQueryList
+        id: 1nbpS70HduPe4l0to8jSg2CLzfu
+        items:
+          $ref: '#/components/examples/MetricsRangeQueryExample'
       properties:
         kind:
           type: string
@@ -3122,9 +3046,11 @@ components:
           type: array
       type: object
     MetricsInstantQueryList_allOf:
-      example: "{\"kind\":\"MetricsInstantQueryList\",\"id\":\"1nbpS70HduPe4l0to8jSg2CLzfu\"\
-        ,\"items\":{\"$ref\":\"#/components/examples/MetricsInstantQueryExample\"\
-        }}"
+      example:
+        kind: MetricsInstantQueryList
+        id: 1nbpS70HduPe4l0to8jSg2CLzfu
+        items:
+          $ref: '#/components/examples/MetricsInstantQueryExample'
       properties:
         kind:
           type: string
@@ -3144,7 +3070,6 @@ components:
             - $ref: '#/components/schemas/FleetshardParameter'
           type: array
       type: object
-      example: null
   securitySchemes:
     Bearer:
       bearerFormat: JWT
