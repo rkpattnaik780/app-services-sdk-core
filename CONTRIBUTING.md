@@ -41,7 +41,7 @@ Releasing a new version of the SDKs can be done by running a single workflow.
 
 - Select the branch the release will be created from and run the workflow
 
-- Once completed there will be a new release created with the name and tag `vX.Y,X` and a branch with the generated code needed named `release-X.Y.Z`
+- Once completed there will be a new release created with the name and tag `vX.Y.X` and a branch with the generated code needed named `release-X.Y.Z`. The tag created will be pointing to the new branch created.
 
 ## Checking standards
 
