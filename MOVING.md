@@ -1,7 +1,12 @@
 # Moving to Core SDK
 
 ## What's changed
-While the code has moved the generation has stayed the same, which means updating to the Core SDK of the language you choose should be similar to updating to a new version in the old SDK.
+
+### Go
+While the code has moved the generation has stayed the same, which means updating to the Core SDK should be similar to updating to a new version in the old SDK
+
+### Java
+Java has been completly replaced with a new generator from Kiota you can learn more [here](https://microsoft.github.io/kiota/). This means any code in the previous Java SDK will no longer work and is no longer supported.
 
 ## How to update
 
