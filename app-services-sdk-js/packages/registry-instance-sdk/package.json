@@ -1,5 +1,5 @@
 {
-  "name": "jack-registry-instance-sdk",
+  "name": "@rhoas/registry-instance-sdk",
   "version": "0.0.0",
   "description": "RHOAS Service Registry Instance Adminstration SDK",
   "author": "Red Hat Developers",

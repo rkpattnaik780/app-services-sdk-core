@@ -1,5 +1,5 @@
 {
-  "name": "jack-service-accounts-sdk",
+  "name": "@rhoas/service-accounts-sdk",
   "version": "0.0.0",
   "description": "RHOAS Service Accounts SDK",
   "author": "Red Hat Developers",
