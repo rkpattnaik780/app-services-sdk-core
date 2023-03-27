@@ -1,5 +1,5 @@
 {
-  "name": "jack-registry-management-sdk",
+  "name": "@rhoas/registry-management-sdk",
   "version": "0.0.1",
   "description": "RHOAS Service Registry Management SDK",
   "author": "Red Hat Developers",

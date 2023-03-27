@@ -1,5 +1,5 @@
 {
-  "name": "jack-connector-management-sdk",
+  "name": "@rhoas/connector-management-sdk",
   "version": "0.0.0",
   "description": "RHOAS Connector Management SDK",
   "author": "Red Hat Developers",

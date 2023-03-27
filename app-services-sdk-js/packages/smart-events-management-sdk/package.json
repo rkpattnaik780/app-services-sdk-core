@@ -1,5 +1,5 @@
 {
-  "name": "jack-smart-events-management-sdk",
+  "name": "@rhoas/smart-events-management-sdk",
   "version": "0.0.0",
   "description": "RHOAS Smart Events Management SDK",
   "author": "Red Hat Developers",
