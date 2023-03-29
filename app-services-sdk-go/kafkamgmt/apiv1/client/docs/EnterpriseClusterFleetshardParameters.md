@@ -1,52 +1,52 @@
-# EnterpriseClusterWithAddonParametersAllOf
+# EnterpriseClusterFleetshardParameters
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FleetshardParameters** | Pointer to [**[]FleetshardParameter**](FleetshardParameter.md) |  | [optional] 
+**FleetshardParameters** | Pointer to [**[]FleetshardParameter**](FleetshardParameter.md) | Enterprise Cluster fleetshard parameters array | [optional] 
 
 ## Methods
 
-### NewEnterpriseClusterWithAddonParametersAllOf
+### NewEnterpriseClusterFleetshardParameters
 
-`func NewEnterpriseClusterWithAddonParametersAllOf() *EnterpriseClusterWithAddonParametersAllOf`
+`func NewEnterpriseClusterFleetshardParameters() *EnterpriseClusterFleetshardParameters`
 
-NewEnterpriseClusterWithAddonParametersAllOf instantiates a new EnterpriseClusterWithAddonParametersAllOf object
+NewEnterpriseClusterFleetshardParameters instantiates a new EnterpriseClusterFleetshardParameters object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewEnterpriseClusterWithAddonParametersAllOfWithDefaults
+### NewEnterpriseClusterFleetshardParametersWithDefaults
 
-`func NewEnterpriseClusterWithAddonParametersAllOfWithDefaults() *EnterpriseClusterWithAddonParametersAllOf`
+`func NewEnterpriseClusterFleetshardParametersWithDefaults() *EnterpriseClusterFleetshardParameters`
 
-NewEnterpriseClusterWithAddonParametersAllOfWithDefaults instantiates a new EnterpriseClusterWithAddonParametersAllOf object
+NewEnterpriseClusterFleetshardParametersWithDefaults instantiates a new EnterpriseClusterFleetshardParameters object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetFleetshardParameters
 
-`func (o *EnterpriseClusterWithAddonParametersAllOf) GetFleetshardParameters() []FleetshardParameter`
+`func (o *EnterpriseClusterFleetshardParameters) GetFleetshardParameters() []FleetshardParameter`
 
 GetFleetshardParameters returns the FleetshardParameters field if non-nil, zero value otherwise.
 
 ### GetFleetshardParametersOk
 
-`func (o *EnterpriseClusterWithAddonParametersAllOf) GetFleetshardParametersOk() (*[]FleetshardParameter, bool)`
+`func (o *EnterpriseClusterFleetshardParameters) GetFleetshardParametersOk() (*[]FleetshardParameter, bool)`
 
 GetFleetshardParametersOk returns a tuple with the FleetshardParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFleetshardParameters
 
-`func (o *EnterpriseClusterWithAddonParametersAllOf) SetFleetshardParameters(v []FleetshardParameter)`
+`func (o *EnterpriseClusterFleetshardParameters) SetFleetshardParameters(v []FleetshardParameter)`
 
 SetFleetshardParameters sets FleetshardParameters field to given value.
 
 ### HasFleetshardParameters
 
-`func (o *EnterpriseClusterWithAddonParametersAllOf) HasFleetshardParameters() bool`
+`func (o *EnterpriseClusterFleetshardParameters) HasFleetshardParameters() bool`
 
 HasFleetshardParameters returns a boolean if a field has been set.
 
