@@ -3,7 +3,7 @@
  *
  * Kafka Management API is a REST API to manage Kafka instances
  *
- * API version: 1.15.0
+ * API version: 1.16.0
  * Contact: rhosak-support@redhat.com
  */
 
@@ -42,6 +42,22 @@ type EnterpriseDataplaneClustersApi interface {
 	DeleteEnterpriseClusterByIdExecute(r ApiDeleteEnterpriseClusterByIdRequest) (Error, *_nethttp.Response, error)
 
 	/*
+	 * GetEnterpriseClusterAddonParameters Method for GetEnterpriseClusterAddonParameters
+	 * Returns the addon parameters belonging to the enterprise dataplane
+cluster {id}
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id ID of the enterprise data plane cluster
+	 * @return ApiGetEnterpriseClusterAddonParametersRequest
+	 */
+	GetEnterpriseClusterAddonParameters(ctx _context.Context, id string) ApiGetEnterpriseClusterAddonParametersRequest
+
+	/*
+	 * GetEnterpriseClusterAddonParametersExecute executes the request
+	 * @return EnterpriseClusterAddonParameters
+	 */
+	GetEnterpriseClusterAddonParametersExecute(r ApiGetEnterpriseClusterAddonParametersRequest) (EnterpriseClusterAddonParameters, *_nethttp.Response, error)
+
+	/*
 	 * GetEnterpriseClusterById Method for GetEnterpriseClusterById
 	 * Returns enterprise data plane cluster by ID
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -55,21 +71,6 @@ type EnterpriseDataplaneClustersApi interface {
 	 * @return EnterpriseCluster
 	 */
 	GetEnterpriseClusterByIdExecute(r ApiGetEnterpriseClusterByIdRequest) (EnterpriseCluster, *_nethttp.Response, error)
-
-	/*
-	 * GetEnterpriseClusterWithAddonParameters Method for GetEnterpriseClusterWithAddonParameters
-	 * Returns enterprise data plane cluster by ID along with its addon parameters
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param id ID of the enterprise data plane cluster
-	 * @return ApiGetEnterpriseClusterWithAddonParametersRequest
-	 */
-	GetEnterpriseClusterWithAddonParameters(ctx _context.Context, id string) ApiGetEnterpriseClusterWithAddonParametersRequest
-
-	/*
-	 * GetEnterpriseClusterWithAddonParametersExecute executes the request
-	 * @return EnterpriseClusterWithAddonParameters
-	 */
-	GetEnterpriseClusterWithAddonParametersExecute(r ApiGetEnterpriseClusterWithAddonParametersRequest) (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error)
 
 	/*
 	 * GetEnterpriseOsdClusters Method for GetEnterpriseOsdClusters
@@ -95,9 +96,9 @@ type EnterpriseDataplaneClustersApi interface {
 
 	/*
 	 * RegisterEnterpriseOsdClusterExecute executes the request
-	 * @return EnterpriseClusterWithAddonParameters
+	 * @return EnterpriseClusterRegistrationResponse
 	 */
-	RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error)
+	RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (EnterpriseClusterRegistrationResponse, *_nethttp.Response, error)
 }
 
 // EnterpriseDataplaneClustersApiService EnterpriseDataplaneClustersApi service
@@ -266,26 +267,27 @@ func (a *EnterpriseDataplaneClustersApiService) DeleteEnterpriseClusterByIdExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnterpriseClusterByIdRequest struct {
+type ApiGetEnterpriseClusterAddonParametersRequest struct {
 	ctx _context.Context
 	ApiService EnterpriseDataplaneClustersApi
 	id string
 }
 
 
-func (r ApiGetEnterpriseClusterByIdRequest) Execute() (EnterpriseCluster, *_nethttp.Response, error) {
-	return r.ApiService.GetEnterpriseClusterByIdExecute(r)
+func (r ApiGetEnterpriseClusterAddonParametersRequest) Execute() (EnterpriseClusterAddonParameters, *_nethttp.Response, error) {
+	return r.ApiService.GetEnterpriseClusterAddonParametersExecute(r)
 }
 
 /*
- * GetEnterpriseClusterById Method for GetEnterpriseClusterById
- * Returns enterprise data plane cluster by ID
+ * GetEnterpriseClusterAddonParameters Method for GetEnterpriseClusterAddonParameters
+ * Returns the addon parameters belonging to the enterprise dataplane
+cluster {id}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the enterprise data plane cluster
- * @return ApiGetEnterpriseClusterByIdRequest
+ * @return ApiGetEnterpriseClusterAddonParametersRequest
  */
-func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterById(ctx _context.Context, id string) ApiGetEnterpriseClusterByIdRequest {
-	return ApiGetEnterpriseClusterByIdRequest{
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterAddonParameters(ctx _context.Context, id string) ApiGetEnterpriseClusterAddonParametersRequest {
+	return ApiGetEnterpriseClusterAddonParametersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -294,24 +296,24 @@ func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterById(ctx _co
 
 /*
  * Execute executes the request
- * @return EnterpriseCluster
+ * @return EnterpriseClusterAddonParameters
  */
-func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterByIdExecute(r ApiGetEnterpriseClusterByIdRequest) (EnterpriseCluster, *_nethttp.Response, error) {
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterAddonParametersExecute(r ApiGetEnterpriseClusterAddonParametersRequest) (EnterpriseClusterAddonParameters, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  EnterpriseCluster
+		localVarReturnValue  EnterpriseClusterAddonParameters
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterAddonParameters")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}"
+	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}/addon_parameters"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -411,26 +413,26 @@ func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterByIdExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEnterpriseClusterWithAddonParametersRequest struct {
+type ApiGetEnterpriseClusterByIdRequest struct {
 	ctx _context.Context
 	ApiService EnterpriseDataplaneClustersApi
 	id string
 }
 
 
-func (r ApiGetEnterpriseClusterWithAddonParametersRequest) Execute() (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error) {
-	return r.ApiService.GetEnterpriseClusterWithAddonParametersExecute(r)
+func (r ApiGetEnterpriseClusterByIdRequest) Execute() (EnterpriseCluster, *_nethttp.Response, error) {
+	return r.ApiService.GetEnterpriseClusterByIdExecute(r)
 }
 
 /*
- * GetEnterpriseClusterWithAddonParameters Method for GetEnterpriseClusterWithAddonParameters
- * Returns enterprise data plane cluster by ID along with its addon parameters
+ * GetEnterpriseClusterById Method for GetEnterpriseClusterById
+ * Returns enterprise data plane cluster by ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the enterprise data plane cluster
- * @return ApiGetEnterpriseClusterWithAddonParametersRequest
+ * @return ApiGetEnterpriseClusterByIdRequest
  */
-func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterWithAddonParameters(ctx _context.Context, id string) ApiGetEnterpriseClusterWithAddonParametersRequest {
-	return ApiGetEnterpriseClusterWithAddonParametersRequest{
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterById(ctx _context.Context, id string) ApiGetEnterpriseClusterByIdRequest {
+	return ApiGetEnterpriseClusterByIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -439,24 +441,24 @@ func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterWithAddonPar
 
 /*
  * Execute executes the request
- * @return EnterpriseClusterWithAddonParameters
+ * @return EnterpriseCluster
  */
-func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterWithAddonParametersExecute(r ApiGetEnterpriseClusterWithAddonParametersRequest) (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error) {
+func (a *EnterpriseDataplaneClustersApiService) GetEnterpriseClusterByIdExecute(r ApiGetEnterpriseClusterByIdRequest) (EnterpriseCluster, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  EnterpriseClusterWithAddonParameters
+		localVarReturnValue  EnterpriseCluster
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterWithAddonParameters")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.GetEnterpriseClusterById")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}/addon_parameters"
+	localVarPath := localBasePath + "/api/kafkas_mgmt/v1/clusters/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -708,7 +710,7 @@ func (r ApiRegisterEnterpriseOsdClusterRequest) EnterpriseOsdClusterPayload(ente
 	return r
 }
 
-func (r ApiRegisterEnterpriseOsdClusterRequest) Execute() (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error) {
+func (r ApiRegisterEnterpriseOsdClusterRequest) Execute() (EnterpriseClusterRegistrationResponse, *_nethttp.Response, error) {
 	return r.ApiService.RegisterEnterpriseOsdClusterExecute(r)
 }
 
@@ -727,16 +729,16 @@ func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdCluster(ctx
 
 /*
  * Execute executes the request
- * @return EnterpriseClusterWithAddonParameters
+ * @return EnterpriseClusterRegistrationResponse
  */
-func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (EnterpriseClusterWithAddonParameters, *_nethttp.Response, error) {
+func (a *EnterpriseDataplaneClustersApiService) RegisterEnterpriseOsdClusterExecute(r ApiRegisterEnterpriseOsdClusterRequest) (EnterpriseClusterRegistrationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  EnterpriseClusterWithAddonParameters
+		localVarReturnValue  EnterpriseClusterRegistrationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EnterpriseDataplaneClustersApiService.RegisterEnterpriseOsdCluster")

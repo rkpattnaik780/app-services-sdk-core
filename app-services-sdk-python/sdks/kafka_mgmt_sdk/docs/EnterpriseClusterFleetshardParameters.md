@@ -1,10 +1,11 @@
-# EnterpriseClusterWithAddonParametersAllOf
+# EnterpriseClusterFleetshardParameters
 
+Enterprise Cluster fleetshard parameters object
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fleetshard_parameters** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | [optional] 
+**fleetshard_parameters** | [**FleetshardParametersArray**](FleetshardParametersArray.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

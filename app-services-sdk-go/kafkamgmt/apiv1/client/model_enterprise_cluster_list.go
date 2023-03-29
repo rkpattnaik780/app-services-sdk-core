@@ -3,7 +3,7 @@
  *
  * Kafka Management API is a REST API to manage Kafka instances
  *
- * API version: 1.15.0
+ * API version: 1.16.0
  * Contact: rhosak-support@redhat.com
  */
 
@@ -21,14 +21,14 @@ type EnterpriseClusterList struct {
 	Page int32 `json:"page"`
 	Size int32 `json:"size"`
 	Total int32 `json:"total"`
-	Items []EnterpriseClusterListItem `json:"items"`
+	Items []EnterpriseCluster `json:"items"`
 }
 
 // NewEnterpriseClusterList instantiates a new EnterpriseClusterList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterList(kind string, page int32, size int32, total int32, items []EnterpriseClusterListItem) *EnterpriseClusterList {
+func NewEnterpriseClusterList(kind string, page int32, size int32, total int32, items []EnterpriseCluster) *EnterpriseClusterList {
 	this := EnterpriseClusterList{}
 	this.Kind = kind
 	this.Page = page
@@ -143,9 +143,9 @@ func (o *EnterpriseClusterList) SetTotal(v int32) {
 }
 
 // GetItems returns the Items field value
-func (o *EnterpriseClusterList) GetItems() []EnterpriseClusterListItem {
+func (o *EnterpriseClusterList) GetItems() []EnterpriseCluster {
 	if o == nil {
-		var ret []EnterpriseClusterListItem
+		var ret []EnterpriseCluster
 		return ret
 	}
 
@@ -154,7 +154,7 @@ func (o *EnterpriseClusterList) GetItems() []EnterpriseClusterListItem {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseClusterListItem, bool) {
+func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseCluster, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseClusterListItem, bool
 }
 
 // SetItems sets field value
-func (o *EnterpriseClusterList) SetItems(v []EnterpriseClusterListItem) {
+func (o *EnterpriseClusterList) SetItems(v []EnterpriseCluster) {
 	o.Items = v
 }
 

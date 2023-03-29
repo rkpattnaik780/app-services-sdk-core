@@ -3,7 +3,7 @@
  *
  * Kafka Management API is a REST API to manage Kafka instances
  *
- * API version: 1.15.0
+ * API version: 1.16.0
  * Contact: rhosak-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// EnterpriseClusterWithAddonParameters Enterprise cluster with addon parameters
-type EnterpriseClusterWithAddonParameters struct {
+// EnterpriseClusterRegistrationResponse Enterprise Cluster registration response. It returns additional privileged information compared to The information returned by EnterpriseCluster
+type EnterpriseClusterRegistrationResponse struct {
 	Id string `json:"id"`
 	Kind string `json:"kind"`
 	Href string `json:"href"`
@@ -32,15 +32,18 @@ type EnterpriseClusterWithAddonParameters struct {
 	Region *string `json:"region,omitempty"`
 	// A flag indicating whether this cluster is available on multiple availability zones or not
 	MultiAz bool `json:"multi_az"`
+	SupportedInstanceTypes *SupportedKafkaInstanceTypesList `json:"supported_instance_types,omitempty"`
+	CapacityInformation *EnterpriseClusterAllOfCapacityInformation `json:"capacity_information,omitempty"`
+	// Enterprise Cluster fleetshard parameters array
 	FleetshardParameters *[]FleetshardParameter `json:"fleetshard_parameters,omitempty"`
 }
 
-// NewEnterpriseClusterWithAddonParameters instantiates a new EnterpriseClusterWithAddonParameters object
+// NewEnterpriseClusterRegistrationResponse instantiates a new EnterpriseClusterRegistrationResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterWithAddonParameters(id string, kind string, href string, accessKafkasViaPrivateNetwork bool, multiAz bool) *EnterpriseClusterWithAddonParameters {
-	this := EnterpriseClusterWithAddonParameters{}
+func NewEnterpriseClusterRegistrationResponse(id string, kind string, href string, accessKafkasViaPrivateNetwork bool, multiAz bool) *EnterpriseClusterRegistrationResponse {
+	this := EnterpriseClusterRegistrationResponse{}
 	this.Id = id
 	this.Kind = kind
 	this.Href = href
@@ -49,16 +52,16 @@ func NewEnterpriseClusterWithAddonParameters(id string, kind string, href string
 	return &this
 }
 
-// NewEnterpriseClusterWithAddonParametersWithDefaults instantiates a new EnterpriseClusterWithAddonParameters object
+// NewEnterpriseClusterRegistrationResponseWithDefaults instantiates a new EnterpriseClusterRegistrationResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewEnterpriseClusterWithAddonParametersWithDefaults() *EnterpriseClusterWithAddonParameters {
-	this := EnterpriseClusterWithAddonParameters{}
+func NewEnterpriseClusterRegistrationResponseWithDefaults() *EnterpriseClusterRegistrationResponse {
+	this := EnterpriseClusterRegistrationResponse{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *EnterpriseClusterWithAddonParameters) GetId() string {
+func (o *EnterpriseClusterRegistrationResponse) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -69,7 +72,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetIdOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -77,12 +80,12 @@ func (o *EnterpriseClusterWithAddonParameters) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *EnterpriseClusterWithAddonParameters) SetId(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetId(v string) {
 	o.Id = v
 }
 
 // GetKind returns the Kind field value
-func (o *EnterpriseClusterWithAddonParameters) GetKind() string {
+func (o *EnterpriseClusterRegistrationResponse) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -93,7 +96,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetKindOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -101,12 +104,12 @@ func (o *EnterpriseClusterWithAddonParameters) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *EnterpriseClusterWithAddonParameters) SetKind(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetKind(v string) {
 	o.Kind = v
 }
 
 // GetHref returns the Href field value
-func (o *EnterpriseClusterWithAddonParameters) GetHref() string {
+func (o *EnterpriseClusterRegistrationResponse) GetHref() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -117,7 +120,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetHrefOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetHrefOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -125,12 +128,12 @@ func (o *EnterpriseClusterWithAddonParameters) GetHrefOk() (*string, bool) {
 }
 
 // SetHref sets field value
-func (o *EnterpriseClusterWithAddonParameters) SetHref(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetHref(v string) {
 	o.Href = v
 }
 
 // GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
-func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetwork() bool {
+func (o *EnterpriseClusterRegistrationResponse) GetAccessKafkasViaPrivateNetwork() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -141,7 +144,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetwork(
 
 // GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -149,12 +152,12 @@ func (o *EnterpriseClusterWithAddonParameters) GetAccessKafkasViaPrivateNetworkO
 }
 
 // SetAccessKafkasViaPrivateNetwork sets field value
-func (o *EnterpriseClusterWithAddonParameters) SetAccessKafkasViaPrivateNetwork(v bool) {
+func (o *EnterpriseClusterRegistrationResponse) SetAccessKafkasViaPrivateNetwork(v bool) {
 	o.AccessKafkasViaPrivateNetwork = v
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
-func (o *EnterpriseClusterWithAddonParameters) GetClusterId() string {
+func (o *EnterpriseClusterRegistrationResponse) GetClusterId() string {
 	if o == nil || o.ClusterId == nil {
 		var ret string
 		return ret
@@ -164,7 +167,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetClusterId() string {
 
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetClusterIdOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetClusterIdOk() (*string, bool) {
 	if o == nil || o.ClusterId == nil {
 		return nil, false
 	}
@@ -172,7 +175,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetClusterIdOk() (*string, bool) 
 }
 
 // HasClusterId returns a boolean if a field has been set.
-func (o *EnterpriseClusterWithAddonParameters) HasClusterId() bool {
+func (o *EnterpriseClusterRegistrationResponse) HasClusterId() bool {
 	if o != nil && o.ClusterId != nil {
 		return true
 	}
@@ -181,12 +184,12 @@ func (o *EnterpriseClusterWithAddonParameters) HasClusterId() bool {
 }
 
 // SetClusterId gets a reference to the given string and assigns it to the ClusterId field.
-func (o *EnterpriseClusterWithAddonParameters) SetClusterId(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetClusterId(v string) {
 	o.ClusterId = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *EnterpriseClusterWithAddonParameters) GetStatus() string {
+func (o *EnterpriseClusterRegistrationResponse) GetStatus() string {
 	if o == nil || o.Status == nil {
 		var ret string
 		return ret
@@ -196,7 +199,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetStatusOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetStatusOk() (*string, bool) {
 	if o == nil || o.Status == nil {
 		return nil, false
 	}
@@ -204,7 +207,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *EnterpriseClusterWithAddonParameters) HasStatus() bool {
+func (o *EnterpriseClusterRegistrationResponse) HasStatus() bool {
 	if o != nil && o.Status != nil {
 		return true
 	}
@@ -213,12 +216,12 @@ func (o *EnterpriseClusterWithAddonParameters) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *EnterpriseClusterWithAddonParameters) SetStatus(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetStatus(v string) {
 	o.Status = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
-func (o *EnterpriseClusterWithAddonParameters) GetCloudProvider() string {
+func (o *EnterpriseClusterRegistrationResponse) GetCloudProvider() string {
 	if o == nil || o.CloudProvider == nil {
 		var ret string
 		return ret
@@ -228,7 +231,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetCloudProvider() string {
 
 // GetCloudProviderOk returns a tuple with the CloudProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetCloudProviderOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetCloudProviderOk() (*string, bool) {
 	if o == nil || o.CloudProvider == nil {
 		return nil, false
 	}
@@ -236,7 +239,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetCloudProviderOk() (*string, bo
 }
 
 // HasCloudProvider returns a boolean if a field has been set.
-func (o *EnterpriseClusterWithAddonParameters) HasCloudProvider() bool {
+func (o *EnterpriseClusterRegistrationResponse) HasCloudProvider() bool {
 	if o != nil && o.CloudProvider != nil {
 		return true
 	}
@@ -245,12 +248,12 @@ func (o *EnterpriseClusterWithAddonParameters) HasCloudProvider() bool {
 }
 
 // SetCloudProvider gets a reference to the given string and assigns it to the CloudProvider field.
-func (o *EnterpriseClusterWithAddonParameters) SetCloudProvider(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
 // GetRegion returns the Region field value if set, zero value otherwise.
-func (o *EnterpriseClusterWithAddonParameters) GetRegion() string {
+func (o *EnterpriseClusterRegistrationResponse) GetRegion() string {
 	if o == nil || o.Region == nil {
 		var ret string
 		return ret
@@ -260,7 +263,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetRegion() string {
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetRegionOk() (*string, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetRegionOk() (*string, bool) {
 	if o == nil || o.Region == nil {
 		return nil, false
 	}
@@ -268,7 +271,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetRegionOk() (*string, bool) {
 }
 
 // HasRegion returns a boolean if a field has been set.
-func (o *EnterpriseClusterWithAddonParameters) HasRegion() bool {
+func (o *EnterpriseClusterRegistrationResponse) HasRegion() bool {
 	if o != nil && o.Region != nil {
 		return true
 	}
@@ -277,12 +280,12 @@ func (o *EnterpriseClusterWithAddonParameters) HasRegion() bool {
 }
 
 // SetRegion gets a reference to the given string and assigns it to the Region field.
-func (o *EnterpriseClusterWithAddonParameters) SetRegion(v string) {
+func (o *EnterpriseClusterRegistrationResponse) SetRegion(v string) {
 	o.Region = &v
 }
 
 // GetMultiAz returns the MultiAz field value
-func (o *EnterpriseClusterWithAddonParameters) GetMultiAz() bool {
+func (o *EnterpriseClusterRegistrationResponse) GetMultiAz() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -293,7 +296,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetMultiAz() bool {
 
 // GetMultiAzOk returns a tuple with the MultiAz field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetMultiAzOk() (*bool, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetMultiAzOk() (*bool, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -301,12 +304,76 @@ func (o *EnterpriseClusterWithAddonParameters) GetMultiAzOk() (*bool, bool) {
 }
 
 // SetMultiAz sets field value
-func (o *EnterpriseClusterWithAddonParameters) SetMultiAz(v bool) {
+func (o *EnterpriseClusterRegistrationResponse) SetMultiAz(v bool) {
 	o.MultiAz = v
 }
 
+// GetSupportedInstanceTypes returns the SupportedInstanceTypes field value if set, zero value otherwise.
+func (o *EnterpriseClusterRegistrationResponse) GetSupportedInstanceTypes() SupportedKafkaInstanceTypesList {
+	if o == nil || o.SupportedInstanceTypes == nil {
+		var ret SupportedKafkaInstanceTypesList
+		return ret
+	}
+	return *o.SupportedInstanceTypes
+}
+
+// GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EnterpriseClusterRegistrationResponse) GetSupportedInstanceTypesOk() (*SupportedKafkaInstanceTypesList, bool) {
+	if o == nil || o.SupportedInstanceTypes == nil {
+		return nil, false
+	}
+	return o.SupportedInstanceTypes, true
+}
+
+// HasSupportedInstanceTypes returns a boolean if a field has been set.
+func (o *EnterpriseClusterRegistrationResponse) HasSupportedInstanceTypes() bool {
+	if o != nil && o.SupportedInstanceTypes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedInstanceTypes gets a reference to the given SupportedKafkaInstanceTypesList and assigns it to the SupportedInstanceTypes field.
+func (o *EnterpriseClusterRegistrationResponse) SetSupportedInstanceTypes(v SupportedKafkaInstanceTypesList) {
+	o.SupportedInstanceTypes = &v
+}
+
+// GetCapacityInformation returns the CapacityInformation field value if set, zero value otherwise.
+func (o *EnterpriseClusterRegistrationResponse) GetCapacityInformation() EnterpriseClusterAllOfCapacityInformation {
+	if o == nil || o.CapacityInformation == nil {
+		var ret EnterpriseClusterAllOfCapacityInformation
+		return ret
+	}
+	return *o.CapacityInformation
+}
+
+// GetCapacityInformationOk returns a tuple with the CapacityInformation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EnterpriseClusterRegistrationResponse) GetCapacityInformationOk() (*EnterpriseClusterAllOfCapacityInformation, bool) {
+	if o == nil || o.CapacityInformation == nil {
+		return nil, false
+	}
+	return o.CapacityInformation, true
+}
+
+// HasCapacityInformation returns a boolean if a field has been set.
+func (o *EnterpriseClusterRegistrationResponse) HasCapacityInformation() bool {
+	if o != nil && o.CapacityInformation != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCapacityInformation gets a reference to the given EnterpriseClusterAllOfCapacityInformation and assigns it to the CapacityInformation field.
+func (o *EnterpriseClusterRegistrationResponse) SetCapacityInformation(v EnterpriseClusterAllOfCapacityInformation) {
+	o.CapacityInformation = &v
+}
+
 // GetFleetshardParameters returns the FleetshardParameters field value if set, zero value otherwise.
-func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParameters() []FleetshardParameter {
+func (o *EnterpriseClusterRegistrationResponse) GetFleetshardParameters() []FleetshardParameter {
 	if o == nil || o.FleetshardParameters == nil {
 		var ret []FleetshardParameter
 		return ret
@@ -316,7 +383,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParameters() []Fleet
 
 // GetFleetshardParametersOk returns a tuple with the FleetshardParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParametersOk() (*[]FleetshardParameter, bool) {
+func (o *EnterpriseClusterRegistrationResponse) GetFleetshardParametersOk() (*[]FleetshardParameter, bool) {
 	if o == nil || o.FleetshardParameters == nil {
 		return nil, false
 	}
@@ -324,7 +391,7 @@ func (o *EnterpriseClusterWithAddonParameters) GetFleetshardParametersOk() (*[]F
 }
 
 // HasFleetshardParameters returns a boolean if a field has been set.
-func (o *EnterpriseClusterWithAddonParameters) HasFleetshardParameters() bool {
+func (o *EnterpriseClusterRegistrationResponse) HasFleetshardParameters() bool {
 	if o != nil && o.FleetshardParameters != nil {
 		return true
 	}
@@ -333,11 +400,11 @@ func (o *EnterpriseClusterWithAddonParameters) HasFleetshardParameters() bool {
 }
 
 // SetFleetshardParameters gets a reference to the given []FleetshardParameter and assigns it to the FleetshardParameters field.
-func (o *EnterpriseClusterWithAddonParameters) SetFleetshardParameters(v []FleetshardParameter) {
+func (o *EnterpriseClusterRegistrationResponse) SetFleetshardParameters(v []FleetshardParameter) {
 	o.FleetshardParameters = &v
 }
 
-func (o EnterpriseClusterWithAddonParameters) MarshalJSON() ([]byte, error) {
+func (o EnterpriseClusterRegistrationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
@@ -366,44 +433,50 @@ func (o EnterpriseClusterWithAddonParameters) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["multi_az"] = o.MultiAz
 	}
+	if o.SupportedInstanceTypes != nil {
+		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
+	}
+	if o.CapacityInformation != nil {
+		toSerialize["capacity_information"] = o.CapacityInformation
+	}
 	if o.FleetshardParameters != nil {
 		toSerialize["fleetshard_parameters"] = o.FleetshardParameters
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableEnterpriseClusterWithAddonParameters struct {
-	value *EnterpriseClusterWithAddonParameters
+type NullableEnterpriseClusterRegistrationResponse struct {
+	value *EnterpriseClusterRegistrationResponse
 	isSet bool
 }
 
-func (v NullableEnterpriseClusterWithAddonParameters) Get() *EnterpriseClusterWithAddonParameters {
+func (v NullableEnterpriseClusterRegistrationResponse) Get() *EnterpriseClusterRegistrationResponse {
 	return v.value
 }
 
-func (v *NullableEnterpriseClusterWithAddonParameters) Set(val *EnterpriseClusterWithAddonParameters) {
+func (v *NullableEnterpriseClusterRegistrationResponse) Set(val *EnterpriseClusterRegistrationResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableEnterpriseClusterWithAddonParameters) IsSet() bool {
+func (v NullableEnterpriseClusterRegistrationResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableEnterpriseClusterWithAddonParameters) Unset() {
+func (v *NullableEnterpriseClusterRegistrationResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableEnterpriseClusterWithAddonParameters(val *EnterpriseClusterWithAddonParameters) *NullableEnterpriseClusterWithAddonParameters {
-	return &NullableEnterpriseClusterWithAddonParameters{value: val, isSet: true}
+func NewNullableEnterpriseClusterRegistrationResponse(val *EnterpriseClusterRegistrationResponse) *NullableEnterpriseClusterRegistrationResponse {
+	return &NullableEnterpriseClusterRegistrationResponse{value: val, isSet: true}
 }
 
-func (v NullableEnterpriseClusterWithAddonParameters) MarshalJSON() ([]byte, error) {
+func (v NullableEnterpriseClusterRegistrationResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableEnterpriseClusterWithAddonParameters) UnmarshalJSON(src []byte) error {
+func (v *NullableEnterpriseClusterRegistrationResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
