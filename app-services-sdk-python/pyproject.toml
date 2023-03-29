@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "jack_rhoas_sdks"
+name = "rhoas_sdks"
 version = "0.1.0"
 description = "A package which includes RHOAS SDKs"
-authors = ["jackdelahunt <jdealhunt@gmail.com>"]
+authors = ["dimakis <dsaridak@redhat.com>"]
 license = "Apache License"
 readme = "docs/README.md"
 packages = [
