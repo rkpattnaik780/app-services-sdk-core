@@ -1,3 +1,4 @@
+export * from './artifact-content';
 export * from './artifact-meta-data';
 export * from './artifact-owner';
 export * from './artifact-reference';
@@ -5,7 +6,6 @@ export * from './artifact-search-results';
 export * from './artifact-state';
 export * from './artifact-type-info';
 export * from './configuration-property';
-export * from './content-create-request';
 export * from './create-group-meta-data';
 export * from './download-ref';
 export * from './editable-meta-data';

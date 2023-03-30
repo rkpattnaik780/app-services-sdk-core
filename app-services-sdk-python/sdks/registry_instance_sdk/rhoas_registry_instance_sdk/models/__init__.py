@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
 from rhoas_registry_instance_sdk.model.artifact_owner import ArtifactOwner
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
@@ -16,7 +17,6 @@ from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSe
 from rhoas_registry_instance_sdk.model.artifact_state import ArtifactState
 from rhoas_registry_instance_sdk.model.artifact_type_info import ArtifactTypeInfo
 from rhoas_registry_instance_sdk.model.configuration_property import ConfigurationProperty
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.create_group_meta_data import CreateGroupMetaData
 from rhoas_registry_instance_sdk.model.download_ref import DownloadRef
 from rhoas_registry_instance_sdk.model.editable_meta_data import EditableMetaData

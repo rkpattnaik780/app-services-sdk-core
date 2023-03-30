@@ -12,6 +12,7 @@ base.ts
 common.ts
 configuration.ts
 index.ts
+model/artifact-content.ts
 model/artifact-meta-data.ts
 model/artifact-owner.ts
 model/artifact-reference.ts
@@ -19,7 +20,6 @@ model/artifact-search-results.ts
 model/artifact-state.ts
 model/artifact-type-info.ts
 model/configuration-property.ts
-model/content-create-request.ts
 model/create-group-meta-data.ts
 model/download-ref.ts
 model/editable-meta-data.ts

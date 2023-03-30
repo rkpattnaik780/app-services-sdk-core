@@ -841,7 +841,7 @@ func (a *MetadataApiService) GetArtifactVersionMetaDataByContentExecute(r ApiGet
 		localVarQueryParams.Add("canonical", parameterToString(*r.canonical, ""))
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/get.extended+json", "application/vnd.get.extended+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

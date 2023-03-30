@@ -22,10 +22,10 @@ from rhoas_registry_instance_sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSearchResults
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.error import Error
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError

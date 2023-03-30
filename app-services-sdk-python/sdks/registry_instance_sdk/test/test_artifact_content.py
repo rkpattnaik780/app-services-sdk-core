@@ -15,11 +15,11 @@ import unittest
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 globals()['ArtifactReference'] = ArtifactReference
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 
 
-class TestContentCreateRequest(unittest.TestCase):
-    """ContentCreateRequest unit test stubs"""
+class TestArtifactContent(unittest.TestCase):
+    """ArtifactContent unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestContentCreateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContentCreateRequest(self):
-        """Test ContentCreateRequest"""
+    def testArtifactContent(self):
+        """Test ArtifactContent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContentCreateRequest()  # noqa: E501
+        # model = ArtifactContent()  # noqa: E501
         pass
 
 

@@ -15,35 +15,35 @@ import (
 	"encoding/json"
 )
 
-// ContentCreateRequest struct for ContentCreateRequest
-type ContentCreateRequest struct {
+// ArtifactContent struct for ArtifactContent
+type ArtifactContent struct {
 	// Raw content of the artifact or a valid (and accessible) URL where the content can be found.
 	Content string `json:"content"`
 	// Collection of references to other artifacts.
 	References []ArtifactReference `json:"references"`
 }
 
-// NewContentCreateRequest instantiates a new ContentCreateRequest object
+// NewArtifactContent instantiates a new ArtifactContent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContentCreateRequest(content string, references []ArtifactReference) *ContentCreateRequest {
-	this := ContentCreateRequest{}
+func NewArtifactContent(content string, references []ArtifactReference) *ArtifactContent {
+	this := ArtifactContent{}
 	this.Content = content
 	this.References = references
 	return &this
 }
 
-// NewContentCreateRequestWithDefaults instantiates a new ContentCreateRequest object
+// NewArtifactContentWithDefaults instantiates a new ArtifactContent object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewContentCreateRequestWithDefaults() *ContentCreateRequest {
-	this := ContentCreateRequest{}
+func NewArtifactContentWithDefaults() *ArtifactContent {
+	this := ArtifactContent{}
 	return &this
 }
 
 // GetContent returns the Content field value
-func (o *ContentCreateRequest) GetContent() string {
+func (o *ArtifactContent) GetContent() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *ContentCreateRequest) GetContent() string {
 
 // GetContentOk returns a tuple with the Content field value
 // and a boolean to check if the value has been set.
-func (o *ContentCreateRequest) GetContentOk() (*string, bool) {
+func (o *ArtifactContent) GetContentOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -62,12 +62,12 @@ func (o *ContentCreateRequest) GetContentOk() (*string, bool) {
 }
 
 // SetContent sets field value
-func (o *ContentCreateRequest) SetContent(v string) {
+func (o *ArtifactContent) SetContent(v string) {
 	o.Content = v
 }
 
 // GetReferences returns the References field value
-func (o *ContentCreateRequest) GetReferences() []ArtifactReference {
+func (o *ArtifactContent) GetReferences() []ArtifactReference {
 	if o == nil {
 		var ret []ArtifactReference
 		return ret
@@ -78,7 +78,7 @@ func (o *ContentCreateRequest) GetReferences() []ArtifactReference {
 
 // GetReferencesOk returns a tuple with the References field value
 // and a boolean to check if the value has been set.
-func (o *ContentCreateRequest) GetReferencesOk() (*[]ArtifactReference, bool) {
+func (o *ArtifactContent) GetReferencesOk() (*[]ArtifactReference, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -86,11 +86,11 @@ func (o *ContentCreateRequest) GetReferencesOk() (*[]ArtifactReference, bool) {
 }
 
 // SetReferences sets field value
-func (o *ContentCreateRequest) SetReferences(v []ArtifactReference) {
+func (o *ArtifactContent) SetReferences(v []ArtifactReference) {
 	o.References = v
 }
 
-func (o ContentCreateRequest) MarshalJSON() ([]byte, error) {
+func (o ArtifactContent) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["content"] = o.Content
@@ -101,38 +101,38 @@ func (o ContentCreateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableContentCreateRequest struct {
-	value *ContentCreateRequest
+type NullableArtifactContent struct {
+	value *ArtifactContent
 	isSet bool
 }
 
-func (v NullableContentCreateRequest) Get() *ContentCreateRequest {
+func (v NullableArtifactContent) Get() *ArtifactContent {
 	return v.value
 }
 
-func (v *NullableContentCreateRequest) Set(val *ContentCreateRequest) {
+func (v *NullableArtifactContent) Set(val *ArtifactContent) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableContentCreateRequest) IsSet() bool {
+func (v NullableArtifactContent) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableContentCreateRequest) Unset() {
+func (v *NullableArtifactContent) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableContentCreateRequest(val *ContentCreateRequest) *NullableContentCreateRequest {
-	return &NullableContentCreateRequest{value: val, isSet: true}
+func NewNullableArtifactContent(val *ArtifactContent) *NullableArtifactContent {
+	return &NullableArtifactContent{value: val, isSet: true}
 }
 
-func (v NullableContentCreateRequest) MarshalJSON() ([]byte, error) {
+func (v NullableArtifactContent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableContentCreateRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableArtifactContent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

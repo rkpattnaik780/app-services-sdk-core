@@ -319,6 +319,7 @@ import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import metadata_api
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.version_meta_data import VersionMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -375,7 +376,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/get.extended+json, application/vnd.get.extended+json
  - **Accept**: application/json
 
 

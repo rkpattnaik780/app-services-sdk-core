@@ -21,13 +21,13 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { ArtifactContent } from '../model';
+// @ts-ignore
 import { ArtifactMetaData } from '../model';
 // @ts-ignore
 import { ArtifactReference } from '../model';
 // @ts-ignore
 import { ArtifactSearchResults } from '../model';
-// @ts-ignore
-import { ContentCreateRequest } from '../model';
 // @ts-ignore
 import { IfExists } from '../model';
 // @ts-ignore
