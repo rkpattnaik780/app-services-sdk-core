@@ -1,4 +1,4 @@
-# Moving to Core SDK
+# Migrating to Core SDK
 
 ## What's changed
 
