@@ -18,19 +18,19 @@ import { ArtifactReference } from './artifact-reference';
 /**
  * 
  * @export
- * @interface ContentCreateRequest
+ * @interface ArtifactContent
  */
-export interface ContentCreateRequest {
+export interface ArtifactContent {
     /**
      * Raw content of the artifact or a valid (and accessible) URL where the content can be found.
      * @type {string}
-     * @memberof ContentCreateRequest
+     * @memberof ArtifactContent
      */
     'content': string;
     /**
      * Collection of references to other artifacts.
      * @type {Array<ArtifactReference>}
-     * @memberof ContentCreateRequest
+     * @memberof ArtifactContent
      */
     'references': Array<ArtifactReference>;
 }

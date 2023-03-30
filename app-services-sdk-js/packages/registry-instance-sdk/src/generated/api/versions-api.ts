@@ -21,9 +21,9 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { ArtifactReference } from '../model';
+import { ArtifactContent } from '../model';
 // @ts-ignore
-import { ContentCreateRequest } from '../model';
+import { ArtifactReference } from '../model';
 // @ts-ignore
 import { RuleViolationError } from '../model';
 // @ts-ignore

@@ -22,6 +22,7 @@ from rhoas_registry_instance_sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
 from rhoas_registry_instance_sdk.model.artifact_owner import ArtifactOwner
 from rhoas_registry_instance_sdk.model.editable_meta_data import EditableMetaData
@@ -333,7 +334,10 @@ class MetadataApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/get.extended+json',
+                    'application/vnd.get.extended+json'
+                ]
             },
             api_client=api_client
         )

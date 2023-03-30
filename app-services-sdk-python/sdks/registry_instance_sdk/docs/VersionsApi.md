@@ -26,9 +26,9 @@ Creates a new version of the artifact by uploading new content.  The configured 
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import versions_api
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.version_meta_data import VersionMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost

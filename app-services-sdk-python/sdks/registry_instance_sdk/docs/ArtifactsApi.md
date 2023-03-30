@@ -33,10 +33,10 @@ Creates a new artifact by posting the artifact content.  The body of the request
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -868,8 +868,8 @@ Updates an artifact by uploading new content.  The body of the request can be th
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
-from rhoas_registry_instance_sdk.model.content_create_request import ContentCreateRequest
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
