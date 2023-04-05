@@ -3046,8 +3046,7 @@ components:
           type: string
         collections:
           items:
-            allOf:
-            - $ref: '#/components/schemas/ObjectReference'
+            $ref: '#/components/schemas/ObjectReference'
           type: array
       type: object
     SupportedKafkaInstanceTypesList_allOf:
