@@ -94,7 +94,7 @@ class VersionMetadata(ModelComposed):
             'kind': (str,),  # noqa: E501
             'href': (str,),  # noqa: E501
             'server_version': (str,),  # noqa: E501
-            'collections': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'collections': ([ObjectReference],),  # noqa: E501
         }
 
     @cached_property
@@ -153,7 +153,7 @@ class VersionMetadata(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             server_version (str): [optional]  # noqa: E501
-            collections ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            collections ([ObjectReference]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,7 +261,7 @@ class VersionMetadata(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             server_version (str): [optional]  # noqa: E501
-            collections ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            collections ([ObjectReference]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
