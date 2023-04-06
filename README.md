@@ -4,7 +4,7 @@
 
 | Supported Langauge  | SDK |
 | ----------- | ----------- |
-| TypeScript  | [app-services-sdk-js](/app-services-sdk-ts/) |
+| TypeScript  | [app-services-sdk-ts](/app-services-sdk-ts/) |
 | Python   | [app-services-sdk-python](/app-services-sdk-python/)    |
 | Java   | [app-services-sdk-java](/app-services-sdk-java/)        |
 |  Go   | [app-services-sdk-go](/app-services-sdk-go/)        |
