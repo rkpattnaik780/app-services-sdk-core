@@ -1,6 +1,6 @@
 ## Smart Events Management SDK
 
-RHOAS Smart Events Management TypeScript/JavaScript SDK
+RHOAS Smart Events Management TypeScript SDK
 
 ### Getting Started
 

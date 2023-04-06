@@ -1,6 +1,6 @@
 ## Service Registry Management SDK
 
-RHOAS Service Registry Management TypeScript/JavaScript SDK.
+RHOAS Service Registry Management TypeScript SDK.
 
 ### Getting Started
 

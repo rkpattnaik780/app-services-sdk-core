@@ -1,6 +1,6 @@
 ## Service Accounts SDK
 
-RHOAS Service Accounts TypeScript/JavaScript SDK.
+RHOAS Service Accounts TypeScript SDK.
 
 Service accounts are a special type of non-human privileged account used to execute applications and run automated services. Service accounts typically will allow you to connect to the services from your applications.
 

@@ -4,7 +4,7 @@
 
 | Supported Langauge  | SDK |
 | ----------- | ----------- |
-| JavaScript/TypeScript  | [app-services-sdk-js](/app-services-sdk-js/) |
+| JavaScript  | [app-services-sdk-ts](/app-services-sdk-ts/) |
 | Python   | [app-services-sdk-python](/app-services-sdk-python/)    |
 | Java   | [app-services-sdk-java](/app-services-sdk-java/)        |
 |  Go   | [app-services-sdk-go](/app-services-sdk-go/)        |
@@ -22,9 +22,9 @@ SDK's are divided into two types:
 Repository contains source code for openapi based generator along with automation scripts that generate all
 underlying RHOAS SDKS. 
 
-# RHOAS SDK for Typescript and JavaScript
+# RHOAS SDK for Typescript
 
-Typescript and JavaScript packages and API clients for RHOAS services
+Typescript packages and API clients for RHOAS services
 
 ## Prequisites
 

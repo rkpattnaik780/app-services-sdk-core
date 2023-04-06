@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      # JS SDK
+      # TS SDK
       - name: Use Node.js 16.3.0
         uses: actions/setup-node@v3
         with:
@@ -71,9 +71,9 @@ jobs:
         working-directory: app-services-sdk-java
         run: mvn clean install
 
-      # JS SDK
-      - name: Compile JavaScript
-        working-directory: app-services-sdk-js
+      # TS SDK
+      - name: Compile TypeScript
+        working-directory: app-services-sdk-ts
         run: |
           yarn install
           yarn build
@@ -93,9 +93,9 @@ jobs:
         working-directory: app-services-sdk-java
         run:  mvn versions:set -DgenerateBackupPoms=false -DnewVersion=${{ github.event.inputs.release-version }}
 
-      # JS SDK
-      - name: Update JavaScript package versions 
-        run: VERSION=${{ github.event.inputs.release-version }} bash scripts/update-js-packages.sh
+      # TS SDK
+      - name: Update TypeScript package versions 
+        run: VERSION=${{ github.event.inputs.release-version }} bash scripts/update-ts-packages.sh
 
       # Python SDK
       - name: Build Python modules
@@ -130,9 +130,9 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           MAVEN_GPG_SECRET_KEY_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
 
-      # JS SDK
+      # TS SDK
       - name: Publish JS SDK
-        working-directory: app-services-sdk-js
+        working-directory: app-services-sdk-ts
         run: |
           npm publish --workspace=packages
         env:

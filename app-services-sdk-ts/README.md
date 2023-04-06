@@ -1,6 +1,6 @@
-# RHOAS SDK for Typescript and JavaScript
+# RHOAS SDK for Typescript
 
-Typescript and JavaScript packages and API clients for RHOAS services
+Typescript packages and API clients for RHOAS services
 
 ## Prequisites
 
