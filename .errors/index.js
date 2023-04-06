@@ -16,22 +16,22 @@ module.exports ={
             file: "app-services-sdk-go/connectormgmt/apiv1/error/errors.go"
         }, 
     },
-    js : {
+    ts : {
         kafkamgmt: {
             definition: require("./errors_kafka_mgmt.json"),
-            file: "app-services-sdk-js/packages/kafka-management-sdk/src/errors.ts"
+            file: "app-services-sdk-ts/packages/kafka-management-sdk/src/errors.ts"
         },
         registrymgmt:  {
             definition: require("./errors_srs_mgmt.json"),
-            file: "app-services-sdk-js/packages/registry-management-sdk/src/errors.ts"
+            file: "app-services-sdk-ts/packages/registry-management-sdk/src/errors.ts"
         },
         connectormgmt: {
             definition: require("./errors_connector_mgmt.json"),
-            file: "app-services-sdk-js/packages/connector-management-sdk/src/errors.ts"
+            file: "app-services-sdk-ts/packages/connector-management-sdk/src/errors.ts"
         }, 
         kafkainstance: {
             definition: require("./errors_kafka_instance.json"),
-            file: "app-services-sdk-js/packages/kafka-instance-sdk/src/errors.ts"
+            file: "app-services-sdk-ts/packages/kafka-instance-sdk/src/errors.ts"
         }, 
     },
     python: {

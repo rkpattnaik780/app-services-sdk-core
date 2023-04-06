@@ -35,13 +35,13 @@ const (
   console.log(`Generated ${api}`);
 }
 
-console.log("===== JS SDK =====");
+console.log("===== TS SDK =====");
 
-jsSdk = sdks["js"]
+tsSdk = sdks["ts"]
 
-for (api in jsSdk) {
-  apiJson = jsSdk[api].definition;
-  apiFileLocation = jsSdk[api].file;
+for (api in tsSdk) {
+  apiJson = tsSdk[api].definition;
+  apiFileLocation = tsSdk[api].file;
 
   if (!apiJson || !apiJson.items) {
     console.log("invalid error file detected", apiJson);

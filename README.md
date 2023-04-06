@@ -4,7 +4,7 @@
 
 | Supported Langauge  | SDK |
 | ----------- | ----------- |
-| JavaScript/TypeScript  | [app-services-sdk-js](/app-services-sdk-js/) |
+| TypeScript  | [app-services-sdk-js](/app-services-sdk-ts/) |
 | Python   | [app-services-sdk-python](/app-services-sdk-python/)    |
 | Java   | [app-services-sdk-java](/app-services-sdk-java/)        |
 |  Go   | [app-services-sdk-go](/app-services-sdk-go/)        |
@@ -22,9 +22,9 @@ SDK's are divided into two types:
 Repository contains source code for openapi based generator along with automation scripts that generate all
 underlying RHOAS SDKS. 
 
-# RHOAS SDK for Typescript and JavaScript
+# RHOAS SDK for Typescript
 
-Typescript and JavaScript packages and API clients for RHOAS services
+Typescript packages and API clients for RHOAS services
 
 ## Prequisites
 
@@ -50,11 +50,11 @@ Typescript and JavaScript packages and API clients for RHOAS services
 
 ## Docs
 
-[Documentation](/app-services-sdk-js/docs) 
+[Documentation](/app-services-sdk-ts/docs) 
 
 ## Examples
 
-[Examples](/app-services-sdk-js/examples) 
+[Examples](/app-services-sdk-ts/examples) 
 
 # RHOAS SDK for Python
 
@@ -189,25 +189,25 @@ import "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go"
 
 
 [//]: # (JS SDK variables)
-[kafkagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/kafka-management-sdk 
+[kafkagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/kafka-management-sdk 
 [kafkanpm]: https://www.npmjs.com/package/@rhoas/kafka-management-sdk
 [kafkashield]: https://img.shields.io/npm/v/@rhoas/kafka-management-sdk
-[sagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/service-accounts-sdk 
+[sagit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/service-accounts-sdk 
 [sanpm]: https://www.npmjs.com/package/@rhoas/service-accounts-sdk
 [sashield]: https://img.shields.io/npm/v/@rhoas/service-accounts-sdk
-[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/kafka-instance-sdk 
+[kinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/kafka-instance-sdk 
 [kinstancenpm]: https://www.npmjs.com/package/@rhoas/kafka-instance-sdk
 [kinstanceshield]: https://img.shields.io/npm/v/@rhoas/kafka-instance-sdk
-[srinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/registry-instance-sdk 
+[srinstancegit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/registry-instance-sdk 
 [srinstancenpm]: https://www.npmjs.com/package/@rhoas/registry-instance-sdk
 [srinstanceshield]: https://img.shields.io/npm/v/@rhoas/registry-instance-sdk
-[registrygit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/registry-management-sdk 
+[registrygit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/registry-management-sdk 
 [registrynpm]: https://www.npmjs.com/package/@rhoas/registry-management-sdk
 [registryshield]: https://img.shields.io/npm/v/@rhoas/registry-management-sdk
-[connectorgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/connector-management-sdk 
+[connectorgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/connector-management-sdk 
 [connectornpm]: https://www.npmjs.com/package/@rhoas/connector-management-sdk
 [connectorshield]: https://img.shields.io/npm/v/@rhoas/connector-management-sdk
-[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-js/packages/smart-events-management-sdk 
+[smarteventsgit]: https://github.com/redhat-developer/app-services-sdk-core/tree/main/app-services-sdk-ts/packages/smart-events-management-sdk 
 [smarteventsnpm]: https://www.npmjs.com/package/@rhoas/smart-events-management-sdk
 [smarteventsshield]: https://img.shields.io/npm/v/@rhoas/smart-events-management-sdk
 

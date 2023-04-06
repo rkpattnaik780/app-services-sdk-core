@@ -1,6 +1,6 @@
 ## Kafka Management SDK
 
-RHOAS Kafka Management TypeScript/JavaScript SDK
+RHOAS Kafka Management TypeScript SDK
 
 ### Getting Started
 

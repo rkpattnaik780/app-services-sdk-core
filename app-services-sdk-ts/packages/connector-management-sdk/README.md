@@ -1,6 +1,6 @@
 ## Connector Management SDK
 
-RHOAS Connector Management TypeScript/JavaScript SDK
+RHOAS Connector Management TypeScript SDK
 
 ### Getting Started
 

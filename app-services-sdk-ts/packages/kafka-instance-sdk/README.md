@@ -1,6 +1,6 @@
 ## Kafka Instance Admin SDK
 
-RHOAS Kafka Instance Admin SDK TypeScript/JavaScript SDK
+RHOAS Kafka Instance Admin SDK TypeScript SDK
 Provides SDK for interacting with Kafka instances 
 
 > NOTE: This SDK requires different authentication than management APIs

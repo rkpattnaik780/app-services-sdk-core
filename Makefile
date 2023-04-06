@@ -6,7 +6,7 @@ lint: # Use spectral to lint an openapi spec file, set the TARGET env variable a
 generate: # Generate all SDKs from the current openapi specs in .openapi
 	bash scripts/generate-go.sh
 	bash scripts/generate-java.sh
-	bash scripts/generate-js.sh
+	bash scripts/generate-ts.sh
 	bash scripts/generate-py.sh
 
 .PHONY: gnerate-go
@@ -17,9 +17,9 @@ generate-go: # Generate the Go SDK from the current openapi specs in .openapi
 generate-java: # Generate the Java SDK from the current openapi specs in .openapi
 	bash scripts/generate-java.sh	
 
-.PHONY: gnerate-js
-generate-js: # Generate the Typescript/JavaScript SDK from the current openapi specs in .openapi
-	bash scripts/generate-js.sh	
+.PHONY: gnerate-ts
+generate-ts: # Generate the Typescript SDK from the current openapi specs in .openapi
+	bash scripts/generate-ts.sh	
 
 .PHONY: gnerate-py
 generate-py: # Generate the Python SDK from the current openapi specs in .openapi
