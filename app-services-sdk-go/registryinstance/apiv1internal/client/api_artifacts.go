@@ -200,10 +200,11 @@ This operation may fail for one of the following reasons:
 	 * Returns the latest version of the artifact in its raw form.  The `Content-Type` of the
 response depends on the artifact type.  In most cases, this is `application/json`, but 
 for some types it may be different (for example, `PROTOBUF`).
+If the latest version of the artifact is marked as `DISABLED`, the next available non-disabled version will be used.
 
 This operation may fail for one of the following reasons:
 
-* No artifact with this `artifactId` exists (HTTP error `404`)
+* No artifact with this `artifactId` exists or all versions are `DISABLED` (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -325,9 +326,7 @@ When successful, this creates a new version of the artifact, making it the most 
 
 	/*
 	 * UpdateArtifactState Update artifact state
-	 * Updates the state of the artifact.  For example, you can use this to mark the latest
-version of an artifact as `DEPRECATED`.  The operation changes the state of the latest 
-version of the artifact.  If multiple versions exist, only the most recent is changed.
+	 * Updates the state of the artifact.  For example, you can use this to mark the latest version of an artifact as `DEPRECATED`. The operation changes the state of the latest version of the artifact, even if this version is `DISABLED`. If multiple versions exist, only the most recent is changed.
 
 This operation can fail for the following reasons:
 
@@ -1296,10 +1295,11 @@ func (r ApiGetLatestArtifactRequest) Execute() (*os.File, *_nethttp.Response, er
  * Returns the latest version of the artifact in its raw form.  The `Content-Type` of the
 response depends on the artifact type.  In most cases, this is `application/json`, but 
 for some types it may be different (for example, `PROTOBUF`).
+If the latest version of the artifact is marked as `DISABLED`, the next available non-disabled version will be used.
 
 This operation may fail for one of the following reasons:
 
-* No artifact with this `artifactId` exists (HTTP error `404`)
+* No artifact with this `artifactId` exists or all versions are `DISABLED` (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2128,9 +2128,7 @@ func (r ApiUpdateArtifactStateRequest) Execute() (*_nethttp.Response, error) {
 
 /*
  * UpdateArtifactState Update artifact state
- * Updates the state of the artifact.  For example, you can use this to mark the latest
-version of an artifact as `DEPRECATED`.  The operation changes the state of the latest 
-version of the artifact.  If multiple versions exist, only the most recent is changed.
+ * Updates the state of the artifact.  For example, you can use this to mark the latest version of an artifact as `DEPRECATED`. The operation changes the state of the latest version of the artifact, even if this version is `DISABLED`. If multiple versions exist, only the most recent is changed.
 
 This operation can fail for the following reasons:
 
