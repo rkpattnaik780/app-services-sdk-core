@@ -1,6 +1,6 @@
 # Migrating a Java project
 
-In this example project we use the kafka managment SDK to create kafkas. Each snippet is split into the old SDK and the new updated Kiota SDK.
+In this example project we use the kafka management SDK to create kafkas. Each snippet is split into the old SDK and the new updated Kiota SDK.
 
 ## Migrating the pom.xml
 ### Old SDK
@@ -16,7 +16,7 @@ In this example project we use the kafka managment SDK to create kafkas. Each sn
 ```
 
 ### Kiota SDK
-First add the sontatype remote repoistory so the project can access the required dependencies.
+First add the sonatype remote repository so the project can access the required dependencies.
 ```xml
 <repositories>
     <repository>
@@ -35,7 +35,7 @@ Next add properties for the versions of the dependencies.
 </properties>
 ```
 
-Now add the required dependencies, this not only adds the kafka managment SDK but also the authentication dependency and the required Kiota dependencies for the SDK.
+Now add the required dependencies, this not only adds the kafka management SDK but also the authentication dependency and the required Kiota dependencies for the SDK.
 ```xml
 <dependencies>
         <dependency>
