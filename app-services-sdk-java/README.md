@@ -19,32 +19,32 @@ Add the required dependencies to your `pom.xml` file:
 </repositories>
 
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>account-management-sdk</artifactId>
   <version>version</version>
 </dependency>
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>kafka-instance-sdk</artifactId>
   <version>version</version>
 </dependency>
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>kafka-management-sdk</artifactId>
   <version>version</version>
 </dependency>
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>registry-instance-sdk</artifactId>
   <version>version</version>
 </dependency>
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>registry-management-sdk</artifactId>
   <version>version</version>
 </dependency>
 <dependency>
-  <groupId>com.github.redhat-developer.app-services-sdk-java</groupId>
+  <groupId>com.redhat.cloud</groupId>
   <artifactId>service-accounts-sdk</artifactId>
   <version>version</version>
 </dependency>
