@@ -30,14 +30,14 @@ jobs:
       #    registry-url: "https://registry.npmjs.org"
 
       # Python SDK
-      #- name: Inject slug/short variables
-      #  uses: rlespinasse/github-slug-action@a362e5fb42057a3a23a62218b050838f1bacca5d 
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@a362e5fb42057a3a23a62218b050838f1bacca5d 
 
       # Python SDK
-      #- name: Use python
-      #  uses: actions/setup-python@v1
-      #  with:
-      #    python-version: '3.x'
+      - name: Use python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
 
       # Java SDK
       #- name: Set up JDK 11
@@ -60,9 +60,9 @@ jobs:
       #    gpg --list-secret-keys --keyid-format LONG
 
       # Python SDK
-      #- name: Install Poetry
-      #  working-directory: app-services-sdk-python
-      #  run: make install-setup
+      - name: Install Poetry
+        working-directory: app-services-sdk-python
+        run: make install-setup
 
       # Java SDK
       #- name: Compile Java & run tests
@@ -84,9 +84,9 @@ jobs:
           git config user.email ci-bot@andreatp.
 
       # Python SDK
-      #- name: Update Pytohn to new version
-      #  working-directory: app-services-sdk-python
-      #  run: poetry version ${{ github.event.inputs.release-version }}
+      - name: Update Pytohn to new version
+        working-directory: app-services-sdk-python
+        run: poetry version ${{ github.event.inputs.release-version }}
         
       # Java SDK
       #- name: Update Java to new version
@@ -98,13 +98,13 @@ jobs:
       #  run: VERSION=${{ github.event.inputs.release-version }} bash scripts/update-ts-packages.sh
 
       # Python SDK
-      #- name: Build Python modules
-      #  working-directory: app-services-sdk-python
-      #  run: make build
+      - name: Build Python modules
+        working-directory: app-services-sdk-python
+        run: make build
 
       # Python SDK
-      #- name: Move python dist folder
-      #  run: cp -r app-services-sdk-python/dist .
+      - name: Move python dist folder
+        run: cp -r app-services-sdk-python/dist .
 
       - name: Create branch and push tag
         run: |
@@ -116,10 +116,10 @@ jobs:
           git push origin v${{ github.event.inputs.release-version }}
 
       # Python SDK
-      #- name: Publish Python SDK
-      #  uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc #release/v1  
-      #  with:
-      #    password: ${{ secrets.RHOAS_PYPI_API_TOKEN }}
+      - name: Publish Python SDK
+        uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc #release/v1  
+        with:
+          password: ${{ secrets.RHOAS_PYPI_API_TOKEN }}
 
       # Java SDK
       #- name: Publish Java SDK
