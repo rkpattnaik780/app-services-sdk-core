@@ -20,13 +20,12 @@
  * @enum {string}
  */
 
-export const RuleType = {
-    Validity: 'VALIDITY',
-    Compatibility: 'COMPATIBILITY',
-    Integrity: 'INTEGRITY'
+export const ReferenceType = {
+    Outbound: 'OUTBOUND',
+    Inbound: 'INBOUND'
 } as const;
 
-export type RuleType = typeof RuleType[keyof typeof RuleType];
+export type ReferenceType = typeof ReferenceType[keyof typeof ReferenceType];
 
 
 

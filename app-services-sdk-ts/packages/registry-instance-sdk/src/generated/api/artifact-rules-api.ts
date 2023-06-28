@@ -81,11 +81,11 @@ export const ArtifactRulesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Delete artifact rule
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteArtifactRule: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteArtifactRule: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('deleteArtifactRule', 'groupId', groupId)
             // verify required parameter 'artifactId' is not null or undefined
@@ -161,11 +161,11 @@ export const ArtifactRulesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getArtifactRuleConfig: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getArtifactRuleConfig: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('getArtifactRuleConfig', 'groupId', groupId)
             // verify required parameter 'artifactId' is not null or undefined
@@ -285,12 +285,12 @@ export const ArtifactRulesApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {Rule} rule2 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateArtifactRuleConfig: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', rule2: Rule, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateArtifactRuleConfig: async (groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', rule2: Rule, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('updateArtifactRuleConfig', 'groupId', groupId)
             // verify required parameter 'artifactId' is not null or undefined
@@ -356,11 +356,11 @@ export const ArtifactRulesApiFp = function(configuration?: Configuration) {
          * @summary Delete artifact rule
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteArtifactRule(groupId, artifactId, rule, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -381,11 +381,11 @@ export const ArtifactRulesApiFp = function(configuration?: Configuration) {
          * @summary Get artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rule>> {
+        async getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rule>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getArtifactRuleConfig(groupId, artifactId, rule, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -419,12 +419,12 @@ export const ArtifactRulesApiFp = function(configuration?: Configuration) {
          * @summary Update artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {Rule} rule2 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', rule2: Rule, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rule>> {
+        async updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', rule2: Rule, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rule>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateArtifactRuleConfig(groupId, artifactId, rule, rule2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -455,11 +455,11 @@ export const ArtifactRulesApiFactory = function (configuration?: Configuration, 
          * @summary Delete artifact rule
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: any): AxiosPromise<void> {
+        deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: any): AxiosPromise<void> {
             return localVarFp.deleteArtifactRule(groupId, artifactId, rule, options).then((request) => request(axios, basePath));
         },
         /**
@@ -478,11 +478,11 @@ export const ArtifactRulesApiFactory = function (configuration?: Configuration, 
          * @summary Get artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: any): AxiosPromise<Rule> {
+        getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: any): AxiosPromise<Rule> {
             return localVarFp.getArtifactRuleConfig(groupId, artifactId, rule, options).then((request) => request(axios, basePath));
         },
         /**
@@ -513,12 +513,12 @@ export const ArtifactRulesApiFactory = function (configuration?: Configuration, 
          * @summary Update artifact rule configuration
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+         * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
          * @param {Rule} rule2 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', rule2: Rule, options?: any): AxiosPromise<Rule> {
+        updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', rule2: Rule, options?: any): AxiosPromise<Rule> {
             return localVarFp.updateArtifactRuleConfig(groupId, artifactId, rule, rule2, options).then((request) => request(axios, basePath));
         },
     };
@@ -547,12 +547,12 @@ export interface ArtifactRulesApiInterface {
      * @summary Delete artifact rule
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApiInterface
      */
-    deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig): AxiosPromise<void>;
+    deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Deletes all of the rules configured for the artifact.  After this is done, the global rules apply to the artifact again.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)
@@ -570,12 +570,12 @@ export interface ArtifactRulesApiInterface {
      * @summary Get artifact rule configuration
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApiInterface
      */
-    getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig): AxiosPromise<Rule>;
+    getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig): AxiosPromise<Rule>;
 
     /**
      * Returns a list of all rules configured for the artifact.  The set of rules determines how the content of an artifact can evolve over time.  If no rules are configured for an artifact, the set of globally configured rules are used.  If no global rules  are defined, there are no restrictions on content evolution.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)
@@ -605,13 +605,13 @@ export interface ArtifactRulesApiInterface {
      * @summary Update artifact rule configuration
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {Rule} rule2 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApiInterface
      */
-    updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', rule2: Rule, options?: AxiosRequestConfig): AxiosPromise<Rule>;
+    updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', rule2: Rule, options?: AxiosRequestConfig): AxiosPromise<Rule>;
 
 }
 
@@ -641,12 +641,12 @@ export class ArtifactRulesApi extends BaseAPI implements ArtifactRulesApiInterfa
      * @summary Delete artifact rule
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApi
      */
-    public deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig) {
+    public deleteArtifactRule(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig) {
         return ArtifactRulesApiFp(this.configuration).deleteArtifactRule(groupId, artifactId, rule, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -668,12 +668,12 @@ export class ArtifactRulesApi extends BaseAPI implements ArtifactRulesApiInterfa
      * @summary Get artifact rule configuration
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApi
      */
-    public getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', options?: AxiosRequestConfig) {
+    public getArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', options?: AxiosRequestConfig) {
         return ArtifactRulesApiFp(this.configuration).getArtifactRuleConfig(groupId, artifactId, rule, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -709,13 +709,13 @@ export class ArtifactRulesApi extends BaseAPI implements ArtifactRulesApiInterfa
      * @summary Update artifact rule configuration
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {'VALIDITY' | 'COMPATIBILITY'} rule The unique name/type of a rule.
+     * @param {'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY'} rule The unique name/type of a rule.
      * @param {Rule} rule2 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactRulesApi
      */
-    public updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY', rule2: Rule, options?: AxiosRequestConfig) {
+    public updateArtifactRuleConfig(groupId: string, artifactId: string, rule: 'VALIDITY' | 'COMPATIBILITY' | 'INTEGRITY', rule2: Rule, options?: AxiosRequestConfig) {
         return ArtifactRulesApiFp(this.configuration).updateArtifactRuleConfig(groupId, artifactId, rule, rule2, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -801,6 +801,7 @@ Returns a list containing all the artifact references using the artifact global 
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
+from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -815,11 +816,21 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     global_id = 1 # int | Global identifier for an artifact version.
+    ref_type = ReferenceType("INBOUND") # ReferenceType | Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # List artifact references by global ID
         api_response = api_instance.references_by_global_id(global_id)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling ArtifactsApi->references_by_global_id: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List artifact references by global ID
+        api_response = api_instance.references_by_global_id(global_id, ref_type=ref_type)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling ArtifactsApi->references_by_global_id: %s\n" % e)
@@ -831,6 +842,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **global_id** | **int**| Global identifier for an artifact version. |
+ **ref_type** | **ReferenceType**| Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. | [optional]
 
 ### Return type
 

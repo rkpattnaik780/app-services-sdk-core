@@ -1791,8 +1791,13 @@ type ApiReferencesByGlobalIdRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
 	globalId int64
+	refType *ReferenceType
 }
 
+func (r ApiReferencesByGlobalIdRequest) RefType(refType ReferenceType) ApiReferencesByGlobalIdRequest {
+	r.refType = &refType
+	return r
+}
 
 func (r ApiReferencesByGlobalIdRequest) Execute() ([]ArtifactReference, *_nethttp.Response, error) {
 	return r.ApiService.ReferencesByGlobalIdExecute(r)
@@ -1843,6 +1848,9 @@ func (a *ArtifactsApiService) ReferencesByGlobalIdExecute(r ApiReferencesByGloba
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.refType != nil {
+		localVarQueryParams.Add("refType", parameterToString(*r.refType, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

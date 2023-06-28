@@ -762,7 +762,7 @@ No authorization required
 
 ## ReferencesByGlobalId
 
-> []ArtifactReference ReferencesByGlobalId(ctx, globalId).Execute()
+> []ArtifactReference ReferencesByGlobalId(ctx, globalId).RefType(refType).Execute()
 
 List artifact references by global ID
 
@@ -782,10 +782,11 @@ import (
 
 func main() {
     globalId := int64(789) // int64 | Global identifier for an artifact version.
+    refType := openapiclient.ReferenceType("OUTBOUND") // ReferenceType | Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.ReferencesByGlobalId(context.Background(), globalId).Execute()
+    resp, r, err := api_client.ArtifactsApi.ReferencesByGlobalId(context.Background(), globalId).RefType(refType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.ReferencesByGlobalId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -811,6 +812,7 @@ Other parameters are passed through a pointer to a apiReferencesByGlobalIdReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **refType** | [**ReferenceType**](ReferenceType.md) | Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. | 
 
 ### Return type
 

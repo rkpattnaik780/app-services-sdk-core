@@ -24,6 +24,13 @@ class TestVersionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_artifact_version_comment(self):
+        """Test case for add_artifact_version_comment
+
+        Add new comment  # noqa: E501
+        """
+        pass
+
     def test_create_artifact_version(self):
         """Test case for create_artifact_version
 
@@ -38,6 +45,13 @@ class TestVersionsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_artifact_version_comment(self):
+        """Test case for delete_artifact_version_comment
+
+        Delete a single comment  # noqa: E501
+        """
+        pass
+
     def test_get_artifact_version(self):
         """Test case for get_artifact_version
 
@@ -45,10 +59,17 @@ class TestVersionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_artifact_version_comments(self):
+        """Test case for get_artifact_version_comments
+
+        Get artifact version comments  # noqa: E501
+        """
+        pass
+
     def test_get_artifact_version_references(self):
         """Test case for get_artifact_version_references
 
-        Get artifact version  # noqa: E501
+        Get artifact version references  # noqa: E501
         """
         pass
 
@@ -56,6 +77,13 @@ class TestVersionsApi(unittest.TestCase):
         """Test case for list_artifact_versions
 
         List artifact versions  # noqa: E501
+        """
+        pass
+
+    def test_update_artifact_version_comment(self):
+        """Test case for update_artifact_version_comment
+
+        Update a comment  # noqa: E501
         """
         pass
 

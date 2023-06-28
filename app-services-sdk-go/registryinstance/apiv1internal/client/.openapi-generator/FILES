@@ -20,6 +20,7 @@ docs/ArtifactSearchResults.md
 docs/ArtifactState.md
 docs/ArtifactTypeInfo.md
 docs/ArtifactsApi.md
+docs/Comment.md
 docs/ConfigurationProperty.md
 docs/CreateGroupMetaData.md
 docs/DownloadRef.md
@@ -35,6 +36,8 @@ docs/LogLevel.md
 docs/MetadataApi.md
 docs/NamedLogConfiguration.md
 docs/NamedLogConfigurationAllOf.md
+docs/NewComment.md
+docs/ReferenceType.md
 docs/RoleMapping.md
 docs/RoleType.md
 docs/Rule.md
@@ -65,6 +68,7 @@ model_artifact_reference.go
 model_artifact_search_results.go
 model_artifact_state.go
 model_artifact_type_info.go
+model_comment.go
 model_configuration_property.go
 model_create_group_meta_data.go
 model_download_ref.go
@@ -78,6 +82,8 @@ model_log_configuration.go
 model_log_level.go
 model_named_log_configuration.go
 model_named_log_configuration_all_of.go
+model_new_comment.go
+model_reference_type.go
 model_role_mapping.go
 model_role_type.go
 model_rule.go

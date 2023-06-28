@@ -17,16 +17,14 @@
 /**
  * 
  * @export
- * @enum {string}
+ * @interface NewComment
  */
-
-export const RuleType = {
-    Validity: 'VALIDITY',
-    Compatibility: 'COMPATIBILITY',
-    Integrity: 'INTEGRITY'
-} as const;
-
-export type RuleType = typeof RuleType[keyof typeof RuleType];
-
-
+export interface NewComment {
+    /**
+     * 
+     * @type {string}
+     * @memberof NewComment
+     */
+    'value': string;
+}
 

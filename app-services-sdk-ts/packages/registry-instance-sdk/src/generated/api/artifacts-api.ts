@@ -31,6 +31,8 @@ import { ArtifactSearchResults } from '../model';
 // @ts-ignore
 import { IfExists } from '../model';
 // @ts-ignore
+import { ReferenceType } from '../model';
+// @ts-ignore
 import { RuleViolationError } from '../model';
 // @ts-ignore
 import { SortBy } from '../model';
@@ -492,10 +494,11 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
          * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
          * @summary List artifact references by global ID
          * @param {number} globalId Global identifier for an artifact version.
+         * @param {ReferenceType} [refType] Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        referencesByGlobalId: async (globalId: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        referencesByGlobalId: async (globalId: number, refType?: ReferenceType, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'globalId' is not null or undefined
             assertParamExists('referencesByGlobalId', 'globalId', globalId)
             const localVarPath = `/ids/globalIds/{globalId}/references`
@@ -510,6 +513,10 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (refType !== undefined) {
+                localVarQueryParameter['refType'] = refType;
+            }
 
 
     
@@ -785,11 +792,12 @@ export const ArtifactsApiFp = function(configuration?: Configuration) {
          * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
          * @summary List artifact references by global ID
          * @param {number} globalId Global identifier for an artifact version.
+         * @param {ReferenceType} [refType] Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async referencesByGlobalId(globalId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ArtifactReference>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.referencesByGlobalId(globalId, options);
+        async referencesByGlobalId(globalId: number, refType?: ReferenceType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ArtifactReference>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.referencesByGlobalId(globalId, refType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -959,11 +967,12 @@ export const ArtifactsApiFactory = function (configuration?: Configuration, base
          * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
          * @summary List artifact references by global ID
          * @param {number} globalId Global identifier for an artifact version.
+         * @param {ReferenceType} [refType] Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        referencesByGlobalId(globalId: number, options?: any): AxiosPromise<Array<ArtifactReference>> {
-            return localVarFp.referencesByGlobalId(globalId, options).then((request) => request(axios, basePath));
+        referencesByGlobalId(globalId: number, refType?: ReferenceType, options?: any): AxiosPromise<Array<ArtifactReference>> {
+            return localVarFp.referencesByGlobalId(globalId, refType, options).then((request) => request(axios, basePath));
         },
         /**
          * Updates an artifact by uploading new content.  The body of the request can be the raw content of the artifact or a JSON object containing both the raw content and a set of references to other artifacts..  This is typically in JSON format for *most* of the supported types, but may be in another format for a few (for example, `PROTOBUF`). The type of the content should be compatible with the artifact\'s type (it would be an error to update an `AVRO` artifact with new `OPENAPI` content, for example).  The update could fail for a number of reasons including:  * Provided content (request body) was empty (HTTP error `400`) * No artifact with the `artifactId` exists (HTTP error `404`) * The new content violates one of the rules configured for the artifact (HTTP error `409`) * A server error occurred (HTTP error `500`)  When successful, this creates a new version of the artifact, making it the most recent (and therefore official) version of the artifact.
@@ -1129,11 +1138,12 @@ export interface ArtifactsApiInterface {
      * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
      * @summary List artifact references by global ID
      * @param {number} globalId Global identifier for an artifact version.
+     * @param {ReferenceType} [refType] Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApiInterface
      */
-    referencesByGlobalId(globalId: number, options?: AxiosRequestConfig): AxiosPromise<Array<ArtifactReference>>;
+    referencesByGlobalId(globalId: number, refType?: ReferenceType, options?: AxiosRequestConfig): AxiosPromise<Array<ArtifactReference>>;
 
     /**
      * Updates an artifact by uploading new content.  The body of the request can be the raw content of the artifact or a JSON object containing both the raw content and a set of references to other artifacts..  This is typically in JSON format for *most* of the supported types, but may be in another format for a few (for example, `PROTOBUF`). The type of the content should be compatible with the artifact\'s type (it would be an error to update an `AVRO` artifact with new `OPENAPI` content, for example).  The update could fail for a number of reasons including:  * Provided content (request body) was empty (HTTP error `400`) * No artifact with the `artifactId` exists (HTTP error `404`) * The new content violates one of the rules configured for the artifact (HTTP error `409`) * A server error occurred (HTTP error `500`)  When successful, this creates a new version of the artifact, making it the most recent (and therefore official) version of the artifact.
@@ -1319,12 +1329,13 @@ export class ArtifactsApi extends BaseAPI implements ArtifactsApiInterface {
      * Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
      * @summary List artifact references by global ID
      * @param {number} globalId Global identifier for an artifact version.
+     * @param {ReferenceType} [refType] Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApi
      */
-    public referencesByGlobalId(globalId: number, options?: AxiosRequestConfig) {
-        return ArtifactsApiFp(this.configuration).referencesByGlobalId(globalId, options).then((request) => request(this.axios, this.basePath));
+    public referencesByGlobalId(globalId: number, refType?: ReferenceType, options?: AxiosRequestConfig) {
+        return ArtifactsApiFp(this.configuration).referencesByGlobalId(globalId, refType, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

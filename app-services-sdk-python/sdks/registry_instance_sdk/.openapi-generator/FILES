@@ -9,6 +9,7 @@ docs/ArtifactSearchResults.md
 docs/ArtifactState.md
 docs/ArtifactTypeInfo.md
 docs/ArtifactsApi.md
+docs/Comment.md
 docs/ConfigurationProperty.md
 docs/CreateGroupMetaData.md
 docs/DownloadRef.md
@@ -24,7 +25,9 @@ docs/LogLevel.md
 docs/MetadataApi.md
 docs/NamedLogConfiguration.md
 docs/NamedLogConfigurationAllOf.md
+docs/NewComment.md
 docs/Properties.md
+docs/ReferenceType.md
 docs/RoleMapping.md
 docs/RoleType.md
 docs/Rule.md
@@ -72,6 +75,7 @@ rhoas_registry_instance_sdk/model/artifact_reference.py
 rhoas_registry_instance_sdk/model/artifact_search_results.py
 rhoas_registry_instance_sdk/model/artifact_state.py
 rhoas_registry_instance_sdk/model/artifact_type_info.py
+rhoas_registry_instance_sdk/model/comment.py
 rhoas_registry_instance_sdk/model/configuration_property.py
 rhoas_registry_instance_sdk/model/create_group_meta_data.py
 rhoas_registry_instance_sdk/model/download_ref.py
@@ -85,7 +89,9 @@ rhoas_registry_instance_sdk/model/log_configuration.py
 rhoas_registry_instance_sdk/model/log_level.py
 rhoas_registry_instance_sdk/model/named_log_configuration.py
 rhoas_registry_instance_sdk/model/named_log_configuration_all_of.py
+rhoas_registry_instance_sdk/model/new_comment.py
 rhoas_registry_instance_sdk/model/properties.py
+rhoas_registry_instance_sdk/model/reference_type.py
 rhoas_registry_instance_sdk/model/role_mapping.py
 rhoas_registry_instance_sdk/model/role_type.py
 rhoas_registry_instance_sdk/model/rule.py
@@ -122,6 +128,7 @@ test/test_artifact_search_results.py
 test/test_artifact_state.py
 test/test_artifact_type_info.py
 test/test_artifacts_api.py
+test/test_comment.py
 test/test_configuration_property.py
 test/test_create_group_meta_data.py
 test/test_download_ref.py
@@ -137,7 +144,9 @@ test/test_log_level.py
 test/test_metadata_api.py
 test/test_named_log_configuration.py
 test/test_named_log_configuration_all_of.py
+test/test_new_comment.py
 test/test_properties.py
+test/test_reference_type.py
 test/test_role_mapping.py
 test/test_role_type.py
 test/test_rule.py
