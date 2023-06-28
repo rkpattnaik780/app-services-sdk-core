@@ -19,6 +19,7 @@ model/artifact-reference.ts
 model/artifact-search-results.ts
 model/artifact-state.ts
 model/artifact-type-info.ts
+model/comment.ts
 model/configuration-property.ts
 model/create-group-meta-data.ts
 model/download-ref.ts
@@ -33,6 +34,8 @@ model/log-level.ts
 model/model-error.ts
 model/named-log-configuration-all-of.ts
 model/named-log-configuration.ts
+model/new-comment.ts
+model/reference-type.ts
 model/role-mapping.ts
 model/role-type.ts
 model/rule-type.ts

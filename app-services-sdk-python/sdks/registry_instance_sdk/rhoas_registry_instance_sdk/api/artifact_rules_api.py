@@ -136,7 +136,8 @@ class ArtifactRulesApi(object):
                     ('rule',): {
 
                         "VALIDITY": "VALIDITY",
-                        "COMPATIBILITY": "COMPATIBILITY"
+                        "COMPATIBILITY": "COMPATIBILITY",
+                        "INTEGRITY": "INTEGRITY"
                     },
                 },
                 'openapi_types': {
@@ -258,7 +259,8 @@ class ArtifactRulesApi(object):
                     ('rule',): {
 
                         "VALIDITY": "VALIDITY",
-                        "COMPATIBILITY": "COMPATIBILITY"
+                        "COMPATIBILITY": "COMPATIBILITY",
+                        "INTEGRITY": "INTEGRITY"
                     },
                 },
                 'openapi_types': {
@@ -442,7 +444,8 @@ class ArtifactRulesApi(object):
                     ('rule',): {
 
                         "VALIDITY": "VALIDITY",
-                        "COMPATIBILITY": "COMPATIBILITY"
+                        "COMPATIBILITY": "COMPATIBILITY",
+                        "INTEGRITY": "INTEGRITY"
                     },
                 },
                 'openapi_types': {

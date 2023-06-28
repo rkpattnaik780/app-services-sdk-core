@@ -24,7 +24,10 @@ from rhoas_registry_instance_sdk.model_utils import (  # noqa: F401
 )
 from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
+from rhoas_registry_instance_sdk.model.comment import Comment
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.new_comment import NewComment
+from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
 from rhoas_registry_instance_sdk.model.update_state import UpdateState
 from rhoas_registry_instance_sdk.model.version_meta_data import VersionMetaData
@@ -42,6 +45,74 @@ class VersionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.add_artifact_version_comment_endpoint = _Endpoint(
+            settings={
+                'response_type': (Comment,),
+                'auth': [],
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments',
+                'operation_id': 'add_artifact_version_comment',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'new_comment',
+                ],
+                'required': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'new_comment',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (str,),
+                    'artifact_id':
+                        (str,),
+                    'version':
+                        (str,),
+                    'new_comment':
+                        (NewComment,),
+                },
+                'attribute_map': {
+                    'group_id': 'groupId',
+                    'artifact_id': 'artifactId',
+                    'version': 'version',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'artifact_id': 'path',
+                    'version': 'path',
+                    'new_comment': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_artifact_version_endpoint = _Endpoint(
             settings={
                 'response_type': (VersionMetaData,),
@@ -196,6 +267,73 @@ class VersionsApi(object):
             },
             api_client=api_client
         )
+        self.delete_artifact_version_comment_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [],
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments/{commentId}',
+                'operation_id': 'delete_artifact_version_comment',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'comment_id',
+                ],
+                'required': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'comment_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (str,),
+                    'artifact_id':
+                        (str,),
+                    'version':
+                        (str,),
+                    'comment_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'group_id': 'groupId',
+                    'artifact_id': 'artifactId',
+                    'version': 'version',
+                    'comment_id': 'commentId',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'artifact_id': 'path',
+                    'version': 'path',
+                    'comment_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_artifact_version_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
@@ -263,12 +401,12 @@ class VersionsApi(object):
             },
             api_client=api_client
         )
-        self.get_artifact_version_references_endpoint = _Endpoint(
+        self.get_artifact_version_comments_endpoint = _Endpoint(
             settings={
-                'response_type': ([ArtifactReference],),
+                'response_type': ([Comment],),
                 'auth': [],
-                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/references',
-                'operation_id': 'get_artifact_version_references',
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments',
+                'operation_id': 'get_artifact_version_comments',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -312,6 +450,72 @@ class VersionsApi(object):
                     'group_id': 'path',
                     'artifact_id': 'path',
                     'version': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_artifact_version_references_endpoint = _Endpoint(
+            settings={
+                'response_type': ([ArtifactReference],),
+                'auth': [],
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/references',
+                'operation_id': 'get_artifact_version_references',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'ref_type',
+                ],
+                'required': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (str,),
+                    'artifact_id':
+                        (str,),
+                    'version':
+                        (str,),
+                    'ref_type':
+                        (ReferenceType,),
+                },
+                'attribute_map': {
+                    'group_id': 'groupId',
+                    'artifact_id': 'artifactId',
+                    'version': 'version',
+                    'ref_type': 'refType',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'artifact_id': 'path',
+                    'version': 'path',
+                    'ref_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -389,6 +593,80 @@ class VersionsApi(object):
             },
             api_client=api_client
         )
+        self.update_artifact_version_comment_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [],
+                'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments/{commentId}',
+                'operation_id': 'update_artifact_version_comment',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'comment_id',
+                    'new_comment',
+                ],
+                'required': [
+                    'group_id',
+                    'artifact_id',
+                    'version',
+                    'comment_id',
+                    'new_comment',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'group_id':
+                        (str,),
+                    'artifact_id':
+                        (str,),
+                    'version':
+                        (str,),
+                    'comment_id':
+                        (str,),
+                    'new_comment':
+                        (NewComment,),
+                },
+                'attribute_map': {
+                    'group_id': 'groupId',
+                    'artifact_id': 'artifactId',
+                    'version': 'version',
+                    'comment_id': 'commentId',
+                },
+                'location_map': {
+                    'group_id': 'path',
+                    'artifact_id': 'path',
+                    'version': 'path',
+                    'comment_id': 'path',
+                    'new_comment': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.update_artifact_version_state_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -457,6 +735,101 @@ class VersionsApi(object):
             },
             api_client=api_client
         )
+
+    def add_artifact_version_comment(
+        self,
+        group_id,
+        artifact_id,
+        version,
+        new_comment,
+        **kwargs
+    ):
+        """Add new comment  # noqa: E501
+
+        Adds a new comment to the artifact version.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.add_artifact_version_comment(group_id, artifact_id, version, new_comment, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            group_id (str): The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+            artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+            version (str): The unique identifier of a specific version of the artifact content.
+            new_comment (NewComment):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Comment
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['group_id'] = \
+            group_id
+        kwargs['artifact_id'] = \
+            artifact_id
+        kwargs['version'] = \
+            version
+        kwargs['new_comment'] = \
+            new_comment
+        return self.add_artifact_version_comment_endpoint.call_with_http_info(**kwargs)
 
     def create_artifact_version(
         self,
@@ -646,6 +1019,101 @@ class VersionsApi(object):
             version
         return self.delete_artifact_version_endpoint.call_with_http_info(**kwargs)
 
+    def delete_artifact_version_comment(
+        self,
+        group_id,
+        artifact_id,
+        version,
+        comment_id,
+        **kwargs
+    ):
+        """Delete a single comment  # noqa: E501
+
+        Deletes a single comment in an artifact version.  Only the owner of the comment can delete it.  The `artifactId`, unique `version` number, and `commentId`  must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * No comment with this `commentId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_artifact_version_comment(group_id, artifact_id, version, comment_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            group_id (str): The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+            artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+            version (str): The unique identifier of a specific version of the artifact content.
+            comment_id (str): The unique identifier of a single comment.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['group_id'] = \
+            group_id
+        kwargs['artifact_id'] = \
+            artifact_id
+        kwargs['version'] = \
+            version
+        kwargs['comment_id'] = \
+            comment_id
+        return self.delete_artifact_version_comment_endpoint.call_with_http_info(**kwargs)
+
     def get_artifact_version(
         self,
         group_id,
@@ -738,6 +1206,97 @@ class VersionsApi(object):
             version
         return self.get_artifact_version_endpoint.call_with_http_info(**kwargs)
 
+    def get_artifact_version_comments(
+        self,
+        group_id,
+        artifact_id,
+        version,
+        **kwargs
+    ):
+        """Get artifact version comments  # noqa: E501
+
+        Retrieves all comments for a version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_artifact_version_comments(group_id, artifact_id, version, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            group_id (str): The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+            artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+            version (str): The unique identifier of a specific version of the artifact content.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            [Comment]
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['group_id'] = \
+            group_id
+        kwargs['artifact_id'] = \
+            artifact_id
+        kwargs['version'] = \
+            version
+        return self.get_artifact_version_comments_endpoint.call_with_http_info(**kwargs)
+
     def get_artifact_version_references(
         self,
         group_id,
@@ -745,9 +1304,9 @@ class VersionsApi(object):
         version,
         **kwargs
     ):
-        """Get artifact version  # noqa: E501
+        """Get artifact version references  # noqa: E501
 
-        Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
+        Retrieves all references for a single version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  Using the `refType` query parameter, it is possible to retrieve an array of either the inbound or outbound references.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -760,6 +1319,7 @@ class VersionsApi(object):
             version (str): The unique identifier of a specific version of the artifact content.
 
         Keyword Args:
+            ref_type (ReferenceType): Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -917,6 +1477,105 @@ class VersionsApi(object):
         kwargs['artifact_id'] = \
             artifact_id
         return self.list_artifact_versions_endpoint.call_with_http_info(**kwargs)
+
+    def update_artifact_version_comment(
+        self,
+        group_id,
+        artifact_id,
+        version,
+        comment_id,
+        new_comment,
+        **kwargs
+    ):
+        """Update a comment  # noqa: E501
+
+        Updates the value of a single comment in an artifact version.  Only the owner of the comment can modify it.  The `artifactId`, unique `version` number, and `commentId`  must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * No comment with this `commentId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_artifact_version_comment(group_id, artifact_id, version, comment_id, new_comment, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            group_id (str): The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+            artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+            version (str): The unique identifier of a specific version of the artifact content.
+            comment_id (str): The unique identifier of a single comment.
+            new_comment (NewComment):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['group_id'] = \
+            group_id
+        kwargs['artifact_id'] = \
+            artifact_id
+        kwargs['version'] = \
+            version
+        kwargs['comment_id'] = \
+            comment_id
+        kwargs['new_comment'] = \
+            new_comment
+        return self.update_artifact_version_comment_endpoint.call_with_http_info(**kwargs)
 
     def update_artifact_version_state(
         self,

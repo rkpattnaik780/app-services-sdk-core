@@ -17,16 +17,32 @@
 /**
  * 
  * @export
- * @enum {string}
+ * @interface Comment
  */
-
-export const RuleType = {
-    Validity: 'VALIDITY',
-    Compatibility: 'COMPATIBILITY',
-    Integrity: 'INTEGRITY'
-} as const;
-
-export type RuleType = typeof RuleType[keyof typeof RuleType];
-
-
+export interface Comment {
+    /**
+     * 
+     * @type {string}
+     * @memberof Comment
+     */
+    'value': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Comment
+     */
+    'createdOn': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Comment
+     */
+    'createdBy': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Comment
+     */
+    'commentId': string;
+}
 

@@ -16,6 +16,7 @@ from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReferen
 from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSearchResults
 from rhoas_registry_instance_sdk.model.artifact_state import ArtifactState
 from rhoas_registry_instance_sdk.model.artifact_type_info import ArtifactTypeInfo
+from rhoas_registry_instance_sdk.model.comment import Comment
 from rhoas_registry_instance_sdk.model.configuration_property import ConfigurationProperty
 from rhoas_registry_instance_sdk.model.create_group_meta_data import CreateGroupMetaData
 from rhoas_registry_instance_sdk.model.download_ref import DownloadRef
@@ -29,7 +30,9 @@ from rhoas_registry_instance_sdk.model.log_configuration import LogConfiguration
 from rhoas_registry_instance_sdk.model.log_level import LogLevel
 from rhoas_registry_instance_sdk.model.named_log_configuration import NamedLogConfiguration
 from rhoas_registry_instance_sdk.model.named_log_configuration_all_of import NamedLogConfigurationAllOf
+from rhoas_registry_instance_sdk.model.new_comment import NewComment
 from rhoas_registry_instance_sdk.model.properties import Properties
+from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.role_mapping import RoleMapping
 from rhoas_registry_instance_sdk.model.role_type import RoleType
 from rhoas_registry_instance_sdk.model.rule import Rule

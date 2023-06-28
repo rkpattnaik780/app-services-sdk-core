@@ -4,13 +4,96 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_artifact_version_comment**](VersionsApi.md#add_artifact_version_comment) | **POST** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments | Add new comment
 [**create_artifact_version**](VersionsApi.md#create_artifact_version) | **POST** /groups/{groupId}/artifacts/{artifactId}/versions | Create artifact version
 [**delete_artifact_version**](VersionsApi.md#delete_artifact_version) | **DELETE** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Delete artifact version
+[**delete_artifact_version_comment**](VersionsApi.md#delete_artifact_version_comment) | **DELETE** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments/{commentId} | Delete a single comment
 [**get_artifact_version**](VersionsApi.md#get_artifact_version) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version} | Get artifact version
-[**get_artifact_version_references**](VersionsApi.md#get_artifact_version_references) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references | Get artifact version
+[**get_artifact_version_comments**](VersionsApi.md#get_artifact_version_comments) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments | Get artifact version comments
+[**get_artifact_version_references**](VersionsApi.md#get_artifact_version_references) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references | Get artifact version references
 [**list_artifact_versions**](VersionsApi.md#list_artifact_versions) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions | List artifact versions
+[**update_artifact_version_comment**](VersionsApi.md#update_artifact_version_comment) | **PUT** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments/{commentId} | Update a comment
 [**update_artifact_version_state**](VersionsApi.md#update_artifact_version_state) | **PUT** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/state | Update artifact version state
 
+
+# **add_artifact_version_comment**
+> Comment add_artifact_version_comment(group_id, artifact_id, version, new_comment)
+
+Add new comment
+
+Adds a new comment to the artifact version.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.comment import Comment
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.new_comment import NewComment
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = versions_api.VersionsApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
+    new_comment = NewComment(
+        value="value_example",
+    ) # NewComment | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Add new comment
+        api_response = api_instance.add_artifact_version_comment(group_id, artifact_id, version, new_comment)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->add_artifact_version_comment: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **str**| The unique identifier of a specific version of the artifact content. |
+ **new_comment** | [**NewComment**](NewComment.md)|  |
+
+### Return type
+
+[**Comment**](Comment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The comment was successfully created. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_artifact_version**
 > VersionMetaData create_artifact_version(group_id, artifact_id, body)
@@ -183,6 +266,80 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_artifact_version_comment**
+> delete_artifact_version_comment(group_id, artifact_id, version, comment_id)
+
+Delete a single comment
+
+Deletes a single comment in an artifact version.  Only the owner of the comment can delete it.  The `artifactId`, unique `version` number, and `commentId`  must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * No comment with this `commentId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = versions_api.VersionsApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
+    comment_id = "commentId_example" # str | The unique identifier of a single comment.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a single comment
+        api_instance.delete_artifact_version_comment(group_id, artifact_id, version, comment_id)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->delete_artifact_version_comment: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **str**| The unique identifier of a specific version of the artifact content. |
+ **comment_id** | **str**| The unique identifier of a single comment. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The comment was successfully deleted. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_artifact_version**
 > file_type get_artifact_version(group_id, artifact_id, version)
 
@@ -267,12 +424,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_artifact_version_references**
-> [ArtifactReference] get_artifact_version_references(group_id, artifact_id, version)
+# **get_artifact_version_comments**
+> [Comment] get_artifact_version_comments(group_id, artifact_id, version)
 
-Get artifact version
+Get artifact version comments
 
-Retrieves a single version of the artifact content.  Both the `artifactId` and the unique `version` number must be provided.  The `Content-Type` of the response depends  on the artifact type.  In most cases, this is `application/json`, but for some types  it may be different (for example, `PROTOBUF`).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+Retrieves all comments for a version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
 
 ### Example
 
@@ -281,8 +438,8 @@ Retrieves a single version of the artifact content.  Both the `artifactId` and t
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.comment import Comment
 from rhoas_registry_instance_sdk.model.error import Error
-from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -301,8 +458,93 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get artifact version
+        # Get artifact version comments
+        api_response = api_instance.get_artifact_version_comments(group_id, artifact_id, version)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->get_artifact_version_comments: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **str**| The unique identifier of a specific version of the artifact content. |
+
+### Return type
+
+[**[Comment]**](Comment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of all the comments for this artifact. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_artifact_version_references**
+> [ArtifactReference] get_artifact_version_references(group_id, artifact_id, version)
+
+Get artifact version references
+
+Retrieves all references for a single version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  Using the `refType` query parameter, it is possible to retrieve an array of either the inbound or outbound references.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = versions_api.VersionsApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
+    ref_type = ReferenceType("INBOUND") # ReferenceType | Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get artifact version references
         api_response = api_instance.get_artifact_version_references(group_id, artifact_id, version)
+        pprint(api_response)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->get_artifact_version_references: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get artifact version references
+        api_response = api_instance.get_artifact_version_references(group_id, artifact_id, version, ref_type=ref_type)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling VersionsApi->get_artifact_version_references: %s\n" % e)
@@ -316,6 +558,7 @@ Name | Type | Description  | Notes
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
  **version** | **str**| The unique identifier of a specific version of the artifact content. |
+ **ref_type** | **ReferenceType**| Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND. | [optional]
 
 ### Return type
 
@@ -421,6 +664,85 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of all artifact versions. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_artifact_version_comment**
+> update_artifact_version_comment(group_id, artifact_id, version, comment_id, new_comment)
+
+Update a comment
+
+Updates the value of a single comment in an artifact version.  Only the owner of the comment can modify it.  The `artifactId`, unique `version` number, and `commentId`  must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * No comment with this `commentId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import rhoas_registry_instance_sdk
+from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.new_comment import NewComment
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = rhoas_registry_instance_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with rhoas_registry_instance_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = versions_api.VersionsApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
+    comment_id = "commentId_example" # str | The unique identifier of a single comment.
+    new_comment = NewComment(
+        value="value_example",
+    ) # NewComment | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a comment
+        api_instance.update_artifact_version_comment(group_id, artifact_id, version, comment_id, new_comment)
+    except rhoas_registry_instance_sdk.ApiException as e:
+        print("Exception when calling VersionsApi->update_artifact_version_comment: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **version** | **str**| The unique identifier of a specific version of the artifact content. |
+ **comment_id** | **str**| The unique identifier of a single comment. |
+ **new_comment** | [**NewComment**](NewComment.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The value of the comment was successfully changed. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 

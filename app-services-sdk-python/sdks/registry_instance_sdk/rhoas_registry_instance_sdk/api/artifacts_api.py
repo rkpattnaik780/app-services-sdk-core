@@ -28,6 +28,7 @@ from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReferen
 from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSearchResults
 from rhoas_registry_instance_sdk.model.error import Error
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
+from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
 from rhoas_registry_instance_sdk.model.sort_by import SortBy
 from rhoas_registry_instance_sdk.model.sort_order import SortOrder
@@ -667,6 +668,7 @@ class ArtifactsApi(object):
             params_map={
                 'all': [
                     'global_id',
+                    'ref_type',
                 ],
                 'required': [
                     'global_id',
@@ -686,12 +688,16 @@ class ArtifactsApi(object):
                 'openapi_types': {
                     'global_id':
                         (int,),
+                    'ref_type':
+                        (ReferenceType,),
                 },
                 'attribute_map': {
                     'global_id': 'globalId',
+                    'ref_type': 'refType',
                 },
                 'location_map': {
                     'global_id': 'path',
+                    'ref_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1738,6 +1744,7 @@ class ArtifactsApi(object):
             global_id (int): Global identifier for an artifact version.
 
         Keyword Args:
+            ref_type (ReferenceType): Determines the type of reference to return, either INBOUND or OUTBOUND.  Defaults to OUTBOUND.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
