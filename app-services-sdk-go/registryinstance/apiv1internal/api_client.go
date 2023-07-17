@@ -1,38 +1,47 @@
 package registryinstance
 
 import (
-	"github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/core"
+	"context"
 
+	u "net/url"
+
+	"github.com/microsoft/kiota-abstractions-go/authentication"
+	http "github.com/microsoft/kiota-http-go"
+	"github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal/client"
 	apiv1 "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal/client"
 )
 
-// Config defines the available configuration options
-// to customise the API client settings
-type Config = core.APIConfig
+type RHAccessTokenProvider struct {
+}
 
-// NewAPIClient returns a new v1 API client
-// using a custom config
-func NewAPIClient(cfg *Config) *apiv1.APIClient {
-	apiCfg := apiv1.NewConfiguration()
-	if cfg == nil {
-		return apiv1.NewAPIClient(apiCfg)
+func (r *RHAccessTokenProvider) GetAuthorizationToken(context context.Context, url *u.URL, additionalAuthenticationContext map[string]interface{}) (string, error) {
+
+	return "", nil
+}
+
+func (r *RHAccessTokenProvider) GetAllowedHostsValidator() *authentication.AllowedHostsValidator {
+
+	allowedHostsValidator := authentication.NewAllowedHostsValidator([]string{"http://localhost:8080"})
+
+	return &allowedHostsValidator
+
+}
+
+func NewAPIClient(adapter authentication.AccessTokenProvider) (*apiv1.RegistryInstance, error) {
+
+	// RHAS := &RHAccessTokenProvider{}
+
+	// var adapter authentication.AccessTokenProvider = RHAS
+
+	bearerTokenProvider := authentication.NewBaseBearerTokenAuthenticationProvider(adapter)
+
+	adapter2, err := http.NewNetHttpRequestAdapter(bearerTokenProvider)
+	if err != nil {
+		return nil, err
 	}
 
-	if cfg.HTTPClient != nil {
-		apiCfg.HTTPClient = cfg.HTTPClient
-	}
-	if cfg.BaseURL != "" {
-		apiCfg.Servers = []apiv1.ServerConfiguration{
-			{
-				URL: cfg.BaseURL,
-			},
-		}
-	}
+	registryinstance := client.NewRegistryInstance(adapter2)
 
-	apiCfg.Debug = cfg.Debug
-	apiCfg.UserAgent = cfg.UserAgent
+	return registryinstance, nil
 
-	client := apiv1.NewAPIClient(apiCfg)
-
-	return client
 }

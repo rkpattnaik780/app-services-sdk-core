@@ -3098,7 +3098,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewComment"
+                "$ref": "#/components/schemas/Comment"
               }
             }
           },
@@ -3166,7 +3166,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewComment"
+                "$ref": "#/components/schemas/Comment"
               }
             }
           },
@@ -4475,22 +4475,6 @@
         "type": "string",
         "example": "\"INBOUND\"",
         "x-codegen-package": "io.apicurio.registry.types"
-      },
-      "NewComment": {
-        "title": "Root Type for NewComment",
-        "description": "",
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "value": "This is a new comment on an existing artifact version."
-        }
       },
       "Comment": {
         "title": "Root Type for NewComment",
