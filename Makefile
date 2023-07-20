@@ -4,7 +4,7 @@ lint: # Use spectral to lint an openapi spec file, set the TARGET env variable a
 
 .PHONY: generate
 generate: # Generate all SDKs from the current openapi specs in .openapi
-	bash scripts/generate-go.sh
+	bash scripts/generate-go-kiota.sh
 	bash scripts/generate-java.sh
 	bash scripts/generate-ts.sh
 	bash scripts/generate-py.sh

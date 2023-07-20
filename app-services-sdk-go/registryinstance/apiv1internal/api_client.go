@@ -1,38 +1,25 @@
 package registryinstance
 
 import (
-	"github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/core"
-
+	"github.com/microsoft/kiota-abstractions-go/authentication"
+	http "github.com/microsoft/kiota-http-go"
 	apiv1 "github.com/redhat-developer/app-services-sdk-core/app-services-sdk-go/registryinstance/apiv1internal/client"
+	auth "github.com/rkpattnaik780/rh-kiota-go-auth"
 )
 
-// Config defines the available configuration options
-// to customise the API client settings
-type Config = core.APIConfig
+func NewAPIClient(adapter auth.RHAccessTokenProvider, baseURL string) (*apiv1.RegistryInstance, error) {
 
-// NewAPIClient returns a new v1 API client
-// using a custom config
-func NewAPIClient(cfg *Config) *apiv1.APIClient {
-	apiCfg := apiv1.NewConfiguration()
-	if cfg == nil {
-		return apiv1.NewAPIClient(apiCfg)
+	bearerTokenProvider := authentication.NewBaseBearerTokenAuthenticationProvider(adapter)
+
+	requestAdapter, err := http.NewNetHttpRequestAdapter(bearerTokenProvider)
+	if err != nil {
+		return nil, err
 	}
 
-	if cfg.HTTPClient != nil {
-		apiCfg.HTTPClient = cfg.HTTPClient
-	}
-	if cfg.BaseURL != "" {
-		apiCfg.Servers = []apiv1.ServerConfiguration{
-			{
-				URL: cfg.BaseURL,
-			},
-		}
-	}
+	requestAdapter.SetBaseUrl(baseURL)
 
-	apiCfg.Debug = cfg.Debug
-	apiCfg.UserAgent = cfg.UserAgent
+	registryinstance := apiv1.NewRegistryInstance(requestAdapter)
 
-	client := apiv1.NewAPIClient(apiCfg)
+	return registryinstance, nil
 
-	return client
 }
