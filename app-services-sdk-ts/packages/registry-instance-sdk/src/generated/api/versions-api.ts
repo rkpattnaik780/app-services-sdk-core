@@ -27,6 +27,8 @@ import { ArtifactReference } from '../model';
 // @ts-ignore
 import { Comment } from '../model';
 // @ts-ignore
+import { HandleReferencesType } from '../model';
+// @ts-ignore
 import { NewComment } from '../model';
 // @ts-ignore
 import { ReferenceType } from '../model';
@@ -260,11 +262,11 @@ export const VersionsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
          * @param {string} version The unique identifier of a specific version of the artifact content.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getArtifactVersion: async (groupId: string, artifactId: string, version: string, dereference?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getArtifactVersion: async (groupId: string, artifactId: string, version: string, references?: HandleReferencesType, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('getArtifactVersion', 'groupId', groupId)
             // verify required parameter 'artifactId' is not null or undefined
@@ -286,8 +288,8 @@ export const VersionsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (dereference !== undefined) {
-                localVarQueryParameter['dereference'] = dereference;
+            if (references !== undefined) {
+                localVarQueryParameter['references'] = references;
             }
 
 
@@ -614,12 +616,12 @@ export const VersionsApiFp = function(configuration?: Configuration) {
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
          * @param {string} version The unique identifier of a specific version of the artifact content.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getArtifactVersion(groupId: string, artifactId: string, version: string, dereference?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getArtifactVersion(groupId, artifactId, version, dereference, options);
+        async getArtifactVersion(groupId: string, artifactId: string, version: string, references?: HandleReferencesType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArtifactVersion(groupId, artifactId, version, references, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -764,12 +766,12 @@ export const VersionsApiFactory = function (configuration?: Configuration, baseP
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
          * @param {string} version The unique identifier of a specific version of the artifact content.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getArtifactVersion(groupId: string, artifactId: string, version: string, dereference?: boolean, options?: any): AxiosPromise<any> {
-            return localVarFp.getArtifactVersion(groupId, artifactId, version, dereference, options).then((request) => request(axios, basePath));
+        getArtifactVersion(groupId: string, artifactId: string, version: string, references?: HandleReferencesType, options?: any): AxiosPromise<any> {
+            return localVarFp.getArtifactVersion(groupId, artifactId, version, references, options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves all comments for a version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
@@ -907,12 +909,12 @@ export interface VersionsApiInterface {
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
      * @param {string} version The unique identifier of a specific version of the artifact content.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VersionsApiInterface
      */
-    getArtifactVersion(groupId: string, artifactId: string, version: string, dereference?: boolean, options?: AxiosRequestConfig): AxiosPromise<any>;
+    getArtifactVersion(groupId: string, artifactId: string, version: string, references?: HandleReferencesType, options?: AxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Retrieves all comments for a version of an artifact.  Both the `artifactId` and the unique `version` number must be provided.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * No version with this `version` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
@@ -1058,13 +1060,13 @@ export class VersionsApi extends BaseAPI implements VersionsApiInterface {
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
      * @param {string} version The unique identifier of a specific version of the artifact content.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VersionsApi
      */
-    public getArtifactVersion(groupId: string, artifactId: string, version: string, dereference?: boolean, options?: AxiosRequestConfig) {
-        return VersionsApiFp(this.configuration).getArtifactVersion(groupId, artifactId, version, dereference, options).then((request) => request(this.axios, this.basePath));
+    public getArtifactVersion(groupId: string, artifactId: string, version: string, references?: HandleReferencesType, options?: AxiosRequestConfig) {
+        return VersionsApiFp(this.configuration).getArtifactVersion(groupId, artifactId, version, references, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
