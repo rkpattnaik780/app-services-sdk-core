@@ -23,8 +23,8 @@ generate_sdk() {
 
     echo "Generating source code based on ${file_name}"
 
-    # remove old generated models
-    # rm -Rf $OUTPUT_PATH
+    remove old generated models
+    rm -Rf $output_path
     
     # npx @openapitools/openapi-generator-cli generate -g go -i \
     # "$file_name" -o "$output_path" \
