@@ -28,7 +28,7 @@ jobs:
         run: bash scripts/fetch-api.sh
       - name: Generate SDKs
         run: |
-          bash scripts/generate-go.sh ${{ github.event.client_payload.download_url }}
+          bash scripts/generate-go-kiota.sh ${{ github.event.client_payload.download_url }}
           bash scripts/generate-ts.sh ${{ github.event.client_payload.download_url }}
           bash scripts/generate-py.sh ${{ github.event.client_payload.download_url }}
       - name: Fetch errors
