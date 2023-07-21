@@ -939,11 +939,11 @@ type ApiGetArtifactVersionRequest struct {
 	groupId string
 	artifactId string
 	version string
-	dereference *bool
+	references *HandleReferencesType
 }
 
-func (r ApiGetArtifactVersionRequest) Dereference(dereference bool) ApiGetArtifactVersionRequest {
-	r.dereference = &dereference
+func (r ApiGetArtifactVersionRequest) References(references HandleReferencesType) ApiGetArtifactVersionRequest {
+	r.references = &references
 	return r
 }
 
@@ -1008,8 +1008,8 @@ func (a *VersionsApiService) GetArtifactVersionExecute(r ApiGetArtifactVersionRe
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.dereference != nil {
-		localVarQueryParams.Add("dereference", parameterToString(*r.dereference, ""))
+	if r.references != nil {
+		localVarQueryParams.Add("references", parameterToString(*r.references, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
