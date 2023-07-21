@@ -871,11 +871,11 @@ type ApiGetContentByGlobalIdRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
 	globalId int64
-	dereference *bool
+	references *HandleReferencesType
 }
 
-func (r ApiGetContentByGlobalIdRequest) Dereference(dereference bool) ApiGetContentByGlobalIdRequest {
-	r.dereference = &dereference
+func (r ApiGetContentByGlobalIdRequest) References(references HandleReferencesType) ApiGetContentByGlobalIdRequest {
+	r.references = &references
 	return r
 }
 
@@ -931,8 +931,8 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.dereference != nil {
-		localVarQueryParams.Add("dereference", parameterToString(*r.dereference, ""))
+	if r.references != nil {
+		localVarQueryParams.Add("references", parameterToString(*r.references, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1278,11 +1278,11 @@ type ApiGetLatestArtifactRequest struct {
 	ApiService ArtifactsApi
 	groupId string
 	artifactId string
-	dereference *bool
+	references *HandleReferencesType
 }
 
-func (r ApiGetLatestArtifactRequest) Dereference(dereference bool) ApiGetLatestArtifactRequest {
-	r.dereference = &dereference
+func (r ApiGetLatestArtifactRequest) References(references HandleReferencesType) ApiGetLatestArtifactRequest {
+	r.references = &references
 	return r
 }
 
@@ -1343,8 +1343,8 @@ func (a *ArtifactsApiService) GetLatestArtifactExecute(r ApiGetLatestArtifactReq
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.dereference != nil {
-		localVarQueryParams.Add("dereference", parameterToString(*r.dereference, ""))
+	if r.references != nil {
+		localVarQueryParams.Add("references", parameterToString(*r.references, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

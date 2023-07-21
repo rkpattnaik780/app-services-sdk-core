@@ -257,7 +257,7 @@ No authorization required
 
 ## GetContentByGlobalId
 
-> *os.File GetContentByGlobalId(ctx, globalId).Dereference(dereference).Execute()
+> *os.File GetContentByGlobalId(ctx, globalId).References(references).Execute()
 
 Get artifact by global ID
 
@@ -277,11 +277,11 @@ import (
 
 func main() {
     globalId := int64(789) // int64 | Global identifier for an artifact version.
-    dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references := openapiclient.HandleReferencesType("PRESERVE") // HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.GetContentByGlobalId(context.Background(), globalId).Dereference(dereference).Execute()
+    resp, r, err := api_client.ArtifactsApi.GetContentByGlobalId(context.Background(), globalId).References(references).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.GetContentByGlobalId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -307,7 +307,7 @@ Other parameters are passed through a pointer to a apiGetContentByGlobalIdReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **dereference** | **bool** | Allows the user to specify if the content should be dereferenced when being returned | 
+ **references** | [**HandleReferencesType**](HandleReferencesType.md) | Allows the user to specify how references in the content should be treated. | 
 
 ### Return type
 
@@ -469,7 +469,7 @@ No authorization required
 
 ## GetLatestArtifact
 
-> *os.File GetLatestArtifact(ctx, groupId, artifactId).Dereference(dereference).Execute()
+> *os.File GetLatestArtifact(ctx, groupId, artifactId).References(references).Execute()
 
 Get latest artifact
 
@@ -490,11 +490,11 @@ import (
 func main() {
     groupId := "groupId_example" // string | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-    dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references := openapiclient.HandleReferencesType("PRESERVE") // HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.GetLatestArtifact(context.Background(), groupId, artifactId).Dereference(dereference).Execute()
+    resp, r, err := api_client.ArtifactsApi.GetLatestArtifact(context.Background(), groupId, artifactId).References(references).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.GetLatestArtifact``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **dereference** | **bool** | Allows the user to specify if the content should be dereferenced when being returned | 
+ **references** | [**HandleReferencesType**](HandleReferencesType.md) | Allows the user to specify how references in the content should be treated. | 
 
 ### Return type
 
