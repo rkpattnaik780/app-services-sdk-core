@@ -23,6 +23,8 @@ generate_sdk() {
 
     echo "Generating source code based on ${file_name}"
 
+    python3 --version
+
     remove old generated models
     rm -Rf $output_path
     
