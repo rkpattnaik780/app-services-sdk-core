@@ -279,6 +279,7 @@ Gets the content for an artifact version in the registry using its globally uniq
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -293,7 +294,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     global_id = 1 # int | Global identifier for an artifact version.
-    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references = HandleReferencesType("PRESERVE") # HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -307,7 +308,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # and optional values
     try:
         # Get artifact by global ID
-        api_response = api_instance.get_content_by_global_id(global_id, dereference=dereference)
+        api_response = api_instance.get_content_by_global_id(global_id, references=references)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
@@ -319,7 +320,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **global_id** | **int**| Global identifier for an artifact version. |
- **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
+ **references** | **HandleReferencesType**| Allows the user to specify how references in the content should be treated. | [optional]
 
 ### Return type
 
@@ -497,6 +498,7 @@ Returns the latest version of the artifact in its raw form.  The `Content-Type` 
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import artifacts_api
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -512,7 +514,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references = HandleReferencesType("PRESERVE") # HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -526,7 +528,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # and optional values
     try:
         # Get latest artifact
-        api_response = api_instance.get_latest_artifact(group_id, artifact_id, dereference=dereference)
+        api_response = api_instance.get_latest_artifact(group_id, artifact_id, references=references)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
@@ -539,7 +541,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
- **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
+ **references** | **HandleReferencesType**| Allows the user to specify how references in the content should be treated. | [optional]
 
 ### Return type
 
