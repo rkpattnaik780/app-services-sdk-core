@@ -24,6 +24,7 @@ from rhoas_registry_instance_sdk.model.editable_meta_data import EditableMetaDat
 from rhoas_registry_instance_sdk.model.error import Error
 from rhoas_registry_instance_sdk.model.group_meta_data import GroupMetaData
 from rhoas_registry_instance_sdk.model.group_search_results import GroupSearchResults
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
 from rhoas_registry_instance_sdk.model.limits import Limits
 from rhoas_registry_instance_sdk.model.log_configuration import LogConfiguration

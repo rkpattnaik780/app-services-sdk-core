@@ -26,6 +26,7 @@ model/download-ref.ts
 model/editable-meta-data.ts
 model/group-meta-data.ts
 model/group-search-results.ts
+model/handle-references-type.ts
 model/if-exists.ts
 model/index.ts
 model/limits.ts

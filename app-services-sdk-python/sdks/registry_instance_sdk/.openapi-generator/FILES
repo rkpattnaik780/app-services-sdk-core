@@ -18,6 +18,7 @@ docs/Error.md
 docs/GroupMetaData.md
 docs/GroupSearchResults.md
 docs/GroupsApi.md
+docs/HandleReferencesType.md
 docs/IfExists.md
 docs/Limits.md
 docs/LogConfiguration.md
@@ -83,6 +84,7 @@ rhoas_registry_instance_sdk/model/editable_meta_data.py
 rhoas_registry_instance_sdk/model/error.py
 rhoas_registry_instance_sdk/model/group_meta_data.py
 rhoas_registry_instance_sdk/model/group_search_results.py
+rhoas_registry_instance_sdk/model/handle_references_type.py
 rhoas_registry_instance_sdk/model/if_exists.py
 rhoas_registry_instance_sdk/model/limits.py
 rhoas_registry_instance_sdk/model/log_configuration.py
@@ -137,6 +139,7 @@ test/test_error.py
 test/test_group_meta_data.py
 test/test_group_search_results.py
 test/test_groups_api.py
+test/test_handle_references_type.py
 test/test_if_exists.py
 test/test_limits.py
 test/test_log_configuration.py
