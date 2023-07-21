@@ -23,8 +23,6 @@ generate_sdk() {
 
     echo "Generating source code based on ${file_name}"
 
-    python3 --version
-
     remove old generated models
     rm -Rf $output_path
     
@@ -34,7 +32,33 @@ generate_sdk() {
     # --additional-properties=$additional_properties \
     # --ignore-file-override=.openapi-generator-ignore
 
-    kiota generate \
+    PACKAGE_NAME="linux-x64"
+    if [[ $OSTYPE == 'darwin'* ]]; then
+    PACKAGE_NAME="osx-x64"
+    fi
+    URL="https://github.com/microsoft/kiota/releases/download/v1.0.1/${PACKAGE_NAME}.zip"
+
+    COMMAND="kiota"
+    if ! command -v $COMMAND &> /dev/null
+    then
+    echo "System wide kiota could not be found, using local version"
+    if [[ ! -f $SCRIPT_DIR/kiota ]]
+    then
+        echo "Local kiota could not be found, downloading"
+        rm -rf $SCRIPT_DIR/tmp-kiota
+        mkdir -p $SCRIPT_DIR/tmp-kiota
+        curl -sL $URL > $SCRIPT_DIR/tmp-kiota/kiota.zip
+        unzip $SCRIPT_DIR/tmp-kiota/kiota.zip -d $SCRIPT_DIR/tmp-kiota
+
+        mkdir -p $SCRIPT_DIR/tmp-kiota/bin
+        cp $SCRIPT_DIR/tmp-kiota/*/kiota $SCRIPT_DIR/kiota
+        chmod a+x $SCRIPT_DIR/kiota
+        rm -rf $SCRIPT_DIR/tmp-kiota
+    fi
+    COMMAND="$SCRIPT_DIR/kiota"
+    fi
+
+    $COMMAND generate \
     --language go \
     --class-name "$class_name" \
     --namespace-name "$output_path" \
