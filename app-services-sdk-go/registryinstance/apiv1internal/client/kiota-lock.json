@@ -1,0 +1,29 @@
+{
+  "descriptionHash": "BD4D18E1BFF4E327974C30509947FA12E2F932349313C5C9400567664963FD922132CCF2F897750C293C3E0DEC4500BC7B63924DF577352AFB24C790EA54817F",
+  "descriptionLocation": "/home/runner/work/app-services-sdk-core/app-services-sdk-core/.openapi/registry-instance.json",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.0.1",
+  "clientClassName": "RegistryInstance",
+  "clientNamespaceName": "app-services-sdk-go/registryinstance/apiv1internal/client",
+  "language": "Go",
+  "usesBackingStore": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain",
+    "application/x-www-form-urlencoded"
+  ],
+  "includePatterns": [],
+  "excludePatterns": [],
+  "disabledValidationRules": []
+}
