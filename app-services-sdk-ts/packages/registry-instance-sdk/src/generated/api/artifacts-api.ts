@@ -29,6 +29,8 @@ import { ArtifactReference } from '../model';
 // @ts-ignore
 import { ArtifactSearchResults } from '../model';
 // @ts-ignore
+import { HandleReferencesType } from '../model';
+// @ts-ignore
 import { IfExists } from '../model';
 // @ts-ignore
 import { ReferenceType } from '../model';
@@ -222,11 +224,11 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
          * Gets the content for an artifact version in the registry using its globally unique identifier.  This operation may fail for one of the following reasons:  * No artifact version with this `globalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact by global ID
          * @param {number} globalId Global identifier for an artifact version.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getContentByGlobalId: async (globalId: number, dereference?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getContentByGlobalId: async (globalId: number, references?: HandleReferencesType, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'globalId' is not null or undefined
             assertParamExists('getContentByGlobalId', 'globalId', globalId)
             const localVarPath = `/ids/globalIds/{globalId}`
@@ -242,8 +244,8 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (dereference !== undefined) {
-                localVarQueryParameter['dereference'] = dereference;
+            if (references !== undefined) {
+                localVarQueryParameter['references'] = references;
             }
 
 
@@ -330,11 +332,11 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
          * @summary Get latest artifact
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLatestArtifact: async (groupId: string, artifactId: string, dereference?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getLatestArtifact: async (groupId: string, artifactId: string, references?: HandleReferencesType, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('getLatestArtifact', 'groupId', groupId)
             // verify required parameter 'artifactId' is not null or undefined
@@ -353,8 +355,8 @@ export const ArtifactsApiAxiosParamCreator = function (configuration?: Configura
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (dereference !== undefined) {
-                localVarQueryParameter['dereference'] = dereference;
+            if (references !== undefined) {
+                localVarQueryParameter['references'] = references;
             }
 
 
@@ -708,12 +710,12 @@ export const ArtifactsApiFp = function(configuration?: Configuration) {
          * Gets the content for an artifact version in the registry using its globally unique identifier.  This operation may fail for one of the following reasons:  * No artifact version with this `globalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact by global ID
          * @param {number} globalId Global identifier for an artifact version.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getContentByGlobalId(globalId: number, dereference?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getContentByGlobalId(globalId, dereference, options);
+        async getContentByGlobalId(globalId: number, references?: HandleReferencesType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getContentByGlobalId(globalId, references, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -743,12 +745,12 @@ export const ArtifactsApiFp = function(configuration?: Configuration) {
          * @summary Get latest artifact
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getLatestArtifact(groupId: string, artifactId: string, dereference?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestArtifact(groupId, artifactId, dereference, options);
+        async getLatestArtifact(groupId: string, artifactId: string, references?: HandleReferencesType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestArtifact(groupId, artifactId, references, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -890,12 +892,12 @@ export const ArtifactsApiFactory = function (configuration?: Configuration, base
          * Gets the content for an artifact version in the registry using its globally unique identifier.  This operation may fail for one of the following reasons:  * No artifact version with this `globalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
          * @summary Get artifact by global ID
          * @param {number} globalId Global identifier for an artifact version.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getContentByGlobalId(globalId: number, dereference?: boolean, options?: any): AxiosPromise<any> {
-            return localVarFp.getContentByGlobalId(globalId, dereference, options).then((request) => request(axios, basePath));
+        getContentByGlobalId(globalId: number, references?: HandleReferencesType, options?: any): AxiosPromise<any> {
+            return localVarFp.getContentByGlobalId(globalId, references, options).then((request) => request(axios, basePath));
         },
         /**
          * Gets the content for an artifact version in the registry using the  SHA-256 hash of the content.  This content hash may be shared by multiple artifact versions in the case where the artifact versions have identical content.  This operation may fail for one of the following reasons:  * No content with this `contentHash` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
@@ -922,12 +924,12 @@ export const ArtifactsApiFactory = function (configuration?: Configuration, base
          * @summary Get latest artifact
          * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
          * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-         * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+         * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLatestArtifact(groupId: string, artifactId: string, dereference?: boolean, options?: any): AxiosPromise<any> {
-            return localVarFp.getLatestArtifact(groupId, artifactId, dereference, options).then((request) => request(axios, basePath));
+        getLatestArtifact(groupId: string, artifactId: string, references?: HandleReferencesType, options?: any): AxiosPromise<any> {
+            return localVarFp.getLatestArtifact(groupId, artifactId, references, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of all artifacts in the group.  This list is paged.
@@ -1061,12 +1063,12 @@ export interface ArtifactsApiInterface {
      * Gets the content for an artifact version in the registry using its globally unique identifier.  This operation may fail for one of the following reasons:  * No artifact version with this `globalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
      * @summary Get artifact by global ID
      * @param {number} globalId Global identifier for an artifact version.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApiInterface
      */
-    getContentByGlobalId(globalId: number, dereference?: boolean, options?: AxiosRequestConfig): AxiosPromise<any>;
+    getContentByGlobalId(globalId: number, references?: HandleReferencesType, options?: AxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Gets the content for an artifact version in the registry using the  SHA-256 hash of the content.  This content hash may be shared by multiple artifact versions in the case where the artifact versions have identical content.  This operation may fail for one of the following reasons:  * No content with this `contentHash` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
@@ -1093,12 +1095,12 @@ export interface ArtifactsApiInterface {
      * @summary Get latest artifact
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApiInterface
      */
-    getLatestArtifact(groupId: string, artifactId: string, dereference?: boolean, options?: AxiosRequestConfig): AxiosPromise<any>;
+    getLatestArtifact(groupId: string, artifactId: string, references?: HandleReferencesType, options?: AxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Returns a list of all artifacts in the group.  This list is paged.
@@ -1238,13 +1240,13 @@ export class ArtifactsApi extends BaseAPI implements ArtifactsApiInterface {
      * Gets the content for an artifact version in the registry using its globally unique identifier.  This operation may fail for one of the following reasons:  * No artifact version with this `globalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
      * @summary Get artifact by global ID
      * @param {number} globalId Global identifier for an artifact version.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApi
      */
-    public getContentByGlobalId(globalId: number, dereference?: boolean, options?: AxiosRequestConfig) {
-        return ArtifactsApiFp(this.configuration).getContentByGlobalId(globalId, dereference, options).then((request) => request(this.axios, this.basePath));
+    public getContentByGlobalId(globalId: number, references?: HandleReferencesType, options?: AxiosRequestConfig) {
+        return ArtifactsApiFp(this.configuration).getContentByGlobalId(globalId, references, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1276,13 +1278,13 @@ export class ArtifactsApi extends BaseAPI implements ArtifactsApiInterface {
      * @summary Get latest artifact
      * @param {string} groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
      * @param {string} artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-     * @param {boolean} [dereference] Allows the user to specify if the content should be dereferenced when being returned
+     * @param {HandleReferencesType} [references] Allows the user to specify how references in the content should be treated.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ArtifactsApi
      */
-    public getLatestArtifact(groupId: string, artifactId: string, dereference?: boolean, options?: AxiosRequestConfig) {
-        return ArtifactsApiFp(this.configuration).getLatestArtifact(groupId, artifactId, dereference, options).then((request) => request(this.axios, this.basePath));
+    public getLatestArtifact(groupId: string, artifactId: string, references?: HandleReferencesType, options?: AxiosRequestConfig) {
+        return ArtifactsApiFp(this.configuration).getLatestArtifact(groupId, artifactId, references, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
