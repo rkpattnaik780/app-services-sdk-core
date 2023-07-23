@@ -27,6 +27,7 @@ from rhoas_registry_instance_sdk.model.artifact_meta_data import ArtifactMetaDat
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 from rhoas_registry_instance_sdk.model.artifact_search_results import ArtifactSearchResults
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.if_exists import IfExists
 from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
@@ -285,7 +286,7 @@ class ArtifactsApi(object):
             params_map={
                 'all': [
                     'global_id',
-                    'dereference',
+                    'references',
                 ],
                 'required': [
                     'global_id',
@@ -305,16 +306,16 @@ class ArtifactsApi(object):
                 'openapi_types': {
                     'global_id':
                         (int,),
-                    'dereference':
-                        (bool,),
+                    'references':
+                        (HandleReferencesType,),
                 },
                 'attribute_map': {
                     'global_id': 'globalId',
-                    'dereference': 'dereference',
+                    'references': 'references',
                 },
                 'location_map': {
                     'global_id': 'path',
-                    'dereference': 'query',
+                    'references': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -441,7 +442,7 @@ class ArtifactsApi(object):
                 'all': [
                     'group_id',
                     'artifact_id',
-                    'dereference',
+                    'references',
                 ],
                 'required': [
                     'group_id',
@@ -464,18 +465,18 @@ class ArtifactsApi(object):
                         (str,),
                     'artifact_id':
                         (str,),
-                    'dereference':
-                        (bool,),
+                    'references':
+                        (HandleReferencesType,),
                 },
                 'attribute_map': {
                     'group_id': 'groupId',
                     'artifact_id': 'artifactId',
-                    'dereference': 'dereference',
+                    'references': 'references',
                 },
                 'location_map': {
                     'group_id': 'path',
                     'artifact_id': 'path',
-                    'dereference': 'query',
+                    'references': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1153,7 +1154,7 @@ class ArtifactsApi(object):
             global_id (int): Global identifier for an artifact version.
 
         Keyword Args:
-            dereference (bool): Allows the user to specify if the content should be dereferenced when being returned. [optional]
+            references (HandleReferencesType): Allows the user to specify how references in the content should be treated.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1405,7 +1406,7 @@ class ArtifactsApi(object):
             artifact_id (str): The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
 
         Keyword Args:
-            dereference (bool): Allows the user to specify if the content should be dereferenced when being returned. [optional]
+            references (HandleReferencesType): Allows the user to specify how references in the content should be treated.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
