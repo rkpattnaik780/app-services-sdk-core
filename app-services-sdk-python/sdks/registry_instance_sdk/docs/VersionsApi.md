@@ -354,6 +354,7 @@ Retrieves a single version of the artifact content.  Both the `artifactId` and t
 import time
 import rhoas_registry_instance_sdk
 from rhoas_registry_instance_sdk.api import versions_api
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -370,7 +371,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
     version = "3.1.6" # str | The unique identifier of a specific version of the artifact content.
-    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references = HandleReferencesType("PRESERVE") # HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -384,7 +385,7 @@ with rhoas_registry_instance_sdk.ApiClient() as api_client:
     # and optional values
     try:
         # Get artifact version
-        api_response = api_instance.get_artifact_version(group_id, artifact_id, version, dereference=dereference)
+        api_response = api_instance.get_artifact_version(group_id, artifact_id, version, references=references)
         pprint(api_response)
     except rhoas_registry_instance_sdk.ApiException as e:
         print("Exception when calling VersionsApi->get_artifact_version: %s\n" % e)
@@ -398,7 +399,7 @@ Name | Type | Description  | Notes
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
  **version** | **str**| The unique identifier of a specific version of the artifact content. |
- **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
+ **references** | **HandleReferencesType**| Allows the user to specify how references in the content should be treated. | [optional]
 
 ### Return type
 
