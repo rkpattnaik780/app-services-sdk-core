@@ -12,6 +12,7 @@ export * from './download-ref';
 export * from './editable-meta-data';
 export * from './group-meta-data';
 export * from './group-search-results';
+export * from './handle-references-type';
 export * from './if-exists';
 export * from './limits';
 export * from './log-configuration';
