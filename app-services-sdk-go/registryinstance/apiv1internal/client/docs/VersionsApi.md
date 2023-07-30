@@ -335,7 +335,7 @@ No authorization required
 
 ## GetArtifactVersion
 
-> *os.File GetArtifactVersion(ctx, groupId, artifactId, version).Dereference(dereference).Execute()
+> *os.File GetArtifactVersion(ctx, groupId, artifactId, version).References(references).Execute()
 
 Get artifact version
 
@@ -357,11 +357,11 @@ func main() {
     groupId := "groupId_example" // string | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
     version := "version_example" // string | The unique identifier of a specific version of the artifact content.
-    dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
+    references := openapiclient.HandleReferencesType("PRESERVE") // HandleReferencesType | Allows the user to specify how references in the content should be treated. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.VersionsApi.GetArtifactVersion(context.Background(), groupId, artifactId, version).Dereference(dereference).Execute()
+    resp, r, err := api_client.VersionsApi.GetArtifactVersion(context.Background(), groupId, artifactId, version).References(references).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VersionsApi.GetArtifactVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 
 
- **dereference** | **bool** | Allows the user to specify if the content should be dereferenced when being returned | 
+ **references** | [**HandleReferencesType**](HandleReferencesType.md) | Allows the user to specify how references in the content should be treated. | 
 
 ### Return type
 
