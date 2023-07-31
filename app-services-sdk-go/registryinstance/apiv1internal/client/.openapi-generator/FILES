@@ -29,6 +29,7 @@ docs/Error.md
 docs/GroupMetaData.md
 docs/GroupSearchResults.md
 docs/GroupsApi.md
+docs/HandleReferencesType.md
 docs/IfExists.md
 docs/Limits.md
 docs/LogConfiguration.md
@@ -76,6 +77,7 @@ model_editable_meta_data.go
 model_error.go
 model_group_meta_data.go
 model_group_search_results.go
+model_handle_references_type.go
 model_if_exists.go
 model_limits.go
 model_log_configuration.go
