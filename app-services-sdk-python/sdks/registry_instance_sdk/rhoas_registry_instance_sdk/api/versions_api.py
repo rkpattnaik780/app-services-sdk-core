@@ -26,6 +26,7 @@ from rhoas_registry_instance_sdk.model.artifact_content import ArtifactContent
 from rhoas_registry_instance_sdk.model.artifact_reference import ArtifactReference
 from rhoas_registry_instance_sdk.model.comment import Comment
 from rhoas_registry_instance_sdk.model.error import Error
+from rhoas_registry_instance_sdk.model.handle_references_type import HandleReferencesType
 from rhoas_registry_instance_sdk.model.new_comment import NewComment
 from rhoas_registry_instance_sdk.model.reference_type import ReferenceType
 from rhoas_registry_instance_sdk.model.rule_violation_error import RuleViolationError
@@ -348,7 +349,7 @@ class VersionsApi(object):
                     'group_id',
                     'artifact_id',
                     'version',
-                    'dereference',
+                    'references',
                 ],
                 'required': [
                     'group_id',
@@ -374,20 +375,20 @@ class VersionsApi(object):
                         (str,),
                     'version':
                         (str,),
-                    'dereference':
-                        (bool,),
+                    'references':
+                        (HandleReferencesType,),
                 },
                 'attribute_map': {
                     'group_id': 'groupId',
                     'artifact_id': 'artifactId',
                     'version': 'version',
-                    'dereference': 'dereference',
+                    'references': 'references',
                 },
                 'location_map': {
                     'group_id': 'path',
                     'artifact_id': 'path',
                     'version': 'path',
-                    'dereference': 'query',
+                    'references': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1136,7 +1137,7 @@ class VersionsApi(object):
             version (str): The unique identifier of a specific version of the artifact content.
 
         Keyword Args:
-            dereference (bool): Allows the user to specify if the content should be dereferenced when being returned. [optional]
+            references (HandleReferencesType): Allows the user to specify how references in the content should be treated.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
